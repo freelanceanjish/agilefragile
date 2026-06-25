@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1128" height="191" viewBox="0 0 1128 191">
+  <rect width="1128" height="191" fill="#818181"/>
+  <rect x="0" y="145" width="1128" height="46" fill="#151517"/>
+  <g transform="translate(56 42)">
+    <path d="M0 0a34 34 0 1 1-24 9.95" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    <path d="M0 0a34 34 0 1 0 24 9.95" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.25"/>
+    <path d="M-13.5 11h27" stroke="#1f35a9" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="0" cy="34" r="6.5" fill="#1f35a9"/>
+  </g>
+  <text x="130" y="88" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="600" letter-spacing="-1">Agile Fragile</text>
+  <text x="130" y="132" fill="#f7f7f7" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500">A new way to think about agility.</text>
+  <text x="130" y="176" fill="#949494" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="500" letter-spacing="1.5">COMING SOON</text>
+</svg>
