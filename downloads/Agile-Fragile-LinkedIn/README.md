@@ -1,16 +1,10 @@
 # Agile Fragile — LinkedIn assets
 
-Matches the site design: sans wordmark logo, careers-style serif banners.
+Square bold AF logo for profile/company. Careers-style serif banners.
 
-## Personal profile
-- linkedin-profile-photo-400x400.png
-- linkedin-personal-banner-1584x396.png
+- linkedin-profile-photo-400x400.png — Profile photo
+- linkedin-company-logo-300x300.png — Company logo
+- linkedin-personal-banner-1584x396.png — Banner
+- linkedin-company-cover-1128x191.png — Company cover
 
-## Company page
-- linkedin-company-logo-300x300.png
-- linkedin-company-cover-1128x191.png
-
-## Wordmarks
-- logo-wordmark-gray-1200x220.png
-- logo-wordmark-white-bg-1200x220.png
-- logo.svg / logo-mark.svg / favicon.svg
+See downloads/logo-variations/ for all square logo variants.

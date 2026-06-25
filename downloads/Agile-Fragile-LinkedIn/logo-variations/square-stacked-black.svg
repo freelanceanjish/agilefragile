@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img" aria-label="Agile Fragile">
+  <rect width="120" height="120" fill="#151517"/>
+  <text x="60" y="50" text-anchor="middle" fill="#ffffff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.04em">Agile</text>
+  <text x="60" y="78" text-anchor="middle" fill="#ffffff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.04em">Fragile</text>
+</svg>
