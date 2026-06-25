@@ -1,29 +1,14 @@
 # Agile Fragile — LinkedIn Download Pack
 
-Use these files when uploading to LinkedIn.
-
 ## Personal profile
-
-| File | Size | Where to upload |
-|------|------|-----------------|
-| linkedin-profile-photo-400x400.png | 400×400 | Profile photo |
-| linkedin-personal-banner-1584x396.png | 1584×396 | Profile background banner |
+- linkedin-profile-photo-400x400.png — Profile photo (400×400)
+- linkedin-personal-banner-1584x396.png — Background banner (1584×396)
 
 ## Company page
+- linkedin-company-logo-300x300.png — Company logo (300×300)
+- linkedin-company-cover-1128x191.png — Cover image (1128×191)
 
-| File | Size | Where to upload |
-|------|------|-----------------|
-| linkedin-company-logo-300x300.png | 300×300 | Company logo |
-| linkedin-company-cover-1128x191.png | 1128×191 | Company cover image |
-
-## Extra assets
-
-| File | Use |
-|------|-----|
-| logo-wordmark-gray-1200x220.png | Posts, presentations, gray background |
-| logo-wordmark-white-bg-1200x220.png | Documents, light backgrounds |
-| *.svg | Editable source files |
-
-## Download all
-
-From GitHub: open this folder and download individual files, or download the whole repo as ZIP.
+## Extra
+- logo-wordmark-gray-1200x220.png — Gray background
+- logo-wordmark-white-bg-1200x220.png — White background
+- logo.svg / logo-mark.svg / favicon.svg — Source files
