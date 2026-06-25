@@ -3,19 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Agile Fragile — Something better is coming. A new way to think about agility.">
-  <title>Agile Fragile — Coming Soon</title>
+  <meta name="description" content="Agile Fragile — Coming soon. A new way to think about agility.">
+  <title>Coming Soon | Agile Fragile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f5f2;
-      --text: #1a1a1a;
-      --muted: #5c5c5c;
-      --accent: #c45c3e;
-      --card: #ffffff;
-      --border: #e8e4df;
+      --gray-mammoth: #818181;
+      --black: #151517;
+      --white: #ffffff;
+      --gray-light: #f7f7f7;
+      --gray-dark: #949494;
+      --accent: #1f35a9;
+      --contain: max(2vw, 10px);
+      --block: 50px;
+      --section: 100px;
+      --font-serif: "Newsreader", Georgia, serif;
+      --font-sans: "Inter", system-ui, sans-serif;
+    }
+
+    @media (min-width: 1080px) {
+      :root {
+        --block: 100px;
+        --section: 200px;
+      }
     }
 
     * {
@@ -24,243 +36,526 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "DM Sans", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: var(--font-sans);
+      background: var(--gray-mammoth);
+      color: var(--white);
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 1100px;
+    ::selection {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contain {
+      width: 100%;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding-inline: var(--contain);
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .logo {
-      font-weight: 600;
+    .t-h-2 {
+      font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
       letter-spacing: -0.02em;
-      font-size: 1.1rem;
     }
 
-    .badge {
-      font-size: 0.75rem;
-      color: var(--muted);
+    @media (min-width: 600px) {
+      .t-h-2 {
+        font-size: clamp(70px, 8vw, 150px);
+      }
+    }
+
+    .t-h-3 {
+      font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
+      letter-spacing: -0.02em;
+    }
+
+    @media (min-width: 600px) {
+      .t-h-3 {
+        font-size: clamp(60px, 5vw, 140px);
+      }
+    }
+
+    .t-h-4 {
+      font: 500 clamp(26px, 3vw, 50px) / 1 var(--font-serif);
+    }
+
+    .t-h-5 {
+      font: 500 clamp(20px, 2.5vw, 30px) / 1.05 var(--font-serif);
+      letter-spacing: 0.01em;
+    }
+
+    .t-b-1 {
+      font: 400 clamp(22px, 2.5vw, 40px) / 1.1 var(--font-sans);
+      letter-spacing: -0.02em;
+    }
+
+    @media (min-width: 600px) {
+      .t-b-1 {
+        font: 400 clamp(26px, 2.5vw, 40px) / 1 var(--font-sans);
+      }
+    }
+
+    .t-b-2 {
+      font: 500 clamp(18px, 1.25vw, 24px) / 1.15 var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+
+    .t-b-3 {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .site-header .logo {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+
+    .site-header .status {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    main {
+      padding-top: 80px;
+    }
+
+    .section {
+      padding-block: var(--section);
     }
 
     .hero {
-      padding: clamp(3rem, 8vw, 5rem) 0 3rem;
-      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
     }
 
     .hero h1 {
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 400;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
+      width: 100%;
+      max-width: 1400px;
     }
 
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 56ch;
+    .hero .intro {
+      width: 90%;
+      max-width: 940px;
+      text-wrap: pretty;
     }
 
-    .section-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-    }
-
-    .values {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      padding: 1rem 0 4rem;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: border-color 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: #d4cfc8;
-    }
-
-    .card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .notify {
-      background: var(--text);
-      color: #ffffff;
-      border-radius: 16px;
-      padding: clamp(2rem, 5vw, 2.5rem);
-      margin-bottom: 4rem;
-    }
-
-    .notify h2 {
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: clamp(1.75rem, 4vw, 2rem);
-      font-weight: 400;
-      margin-bottom: 0.75rem;
-    }
-
-    .notify > p {
-      color: #b8b8b8;
-      margin-bottom: 1.5rem;
-      max-width: 48ch;
-    }
-
-    .notify form {
+    .values-header {
       display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+      margin-bottom: 80px;
     }
 
-    .notify input {
+    .values-header .intro {
+      width: 90%;
+      max-width: 940px;
+      text-wrap: pretty;
+    }
+
+    .value-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+      max-width: 940px;
+      margin: 0 auto 40px;
+    }
+
+    @media (min-width: 600px) {
+      .value-row {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 24px;
+        width: 66.666%;
+      }
+
+      .value-row h2 {
+        flex: 0 0 33.333%;
+      }
+
+      .value-row p {
+        flex: 1;
+      }
+    }
+
+    .coming-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .coming-header .intro {
+      width: 90%;
+      max-width: 940px;
+      text-wrap: pretty;
+    }
+
+    .coming-header .intro em {
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      width: 100%;
+    }
+
+    @media (min-width: 600px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .flip-card {
+      position: relative;
+      aspect-ratio: 10 / 7;
+      perspective: 2000px;
+    }
+
+    .flip-card-inner {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s ease;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .flip-face.front {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .flip-face.back {
+      background: var(--white);
+      color: var(--gray-mammoth);
+      transform: rotateY(180deg);
+      overflow-y: auto;
+    }
+
+    .flip-face .learn-more {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flip-btn {
+      position: absolute;
+      inset: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .flip-face.back ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .flip-face.back li {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+
+    .notify-section {
+      background: var(--black);
+      padding-block: var(--section);
+    }
+
+    .notify-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .notify-inner .desc {
+      width: 90%;
+      max-width: 640px;
+      color: var(--gray-dark);
+      text-wrap: pretty;
+    }
+
+    .notify-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 100%;
+      max-width: 520px;
+      justify-content: center;
+    }
+
+    .notify-form input {
       flex: 1;
       min-width: 220px;
-      padding: 0.85rem 1rem;
+      padding: 14px 16px;
       border: none;
-      border-radius: 8px;
-      font: inherit;
-      background: #ffffff;
-      color: var(--text);
+      border-radius: 4px;
+      font: 500 16px / 1.4 var(--font-sans);
+      background: var(--white);
+      color: var(--black);
     }
 
-    .notify input:focus {
+    .notify-form input:focus {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
 
-    .notify button {
-      padding: 0.85rem 1.5rem;
+    .notify-form button {
+      padding: 14px 24px;
       border: none;
-      border-radius: 8px;
+      border-radius: 4px;
       background: var(--accent);
-      color: #ffffff;
-      font: inherit;
-      font-weight: 600;
+      color: var(--white);
+      font: 500 16px / 1.4 var(--font-sans);
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: opacity 0.2s;
     }
 
-    .notify button:hover {
-      background: #a84d33;
+    .notify-form button:hover {
+      opacity: 0.9;
     }
 
-    .notify .success {
+    .notify-success {
       display: none;
-      color: #a8e6a1;
-      font-weight: 500;
-      padding-top: 0.5rem;
+      color: var(--gray-light);
+      font: 500 18px / 1.4 var(--font-sans);
     }
 
-    .notify.submitted form {
+    .notify-section.submitted .notify-form {
       display: none;
     }
 
-    .notify.submitted .success {
+    .notify-section.submitted .notify-success {
       display: block;
     }
 
-    footer {
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
+    .site-footer {
+      padding-block: var(--block);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
     }
 
-    @media (max-width: 600px) {
-      .notify button {
-        width: 100%;
-      }
+    .site-footer p {
+      color: var(--gray-light);
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      text-align: center;
+    }
+
+    .arrow-icon {
+      width: 1.25em;
+      height: auto;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">Agile Fragile</div>
-      <div class="badge">Coming Soon</div>
-    </header>
+  <header class="site-header contain">
+    <a href="/" class="logo">Agile Fragile</a>
+    <span class="status">Coming Soon</span>
+  </header>
 
-    <section class="hero">
-      <h1>Build things people actually want.</h1>
-      <p>
-        We're crafting a new way to think about agility — less brittle process,
-        more human-centered delivery. Launching soon.
+  <main>
+    <section class="section hero contain">
+      <h1 class="t-h-2">Life at Agile Fragile</h1>
+      <p class="intro t-b-2">
+        We are reimagining how teams work — building a new model for people who want
+        real agility without the fragile process. Our community is powered by practitioners
+        who live and breathe better ways of delivering every day.
       </p>
     </section>
 
-    <p class="section-label">What we believe</p>
+    <section class="section contain">
+      <div class="values-header">
+        <h2 class="t-h-3">Our Values</h2>
+        <p class="intro t-b-2">
+          Our values are the foundation of how we work, and guide how we learn,
+          collaborate, and grow together.
+        </p>
+      </div>
 
-    <section class="values">
-      <article class="card">
-        <h3>Move with purpose</h3>
-        <p>Progress over ceremony. Ship, learn, and adapt.</p>
-      </article>
-      <article class="card">
-        <h3>Own the outcome</h3>
-        <p>Accountability isn't a sprint metric — it's how teams grow.</p>
-      </article>
-      <article class="card">
-        <h3>People first</h3>
-        <p>Great products come from teams that feel seen and supported.</p>
-      </article>
-      <article class="card">
-        <h3>Stay curious</h3>
-        <p>Question the playbook. Improve what doesn't serve you.</p>
-      </article>
+      <div class="value-row">
+        <h2 class="t-h-5">Move Forward</h2>
+        <p class="t-b-2">We value learning and progress. We solve problems creatively by building on both setbacks and successes.</p>
+      </div>
+      <div class="value-row">
+        <h2 class="t-h-5">Face the Hard Things</h2>
+        <p class="t-b-2">Even when it is difficult, we address what matters. We give feedback, listen, and have honest dialogue because tough conversations make us better.</p>
+      </div>
+      <div class="value-row">
+        <h2 class="t-h-5">Own It</h2>
+        <p class="t-b-2">We act as owners in ways big and small. When we are not leading, we empower and trust others. We are accountable for outcomes.</p>
+      </div>
+      <div class="value-row">
+        <h2 class="t-h-5">See the Person</h2>
+        <p class="t-b-2">Our purpose is in the people. We connect with every person as a person, and take action that has a positive impact on teams and communities.</p>
+      </div>
     </section>
 
-    <section class="notify" id="notify">
-      <h2>Be the first to know</h2>
-      <p>Leave your email and we'll notify you when we go live.</p>
-      <form id="notify-form">
-        <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
-        <button type="submit">Notify me</button>
-      </form>
-      <p class="success">Thanks — you're on the list.</p>
+    <section class="section contain">
+      <div class="coming-header">
+        <h2 class="t-h-3">What's Coming</h2>
+        <p class="intro t-b-2">
+          We are building something new for teams who want agility that actually works.
+          <em>Click each area to learn more about what we are launching.</em>
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Workshops</h3>
+              <div class="learn-more t-b-3">
+                <span>Learn more</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Workshops</h3>
+              <ul>
+                <li>Hands-on sessions for teams adopting modern agile practices</li>
+                <li>Facilitated retrospectives and planning workshops</li>
+                <li>Custom programs for leaders and practitioners</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Workshops card"></button>
+        </div>
+
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Community</h3>
+              <div class="learn-more t-b-3">
+                <span>Learn more</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Community</h3>
+              <ul>
+                <li>A space for practitioners to share what works</li>
+                <li>Peer learning groups and open discussions</li>
+                <li>Events that connect people across industries</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Community card"></button>
+        </div>
+
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Resources</h3>
+              <div class="learn-more t-b-3">
+                <span>Learn more</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Resources</h3>
+              <ul>
+                <li>Practical guides for healthier team delivery</li>
+                <li>Frameworks that replace brittle process with purpose</li>
+                <li>Tools and templates you can use right away</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Resources card"></button>
+        </div>
+      </div>
     </section>
 
-    <footer>
-      <p>&copy; 2026 Agile Fragile. All rights reserved.</p>
-    </footer>
-  </div>
+    <section class="notify-section" id="notify">
+      <div class="contain notify-inner">
+        <h2 class="t-h-3">Be the First to Know</h2>
+        <p class="desc t-b-2">Leave your email and we will notify you when we launch.</p>
+        <form class="notify-form" id="notify-form">
+          <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
+          <button type="submit">Notify me</button>
+        </form>
+        <p class="notify-success">Thanks — you are on the list.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer contain">
+    <p>&copy; 2026 Agile Fragile. All rights reserved.</p>
+  </footer>
 
   <script>
+    document.querySelectorAll('[data-card]').forEach(function (card) {
+      card.querySelector('.flip-btn').addEventListener('click', function () {
+        card.classList.toggle('flipped');
+      });
+    });
+
     document.getElementById('notify-form').addEventListener('submit', function (e) {
       e.preventDefault();
       document.getElementById('notify').classList.add('submitted');
