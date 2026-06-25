@@ -131,15 +131,8 @@
     }
 
     .site-header .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .site-header .logo img {
-      height: clamp(22px, 2.5vw, 30px);
-      width: auto;
-      display: block;
+      font: 500 clamp(14px, 1.2vw, 18px) / 1 var(--font-sans);
+      letter-spacing: -0.04em;
     }
 
     .site-header .status {
@@ -418,9 +411,7 @@
 </head>
 <body>
   <header class="site-header contain">
-    <a href="/" class="logo">
-      <img src="/assets/logo.svg" alt="Agile Fragile" width="220" height="38">
-    </a>
+    <a href="/" class="logo">Agile Fragile</a>
     <span class="status">Coming Soon</span>
   </header>
 

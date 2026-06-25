@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1128" height="191" viewBox="0 0 1128 191">
   <rect width="1128" height="191" fill="#818181"/>
-  <rect x="0" y="148" width="1128" height="43" fill="#151517"/>
-  <rect x="56" y="44" width="48" height="4" fill="#1f35a9" rx="1"/>
-  <text x="56" y="102" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="600" letter-spacing="-2">Agile</text>
-  <text x="168" y="102" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="400" font-style="italic" letter-spacing="-1">Fragile</text>
-  <text x="56" y="176" fill="#949494" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="500" letter-spacing="2">COMING SOON</text>
+  <text x="564" y="96" text-anchor="middle" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="600" letter-spacing="-2">Life at Agile Fragile</text>
+  <text x="564" y="142" text-anchor="middle" fill="#f7f7f7" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" letter-spacing="1">Coming soon</text>
 </svg>
