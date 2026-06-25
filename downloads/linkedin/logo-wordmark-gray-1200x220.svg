@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220">
   <rect width="1200" height="220" fill="#818181"/>
-  <g transform="translate(80 48)">
-    <path d="M0 0a56 56 0 1 1-39.6 16.4" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M0 0a56 56 0 1 0 39.6 16.4" stroke="#ffffff" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.25"/>
-    <path d="M-22 18h44" stroke="#1f35a9" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="0" cy="56" r="11" fill="#1f35a9"/>
-  </g>
-  <text x="200" y="118" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="600" letter-spacing="-2">Agile Fragile</text>
+  <rect x="80" y="48" width="64" height="6" fill="#1f35a9" rx="2"/>
+  <text x="80" y="138" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="600" letter-spacing="-3">Agile</text>
+  <text x="360" y="138" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="400" font-style="italic" letter-spacing="-2">Fragile</text>
 </svg>
