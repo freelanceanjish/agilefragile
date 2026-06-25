@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Agile Fragile — Coming soon. A new way to think about agility.">
   <title>Coming Soon | Agile Fragile</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
@@ -130,8 +131,15 @@
     }
 
     .site-header .logo {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .site-header .logo img {
+      height: clamp(22px, 2.5vw, 30px);
+      width: auto;
+      display: block;
     }
 
     .site-header .status {
@@ -410,7 +418,9 @@
 </head>
 <body>
   <header class="site-header contain">
-    <a href="/" class="logo">Agile Fragile</a>
+    <a href="/" class="logo">
+      <img src="/assets/logo.svg" alt="Agile Fragile" width="180" height="33">
+    </a>
     <span class="status">Coming Soon</span>
   </header>
 

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 44" fill="none" role="img" aria-label="Agile Fragile">
+  <path
+    d="M20 6a14 14 0 1 1-9.9 4.1"
+    stroke="#ffffff"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+  <path
+    d="M20 6a14 14 0 1 0 9.9 4.1"
+    stroke="#ffffff"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    opacity="0.25"
+  />
+  <path
+    d="M14.5 9h11"
+    stroke="#1f35a9"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+  <circle cx="20" cy="20" r="2.8" fill="#1f35a9"/>
+  <text
+    x="46"
+    y="28"
+    fill="#ffffff"
+    font-family="'Newsreader', Georgia, 'Times New Roman', serif"
+    font-size="24"
+    font-weight="600"
+    letter-spacing="-0.03em"
+  >Agile Fragile</text>
+</svg>
