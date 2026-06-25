@@ -3,9 +3,268 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agile Fragile</title>
+  <meta name="description" content="Agile Fragile — Something better is coming. A new way to think about agility.">
+  <title>Agile Fragile — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --accent: #c45c3e;
+      --card: #ffffff;
+      --border: #e8e4df;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      font-size: 1.1rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+
+    .hero {
+      padding: clamp(3rem, 8vw, 5rem) 0 3rem;
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      padding: 1rem 0 4rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: #d4cfc8;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .notify {
+      background: var(--text);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: clamp(2rem, 5vw, 2.5rem);
+      margin-bottom: 4rem;
+    }
+
+    .notify h2 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2rem);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .notify > p {
+      color: #b8b8b8;
+      margin-bottom: 1.5rem;
+      max-width: 48ch;
+    }
+
+    .notify form {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .notify input {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.85rem 1rem;
+      border: none;
+      border-radius: 8px;
+      font: inherit;
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .notify input:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .notify button {
+      padding: 0.85rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #ffffff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .notify button:hover {
+      background: #a84d33;
+    }
+
+    .notify .success {
+      display: none;
+      color: #a8e6a1;
+      font-weight: 500;
+      padding-top: 0.5rem;
+    }
+
+    .notify.submitted form {
+      display: none;
+    }
+
+    .notify.submitted .success {
+      display: block;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .notify button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Agile Fragile</h1>
+  <div class="container">
+    <header>
+      <div class="logo">Agile Fragile</div>
+      <div class="badge">Coming Soon</div>
+    </header>
+
+    <section class="hero">
+      <h1>Build things people actually want.</h1>
+      <p>
+        We're crafting a new way to think about agility — less brittle process,
+        more human-centered delivery. Launching soon.
+      </p>
+    </section>
+
+    <p class="section-label">What we believe</p>
+
+    <section class="values">
+      <article class="card">
+        <h3>Move with purpose</h3>
+        <p>Progress over ceremony. Ship, learn, and adapt.</p>
+      </article>
+      <article class="card">
+        <h3>Own the outcome</h3>
+        <p>Accountability isn't a sprint metric — it's how teams grow.</p>
+      </article>
+      <article class="card">
+        <h3>People first</h3>
+        <p>Great products come from teams that feel seen and supported.</p>
+      </article>
+      <article class="card">
+        <h3>Stay curious</h3>
+        <p>Question the playbook. Improve what doesn't serve you.</p>
+      </article>
+    </section>
+
+    <section class="notify" id="notify">
+      <h2>Be the first to know</h2>
+      <p>Leave your email and we'll notify you when we go live.</p>
+      <form id="notify-form">
+        <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
+        <button type="submit">Notify me</button>
+      </form>
+      <p class="success">Thanks — you're on the list.</p>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Agile Fragile. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('notify-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('notify').classList.add('submitted');
+    });
+  </script>
 </body>
 </html>
