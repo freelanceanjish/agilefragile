@@ -1,46 +1,28 @@
-# Agile Fragile — Logo Variations
+# Agile Fragile — Square Logo
 
-Minimal sans wordmark matching the site design system.
+Bold sans wordmark inside a square. Matches site style (Inter 700, gray/white/black palette).
 
-## Wordmark (horizontal)
+## AF mark (recommended)
 
-| File | Use |
-|------|-----|
-| `wordmark-white.svg` | Dark / gray backgrounds (site header) |
-| `wordmark-black.svg` | White / light backgrounds |
-| `wordmark-accent.svg` | Accent blue on transparent |
-| `wordmark-on-gray.svg` | Full tile, gray `#818181` bg |
-| `wordmark-on-white.svg` | Full tile, white bg |
-| `wordmark-on-black.svg` | Full tile, black bg |
+| File | Background | Text |
+|------|------------|------|
+| `square-af-gray.svg` | Gray `#818181` | White — **primary** |
+| `square-af-white.svg` | White | Black |
+| `square-af-black.svg` | Black `#151517` | White |
+| `square-af-accent.svg` | Blue `#1f35a9` | White |
 
-## Wordmark (stacked)
+## Stacked full name
 
-| File | Use |
-|------|-----|
-| `wordmark-stacked-white.svg` | Two-line, transparent bg |
-| `wordmark-stacked-black.svg` | Two-line, light bg |
-
-## Mark (AF)
-
-| File | Use |
-|------|-----|
-| `mark-af-white.svg` | Icon on dark bg |
-| `mark-af-black.svg` | Icon on light bg |
-| `mark-af-accent.svg` | Icon in brand blue |
-| `mark-af-on-gray.svg` | Square tile, gray bg |
-| `mark-af-on-white.svg` | Square tile, white bg |
-
-## Lockup
-
-| File | Use |
-|------|-----|
-| `lockup-horizontal-white.svg` | AF + wordmark, dark bg |
-| `lockup-horizontal-black.svg` | AF + wordmark, light bg |
+| File | Background | Text |
+|------|------------|------|
+| `square-stacked-gray.svg` | Gray | White |
+| `square-stacked-white.svg` | White | Black |
+| `square-stacked-black.svg` | Black | White |
 
 ## Favicon
 
 | File | Use |
 |------|-----|
-| `favicon.svg` | Browser tab icon |
+| `favicon.svg` | Browser tab (32×32) |
 
-PNG versions are in `downloads/logo-variations/`.
+PNG exports: `downloads/logo-variations/`

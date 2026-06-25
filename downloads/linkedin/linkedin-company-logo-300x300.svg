@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
   <rect width="300" height="300" fill="#818181"/>
-  <text x="150" y="168" text-anchor="middle" fill="#ffffff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="500" letter-spacing="-1.5">Agile Fragile</text>
+  <text x="150" y="178" text-anchor="middle" fill="#ffffff" font-family="Inter, Helvetica, Arial, sans-serif" font-size="116" font-weight="700" letter-spacing="-9">AF</text>
 </svg>
