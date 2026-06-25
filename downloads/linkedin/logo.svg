@@ -1,5 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48" fill="none" role="img" aria-label="Agile Fragile">
-  <rect x="0" y="6" width="28" height="3" fill="#1f35a9" rx="1"/>
-  <text x="0" y="38" fill="#ffffff" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="30" font-weight="600" letter-spacing="-0.04em">Agile</text>
-  <text x="82" y="38" fill="#ffffff" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="30" font-weight="400" font-style="italic" letter-spacing="-0.02em">Fragile</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32" fill="none" role="img" aria-label="Agile Fragile">
+  <text
+    x="0"
+    y="24"
+    fill="#ffffff"
+    font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="22"
+    font-weight="500"
+    letter-spacing="-0.04em"
+  >Agile Fragile</text>
 </svg>
