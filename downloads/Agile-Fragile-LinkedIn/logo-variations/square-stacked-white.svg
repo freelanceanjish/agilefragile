@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img" aria-label="Agile Fragile">
-  <rect width="120" height="120" fill="#ffffff"/>
-  <text x="60" y="50" text-anchor="middle" fill="#151517" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.04em">Agile</text>
-  <text x="60" y="78" text-anchor="middle" fill="#151517" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="-0.04em">Fragile</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none" role="img" aria-label="Agile Fragile">
+  <rect width="200" height="80" fill="#ffffff"/>
+  <text x="0" y="34" fill="#151517" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="30" font-weight="600" letter-spacing="-0.02em">Agile</text>
+  <text x="0" y="68" fill="#151517" font-family="'Newsreader', Georgia, 'Times New Roman', serif" font-size="30" font-weight="600" letter-spacing="-0.02em">Fragile</text>
 </svg>
