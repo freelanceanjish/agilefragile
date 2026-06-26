@@ -184,6 +184,32 @@ main { padding-top: 80px; }
 }
 .concept-inner .intro { color: var(--gray-light); }
 
+.story-prose {
+  width: 90%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35em;
+  text-align: center;
+}
+.story-prose p {
+  color: var(--gray-light);
+  text-wrap: pretty;
+  line-height: 1.6;
+}
+.story-prose .story-punch {
+  color: var(--white);
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.hero .story-prose { max-width: 720px; }
+.hero .story-prose .story-punch {
+  font-size: clamp(20px, 2vw, 28px);
+}
+
 .page-header {
   display: flex;
   flex-direction: column;
