@@ -3,359 +3,489 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Agile Fragile humanizes agile for organizations. Adapt, implement, and scale with humans at the center. No violent transformations.">
-  <title>Agile Fragile | Humanizing Agile</title>
+  <meta name="description" content="Agile Fragile: The first organization evangelizing Human Agile. Models, tools, and transformation assistance with humans at the center.">
+  <title>Agile Fragile | Human Agile</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gray-mammoth: #818181;
+      --gray: #818181;
       --black: #151517;
       --white: #ffffff;
       --gray-light: #f7f7f7;
       --gray-dark: #949494;
       --accent: #1f35a9;
-      --contain: max(2vw, 10px);
-      --block: 50px;
-      --section: 100px;
+      --violent: #8b2020;
+      --human: #1a6b4a;
+      --contain: max(2vw, 16px);
+      --section: 80px;
       --font-serif: "Newsreader", Georgia, serif;
       --font-sans: "Inter", system-ui, sans-serif;
     }
 
     @media (min-width: 1080px) {
-      :root {
-        --block: 100px;
-        --section: 200px;
-      }
+      :root { --section: 140px; }
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-sans);
-      background: var(--gray-mammoth);
+      background: var(--gray);
       color: var(--white);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-
-    ::selection {
-      background: var(--accent);
-      color: var(--white);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    ::selection { background: var(--accent); color: var(--white); }
+    a { color: inherit; text-decoration: none; }
 
     .contain {
       width: 100%;
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       padding-inline: var(--contain);
     }
 
-    .t-h-2 {
-      font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
+    .t-display {
+      font: 600 clamp(48px, 11vw, 120px) / 0.95 var(--font-serif);
+      letter-spacing: -0.03em;
+    }
+    .t-h2 {
+      font: 600 clamp(36px, 6vw, 72px) / 1 var(--font-serif);
       letter-spacing: -0.02em;
     }
-
-    @media (min-width: 600px) {
-      .t-h-2 {
-        font-size: clamp(70px, 8vw, 150px);
-      }
-    }
-
-    .t-h-3 {
-      font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
+    .t-h3 {
+      font: 600 clamp(28px, 4vw, 48px) / 1.05 var(--font-serif);
       letter-spacing: -0.02em;
     }
-
-    @media (min-width: 600px) {
-      .t-h-3 {
-        font-size: clamp(60px, 5vw, 140px);
-      }
+    .t-h4 {
+      font: 500 clamp(22px, 2.5vw, 32px) / 1.1 var(--font-serif);
+    }
+    .t-lead {
+      font: 400 clamp(20px, 2vw, 28px) / 1.25 var(--font-sans);
+      letter-spacing: -0.01em;
+    }
+    .t-body {
+      font: 500 clamp(16px, 1.2vw, 18px) / 1.5 var(--font-sans);
+    }
+    .t-label {
+      font: 600 11px / 1 var(--font-sans);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .t-small {
+      font: 500 13px / 1.4 var(--font-sans);
     }
 
-    .t-h-4 {
-      font: 500 clamp(26px, 3vw, 50px) / 1 var(--font-serif);
-    }
-
-    .t-h-5 {
-      font: 500 clamp(20px, 2.5vw, 30px) / 1.05 var(--font-serif);
-      letter-spacing: 0.01em;
-    }
-
-    .t-b-1 {
-      font: 400 clamp(22px, 2.5vw, 40px) / 1.1 var(--font-sans);
-      letter-spacing: -0.02em;
-    }
-
-    @media (min-width: 600px) {
-      .t-b-1 {
-        font: 400 clamp(26px, 2.5vw, 40px) / 1 var(--font-sans);
-      }
-    }
-
-    .t-b-2 {
-      font: 500 clamp(18px, 1.25vw, 24px) / 1.15 var(--font-sans);
-      letter-spacing: 0.02em;
-    }
-
-    .t-b-3 {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.02em;
-    }
-
+    /* Header */
     .site-header {
       position: fixed;
-      top: 16px;
-      left: 16px;
-      right: 16px;
-      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: rgba(21, 21, 23, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 16px;
+      padding-block: 14px;
     }
-
-    .site-header .logo {
+    .logo-wrap {
       display: flex;
       align-items: center;
+      gap: 12px;
     }
-
-    .site-header .logo img {
-      width: 36px;
-      height: 36px;
+    .logo-wrap img { width: 32px; height: 32px; display: block; }
+    .logo-text {
+      font: 600 15px / 1 var(--font-sans);
+      letter-spacing: -0.01em;
+    }
+    .logo-text span {
       display: block;
-    }
-
-    .site-header .status {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.08em;
+      font: 500 10px / 1 var(--font-sans);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      opacity: 0.8;
+      color: var(--gray-dark);
+      margin-top: 2px;
     }
-
-    main {
-      padding-top: 80px;
+    .site-nav {
+      display: none;
+      gap: 28px;
+      list-style: none;
     }
-
-    .section {
-      padding-block: var(--section);
+    .site-nav a {
+      font: 500 14px / 1 var(--font-sans);
+      opacity: 0.75;
+      transition: opacity 0.2s;
     }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
+    .site-nav a:hover { opacity: 1; }
+    .btn {
+      display: inline-flex;
       align-items: center;
-      gap: 40px;
-      text-align: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      font: 600 14px / 1 var(--font-sans);
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
     }
-
-    .hero h1 {
-      width: 100%;
-      max-width: 1400px;
+    .btn:hover { opacity: 0.9; }
+    .btn:active { transform: scale(0.98); }
+    .btn-accent { background: var(--accent); color: var(--white); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
     }
-
-    .hero .intro {
-      width: 90%;
-      max-width: 940px;
-      text-wrap: pretty;
-    }
-
-    .values-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-      margin-bottom: 80px;
-    }
-
-    .values-header .intro {
-      width: 90%;
-      max-width: 940px;
-      text-wrap: pretty;
-    }
-
-    .value-row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      text-align: center;
-      max-width: 940px;
-      margin: 0 auto 40px;
-    }
-
-    @media (min-width: 600px) {
-      .value-row {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        gap: 24px;
-        width: 66.666%;
-      }
-
-      .value-row h2 {
-        flex: 0 0 33.333%;
-      }
-
-      .value-row p {
-        flex: 1;
-      }
-    }
-
-    .coming-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .coming-header .intro {
-      width: 90%;
-      max-width: 940px;
-      text-wrap: pretty;
-    }
-
-    .coming-header .intro em {
-      font-style: italic;
-      opacity: 0.85;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      width: 100%;
-    }
-
-    @media (min-width: 600px) {
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .card-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .flip-card {
-      position: relative;
-      aspect-ratio: 10 / 7;
-      perspective: 2000px;
-    }
-
-    .flip-card-inner {
-      position: absolute;
-      inset: 0;
-      transition: transform 0.6s ease;
-      transform-style: preserve-3d;
-    }
-
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-face {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .flip-face.front {
-      background: var(--accent);
+    .btn-ghost {
+      background: rgba(255,255,255,0.1);
       color: var(--white);
     }
 
-    .flip-face.back {
-      background: var(--white);
-      color: var(--gray-mammoth);
-      transform: rotateY(180deg);
-      overflow-y: auto;
+    @media (min-width: 768px) {
+      .site-nav { display: flex; }
+      .header-cta-mobile { display: none; }
     }
 
-    .flip-face .learn-more {
+    main { padding-top: 64px; }
+
+    /* Hero */
+    .hero {
+      padding-block: var(--section);
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      margin-bottom: 32px;
+      font: 600 11px / 1 var(--font-sans);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .hero h1 { margin-bottom: 24px; }
+    .hero .t-lead {
+      max-width: 640px;
+      margin: 0 auto 16px;
+      color: var(--gray-light);
+    }
+    .hero-actions {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 40px;
     }
-
-    .flip-btn {
-      position: absolute;
-      inset: 0;
-      border: none;
-      background: transparent;
-      cursor: pointer;
+    .hero-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.15);
+      margin-top: 80px;
       border-radius: 8px;
+      overflow: hidden;
+    }
+    .hero-stat {
+      background: var(--black);
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .hero-stat strong {
+      display: block;
+      font: 600 clamp(28px, 4vw, 40px) / 1 var(--font-serif);
+      margin-bottom: 8px;
+    }
+    .hero-stat span {
+      font: 500 13px / 1.3 var(--font-sans);
+      color: var(--gray-dark);
     }
 
-    .flip-face.back ul {
+    /* Sections */
+    .section { padding-block: var(--section); }
+    .section-dark { background: var(--black); }
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-header .t-label {
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .section-header .t-lead {
+      max-width: 560px;
+      margin: 16px auto 0;
+      color: var(--gray-light);
+    }
+
+    /* Compare */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .compare-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .compare-card {
+      border-radius: 8px;
+      padding: 32px 28px;
+    }
+    .compare-card.violent {
+      background: rgba(139, 32, 32, 0.25);
+      border: 1px solid rgba(139, 32, 32, 0.5);
+    }
+    .compare-card.human {
+      background: rgba(26, 107, 74, 0.2);
+      border: 1px solid rgba(26, 107, 74, 0.5);
+    }
+    .compare-card h3 { margin-bottom: 20px; }
+    .compare-card ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
     }
-
-    .flip-face.back li {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.02em;
+    .compare-card li {
+      font: 500 15px / 1.4 var(--font-sans);
+      padding-left: 20px;
+      position: relative;
     }
-
-    .notify-section {
-      background: var(--black);
-      padding-block: var(--section);
+    .compare-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
     }
+    .compare-card.violent li::before { background: var(--violent); }
+    .compare-card.human li::before { background: var(--human); }
 
-    .notify-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
+    /* Model flow */
+    .model-flow {
+      display: grid;
+      gap: 24px;
+    }
+    @media (min-width: 900px) {
+      .model-flow { grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; }
+    }
+    .model-phase {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 28px 24px;
       text-align: center;
     }
-
-    .notify-inner .desc {
-      width: 90%;
-      max-width: 640px;
+    .model-phase .num {
+      font: 600 11px / 1 var(--font-sans);
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .model-phase h3 { margin-bottom: 10px; }
+    .model-phase p { color: var(--gray-light); font-size: 15px; }
+    .model-arrow {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
       color: var(--gray-dark);
-      text-wrap: pretty;
+    }
+    @media (min-width: 900px) {
+      .model-arrow { display: flex; }
     }
 
+    .model-offers {
+      display: grid;
+      gap: 12px;
+      margin-top: 48px;
+    }
+    @media (min-width: 768px) {
+      .model-offers { grid-template-columns: repeat(3, 1fr); }
+    }
+    .offer-card {
+      background: var(--accent);
+      border-radius: 8px;
+      padding: 28px 24px;
+    }
+    .offer-card .t-label { opacity: 0.7; margin-bottom: 12px; }
+    .offer-card h3 { margin-bottom: 10px; }
+    .offer-card p { font-size: 15px; opacity: 0.9; }
+
+    /* Index */
+    .index-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 40px 32px;
+    }
+    .index-progress {
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+    .index-progress-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+    .index-question {
+      display: none;
+    }
+    .index-question.active { display: block; }
+    .index-question p {
+      font: 500 clamp(18px, 2vw, 22px) / 1.35 var(--font-serif);
+      margin-bottom: 28px;
+    }
+    .index-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .index-opt {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--white);
+      font: 500 14px / 1.3 var(--font-sans);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .index-opt:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .index-result {
+      display: none;
+      text-align: center;
+    }
+    .index-result.visible { display: block; }
+    .index-score {
+      font: 600 clamp(56px, 10vw, 80px) / 1 var(--font-serif);
+      margin: 16px 0;
+    }
+    .index-score-label {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font: 600 13px / 1 var(--font-sans);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .index-score-label.violent { background: var(--violent); }
+    .index-score-label.transitional { background: #8a6a1a; }
+    .index-score-label.human { background: var(--human); }
+    .index-restart {
+      margin-top: 24px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 4px;
+      font: 500 14px / 1 var(--font-sans);
+      cursor: pointer;
+    }
+
+    /* Manifesto */
+    .manifesto-grid {
+      display: grid;
+      gap: 12px;
+    }
+    @media (min-width: 600px) {
+      .manifesto-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .manifesto-item {
+      background: rgba(255,255,255,0.05);
+      border-left: 3px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .manifesto-item strong {
+      display: block;
+      font: 600 16px / 1.3 var(--font-serif);
+      margin-bottom: 6px;
+    }
+    .manifesto-item span {
+      font: 500 14px / 1.4 var(--font-sans);
+      color: var(--gray-light);
+    }
+
+    /* Serve cards */
+    .serve-grid {
+      display: grid;
+      gap: 12px;
+    }
+    @media (min-width: 768px) {
+      .serve-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .serve-card {
+      background: var(--black);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 28px 24px;
+    }
+    .serve-card h3 { margin-bottom: 16px; }
+    .serve-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .serve-card li {
+      font: 500 14px / 1.4 var(--font-sans);
+      color: var(--gray-light);
+      padding-left: 16px;
+      position: relative;
+    }
+    .serve-card li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--black);
+      padding-block: var(--section);
+      text-align: center;
+    }
+    .cta-section .t-lead {
+      max-width: 520px;
+      margin: 16px auto 32px;
+      color: var(--gray-dark);
+    }
     .notify-form {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      width: 100%;
-      max-width: 520px;
+      max-width: 480px;
+      margin: 0 auto;
       justify-content: center;
     }
-
     .notify-form input {
       flex: 1;
-      min-width: 220px;
+      min-width: 200px;
       padding: 14px 16px;
       border: none;
       border-radius: 4px;
@@ -363,318 +493,433 @@
       background: var(--white);
       color: var(--black);
     }
-
     .notify-form input:focus {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
-
-    .notify-form button {
-      padding: 14px 24px;
-      border: none;
-      border-radius: 4px;
-      background: var(--accent);
-      color: var(--white);
-      font: 500 16px / 1.4 var(--font-sans);
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .notify-form button:hover {
-      opacity: 0.9;
-    }
-
-    .notify-success {
-      display: none;
-      color: var(--gray-light);
-      font: 500 18px / 1.4 var(--font-sans);
-    }
-
-    .notify-section.submitted .notify-form {
-      display: none;
-    }
-
-    .notify-section.submitted .notify-success {
-      display: block;
-    }
+    .notify-success { display: none; color: var(--gray-light); margin-top: 16px; }
+    .cta-section.submitted .notify-form { display: none; }
+    .cta-section.submitted .notify-success { display: block; }
 
     .site-footer {
-      padding-block: var(--block);
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 32px var(--contain);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
     }
-
     .site-footer p {
+      font: 500 13px / 1.4 var(--font-sans);
+      color: var(--gray-dark);
+    }
+    .site-footer .tagline {
+      margin-top: 8px;
       color: var(--gray-light);
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      text-align: center;
-    }
-
-    .model-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 940px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 900px) {
-      .model-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        max-width: none;
-      }
-    }
-
-    .model-step {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .model-step .step-label {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.12em;
+      font: 500 12px / 1 var(--font-sans);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--gray-light);
-      opacity: 0.9;
-    }
-
-    .concept-section {
-      background: var(--black);
-      padding-block: var(--section);
-    }
-
-    .concept-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-    }
-
-    .concept-inner .intro {
-      width: 90%;
-      max-width: 940px;
-      text-wrap: pretty;
-      color: var(--gray-light);
-    }
-
-    .concept-inner .thesis {
-      width: 90%;
-      max-width: 800px;
-      color: var(--white);
-      text-wrap: pretty;
-    }
-
-    .arrow-icon {
-      width: 1.25em;
-      height: auto;
     }
   </style>
 </head>
 <body>
-  <header class="site-header contain">
-    <a href="/" class="logo">
-      <img src="/assets/logo-mark.svg" alt="Agile Fragile" width="36" height="36">
-    </a>
-    <span class="status">Coming Soon</span>
+  <header class="site-header">
+    <div class="contain header-inner">
+      <a href="/" class="logo-wrap">
+        <img src="/assets/logo-mark.svg" alt="" width="32" height="32">
+        <div class="logo-text">
+          Agile Fragile
+          <span>Human Agile</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="#model">Model</a></li>
+          <li><a href="#index">Index</a></li>
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="#join">Join</a></li>
+        </ul>
+      </nav>
+      <a href="#join" class="btn btn-accent header-cta-mobile">Join</a>
+    </div>
   </header>
 
   <main>
-    <section class="section hero contain">
-      <h1 class="t-h-2">Humanizing agile.</h1>
-      <p class="intro t-b-1">For organizations done with violent transformations.</p>
-      <p class="intro t-b-2">
-        We help you adapt, implement, and scale agile with humans at the center.
-        Not against them. Humans are your most valuable asset. We built Agile
-        Fragile to make that real.
-      </p>
-    </section>
-
-    <section class="concept-section">
-      <div class="contain concept-inner">
-        <h2 class="t-h-3">The Problem</h2>
-        <p class="thesis t-b-1">
-          Most agile transformations crush people to hit a deadline.
-        </p>
-        <p class="intro t-b-2">
-          Pushed. Excluded. Burned out. Then blamed for resisting. That is not
-          agile. That is a violent transformation. And it breaks delivery.
-        </p>
+    <section class="hero contain">
+      <p class="hero-badge">Evangelizing Human Agile</p>
+      <h1 class="t-display">Humans make<br>the organization.</h1>
+      <p class="t-lead">We humanize agile. We save organizations from violent transformations. We build models that put people at the center of adapt, implement, and scale.</p>
+      <div class="hero-actions">
+        <a href="#index" class="btn btn-accent">Take the Human Agile Index</a>
+        <a href="#model" class="btn btn-outline">See the model</a>
       </div>
-    </section>
-
-    <section class="section contain">
-      <div class="values-header">
-        <h2 class="t-h-3">Our Belief</h2>
-        <p class="intro t-b-2">
-          Humans are the most valuable asset in your organization. Agile only
-          works when you build with them, not over them.
-        </p>
-      </div>
-
-      <div class="value-row">
-        <h2 class="t-h-5">Adapt</h2>
-        <p class="t-b-2">Agile that fits your people and context. Not a playbook forced on the room.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Implement</h2>
-        <p class="t-b-2">Change with humans inside the journey. Valued from day one, not after the program ends.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Scale</h2>
-        <p class="t-b-2">Growth that protects focus and quality. Because burned-out teams do not scale.</p>
-      </div>
-    </section>
-
-    <section class="concept-section">
-      <div class="contain concept-inner">
-        <h2 class="t-h-3">What We Are</h2>
-        <p class="thesis t-b-1">
-          Not a training factory. Not a matrix machine.
-        </p>
-        <p class="intro t-b-2">
-          A human-centric model to humanize agile inside your organization.
-          We assist leaders and teams who want real delivery without the harm.
-        </p>
-      </div>
-    </section>
-
-    <section class="section contain">
-      <div class="values-header">
-        <h2 class="t-h-3">Our Model</h2>
-        <p class="intro t-b-2">
-          Three ways we help organizations move forward with humans first.
-        </p>
-      </div>
-
-      <div class="model-grid">
-        <article class="model-step">
-          <p class="step-label">01. Restore</p>
-          <h3 class="t-h-5">Workshops</h3>
-          <p class="t-b-2">Reset broken agile. Strip the theater. Rebuild trust and a way of working your people can own.</p>
-        </article>
-        <article class="model-step">
-          <p class="step-label">02. Support</p>
-          <h3 class="t-h-5">Community</h3>
-          <p class="t-b-2">A space for leaders and practitioners navigating change honestly. Real talk. Real peers.</p>
-        </article>
-        <article class="model-step">
-          <p class="step-label">03. Sustain</p>
-          <h3 class="t-h-5">Resources</h3>
-          <p class="t-b-2">Tools that cut admin, protect people, and keep agile human as you grow.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section contain">
-      <div class="coming-header">
-        <h2 class="t-h-3">Who We Serve</h2>
-        <p class="intro t-b-2">
-          Organizations ready to humanize agile.
-          <em>Tap to learn more.</em>
-        </p>
-      </div>
-
-      <div class="card-grid">
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Teams</h3>
-              <div class="learn-more t-b-3">
-                <span>Learn more</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Teams</h3>
-              <ul>
-                <li>Agile that works for you, not against you</li>
-                <li>Less ceremony, more meaningful work</li>
-                <li>A voice in how you adapt and scale</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Teams card"></button>
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <strong>Adapt</strong>
+          <span>Agile that fits your people</span>
         </div>
-
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Leaders</h3>
-              <div class="learn-more t-b-3">
-                <span>Learn more</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Leaders</h3>
-              <ul>
-                <li>Implement change without breaking your people</li>
-                <li>Scale delivery by investing in humans first</li>
-                <li>End violent transformations before they spread</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Leaders card"></button>
+        <div class="hero-stat">
+          <strong>Implement</strong>
+          <span>Change with humans inside</span>
         </div>
-
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Organizations</h3>
-              <div class="learn-more t-b-3">
-                <span>Learn more</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Organizations</h3>
-              <ul>
-                <li>Human-centric agile at scale</li>
-                <li>Adapt, implement, and grow with people inside the journey</li>
-                <li>Protect your most valuable asset while you transform</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Organizations card"></button>
+        <div class="hero-stat">
+          <strong>Scale</strong>
+          <span>Growth without the harm</span>
         </div>
       </div>
     </section>
 
-    <section class="notify-section" id="notify">
-      <div class="contain notify-inner">
-        <h2 class="t-h-3">Build agile with humans.</h2>
-        <p class="desc t-b-2">Join the waitlist. We are building the model to humanize agile and save organizations from transformations that hurt the people who deliver.</p>
+    <section class="section section-dark" id="compare">
+      <div class="contain">
+        <div class="section-header">
+          <span class="t-label">The divide</span>
+          <h2 class="t-h2">Violent Agile vs Human Agile</h2>
+          <p class="t-lead">Most organizations run the left column. We build the right.</p>
+        </div>
+        <div class="compare-grid">
+          <div class="compare-card violent">
+            <h3 class="t-h4">Violent Agile</h3>
+            <ul>
+              <li>Transformation done to people</li>
+              <li>Decided in rooms they are not in</li>
+              <li>Dashboards as judgment</li>
+              <li>Burnout blamed on resistance</li>
+              <li>More process piled on top</li>
+            </ul>
+          </div>
+          <div class="compare-card human">
+            <h3 class="t-h4">Human Agile</h3>
+            <ul>
+              <li>Transformation built with people</li>
+              <li>Humans valued from day one</li>
+              <li>Metrics for learning, not fear</li>
+              <li>Burnout treated as design failure</li>
+              <li>Subtract harm before you add</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="model">
+      <div class="contain">
+        <div class="section-header">
+          <span class="t-label">The working model</span>
+          <h2 class="t-h2">Human Agile Model</h2>
+          <p class="t-lead">How we assist organizations in transformation. Humans at the center of everything.</p>
+        </div>
+
+        <div class="model-flow">
+          <div class="model-phase">
+            <p class="num">01</p>
+            <h3 class="t-h4">Adapt</h3>
+            <p>Shape agile to your context and your people. No forced playbook.</p>
+          </div>
+          <div class="model-arrow" aria-hidden="true">→</div>
+          <div class="model-phase">
+            <p class="num">02</p>
+            <h3 class="t-h4">Implement</h3>
+            <p>Run change with humans inside the journey. Not as rollout targets.</p>
+          </div>
+          <div class="model-arrow" aria-hidden="true">→</div>
+          <div class="model-phase">
+            <p class="num">03</p>
+            <h3 class="t-h4">Scale</h3>
+            <p>Grow delivery while protecting focus, quality, and your people.</p>
+          </div>
+        </div>
+
+        <div class="model-offers">
+          <article class="offer-card">
+            <p class="t-label">Restore</p>
+            <h3 class="t-h4">Workshops</h3>
+            <p>Reset after violent agile. Strip theater. Rebuild trust.</p>
+          </article>
+          <article class="offer-card">
+            <p class="t-label">Support</p>
+            <h3 class="t-h4">Community</h3>
+            <p>Leaders and teams navigating change together. Real peers.</p>
+          </article>
+          <article class="offer-card">
+            <p class="t-label">Sustain</p>
+            <h3 class="t-h4">Resources</h3>
+            <p>Tools that cut admin and keep agile human as you scale.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="index">
+      <div class="contain">
+        <div class="section-header">
+          <span class="t-label">Working tool</span>
+          <h2 class="t-h2">Human Agile Index</h2>
+          <p class="t-lead">8 questions. 2 minutes. Find out where your organization stands.</p>
+        </div>
+
+        <div class="index-wrap" id="index-app">
+          <div class="index-progress">
+            <div class="index-progress-bar" id="index-bar"></div>
+          </div>
+
+          <div id="index-questions">
+            <div class="index-question active" data-q="0">
+              <p>Are the people affected by agile change in the room when it is designed?</p>
+              <div class="index-options">
+                <button type="button" class="index-opt" data-score="0">Rarely</button>
+                <button type="button" class="index-opt" data-score="1">Sometimes</button>
+                <button type="button" class="index-opt" data-score="2">Usually</button>
+                <button type="button" class="index-opt" data-score="3">Always</button>
+              </div>
+            </div>
+            <div class="index-question" data-q="1">
+              <p>Is agile built with your teams, or pushed to them on a timeline?</p>
+              <div class="index-options">
+                <button type="button" class="index-opt" data-score="0">Pushed</button>
+                <button type="button" class="index-opt" data-score="1">Mostly pushed</button>
+                <button type="button" class="index-opt" data-score="2">Mixed</button>
+                <button type="button" class="index-opt" data-score="3">Built with</button>
+              </div>
+            </div>
+            <div class="index-question" data-q="2">
+              <p>Do people feel valued in the transformation journey?</p>
+              <div class="index-options">
+                <button type="button" class="index-opt" data-score="0">No</button>
+                <button type="button" class="index-opt" data-score="1">Few do</button>
+                <button type="button" class="index-opt" data-score="2">Some do</button>
+                <button type="button" class="index-opt" data-score="3">Most do</button>
+              </div>
+            </div>
+            <div class="index-question" data-q="3">
+              <p>Are dashboards used for learning, or for judgment?</p>
+              <div class="index-options">
+                <button type="button" class="index-opt" data-score="0">Judgment</button>
+                <button type="button" class="index-opt" data-score="1">Mostly judgment</button>
+                <button type="button" class="index-opt" data-score="2">Mixed</button>
+                <button type="button" class="index-opt" data-score="3">Learning</button>
+              </div>
+            </div>
+            <div class="index-question" data-q="4">
+              <p>Is burnout treated as a design problem or a people problem?</p>
+              <div class="index-options">
+                <button type="button" class="index-opt" data-score="0">People problem</button>
+                <button type="button" class="index-opt" data-score="1">Mostly people</button>
+                <button type="button" class="index-opt" data-score="2">Starting to shift</button>
+                <button type="button" class="index-opt" data-score="3">Design problem</button>
+              </div>
+            </div>
+            <div class="index-question" data-q="5">
+              <p>Can teams push back on ceremony that does not help?</p>
+              <div class="index-options">
+                <button type="button" class="index-opt" data-score="0">No</button>
+                <button type="button" class="index-opt" data-score="1">Rarely</button>
+                <button type="button" class="index-opt" data-score="2">Sometimes</button>
+                <button type="button" class="index-opt" data-score="3">Yes</button>
+              </div>
+            </div>
+            <div class="index-question" data-q="6">
+              <p>Do leaders enable teams, or mainly track and report on them?</p>
+              <div class="index-options">
+                <button type="button" class="index-opt" data-score="0">Track and report</button>
+                <button type="button" class="index-opt" data-score="1">Mostly track</button>
+                <button type="button" class="index-opt" data-score="2">Mixed</button>
+                <button type="button" class="index-opt" data-score="3">Enable</button>
+              </div>
+            </div>
+            <div class="index-question" data-q="7">
+              <p>Would your people say agile works for them, not against them?</p>
+              <div class="index-options">
+                <button type="button" class="index-opt" data-score="0">Against them</button>
+                <button type="button" class="index-opt" data-score="1">Mostly against</button>
+                <button type="button" class="index-opt" data-score="2">Mixed</button>
+                <button type="button" class="index-opt" data-score="3">For them</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="index-result" id="index-result">
+            <p class="t-label">Your score</p>
+            <p class="index-score" id="index-score-num">0</p>
+            <p class="index-score-label" id="index-score-label">Transitional</p>
+            <p class="t-body" id="index-score-desc"></p>
+            <button type="button" class="index-restart" id="index-restart">Start over</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="manifesto">
+      <div class="contain">
+        <div class="section-header">
+          <span class="t-label">What we stand for</span>
+          <h2 class="t-h2">Human Agile Manifesto</h2>
+          <p class="t-lead">Eight principles. One belief: humans make the organization.</p>
+        </div>
+        <div class="manifesto-grid">
+          <div class="manifesto-item">
+            <strong>Humans are the asset</strong>
+            <span>Not the obstacle. Not the rollout risk.</span>
+          </div>
+          <div class="manifesto-item">
+            <strong>Change with, not to</strong>
+            <span>No transformation decided without the people inside it.</span>
+          </div>
+          <div class="manifesto-item">
+            <strong>Subtract before you add</strong>
+            <span>Remove harm before piling on more process.</span>
+          </div>
+          <div class="manifesto-item">
+            <strong>Trust over tracking</strong>
+            <span>Metrics should help teams learn, not fear.</span>
+          </div>
+          <div class="manifesto-item">
+            <strong>No violent transformation</strong>
+            <span>Speed without humanity breaks delivery.</span>
+          </div>
+          <div class="manifesto-item">
+            <strong>Adapt before you scale</strong>
+            <span>Context and people come before playbook.</span>
+          </div>
+          <div class="manifesto-item">
+            <strong>Leaders enable</strong>
+            <span>Not perform agile. Not become human dashboards.</span>
+          </div>
+          <div class="manifesto-item">
+            <strong>Agile serves the org</strong>
+            <span>People do not serve agile.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="contain">
+        <div class="section-header">
+          <span class="t-label">Who we assist</span>
+          <h2 class="t-h2">Built for transformation</h2>
+        </div>
+        <div class="serve-grid">
+          <article class="serve-card">
+            <h3 class="t-h4">Teams</h3>
+            <ul>
+              <li>Agile that works for you</li>
+              <li>A voice in how you adapt</li>
+              <li>Less theater, more work</li>
+            </ul>
+          </article>
+          <article class="serve-card">
+            <h3 class="t-h4">Leaders</h3>
+            <ul>
+              <li>Implement without breaking people</li>
+              <li>Scale by investing in humans</li>
+              <li>End violent transformations</li>
+            </ul>
+          </article>
+          <article class="serve-card">
+            <h3 class="t-h4">Organizations</h3>
+            <ul>
+              <li>Human Agile at scale</li>
+              <li>Models that protect your asset</li>
+              <li>Delivery that lasts</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="join">
+      <div class="contain">
+        <h2 class="t-h2">Join Human Agile</h2>
+        <p class="t-lead">We are building the first organization evangelizing Human Agile. Get early access to the model, community, and tools.</p>
         <form class="notify-form" id="notify-form">
           <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
-          <button type="submit">Notify me</button>
+          <button type="submit" class="btn btn-accent">Join the movement</button>
         </form>
-        <p class="notify-success">Thanks. You are on the list.</p>
+        <p class="notify-success">You are in. We will be in touch.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer contain">
+  <footer class="site-footer">
     <p>&copy; 2026 Agile Fragile. All rights reserved.</p>
+    <p class="tagline">Human Agile · Humans make the organization</p>
   </footer>
 
   <script>
-    document.querySelectorAll('[data-card]').forEach(function (card) {
-      card.querySelector('.flip-btn').addEventListener('click', function () {
-        card.classList.toggle('flipped');
+    (function () {
+      var questions = document.querySelectorAll('.index-question');
+      var total = questions.length;
+      var current = 0;
+      var scores = [];
+      var bar = document.getElementById('index-bar');
+      var questionsEl = document.getElementById('index-questions');
+      var resultEl = document.getElementById('index-result');
+
+      function updateBar() {
+        bar.style.width = ((current / total) * 100) + '%';
+      }
+
+      function showQuestion(n) {
+        questions.forEach(function (q, i) {
+          q.classList.toggle('active', i === n);
+        });
+        updateBar();
+      }
+
+      function showResult() {
+        var sum = scores.reduce(function (a, b) { return a + b; }, 0);
+        var max = total * 3;
+        var pct = Math.round((sum / max) * 100);
+        var label, desc, cls;
+
+        if (pct <= 40) {
+          label = 'Violent Agile';
+          cls = 'violent';
+          desc = 'Your organization is likely running agile at people, not with them. Human Agile starts with restoring trust and bringing humans back into the journey.';
+        } else if (pct <= 70) {
+          label = 'Transitional';
+          cls = 'transitional';
+          desc = 'You are between violent and human agile. Some good intent, but the system still breaks people in places. There is room to humanize fast.';
+        } else {
+          label = 'Human Agile';
+          cls = 'human';
+          desc = 'Your organization is moving in the right direction. Humans are part of the journey. Now sustain it as you scale.';
+        }
+
+        document.getElementById('index-score-num').textContent = pct + '%';
+        var labelEl = document.getElementById('index-score-label');
+        labelEl.textContent = label;
+        labelEl.className = 'index-score-label ' + cls;
+        document.getElementById('index-score-desc').textContent = desc;
+
+        questionsEl.style.display = 'none';
+        resultEl.classList.add('visible');
+        bar.style.width = '100%';
+      }
+
+      document.querySelectorAll('.index-opt').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          scores[current] = parseInt(btn.getAttribute('data-score'), 10);
+          current++;
+          if (current < total) {
+            showQuestion(current);
+          } else {
+            showResult();
+          }
+        });
       });
-    });
+
+      document.getElementById('index-restart').addEventListener('click', function () {
+        current = 0;
+        scores = [];
+        questionsEl.style.display = 'block';
+        resultEl.classList.remove('visible');
+        showQuestion(0);
+      });
+
+      updateBar();
+    })();
 
     document.getElementById('notify-form').addEventListener('submit', function (e) {
       e.preventDefault();
-      document.getElementById('notify').classList.add('submitted');
+      document.getElementById('join').classList.add('submitted');
     });
   </script>
 </body>
