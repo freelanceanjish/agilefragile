@@ -11,11 +11,13 @@
   var resultEl = document.getElementById('index-result');
   var ctaPrimary = document.getElementById('index-cta-primary');
 
+  var progressLabels = ['Starting', 'Going', 'Halfway', 'Keep going', 'Almost there', 'Nearly done', 'Last stretch', 'Final'];
+
   function updateProgress() {
     bar.style.width = ((current / total) * 100) + '%';
     counter.textContent = current < total
-      ? 'Question ' + (current + 1) + ' of ' + total
-      : 'Complete';
+      ? progressLabels[current]
+      : 'Done';
   }
 
   function showQuestion(n) {
@@ -55,7 +57,7 @@
     document.querySelector('.index-meta').style.display = 'none';
     resultEl.classList.add('visible');
     bar.style.width = '100%';
-    counter.textContent = 'Complete';
+    counter.textContent = 'Done';
   }
 
   document.querySelectorAll('.index-opt').forEach(function (btn) {
