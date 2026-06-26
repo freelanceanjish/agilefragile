@@ -31,8 +31,8 @@
     var label, desc;
 
     if (pct <= 40) {
-      label = 'Violent Agile';
-      desc = 'Product over people. The drift is deep. Name it before you scale again.';
+      label = 'Dark Agile';
+          desc = 'Product over people. Dark Agile runs deep. Name it before you scale again.';
       ctaPrimary.textContent = 'Read where we drifted';
       ctaPrimary.href = '/about.html#drift';
     } else if (pct <= 70) {

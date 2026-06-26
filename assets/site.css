@@ -242,6 +242,41 @@ main { padding-top: 80px; }
 }
 .coming-header .intro em { font-style: italic; opacity: 0.85; }
 
+.quote-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (min-width: 900px) {
+  .quote-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.quote-card {
+  background: var(--black);
+  border-radius: 8px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.quote-card blockquote {
+  font: 400 clamp(18px, 1.5vw, 24px) / 1.35 var(--font-serif);
+  color: var(--white);
+  text-wrap: pretty;
+}
+.quote-card cite {
+  font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+  color: var(--gray-light);
+  font-style: normal;
+}
+.quote-card .quote-source {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font: 500 clamp(11px, 1vw, 14px) / 1.4 var(--font-sans);
+}
+
 .model-pipeline {
   display: grid;
   grid-template-columns: 1fr;
