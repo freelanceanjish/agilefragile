@@ -9,455 +9,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --gray-mammoth: #818181;
-      --black: #151517;
-      --white: #ffffff;
-      --gray-light: #f7f7f7;
-      --gray-dark: #949494;
-      --accent: #1f35a9;
-      --contain: max(2vw, 10px);
-      --block: 50px;
-      --section: 100px;
-      --font-serif: "Newsreader", Georgia, serif;
-      --font-sans: "Inter", system-ui, sans-serif;
-    }
-
-    @media (min-width: 1080px) {
-      :root { --block: 100px; --section: 200px; }
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      background: var(--gray-mammoth);
-      color: var(--white);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-    ::selection { background: var(--accent); color: var(--white); }
-    a { color: inherit; text-decoration: none; }
-
-    .contain {
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding-inline: var(--contain);
-    }
-
-    .t-h-2 {
-      font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
-      letter-spacing: -0.02em;
-    }
-    @media (min-width: 600px) {
-      .t-h-2 { font-size: clamp(70px, 8vw, 150px); }
-    }
-
-    .t-h-3 {
-      font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
-      letter-spacing: -0.02em;
-    }
-    @media (min-width: 600px) {
-      .t-h-3 { font-size: clamp(60px, 5vw, 140px); }
-    }
-
-    .t-h-4 {
-      font: 500 clamp(26px, 3vw, 50px) / 1 var(--font-serif);
-    }
-
-    .t-h-5 {
-      font: 500 clamp(20px, 2.5vw, 30px) / 1.05 var(--font-serif);
-      letter-spacing: 0.01em;
-    }
-
-    .t-b-1 {
-      font: 400 clamp(22px, 2.5vw, 40px) / 1.1 var(--font-sans);
-      letter-spacing: -0.02em;
-    }
-    @media (min-width: 600px) {
-      .t-b-1 { font: 400 clamp(26px, 2.5vw, 40px) / 1 var(--font-sans); }
-    }
-
-    .t-b-2 {
-      font: 500 clamp(18px, 1.25vw, 24px) / 1.15 var(--font-sans);
-      letter-spacing: 0.02em;
-    }
-
-    .t-b-3 {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.02em;
-    }
-
-    .site-header {
-      position: fixed;
-      top: 16px;
-      left: 16px;
-      right: 16px;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .site-header .logo { display: flex; align-items: center; }
-    .site-header .logo img { width: 36px; height: 36px; display: block; }
-    .site-header .status {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.8;
-    }
-    .site-header .status a { opacity: 0.8; }
-    .site-header .status a:hover { opacity: 1; }
-
-    main { padding-top: 80px; }
-    .section { padding-block: var(--section); }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-    }
-    .hero h1 { width: 100%; max-width: 1400px; }
-    .hero .intro {
-      width: 90%;
-      max-width: 720px;
-      text-wrap: pretty;
-    }
-    .hero-cta {
-      display: inline-block;
-      padding: 14px 28px;
-      background: var(--accent);
-      color: var(--white);
-      border-radius: 4px;
-      font: 500 16px / 1.4 var(--font-sans);
-      transition: opacity 0.2s;
-    }
-    .hero-cta:hover { opacity: 0.9; }
-
-    .concept-section {
-      background: var(--black);
-      padding-block: var(--section);
-    }
-    .concept-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-    }
-    .concept-inner .thesis {
-      width: 90%;
-      max-width: 800px;
-      text-wrap: pretty;
-    }
-
-    .values-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .values-header .intro {
-      width: 90%;
-      max-width: 640px;
-      text-wrap: pretty;
-    }
-
-    .model-pipeline {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    @media (min-width: 900px) {
-      .model-pipeline { grid-template-columns: repeat(3, 1fr); }
-    }
-    .pipeline-step {
-      background: var(--accent);
-      border-radius: 8px;
-      padding: 32px 24px;
-      text-align: center;
-    }
-    .pipeline-step .step-num {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      margin-bottom: 12px;
-    }
-
-    .coming-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .coming-header .intro {
-      width: 90%;
-      max-width: 640px;
-      text-wrap: pretty;
-    }
-    .coming-header .intro em { font-style: italic; opacity: 0.85; }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      width: 100%;
-    }
-    @media (min-width: 600px) {
-      .card-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 900px) {
-      .card-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .card-grid.two { max-width: 940px; margin: 0 auto; }
-    @media (min-width: 600px) {
-      .card-grid.two { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    .flip-card {
-      position: relative;
-      aspect-ratio: 10 / 7;
-      perspective: 2000px;
-    }
-    .flip-card-inner {
-      position: absolute;
-      inset: 0;
-      transition: transform 0.6s ease;
-      transform-style: preserve-3d;
-    }
-    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-    .flip-face {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .flip-face.front { background: var(--accent); color: var(--white); }
-    .flip-face.back {
-      background: var(--white);
-      color: var(--gray-mammoth);
-      transform: rotateY(180deg);
-      overflow-y: auto;
-    }
-    .flip-face .learn-more { display: flex; align-items: center; gap: 8px; }
-    .flip-btn {
-      position: absolute;
-      inset: 0;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-    .flip-face.back ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .flip-face.back li {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.02em;
-    }
-    .arrow-icon { width: 1.25em; height: auto; }
-
-    /* Index — prominent working tool */
-    .index-section { padding-block: var(--section); }
-    .index-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .index-header .intro {
-      margin-top: 16px;
-      color: var(--gray-light);
-    }
-    .index-panel {
-      background: var(--white);
-      color: var(--black);
-      border-radius: 8px;
-      padding: 40px 28px;
-      max-width: 800px;
-      margin: 0 auto;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
-    }
-    .index-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    .index-counter {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gray-dark);
-    }
-    .index-progress {
-      flex: 1;
-      height: 6px;
-      background: var(--gray-light);
-      border-radius: 3px;
-      margin-left: 20px;
-      overflow: hidden;
-    }
-    .index-progress-bar {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 3px;
-      transition: width 0.35s ease;
-      width: 0%;
-    }
-    .index-question { display: none; }
-    .index-question.active { display: block; }
-    .index-question .question-text {
-      margin-bottom: 28px;
-      text-wrap: pretty;
-    }
-    .index-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .index-opt {
-      padding: 16px 14px;
-      border: 2px solid var(--gray-light);
-      border-radius: 4px;
-      background: var(--white);
-      color: var(--black);
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      text-align: center;
-    }
-    .index-opt:hover {
-      border-color: var(--accent);
-      background: #f0f2ff;
-    }
-    .index-result { display: none; text-align: center; }
-    .index-result.visible { display: block; }
-    .index-result .result-score {
-      color: var(--accent);
-      margin: 8px 0 16px;
-    }
-    .index-result .result-badge {
-      display: inline-block;
-      padding: 10px 20px;
-      background: var(--accent);
-      color: var(--white);
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
-    .index-result .result-desc {
-      color: var(--gray-mammoth);
-      margin-bottom: 28px;
-      text-wrap: pretty;
-    }
-    .index-restart {
-      padding: 14px 24px;
-      border: none;
-      border-radius: 4px;
-      background: var(--accent);
-      color: var(--white);
-      font: 500 16px / 1.4 var(--font-sans);
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    .index-restart:hover { opacity: 0.9; }
-
-    .notify-section {
-      background: var(--black);
-      padding-block: var(--section);
-    }
-    .notify-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-    }
-    .notify-inner .desc {
-      width: 90%;
-      max-width: 520px;
-      color: var(--gray-dark);
-      text-wrap: pretty;
-    }
-    .notify-form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      width: 100%;
-      max-width: 520px;
-      justify-content: center;
-    }
-    .notify-form input {
-      flex: 1;
-      min-width: 220px;
-      padding: 14px 16px;
-      border: none;
-      border-radius: 4px;
-      font: 500 16px / 1.4 var(--font-sans);
-      background: var(--white);
-      color: var(--black);
-    }
-    .notify-form input:focus {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-    .notify-form button {
-      padding: 14px 24px;
-      border: none;
-      border-radius: 4px;
-      background: var(--accent);
-      color: var(--white);
-      font: 500 16px / 1.4 var(--font-sans);
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    .notify-form button:hover { opacity: 0.9; }
-    .notify-success {
-      display: none;
-      color: var(--gray-light);
-      font: 500 18px / 1.4 var(--font-sans);
-    }
-    .notify-section.submitted .notify-form { display: none; }
-    .notify-section.submitted .notify-success { display: block; }
-
-    .site-footer {
-      padding-block: var(--block);
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    .site-footer p {
-      color: var(--gray-light);
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
   <header class="site-header contain">
     <a href="/" class="logo">
       <img src="/assets/logo-mark.svg" alt="Agile Fragile" width="36" height="36">
     </a>
-    <span class="status"><a href="#index">Human Agile Index</a></span>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/model.html">Model</a>
+      <a href="/how-we-work.html">How we work</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/#index" class="nav-cta">Human Agile Index</a>
+    </nav>
   </header>
 
   <main>
     <section class="section hero contain">
       <h1 class="t-h-2">Humans make the organization.</h1>
       <p class="intro t-b-2">We humanize agile. We end violent transformations.</p>
-      <a href="#index" class="hero-cta">Take the Human Agile Index</a>
+      <div class="cta-row">
+        <a href="#index" class="hero-cta">Take the Human Agile Index</a>
+        <a href="/how-we-work.html" class="btn-secondary">How we work</a>
+      </div>
     </section>
 
     <section class="index-section contain" id="index">
@@ -554,190 +129,102 @@
           <p class="result-score t-h-3" id="index-score-num">0%</p>
           <p class="result-badge t-b-2" id="index-score-label">Transitional</p>
           <p class="result-desc t-b-2" id="index-score-desc"></p>
+          <div class="cta-row" id="index-result-ctas" style="margin-bottom: 20px;">
+            <a href="/how-we-work.html" class="hero-cta" id="index-cta-primary">See how we work</a>
+            <a href="/contact.html" class="btn-secondary" style="border-color: var(--gray-mammoth); color: var(--black);">Talk to us</a>
+          </div>
           <button type="button" class="index-restart" id="index-restart">Take again</button>
         </div>
       </div>
     </section>
 
-    <section class="concept-section">
-      <div class="contain concept-inner">
-        <h2 class="t-h-3">Human Agile Model</h2>
-        <p class="thesis t-b-1">Adapt. Implement. Scale. With humans inside.</p>
-      </div>
-    </section>
-
     <section class="section contain">
-      <div class="model-pipeline">
-        <div class="pipeline-step">
-          <p class="step-num">01</p>
-          <h3 class="t-h-4">Adapt</h3>
-        </div>
-        <div class="pipeline-step">
-          <p class="step-num">02</p>
-          <h3 class="t-h-4">Implement</h3>
-        </div>
-        <div class="pipeline-step">
-          <p class="step-num">03</p>
-          <h3 class="t-h-4">Scale</h3>
-        </div>
+      <div class="page-header">
+        <h2 class="t-h-3">Explore</h2>
+        <p class="intro t-b-2">The model, how we engage, and who we are.</p>
+      </div>
+      <div class="teaser-links">
+        <a href="/model.html" class="teaser-link">
+          <h3 class="t-h-5">Human Agile Model</h3>
+          <span class="link-arrow t-b-3">Adapt, Implement, Scale <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true"><path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/></svg></span>
+        </a>
+        <a href="/how-we-work.html" class="teaser-link">
+          <h3 class="t-h-5">How we work</h3>
+          <span class="link-arrow t-b-3">Restore, Support, Sustain <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true"><path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/></svg></span>
+        </a>
+        <a href="/about.html" class="teaser-link">
+          <h3 class="t-h-5">About</h3>
+          <span class="link-arrow t-b-3">Why Human Agile exists <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true"><path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/></svg></span>
+        </a>
+        <a href="/contact.html" class="teaser-link">
+          <h3 class="t-h-5">Work with us</h3>
+          <span class="link-arrow t-b-3">Start a conversation <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true"><path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/></svg></span>
+        </a>
       </div>
     </section>
 
-    <section class="section contain">
-      <div class="coming-header">
-        <h2 class="t-h-3">How We Deliver</h2>
-        <p class="intro t-b-2"><em>Tap a card.</em></p>
-      </div>
-      <div class="card-grid">
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Restore</h3>
-              <div class="learn-more t-b-3">
-                <span>Workshops</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Restore</h3>
-              <ul>
-                <li>Reset after violent agile</li>
-                <li>Strip the theater</li>
-                <li>Rebuild trust</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Restore card"></button>
-        </div>
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Support</h3>
-              <div class="learn-more t-b-3">
-                <span>Community</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Support</h3>
-              <ul>
-                <li>Real peers</li>
-                <li>Honest conversation</li>
-                <li>You are not alone</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Support card"></button>
-        </div>
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Sustain</h3>
-              <div class="learn-more t-b-3">
-                <span>Resources</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Sustain</h3>
-              <ul>
-                <li>Cut admin overhead</li>
-                <li>Protect your people</li>
-                <li>Keep agile human</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Sustain card"></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="concept-section">
-      <div class="contain concept-inner">
-        <h2 class="t-h-3">The Divide</h2>
-        <p class="thesis t-b-1">Violent agile breaks people. Human agile builds with them.</p>
-      </div>
-    </section>
-
-    <section class="section contain">
-      <div class="card-grid two">
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Violent Agile</h3>
-              <div class="learn-more t-b-3">
-                <span>Learn more</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Violent Agile</h3>
-              <ul>
-                <li>Done to people</li>
-                <li>Dashboards as judgment</li>
-                <li>Blame the resistance</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Violent Agile card"></button>
-        </div>
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Human Agile</h3>
-              <div class="learn-more t-b-3">
-                <span>Learn more</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Human Agile</h3>
-              <ul>
-                <li>Built with people</li>
-                <li>Valued from day one</li>
-                <li>Subtract harm first</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Human Agile card"></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="notify-section" id="join">
+    <section class="notify-section form-section" id="join">
       <div class="contain notify-inner">
         <h2 class="t-h-3">Join Human Agile</h2>
         <p class="desc t-b-2">Early access to the model, community, and tools.</p>
-        <form class="notify-form" id="notify-form">
+        <form class="notify-form" data-form id="notify-form">
           <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
           <button type="submit">Notify me</button>
         </form>
-        <p class="notify-success">You are in. We will be in touch.</p>
+        <p class="form-success">You are in. We will be in touch.</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer contain">
-    <p>&copy; 2026 Agile Fragile. All rights reserved.</p>
+    <div class="footer-panel">
+      <div class="footer-top">
+        <a href="/" class="footer-logo">
+          <img src="/assets/footer-wordmark.svg" alt="Agile Fragile" width="160" height="64">
+        </a>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="footer-label t-b-3">Explore</span>
+            <ul>
+              <li><a href="/" class="t-h-5">Home</a></li>
+              <li><a href="/model.html" class="t-h-5">Human Agile Model</a></li>
+              <li><a href="/how-we-work.html" class="t-h-5">How we work</a></li>
+              <li><a href="/about.html" class="t-h-5">About</a></li>
+              <li><a href="/#index" class="t-h-5">Human Agile Index</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <span class="footer-label t-b-3">Organizations</span>
+            <ul>
+              <li><a href="/contact.html" class="t-h-5">Work with us</a></li>
+              <li><a href="/how-we-work.html" class="t-h-5">Engagement flow</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <span class="footer-label t-b-3">Follow us</span>
+            <ul>
+              <li><a href="https://www.linkedin.com/company/agilefragile" class="t-h-5" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <span class="footer-label t-b-3">Inquiries</span>
+            <a href="mailto:hello@agilefragile.com" class="footer-email t-b-2">hello@agilefragile.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <ul class="footer-legal">
+          <li><a href="/privacy.html" class="t-b-3">Privacy Policy</a></li>
+          <li class="sep" aria-hidden="true">▪</li>
+          <li><a href="/contact.html" class="t-b-3">Contact</a></li>
+        </ul>
+        <p class="footer-copy t-b-3">&copy; 2026 Agile Fragile. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
+  <script src="/assets/site.js"></script>
   <script>
-    document.querySelectorAll('[data-card]').forEach(function (card) {
-      card.querySelector('.flip-btn').addEventListener('click', function () {
-        card.classList.toggle('flipped');
-      });
-    });
-
     (function () {
       var questions = document.querySelectorAll('.index-question');
       var total = questions.length;
@@ -747,6 +234,7 @@
       var counter = document.getElementById('index-counter');
       var questionsEl = document.getElementById('index-questions');
       var resultEl = document.getElementById('index-result');
+      var ctaPrimary = document.getElementById('index-cta-primary');
 
       function updateProgress() {
         bar.style.width = ((current / total) * 100) + '%';
@@ -769,13 +257,16 @@
 
         if (pct <= 40) {
           label = 'Violent Agile';
-          desc = 'Agile is running at your people, not with them. Time to humanize.';
+          desc = 'Agile is running at your people, not with them. Restore is usually the right first step.';
+          ctaPrimary.textContent = 'See Restore workshops';
         } else if (pct <= 70) {
           label = 'Transitional';
-          desc = 'Good intent, but the system still breaks people in places.';
+          desc = 'Good intent, but the system still breaks people in places. Time to humanize.';
+          ctaPrimary.textContent = 'See how we work';
         } else {
           label = 'Human Agile';
           desc = 'Humans are in the journey. Now sustain it as you scale.';
+          ctaPrimary.textContent = 'Sustain as you scale';
         }
 
         document.getElementById('index-score-num').textContent = pct + '%';
@@ -807,16 +298,12 @@
         questionsEl.style.display = 'block';
         document.querySelector('.index-meta').style.display = 'flex';
         resultEl.classList.remove('visible');
+        ctaPrimary.textContent = 'See how we work';
         showQuestion(0);
       });
 
       updateProgress();
     })();
-
-    document.getElementById('notify-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      document.getElementById('join').classList.add('submitted');
-    });
   </script>
 </body>
 </html>
