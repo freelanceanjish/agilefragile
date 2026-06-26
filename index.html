@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Agile Fragile: The first organization evangelizing Human Agile. Models, tools, and transformation assistance with humans at the center.">
+  <meta name="description" content="Agile Fragile: Human Agile model and index. Humanize agile. End violent transformations.">
   <title>Agile Fragile | Human Agile</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,22 +25,11 @@
     }
 
     @media (min-width: 1080px) {
-      :root {
-        --block: 100px;
-        --section: 200px;
-      }
+      :root { --block: 100px; --section: 200px; }
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-sans);
       background: var(--gray-mammoth);
@@ -48,16 +37,8 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-
-    ::selection {
-      background: var(--accent);
-      color: var(--white);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    ::selection { background: var(--accent); color: var(--white); }
+    a { color: inherit; text-decoration: none; }
 
     .contain {
       width: 100%;
@@ -70,22 +51,16 @@
       font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
       letter-spacing: -0.02em;
     }
-
     @media (min-width: 600px) {
-      .t-h-2 {
-        font-size: clamp(70px, 8vw, 150px);
-      }
+      .t-h-2 { font-size: clamp(70px, 8vw, 150px); }
     }
 
     .t-h-3 {
       font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
       letter-spacing: -0.02em;
     }
-
     @media (min-width: 600px) {
-      .t-h-3 {
-        font-size: clamp(60px, 5vw, 140px);
-      }
+      .t-h-3 { font-size: clamp(60px, 5vw, 140px); }
     }
 
     .t-h-4 {
@@ -101,11 +76,8 @@
       font: 400 clamp(22px, 2.5vw, 40px) / 1.1 var(--font-sans);
       letter-spacing: -0.02em;
     }
-
     @media (min-width: 600px) {
-      .t-b-1 {
-        font: 400 clamp(26px, 2.5vw, 40px) / 1 var(--font-sans);
-      }
+      .t-b-1 { font: 400 clamp(26px, 2.5vw, 40px) / 1 var(--font-sans); }
     }
 
     .t-b-2 {
@@ -129,32 +101,19 @@
       justify-content: space-between;
       gap: 10px;
     }
-
-    .site-header .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .site-header .logo img {
-      width: 36px;
-      height: 36px;
-      display: block;
-    }
-
+    .site-header .logo { display: flex; align-items: center; }
+    .site-header .logo img { width: 36px; height: 36px; display: block; }
     .site-header .status {
       font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       opacity: 0.8;
     }
+    .site-header .status a { opacity: 0.8; }
+    .site-header .status a:hover { opacity: 1; }
 
-    main {
-      padding-top: 80px;
-    }
-
-    .section {
-      padding-block: var(--section);
-    }
+    main { padding-top: 80px; }
+    .section { padding-block: var(--section); }
 
     .hero {
       display: flex;
@@ -163,15 +122,37 @@
       gap: 40px;
       text-align: center;
     }
-
-    .hero h1 {
-      width: 100%;
-      max-width: 1400px;
-    }
-
+    .hero h1 { width: 100%; max-width: 1400px; }
     .hero .intro {
       width: 90%;
-      max-width: 940px;
+      max-width: 720px;
+      text-wrap: pretty;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 4px;
+      font: 500 16px / 1.4 var(--font-sans);
+      transition: opacity 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.9; }
+
+    .concept-section {
+      background: var(--black);
+      padding-block: var(--section);
+    }
+    .concept-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+    }
+    .concept-inner .thesis {
+      width: 90%;
+      max-width: 800px;
       text-wrap: pretty;
     }
 
@@ -181,41 +162,34 @@
       align-items: center;
       gap: 40px;
       text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
     }
-
     .values-header .intro {
       width: 90%;
-      max-width: 940px;
+      max-width: 640px;
       text-wrap: pretty;
     }
 
-    .value-row {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      text-align: center;
-      max-width: 940px;
-      margin: 0 auto 40px;
+    .model-pipeline {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
-
-    @media (min-width: 600px) {
-      .value-row {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        gap: 24px;
-        width: 66.666%;
-      }
-
-      .value-row h2 {
-        flex: 0 0 33.333%;
-      }
-
-      .value-row p {
-        flex: 1;
-      }
+    @media (min-width: 900px) {
+      .model-pipeline { grid-template-columns: repeat(3, 1fr); }
+    }
+    .pipeline-step {
+      background: var(--accent);
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .pipeline-step .step-num {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 12px;
     }
 
     .coming-header {
@@ -226,17 +200,12 @@
       text-align: center;
       margin-bottom: 40px;
     }
-
     .coming-header .intro {
       width: 90%;
-      max-width: 940px;
+      max-width: 640px;
       text-wrap: pretty;
     }
-
-    .coming-header .intro em {
-      font-style: italic;
-      opacity: 0.85;
-    }
+    .coming-header .intro em { font-style: italic; opacity: 0.85; }
 
     .card-grid {
       display: grid;
@@ -244,17 +213,15 @@
       gap: 10px;
       width: 100%;
     }
-
     @media (min-width: 600px) {
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
     @media (min-width: 900px) {
-      .card-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      .card-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card-grid.two { max-width: 940px; margin: 0 auto; }
+    @media (min-width: 600px) {
+      .card-grid.two { grid-template-columns: repeat(2, 1fr); }
     }
 
     .flip-card {
@@ -262,18 +229,13 @@
       aspect-ratio: 10 / 7;
       perspective: 2000px;
     }
-
     .flip-card-inner {
       position: absolute;
       inset: 0;
       transition: transform 0.6s ease;
       transform-style: preserve-3d;
     }
-
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
     .flip-face {
       position: absolute;
       inset: 0;
@@ -284,25 +246,14 @@
       flex-direction: column;
       justify-content: space-between;
     }
-
-    .flip-face.front {
-      background: var(--accent);
-      color: var(--white);
-    }
-
+    .flip-face.front { background: var(--accent); color: var(--white); }
     .flip-face.back {
       background: var(--white);
       color: var(--gray-mammoth);
       transform: rotateY(180deg);
       overflow-y: auto;
     }
-
-    .flip-face .learn-more {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
+    .flip-face .learn-more { display: flex; align-items: center; gap: 8px; }
     .flip-btn {
       position: absolute;
       inset: 0;
@@ -311,24 +262,124 @@
       cursor: pointer;
       border-radius: 8px;
     }
-
     .flip-face.back ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
-
     .flip-face.back li {
       font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
       letter-spacing: 0.02em;
     }
+    .arrow-icon { width: 1.25em; height: auto; }
+
+    /* Index — prominent working tool */
+    .index-section { padding-block: var(--section); }
+    .index-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .index-header .intro {
+      margin-top: 16px;
+      color: var(--gray-light);
+    }
+    .index-panel {
+      background: var(--white);
+      color: var(--black);
+      border-radius: 8px;
+      padding: 40px 28px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+    }
+    .index-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .index-counter {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+    }
+    .index-progress {
+      flex: 1;
+      height: 6px;
+      background: var(--gray-light);
+      border-radius: 3px;
+      margin-left: 20px;
+      overflow: hidden;
+    }
+    .index-progress-bar {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      transition: width 0.35s ease;
+      width: 0%;
+    }
+    .index-question { display: none; }
+    .index-question.active { display: block; }
+    .index-question .question-text {
+      margin-bottom: 28px;
+      text-wrap: pretty;
+    }
+    .index-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .index-opt {
+      padding: 16px 14px;
+      border: 2px solid var(--gray-light);
+      border-radius: 4px;
+      background: var(--white);
+      color: var(--black);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      text-align: center;
+    }
+    .index-opt:hover {
+      border-color: var(--accent);
+      background: #f0f2ff;
+    }
+    .index-result { display: none; text-align: center; }
+    .index-result.visible { display: block; }
+    .index-result .result-score {
+      color: var(--accent);
+      margin: 8px 0 16px;
+    }
+    .index-result .result-badge {
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .index-result .result-desc {
+      color: var(--gray-mammoth);
+      margin-bottom: 28px;
+      text-wrap: pretty;
+    }
+    .index-restart {
+      padding: 14px 24px;
+      border: none;
+      border-radius: 4px;
+      background: var(--accent);
+      color: var(--white);
+      font: 500 16px / 1.4 var(--font-sans);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .index-restart:hover { opacity: 0.9; }
 
     .notify-section {
       background: var(--black);
       padding-block: var(--section);
     }
-
     .notify-inner {
       display: flex;
       flex-direction: column;
@@ -336,14 +387,12 @@
       gap: 40px;
       text-align: center;
     }
-
     .notify-inner .desc {
       width: 90%;
-      max-width: 640px;
+      max-width: 520px;
       color: var(--gray-dark);
       text-wrap: pretty;
     }
-
     .notify-form {
       display: flex;
       flex-wrap: wrap;
@@ -352,7 +401,6 @@
       max-width: 520px;
       justify-content: center;
     }
-
     .notify-form input {
       flex: 1;
       min-width: 220px;
@@ -363,12 +411,10 @@
       background: var(--white);
       color: var(--black);
     }
-
     .notify-form input:focus {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
-
     .notify-form button {
       padding: 14px 24px;
       border: none;
@@ -379,205 +425,23 @@
       cursor: pointer;
       transition: opacity 0.2s;
     }
-
-    .notify-form button:hover {
-      opacity: 0.9;
-    }
-
+    .notify-form button:hover { opacity: 0.9; }
     .notify-success {
       display: none;
       color: var(--gray-light);
       font: 500 18px / 1.4 var(--font-sans);
     }
-
-    .notify-section.submitted .notify-form {
-      display: none;
-    }
-
-    .notify-section.submitted .notify-success {
-      display: block;
-    }
+    .notify-section.submitted .notify-form { display: none; }
+    .notify-section.submitted .notify-success { display: block; }
 
     .site-footer {
       padding-block: var(--block);
       border-top: 1px solid rgba(255, 255, 255, 0.15);
     }
-
     .site-footer p {
       color: var(--gray-light);
       font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
       text-align: center;
-    }
-
-    .model-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 940px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 900px) {
-      .model-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        max-width: none;
-      }
-    }
-
-    .model-step {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .model-step .step-label {
-      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-light);
-      opacity: 0.9;
-    }
-
-    .concept-section {
-      background: var(--black);
-      padding-block: var(--section);
-    }
-
-    .concept-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-    }
-
-    .concept-inner .intro {
-      width: 90%;
-      max-width: 940px;
-      text-wrap: pretty;
-      color: var(--gray-light);
-    }
-
-    .concept-inner .thesis {
-      width: 90%;
-      max-width: 800px;
-      color: var(--white);
-      text-wrap: pretty;
-    }
-
-    .arrow-icon {
-      width: 1.25em;
-      height: auto;
-    }
-
-    .index-wrap {
-      width: 90%;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .index-progress {
-      height: 4px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 2px;
-      margin-bottom: 40px;
-      overflow: hidden;
-    }
-
-    .index-progress-bar {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 2px;
-      transition: width 0.3s ease;
-      width: 0%;
-    }
-
-    .index-question {
-      display: none;
-      text-align: center;
-    }
-
-    .index-question.active {
-      display: block;
-    }
-
-    .index-question .question-text {
-      width: 90%;
-      max-width: 800px;
-      margin: 0 auto 40px;
-      text-wrap: pretty;
-    }
-
-    .index-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .index-opt {
-      padding: 14px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 4px;
-      background: transparent;
-      color: var(--white);
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .index-opt:hover {
-      opacity: 0.85;
-    }
-
-    .index-result {
-      display: none;
-      text-align: center;
-    }
-
-    .index-result.visible {
-      display: block;
-    }
-
-    .index-result .result-label {
-      margin-bottom: 16px;
-      opacity: 0.8;
-    }
-
-    .index-result .result-score {
-      margin-bottom: 16px;
-    }
-
-    .index-result .result-badge {
-      display: inline-block;
-      margin-bottom: 24px;
-      padding: 8px 16px;
-      border-radius: 4px;
-      background: var(--accent);
-    }
-
-    .index-result .result-desc {
-      width: 90%;
-      max-width: 640px;
-      margin: 0 auto 40px;
-      color: var(--gray-light);
-      text-wrap: pretty;
-    }
-
-    .index-restart {
-      padding: 14px 24px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 4px;
-      background: transparent;
-      color: var(--white);
-      font: 500 16px / 1.4 var(--font-sans);
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .index-restart:hover {
-      opacity: 0.85;
     }
   </style>
 </head>
@@ -586,101 +450,33 @@
     <a href="/" class="logo">
       <img src="/assets/logo-mark.svg" alt="Agile Fragile" width="36" height="36">
     </a>
-    <span class="status">Human Agile</span>
+    <span class="status"><a href="#index">Human Agile Index</a></span>
   </header>
 
   <main>
     <section class="section hero contain">
       <h1 class="t-h-2">Humans make the organization.</h1>
-      <p class="intro t-b-1">Humanizing agile. Ending violent transformations.</p>
-      <p class="intro t-b-2">
-        We help organizations adapt, implement, and scale agile with humans at the center.
-        Not against them. Humans are your most valuable asset.
-      </p>
+      <p class="intro t-b-2">We humanize agile. We end violent transformations.</p>
+      <a href="#index" class="hero-cta">Take the Human Agile Index</a>
     </section>
 
-    <section class="concept-section">
-      <div class="contain concept-inner">
-        <h2 class="t-h-3">The Problem</h2>
-        <p class="thesis t-b-1">Most agile transformations crush people to hit a deadline.</p>
-        <p class="intro t-b-2">
-          Pushed. Excluded. Burned out. Then blamed for resisting. That is not agile.
-          That is violent transformation. And it breaks delivery.
-        </p>
-      </div>
-    </section>
-
-    <section class="section contain">
-      <div class="values-header">
-        <h2 class="t-h-3">Human Agile Model</h2>
-        <p class="intro t-b-2">Adapt. Implement. Scale. With humans inside every step.</p>
-      </div>
-
-      <div class="value-row">
-        <h2 class="t-h-5">Adapt</h2>
-        <p class="t-b-2">Agile that fits your people and context. Not a playbook forced on the room.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Implement</h2>
-        <p class="t-b-2">Change with humans inside the journey. Valued from day one.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Scale</h2>
-        <p class="t-b-2">Growth that protects focus and quality. Burned-out teams do not scale.</p>
-      </div>
-    </section>
-
-    <section class="concept-section">
-      <div class="contain concept-inner">
-        <h2 class="t-h-3">What We Are</h2>
-        <p class="thesis t-b-1">Not a training factory. Not a matrix machine.</p>
-        <p class="intro t-b-2">
-          The first organization evangelizing Human Agile. We build models and assist
-          organizations in transformation where humans are at the center of everything.
-        </p>
-      </div>
-    </section>
-
-    <section class="section contain">
-      <div class="values-header">
-        <h2 class="t-h-3">Our Model</h2>
-        <p class="intro t-b-2">Restore what was lost. Support people through change. Sustain agile that stays human.</p>
-      </div>
-
-      <div class="model-grid">
-        <article class="model-step">
-          <p class="step-label">01. Restore</p>
-          <h3 class="t-h-5">Workshops</h3>
-          <p class="t-b-2">Reset after violent agile. Strip theater. Rebuild trust.</p>
-        </article>
-        <article class="model-step">
-          <p class="step-label">02. Support</p>
-          <h3 class="t-h-5">Community</h3>
-          <p class="t-b-2">Leaders and teams navigating change together. Real peers.</p>
-        </article>
-        <article class="model-step">
-          <p class="step-label">03. Sustain</p>
-          <h3 class="t-h-5">Resources</h3>
-          <p class="t-b-2">Tools that cut admin and keep agile human as you grow.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="concept-section" id="index">
-      <div class="contain concept-inner">
+    <section class="index-section contain" id="index">
+      <div class="index-header">
         <h2 class="t-h-3">Human Agile Index</h2>
-        <p class="thesis t-b-1">Where does your organization stand?</p>
-        <p class="intro t-b-2">8 questions. Answer honestly. See if you run violent or human agile.</p>
+        <p class="intro t-b-2">8 questions. Get your score. Violent, transitional, or human.</p>
       </div>
 
-      <div class="index-wrap" id="index-app">
-        <div class="index-progress">
-          <div class="index-progress-bar" id="index-bar"></div>
+      <div class="index-panel" id="index-app">
+        <div class="index-meta">
+          <span class="index-counter t-b-3" id="index-counter">Question 1 of 8</span>
+          <div class="index-progress">
+            <div class="index-progress-bar" id="index-bar"></div>
+          </div>
         </div>
 
         <div id="index-questions">
           <div class="index-question active" data-q="0">
-            <p class="question-text t-h-5">Are the people affected by agile change in the room when it is designed?</p>
+            <p class="question-text t-h-5">Are people in the room when agile change is designed?</p>
             <div class="index-options">
               <button type="button" class="index-opt t-b-3" data-score="0">Rarely</button>
               <button type="button" class="index-opt t-b-3" data-score="1">Sometimes</button>
@@ -689,7 +485,7 @@
             </div>
           </div>
           <div class="index-question" data-q="1">
-            <p class="question-text t-h-5">Is agile built with your teams, or pushed to them on a timeline?</p>
+            <p class="question-text t-h-5">Is agile built with teams, or pushed on a timeline?</p>
             <div class="index-options">
               <button type="button" class="index-opt t-b-3" data-score="0">Pushed</button>
               <button type="button" class="index-opt t-b-3" data-score="1">Mostly pushed</button>
@@ -698,16 +494,16 @@
             </div>
           </div>
           <div class="index-question" data-q="2">
-            <p class="question-text t-h-5">Do people feel valued in the transformation journey?</p>
+            <p class="question-text t-h-5">Do people feel valued in the transformation?</p>
             <div class="index-options">
               <button type="button" class="index-opt t-b-3" data-score="0">No</button>
-              <button type="button" class="index-opt t-b-3" data-score="1">Few do</button>
-              <button type="button" class="index-opt t-b-3" data-score="2">Some do</button>
-              <button type="button" class="index-opt t-b-3" data-score="3">Most do</button>
+              <button type="button" class="index-opt t-b-3" data-score="1">Few</button>
+              <button type="button" class="index-opt t-b-3" data-score="2">Some</button>
+              <button type="button" class="index-opt t-b-3" data-score="3">Most</button>
             </div>
           </div>
           <div class="index-question" data-q="3">
-            <p class="question-text t-h-5">Are dashboards used for learning, or for judgment?</p>
+            <p class="question-text t-h-5">Are dashboards for learning or judgment?</p>
             <div class="index-options">
               <button type="button" class="index-opt t-b-3" data-score="0">Judgment</button>
               <button type="button" class="index-opt t-b-3" data-score="1">Mostly judgment</button>
@@ -716,16 +512,16 @@
             </div>
           </div>
           <div class="index-question" data-q="4">
-            <p class="question-text t-h-5">Is burnout treated as a design problem or a people problem?</p>
+            <p class="question-text t-h-5">Is burnout a design problem or a people problem?</p>
             <div class="index-options">
-              <button type="button" class="index-opt t-b-3" data-score="0">People problem</button>
+              <button type="button" class="index-opt t-b-3" data-score="0">People</button>
               <button type="button" class="index-opt t-b-3" data-score="1">Mostly people</button>
-              <button type="button" class="index-opt t-b-3" data-score="2">Starting to shift</button>
-              <button type="button" class="index-opt t-b-3" data-score="3">Design problem</button>
+              <button type="button" class="index-opt t-b-3" data-score="2">Shifting</button>
+              <button type="button" class="index-opt t-b-3" data-score="3">Design</button>
             </div>
           </div>
           <div class="index-question" data-q="5">
-            <p class="question-text t-h-5">Can teams push back on ceremony that does not help?</p>
+            <p class="question-text t-h-5">Can teams reject ceremony that does not help?</p>
             <div class="index-options">
               <button type="button" class="index-opt t-b-3" data-score="0">No</button>
               <button type="button" class="index-opt t-b-3" data-score="1">Rarely</button>
@@ -734,18 +530,18 @@
             </div>
           </div>
           <div class="index-question" data-q="6">
-            <p class="question-text t-h-5">Do leaders enable teams, or mainly track and report on them?</p>
+            <p class="question-text t-h-5">Do leaders enable teams or track and report?</p>
             <div class="index-options">
-              <button type="button" class="index-opt t-b-3" data-score="0">Track and report</button>
+              <button type="button" class="index-opt t-b-3" data-score="0">Track</button>
               <button type="button" class="index-opt t-b-3" data-score="1">Mostly track</button>
               <button type="button" class="index-opt t-b-3" data-score="2">Mixed</button>
               <button type="button" class="index-opt t-b-3" data-score="3">Enable</button>
             </div>
           </div>
           <div class="index-question" data-q="7">
-            <p class="question-text t-h-5">Would your people say agile works for them, not against them?</p>
+            <p class="question-text t-h-5">Does agile work for your people, not against them?</p>
             <div class="index-options">
-              <button type="button" class="index-opt t-b-3" data-score="0">Against them</button>
+              <button type="button" class="index-opt t-b-3" data-score="0">Against</button>
               <button type="button" class="index-opt t-b-3" data-score="1">Mostly against</button>
               <button type="button" class="index-opt t-b-3" data-score="2">Mixed</button>
               <button type="button" class="index-opt t-b-3" data-score="3">For them</button>
@@ -754,146 +550,123 @@
         </div>
 
         <div class="index-result" id="index-result">
-          <p class="result-label t-b-3">Your score</p>
-          <p class="result-score t-h-3" id="index-score-num">0</p>
-          <p class="result-badge t-b-3" id="index-score-label">Transitional</p>
+          <p class="t-b-3" style="color: var(--gray-dark); text-transform: uppercase; letter-spacing: 0.08em;">Your score</p>
+          <p class="result-score t-h-3" id="index-score-num">0%</p>
+          <p class="result-badge t-b-2" id="index-score-label">Transitional</p>
           <p class="result-desc t-b-2" id="index-score-desc"></p>
-          <button type="button" class="index-restart" id="index-restart">Start over</button>
+          <button type="button" class="index-restart" id="index-restart">Take again</button>
         </div>
       </div>
     </section>
 
-    <section class="section contain">
-      <div class="values-header">
-        <h2 class="t-h-3">Human Agile Manifesto</h2>
-        <p class="intro t-b-2">Eight principles. One belief: humans make the organization.</p>
-      </div>
-
-      <div class="value-row">
-        <h2 class="t-h-5">Humans are the asset</h2>
-        <p class="t-b-2">Not the obstacle. Not the rollout risk.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Change with, not to</h2>
-        <p class="t-b-2">No transformation decided without the people inside it.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Subtract before you add</h2>
-        <p class="t-b-2">Remove harm before piling on more process.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Trust over tracking</h2>
-        <p class="t-b-2">Metrics should help teams learn, not fear.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">No violent transformation</h2>
-        <p class="t-b-2">Speed without humanity breaks delivery.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Adapt before you scale</h2>
-        <p class="t-b-2">Context and people come before playbook.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Leaders enable</h2>
-        <p class="t-b-2">Not perform agile. Not become human dashboards.</p>
-      </div>
-      <div class="value-row">
-        <h2 class="t-h-5">Agile serves the org</h2>
-        <p class="t-b-2">People do not serve agile.</p>
+    <section class="concept-section">
+      <div class="contain concept-inner">
+        <h2 class="t-h-3">Human Agile Model</h2>
+        <p class="thesis t-b-1">Adapt. Implement. Scale. With humans inside.</p>
       </div>
     </section>
 
     <section class="section contain">
-      <div class="coming-header">
-        <h2 class="t-h-3">Who We Serve</h2>
-        <p class="intro t-b-2">
-          Organizations ready to humanize agile.
-          <em>Click each group to learn more.</em>
-        </p>
-      </div>
-
-      <div class="card-grid">
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Teams</h3>
-              <div class="learn-more t-b-3">
-                <span>Learn more</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Teams</h3>
-              <ul>
-                <li>Agile that works for you, not against you</li>
-                <li>A voice in how you adapt and scale</li>
-                <li>Less ceremony, more meaningful work</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Teams card"></button>
+      <div class="model-pipeline">
+        <div class="pipeline-step">
+          <p class="step-num">01</p>
+          <h3 class="t-h-4">Adapt</h3>
         </div>
-
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Leaders</h3>
-              <div class="learn-more t-b-3">
-                <span>Learn more</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Leaders</h3>
-              <ul>
-                <li>Implement change without breaking your people</li>
-                <li>Scale delivery by investing in humans first</li>
-                <li>End violent transformations before they spread</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Leaders card"></button>
+        <div class="pipeline-step">
+          <p class="step-num">02</p>
+          <h3 class="t-h-4">Implement</h3>
         </div>
-
-        <div class="flip-card" data-card>
-          <div class="flip-card-inner">
-            <div class="flip-face front">
-              <h3 class="t-h-4">Organizations</h3>
-              <div class="learn-more t-b-3">
-                <span>Learn more</span>
-                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
-                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flip-face back">
-              <h3 class="t-h-4">Organizations</h3>
-              <ul>
-                <li>Human-centric agile at scale</li>
-                <li>Adapt, implement, and grow with people inside the journey</li>
-                <li>Protect your most valuable asset while you transform</li>
-              </ul>
-            </div>
-          </div>
-          <button class="flip-btn" type="button" aria-label="Flip Organizations card"></button>
+        <div class="pipeline-step">
+          <p class="step-num">03</p>
+          <h3 class="t-h-4">Scale</h3>
         </div>
       </div>
     </section>
 
     <section class="section contain">
       <div class="coming-header">
-        <h2 class="t-h-3">Violent vs Human Agile</h2>
-        <p class="intro t-b-2">
-          The divide we exist to close.
-          <em>Click each side to compare.</em>
-        </p>
+        <h2 class="t-h-3">How We Deliver</h2>
+        <p class="intro t-b-2"><em>Tap a card.</em></p>
       </div>
-
       <div class="card-grid">
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Restore</h3>
+              <div class="learn-more t-b-3">
+                <span>Workshops</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Restore</h3>
+              <ul>
+                <li>Reset after violent agile</li>
+                <li>Strip the theater</li>
+                <li>Rebuild trust</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Restore card"></button>
+        </div>
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Support</h3>
+              <div class="learn-more t-b-3">
+                <span>Community</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Support</h3>
+              <ul>
+                <li>Real peers</li>
+                <li>Honest conversation</li>
+                <li>You are not alone</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Support card"></button>
+        </div>
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Sustain</h3>
+              <div class="learn-more t-b-3">
+                <span>Resources</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Sustain</h3>
+              <ul>
+                <li>Cut admin overhead</li>
+                <li>Protect your people</li>
+                <li>Keep agile human</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Sustain card"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="concept-section">
+      <div class="contain concept-inner">
+        <h2 class="t-h-3">The Divide</h2>
+        <p class="thesis t-b-1">Violent agile breaks people. Human agile builds with them.</p>
+      </div>
+    </section>
+
+    <section class="section contain">
+      <div class="card-grid two">
         <div class="flip-card" data-card>
           <div class="flip-card-inner">
             <div class="flip-face front">
@@ -908,16 +681,14 @@
             <div class="flip-face back">
               <h3 class="t-h-4">Violent Agile</h3>
               <ul>
-                <li>Transformation done to people</li>
-                <li>Decided in rooms they are not in</li>
+                <li>Done to people</li>
                 <li>Dashboards as judgment</li>
-                <li>Burnout blamed on resistance</li>
+                <li>Blame the resistance</li>
               </ul>
             </div>
           </div>
           <button class="flip-btn" type="button" aria-label="Flip Violent Agile card"></button>
         </div>
-
         <div class="flip-card" data-card>
           <div class="flip-card-inner">
             <div class="flip-face front">
@@ -932,10 +703,9 @@
             <div class="flip-face back">
               <h3 class="t-h-4">Human Agile</h3>
               <ul>
-                <li>Transformation built with people</li>
-                <li>Humans valued from day one</li>
-                <li>Metrics for learning, not fear</li>
-                <li>Subtract harm before you add</li>
+                <li>Built with people</li>
+                <li>Valued from day one</li>
+                <li>Subtract harm first</li>
               </ul>
             </div>
           </div>
@@ -947,10 +717,10 @@
     <section class="notify-section" id="join">
       <div class="contain notify-inner">
         <h2 class="t-h-3">Join Human Agile</h2>
-        <p class="desc t-b-2">We are building the first organization evangelizing Human Agile. Get early access to the model, community, and tools.</p>
+        <p class="desc t-b-2">Early access to the model, community, and tools.</p>
         <form class="notify-form" id="notify-form">
           <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
-          <button type="submit">Join the movement</button>
+          <button type="submit">Notify me</button>
         </form>
         <p class="notify-success">You are in. We will be in touch.</p>
       </div>
@@ -974,35 +744,38 @@
       var current = 0;
       var scores = [];
       var bar = document.getElementById('index-bar');
+      var counter = document.getElementById('index-counter');
       var questionsEl = document.getElementById('index-questions');
       var resultEl = document.getElementById('index-result');
 
-      function updateBar() {
+      function updateProgress() {
         bar.style.width = ((current / total) * 100) + '%';
+        counter.textContent = current < total
+          ? 'Question ' + (current + 1) + ' of ' + total
+          : 'Complete';
       }
 
       function showQuestion(n) {
         questions.forEach(function (q, i) {
           q.classList.toggle('active', i === n);
         });
-        updateBar();
+        updateProgress();
       }
 
       function showResult() {
         var sum = scores.reduce(function (a, b) { return a + b; }, 0);
-        var max = total * 3;
-        var pct = Math.round((sum / max) * 100);
+        var pct = Math.round((sum / (total * 3)) * 100);
         var label, desc;
 
         if (pct <= 40) {
           label = 'Violent Agile';
-          desc = 'Your organization is likely running agile at people, not with them. Human Agile starts with restoring trust and bringing humans back into the journey.';
+          desc = 'Agile is running at your people, not with them. Time to humanize.';
         } else if (pct <= 70) {
           label = 'Transitional';
-          desc = 'You are between violent and human agile. Some good intent, but the system still breaks people in places. There is room to humanize fast.';
+          desc = 'Good intent, but the system still breaks people in places.';
         } else {
           label = 'Human Agile';
-          desc = 'Your organization is moving in the right direction. Humans are part of the journey. Now sustain it as you scale.';
+          desc = 'Humans are in the journey. Now sustain it as you scale.';
         }
 
         document.getElementById('index-score-num').textContent = pct + '%';
@@ -1010,8 +783,10 @@
         document.getElementById('index-score-desc').textContent = desc;
 
         questionsEl.style.display = 'none';
+        document.querySelector('.index-meta').style.display = 'none';
         resultEl.classList.add('visible');
         bar.style.width = '100%';
+        counter.textContent = 'Complete';
       }
 
       document.querySelectorAll('.index-opt').forEach(function (btn) {
@@ -1030,11 +805,12 @@
         current = 0;
         scores = [];
         questionsEl.style.display = 'block';
+        document.querySelector('.index-meta').style.display = 'flex';
         resultEl.classList.remove('visible');
         showQuestion(0);
       });
 
-      updateBar();
+      updateProgress();
     })();
 
     document.getElementById('notify-form').addEventListener('submit', function (e) {
