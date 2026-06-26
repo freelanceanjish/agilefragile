@@ -8,10 +8,10 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gray: #818181;
+      --gray-mammoth: #818181;
       --black: #151517;
       --white: #ffffff;
       --gray-light: #f7f7f7;
@@ -19,21 +19,25 @@
       --accent: #1f35a9;
       --violent: #8b2020;
       --human: #1a6b4a;
-      --contain: max(2vw, 16px);
-      --section: 80px;
+      --contain: max(2vw, 10px);
+      --block: 50px;
+      --section: 100px;
       --font-serif: "Newsreader", Georgia, serif;
       --font-sans: "Inter", system-ui, sans-serif;
     }
 
     @media (min-width: 1080px) {
-      :root { --section: 140px; }
+      :root {
+        --block: 100px;
+        --section: 200px;
+      }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-sans);
-      background: var(--gray);
+      background: var(--gray-mammoth);
       color: var(--white);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
@@ -43,189 +47,187 @@
 
     .contain {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding-inline: var(--contain);
     }
 
-    .t-display {
-      font: 600 clamp(48px, 11vw, 120px) / 0.95 var(--font-serif);
-      letter-spacing: -0.03em;
-    }
-    .t-h2 {
-      font: 600 clamp(36px, 6vw, 72px) / 1 var(--font-serif);
+    .t-h-2 {
+      font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
       letter-spacing: -0.02em;
     }
-    .t-h3 {
-      font: 600 clamp(28px, 4vw, 48px) / 1.05 var(--font-serif);
+    @media (min-width: 600px) {
+      .t-h-2 { font-size: clamp(70px, 8vw, 150px); }
+    }
+
+    .t-h-3 {
+      font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
       letter-spacing: -0.02em;
     }
-    .t-h4 {
-      font: 500 clamp(22px, 2.5vw, 32px) / 1.1 var(--font-serif);
+    @media (min-width: 600px) {
+      .t-h-3 { font-size: clamp(60px, 5vw, 140px); }
     }
-    .t-lead {
-      font: 400 clamp(20px, 2vw, 28px) / 1.25 var(--font-sans);
-      letter-spacing: -0.01em;
+
+    .t-h-4 {
+      font: 500 clamp(26px, 3vw, 50px) / 1 var(--font-serif);
     }
-    .t-body {
-      font: 500 clamp(16px, 1.2vw, 18px) / 1.5 var(--font-sans);
+
+    .t-h-5 {
+      font: 500 clamp(20px, 2.5vw, 30px) / 1.05 var(--font-serif);
+      letter-spacing: 0.01em;
     }
-    .t-label {
-      font: 600 11px / 1 var(--font-sans);
-      letter-spacing: 0.14em;
+
+    .t-b-1 {
+      font: 400 clamp(22px, 2.5vw, 40px) / 1.1 var(--font-sans);
+      letter-spacing: -0.02em;
+    }
+    @media (min-width: 600px) {
+      .t-b-1 { font: 400 clamp(26px, 2.5vw, 40px) / 1 var(--font-sans); }
+    }
+
+    .t-b-2 {
+      font: 500 clamp(18px, 1.25vw, 24px) / 1.15 var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+
+    .t-b-3 {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+
+    .eyebrow {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-    }
-    .t-small {
-      font: 500 13px / 1.4 var(--font-sans);
+      color: var(--accent);
     }
 
     /* Header */
     .site-header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      background: rgba(21, 21, 23, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .header-inner {
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding-block: 14px;
+      gap: 10px;
     }
-    .logo-wrap {
+    .site-header .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
     }
-    .logo-wrap img { width: 32px; height: 32px; display: block; }
-    .logo-text {
-      font: 600 15px / 1 var(--font-sans);
-      letter-spacing: -0.01em;
-    }
-    .logo-text span {
+    .site-header .logo img {
+      width: 36px;
+      height: 36px;
       display: block;
-      font: 500 10px / 1 var(--font-sans);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray-dark);
-      margin-top: 2px;
     }
     .site-nav {
       display: none;
-      gap: 28px;
+      gap: 24px;
       list-style: none;
     }
     .site-nav a {
-      font: 500 14px / 1 var(--font-sans);
-      opacity: 0.75;
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
       transition: opacity 0.2s;
     }
     .site-nav a:hover { opacity: 1; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 4px;
-      font: 600 14px / 1 var(--font-sans);
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.15s;
+    .header-join {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
     }
-    .btn:hover { opacity: 0.9; }
-    .btn:active { transform: scale(0.98); }
-    .btn-accent { background: var(--accent); color: var(--white); }
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .btn-ghost {
-      background: rgba(255,255,255,0.1);
-      color: var(--white);
-    }
-
     @media (min-width: 768px) {
       .site-nav { display: flex; }
-      .header-cta-mobile { display: none; }
+      .header-join { display: none; }
     }
 
-    main { padding-top: 64px; }
+    main { padding-top: 80px; }
+
+    .section { padding-block: var(--section); }
+
+    .concept-section {
+      background: var(--black);
+      padding-block: var(--section);
+    }
+
+    .section-header,
+    .values-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .section-header .intro,
+    .values-header .intro {
+      width: 90%;
+      max-width: 940px;
+      text-wrap: pretty;
+      color: var(--gray-light);
+    }
 
     /* Hero */
     .hero {
-      padding-block: var(--section);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
       text-align: center;
+      padding-block: var(--section);
     }
-    .hero-badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 100px;
-      margin-bottom: 32px;
-      font: 600 11px / 1 var(--font-sans);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .hero h1 { margin-bottom: 24px; }
-    .hero .t-lead {
-      max-width: 640px;
-      margin: 0 auto 16px;
-      color: var(--gray-light);
+    .hero h1 { width: 100%; max-width: 1400px; }
+    .hero .intro {
+      width: 90%;
+      max-width: 940px;
+      text-wrap: pretty;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
-      margin-top: 40px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 4px;
+      font: 500 16px / 1.4 var(--font-sans);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn-accent { background: var(--accent); color: var(--white); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
     .hero-stat-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.15);
-      margin-top: 80px;
-      border-radius: 8px;
-      overflow: hidden;
+      gap: 10px;
+      width: 100%;
+      max-width: 940px;
+      margin-top: 40px;
     }
     .hero-stat {
       background: var(--black);
+      border-radius: 8px;
       padding: 28px 20px;
       text-align: center;
     }
-    .hero-stat strong {
-      display: block;
-      font: 600 clamp(28px, 4vw, 40px) / 1 var(--font-serif);
-      margin-bottom: 8px;
-    }
-    .hero-stat span {
-      font: 500 13px / 1.3 var(--font-sans);
-      color: var(--gray-dark);
-    }
-
-    /* Sections */
-    .section { padding-block: var(--section); }
-    .section-dark { background: var(--black); }
-    .section-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-    .section-header .t-label {
-      color: var(--accent);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .section-header .t-lead {
-      max-width: 560px;
-      margin: 16px auto 0;
-      color: var(--gray-light);
-    }
+    .hero-stat .stat-title { margin-bottom: 8px; }
+    .hero-stat .stat-desc { color: var(--gray-dark); }
 
     /* Compare */
     .compare-grid {
@@ -253,10 +255,9 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
     }
     .compare-card li {
-      font: 500 15px / 1.4 var(--font-sans);
       padding-left: 20px;
       position: relative;
     }
@@ -288,13 +289,14 @@
       text-align: center;
     }
     .model-phase .num {
-      font: 600 11px / 1 var(--font-sans);
-      letter-spacing: 0.14em;
-      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      opacity: 0.9;
       margin-bottom: 12px;
     }
     .model-phase h3 { margin-bottom: 10px; }
-    .model-phase p { color: var(--gray-light); font-size: 15px; }
+    .model-phase p { color: var(--gray-light); }
     .model-arrow {
       display: none;
       align-items: center;
@@ -319,9 +321,14 @@
       border-radius: 8px;
       padding: 28px 24px;
     }
-    .offer-card .t-label { opacity: 0.7; margin-bottom: 12px; }
+    .offer-card .num {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
     .offer-card h3 { margin-bottom: 10px; }
-    .offer-card p { font-size: 15px; opacity: 0.9; }
+    .offer-card p { opacity: 0.9; }
 
     /* Index */
     .index-wrap {
@@ -350,10 +357,7 @@
       display: none;
     }
     .index-question.active { display: block; }
-    .index-question p {
-      font: 500 clamp(18px, 2vw, 22px) / 1.35 var(--font-serif);
-      margin-bottom: 28px;
-    }
+    .index-question p { margin-bottom: 28px; }
     .index-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -365,7 +369,6 @@
       border-radius: 6px;
       background: transparent;
       color: var(--white);
-      font: 500 14px / 1.3 var(--font-sans);
       cursor: pointer;
       transition: background 0.2s, border-color 0.2s;
     }
@@ -378,16 +381,12 @@
       text-align: center;
     }
     .index-result.visible { display: block; }
-    .index-score {
-      font: 600 clamp(56px, 10vw, 80px) / 1 var(--font-serif);
-      margin: 16px 0;
-    }
+    .index-score { margin: 16px 0; }
     .index-score-label {
       display: inline-block;
       padding: 8px 16px;
       border-radius: 100px;
-      font: 600 13px / 1 var(--font-sans);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
@@ -399,9 +398,9 @@
       background: transparent;
       border: 1px solid rgba(255,255,255,0.3);
       color: var(--white);
-      padding: 10px 18px;
+      padding: 14px 24px;
       border-radius: 4px;
-      font: 500 14px / 1 var(--font-sans);
+      font: 500 16px / 1.4 var(--font-sans);
       cursor: pointer;
     }
 
@@ -421,13 +420,9 @@
     }
     .manifesto-item strong {
       display: block;
-      font: 600 16px / 1.3 var(--font-serif);
       margin-bottom: 6px;
     }
-    .manifesto-item span {
-      font: 500 14px / 1.4 var(--font-sans);
-      color: var(--gray-light);
-    }
+    .manifesto-item span { color: var(--gray-light); }
 
     /* Serve cards */
     .serve-grid {
@@ -438,8 +433,8 @@
       .serve-grid { grid-template-columns: repeat(3, 1fr); }
     }
     .serve-card {
-      background: var(--black);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 8px;
       padding: 28px 24px;
     }
@@ -451,7 +446,6 @@
       gap: 10px;
     }
     .serve-card li {
-      font: 500 14px / 1.4 var(--font-sans);
       color: var(--gray-light);
       padding-left: 16px;
       position: relative;
@@ -465,15 +459,17 @@
     }
 
     /* CTA */
-    .cta-section {
+  .cta-section {
       background: var(--black);
       padding-block: var(--section);
       text-align: center;
     }
-    .cta-section .t-lead {
-      max-width: 520px;
-      margin: 16px auto 32px;
+    .cta-section .intro {
+      width: 90%;
+      max-width: 640px;
+      margin: 0 auto 40px;
       color: var(--gray-dark);
+      text-wrap: pretty;
     }
     .notify-form {
       display: flex;
@@ -502,81 +498,74 @@
     .cta-section.submitted .notify-success { display: block; }
 
     .site-footer {
-      padding: 32px var(--contain);
-      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-block: var(--block);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
       text-align: center;
     }
     .site-footer p {
-      font: 500 13px / 1.4 var(--font-sans);
-      color: var(--gray-dark);
+      color: var(--gray-light);
+      text-align: center;
     }
     .site-footer .tagline {
       margin-top: 8px;
-      color: var(--gray-light);
-      font: 500 12px / 1 var(--font-sans);
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="contain header-inner">
-      <a href="/" class="logo-wrap">
-        <img src="/assets/logo-mark.svg" alt="" width="32" height="32">
-        <div class="logo-text">
-          Agile Fragile
-          <span>Human Agile</span>
-        </div>
-      </a>
-      <nav>
-        <ul class="site-nav">
-          <li><a href="#model">Model</a></li>
-          <li><a href="#index">Index</a></li>
-          <li><a href="#manifesto">Manifesto</a></li>
-          <li><a href="#join">Join</a></li>
-        </ul>
-      </nav>
-      <a href="#join" class="btn btn-accent header-cta-mobile">Join</a>
-    </div>
+  <header class="site-header contain">
+    <a href="/" class="logo">
+      <img src="/assets/logo-mark.svg" alt="Agile Fragile" width="36" height="36">
+    </a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="#model">Model</a></li>
+        <li><a href="#index">Index</a></li>
+        <li><a href="#manifesto">Manifesto</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+    <a href="#join" class="header-join">Join</a>
   </header>
 
   <main>
     <section class="hero contain">
-      <p class="hero-badge">Evangelizing Human Agile</p>
-      <h1 class="t-display">Humans make<br>the organization.</h1>
-      <p class="t-lead">We humanize agile. We save organizations from violent transformations. We build models that put people at the center of adapt, implement, and scale.</p>
+      <p class="eyebrow">Evangelizing Human Agile</p>
+      <h1 class="t-h-2">Humans make the organization.</h1>
+      <p class="intro t-b-2">We humanize agile. We save organizations from violent transformations. We build models that put people at the center of adapt, implement, and scale.</p>
       <div class="hero-actions">
         <a href="#index" class="btn btn-accent">Take the Human Agile Index</a>
         <a href="#model" class="btn btn-outline">See the model</a>
       </div>
       <div class="hero-stat-row">
         <div class="hero-stat">
-          <strong>Adapt</strong>
-          <span>Agile that fits your people</span>
+          <p class="stat-title t-h-5">Adapt</p>
+          <p class="stat-desc t-b-3">Agile that fits your people</p>
         </div>
         <div class="hero-stat">
-          <strong>Implement</strong>
-          <span>Change with humans inside</span>
+          <p class="stat-title t-h-5">Implement</p>
+          <p class="stat-desc t-b-3">Change with humans inside</p>
         </div>
         <div class="hero-stat">
-          <strong>Scale</strong>
-          <span>Growth without the harm</span>
+          <p class="stat-title t-h-5">Scale</p>
+          <p class="stat-desc t-b-3">Growth without the harm</p>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark" id="compare">
+    <section class="concept-section" id="compare">
       <div class="contain">
         <div class="section-header">
-          <span class="t-label">The divide</span>
-          <h2 class="t-h2">Violent Agile vs Human Agile</h2>
-          <p class="t-lead">Most organizations run the left column. We build the right.</p>
+          <span class="eyebrow">The divide</span>
+          <h2 class="t-h-3">Violent Agile vs Human Agile</h2>
+          <p class="intro t-b-2">Most organizations run the left column. We build the right.</p>
         </div>
         <div class="compare-grid">
           <div class="compare-card violent">
-            <h3 class="t-h4">Violent Agile</h3>
-            <ul>
+            <h3 class="t-h-4">Violent Agile</h3>
+            <ul class="t-b-2">
               <li>Transformation done to people</li>
               <li>Decided in rooms they are not in</li>
               <li>Dashboards as judgment</li>
@@ -585,8 +574,8 @@
             </ul>
           </div>
           <div class="compare-card human">
-            <h3 class="t-h4">Human Agile</h3>
-            <ul>
+            <h3 class="t-h-4">Human Agile</h3>
+            <ul class="t-b-2">
               <li>Transformation built with people</li>
               <li>Humans valued from day one</li>
               <li>Metrics for learning, not fear</li>
@@ -601,57 +590,57 @@
     <section class="section" id="model">
       <div class="contain">
         <div class="section-header">
-          <span class="t-label">The working model</span>
-          <h2 class="t-h2">Human Agile Model</h2>
-          <p class="t-lead">How we assist organizations in transformation. Humans at the center of everything.</p>
+          <span class="eyebrow">The working model</span>
+          <h2 class="t-h-3">Human Agile Model</h2>
+          <p class="intro t-b-2">How we assist organizations in transformation. Humans at the center of everything.</p>
         </div>
 
         <div class="model-flow">
           <div class="model-phase">
-            <p class="num">01</p>
-            <h3 class="t-h4">Adapt</h3>
-            <p>Shape agile to your context and your people. No forced playbook.</p>
+            <p class="num t-b-3">01</p>
+            <h3 class="t-h-5">Adapt</h3>
+            <p class="t-b-2">Shape agile to your context and your people. No forced playbook.</p>
           </div>
           <div class="model-arrow" aria-hidden="true">→</div>
           <div class="model-phase">
-            <p class="num">02</p>
-            <h3 class="t-h4">Implement</h3>
-            <p>Run change with humans inside the journey. Not as rollout targets.</p>
+            <p class="num t-b-3">02</p>
+            <h3 class="t-h-5">Implement</h3>
+            <p class="t-b-2">Run change with humans inside the journey. Not as rollout targets.</p>
           </div>
           <div class="model-arrow" aria-hidden="true">→</div>
           <div class="model-phase">
-            <p class="num">03</p>
-            <h3 class="t-h4">Scale</h3>
-            <p>Grow delivery while protecting focus, quality, and your people.</p>
+            <p class="num t-b-3">03</p>
+            <h3 class="t-h-5">Scale</h3>
+            <p class="t-b-2">Grow delivery while protecting focus, quality, and your people.</p>
           </div>
         </div>
 
         <div class="model-offers">
           <article class="offer-card">
-            <p class="t-label">Restore</p>
-            <h3 class="t-h4">Workshops</h3>
-            <p>Reset after violent agile. Strip theater. Rebuild trust.</p>
+            <p class="num t-b-3">Restore</p>
+            <h3 class="t-h-5">Workshops</h3>
+            <p class="t-b-2">Reset after violent agile. Strip theater. Rebuild trust.</p>
           </article>
           <article class="offer-card">
-            <p class="t-label">Support</p>
-            <h3 class="t-h4">Community</h3>
-            <p>Leaders and teams navigating change together. Real peers.</p>
+            <p class="num t-b-3">Support</p>
+            <h3 class="t-h-5">Community</h3>
+            <p class="t-b-2">Leaders and teams navigating change together. Real peers.</p>
           </article>
           <article class="offer-card">
-            <p class="t-label">Sustain</p>
-            <h3 class="t-h4">Resources</h3>
-            <p>Tools that cut admin and keep agile human as you scale.</p>
+            <p class="num t-b-3">Sustain</p>
+            <h3 class="t-h-5">Resources</h3>
+            <p class="t-b-2">Tools that cut admin and keep agile human as you scale.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark" id="index">
+    <section class="concept-section" id="index">
       <div class="contain">
         <div class="section-header">
-          <span class="t-label">Working tool</span>
-          <h2 class="t-h2">Human Agile Index</h2>
-          <p class="t-lead">8 questions. 2 minutes. Find out where your organization stands.</p>
+          <span class="eyebrow">Working tool</span>
+          <h2 class="t-h-3">Human Agile Index</h2>
+          <p class="intro t-b-2">8 questions. 2 minutes. Find out where your organization stands.</p>
         </div>
 
         <div class="index-wrap" id="index-app">
@@ -661,84 +650,84 @@
 
           <div id="index-questions">
             <div class="index-question active" data-q="0">
-              <p>Are the people affected by agile change in the room when it is designed?</p>
+              <p class="t-h-5">Are the people affected by agile change in the room when it is designed?</p>
               <div class="index-options">
-                <button type="button" class="index-opt" data-score="0">Rarely</button>
-                <button type="button" class="index-opt" data-score="1">Sometimes</button>
-                <button type="button" class="index-opt" data-score="2">Usually</button>
-                <button type="button" class="index-opt" data-score="3">Always</button>
+                <button type="button" class="index-opt t-b-3" data-score="0">Rarely</button>
+                <button type="button" class="index-opt t-b-3" data-score="1">Sometimes</button>
+                <button type="button" class="index-opt t-b-3" data-score="2">Usually</button>
+                <button type="button" class="index-opt t-b-3" data-score="3">Always</button>
               </div>
             </div>
             <div class="index-question" data-q="1">
-              <p>Is agile built with your teams, or pushed to them on a timeline?</p>
+              <p class="t-h-5">Is agile built with your teams, or pushed to them on a timeline?</p>
               <div class="index-options">
-                <button type="button" class="index-opt" data-score="0">Pushed</button>
-                <button type="button" class="index-opt" data-score="1">Mostly pushed</button>
-                <button type="button" class="index-opt" data-score="2">Mixed</button>
-                <button type="button" class="index-opt" data-score="3">Built with</button>
+                <button type="button" class="index-opt t-b-3" data-score="0">Pushed</button>
+                <button type="button" class="index-opt t-b-3" data-score="1">Mostly pushed</button>
+                <button type="button" class="index-opt t-b-3" data-score="2">Mixed</button>
+                <button type="button" class="index-opt t-b-3" data-score="3">Built with</button>
               </div>
             </div>
             <div class="index-question" data-q="2">
-              <p>Do people feel valued in the transformation journey?</p>
+              <p class="t-h-5">Do people feel valued in the transformation journey?</p>
               <div class="index-options">
-                <button type="button" class="index-opt" data-score="0">No</button>
-                <button type="button" class="index-opt" data-score="1">Few do</button>
-                <button type="button" class="index-opt" data-score="2">Some do</button>
-                <button type="button" class="index-opt" data-score="3">Most do</button>
+                <button type="button" class="index-opt t-b-3" data-score="0">No</button>
+                <button type="button" class="index-opt t-b-3" data-score="1">Few do</button>
+                <button type="button" class="index-opt t-b-3" data-score="2">Some do</button>
+                <button type="button" class="index-opt t-b-3" data-score="3">Most do</button>
               </div>
             </div>
             <div class="index-question" data-q="3">
-              <p>Are dashboards used for learning, or for judgment?</p>
+              <p class="t-h-5">Are dashboards used for learning, or for judgment?</p>
               <div class="index-options">
-                <button type="button" class="index-opt" data-score="0">Judgment</button>
-                <button type="button" class="index-opt" data-score="1">Mostly judgment</button>
-                <button type="button" class="index-opt" data-score="2">Mixed</button>
-                <button type="button" class="index-opt" data-score="3">Learning</button>
+                <button type="button" class="index-opt t-b-3" data-score="0">Judgment</button>
+                <button type="button" class="index-opt t-b-3" data-score="1">Mostly judgment</button>
+                <button type="button" class="index-opt t-b-3" data-score="2">Mixed</button>
+                <button type="button" class="index-opt t-b-3" data-score="3">Learning</button>
               </div>
             </div>
             <div class="index-question" data-q="4">
-              <p>Is burnout treated as a design problem or a people problem?</p>
+              <p class="t-h-5">Is burnout treated as a design problem or a people problem?</p>
               <div class="index-options">
-                <button type="button" class="index-opt" data-score="0">People problem</button>
-                <button type="button" class="index-opt" data-score="1">Mostly people</button>
-                <button type="button" class="index-opt" data-score="2">Starting to shift</button>
-                <button type="button" class="index-opt" data-score="3">Design problem</button>
+                <button type="button" class="index-opt t-b-3" data-score="0">People problem</button>
+                <button type="button" class="index-opt t-b-3" data-score="1">Mostly people</button>
+                <button type="button" class="index-opt t-b-3" data-score="2">Starting to shift</button>
+                <button type="button" class="index-opt t-b-3" data-score="3">Design problem</button>
               </div>
             </div>
             <div class="index-question" data-q="5">
-              <p>Can teams push back on ceremony that does not help?</p>
+              <p class="t-h-5">Can teams push back on ceremony that does not help?</p>
               <div class="index-options">
-                <button type="button" class="index-opt" data-score="0">No</button>
-                <button type="button" class="index-opt" data-score="1">Rarely</button>
-                <button type="button" class="index-opt" data-score="2">Sometimes</button>
-                <button type="button" class="index-opt" data-score="3">Yes</button>
+                <button type="button" class="index-opt t-b-3" data-score="0">No</button>
+                <button type="button" class="index-opt t-b-3" data-score="1">Rarely</button>
+                <button type="button" class="index-opt t-b-3" data-score="2">Sometimes</button>
+                <button type="button" class="index-opt t-b-3" data-score="3">Yes</button>
               </div>
             </div>
             <div class="index-question" data-q="6">
-              <p>Do leaders enable teams, or mainly track and report on them?</p>
+              <p class="t-h-5">Do leaders enable teams, or mainly track and report on them?</p>
               <div class="index-options">
-                <button type="button" class="index-opt" data-score="0">Track and report</button>
-                <button type="button" class="index-opt" data-score="1">Mostly track</button>
-                <button type="button" class="index-opt" data-score="2">Mixed</button>
-                <button type="button" class="index-opt" data-score="3">Enable</button>
+                <button type="button" class="index-opt t-b-3" data-score="0">Track and report</button>
+                <button type="button" class="index-opt t-b-3" data-score="1">Mostly track</button>
+                <button type="button" class="index-opt t-b-3" data-score="2">Mixed</button>
+                <button type="button" class="index-opt t-b-3" data-score="3">Enable</button>
               </div>
             </div>
             <div class="index-question" data-q="7">
-              <p>Would your people say agile works for them, not against them?</p>
+              <p class="t-h-5">Would your people say agile works for them, not against them?</p>
               <div class="index-options">
-                <button type="button" class="index-opt" data-score="0">Against them</button>
-                <button type="button" class="index-opt" data-score="1">Mostly against</button>
-                <button type="button" class="index-opt" data-score="2">Mixed</button>
-                <button type="button" class="index-opt" data-score="3">For them</button>
+                <button type="button" class="index-opt t-b-3" data-score="0">Against them</button>
+                <button type="button" class="index-opt t-b-3" data-score="1">Mostly against</button>
+                <button type="button" class="index-opt t-b-3" data-score="2">Mixed</button>
+                <button type="button" class="index-opt t-b-3" data-score="3">For them</button>
               </div>
             </div>
           </div>
 
           <div class="index-result" id="index-result">
-            <p class="t-label">Your score</p>
-            <p class="index-score" id="index-score-num">0</p>
-            <p class="index-score-label" id="index-score-label">Transitional</p>
-            <p class="t-body" id="index-score-desc"></p>
+            <p class="eyebrow">Your score</p>
+            <p class="index-score t-h-2" id="index-score-num">0</p>
+            <p class="index-score-label t-b-3" id="index-score-label">Transitional</p>
+            <p class="t-b-2" id="index-score-desc"></p>
             <button type="button" class="index-restart" id="index-restart">Start over</button>
           </div>
         </div>
@@ -748,73 +737,73 @@
     <section class="section" id="manifesto">
       <div class="contain">
         <div class="section-header">
-          <span class="t-label">What we stand for</span>
-          <h2 class="t-h2">Human Agile Manifesto</h2>
-          <p class="t-lead">Eight principles. One belief: humans make the organization.</p>
+          <span class="eyebrow">What we stand for</span>
+          <h2 class="t-h-3">Human Agile Manifesto</h2>
+          <p class="intro t-b-2">Eight principles. One belief: humans make the organization.</p>
         </div>
         <div class="manifesto-grid">
           <div class="manifesto-item">
-            <strong>Humans are the asset</strong>
-            <span>Not the obstacle. Not the rollout risk.</span>
+            <strong class="t-h-5">Humans are the asset</strong>
+            <span class="t-b-2">Not the obstacle. Not the rollout risk.</span>
           </div>
           <div class="manifesto-item">
-            <strong>Change with, not to</strong>
-            <span>No transformation decided without the people inside it.</span>
+            <strong class="t-h-5">Change with, not to</strong>
+            <span class="t-b-2">No transformation decided without the people inside it.</span>
           </div>
           <div class="manifesto-item">
-            <strong>Subtract before you add</strong>
-            <span>Remove harm before piling on more process.</span>
+            <strong class="t-h-5">Subtract before you add</strong>
+            <span class="t-b-2">Remove harm before piling on more process.</span>
           </div>
           <div class="manifesto-item">
-            <strong>Trust over tracking</strong>
-            <span>Metrics should help teams learn, not fear.</span>
+            <strong class="t-h-5">Trust over tracking</strong>
+            <span class="t-b-2">Metrics should help teams learn, not fear.</span>
           </div>
           <div class="manifesto-item">
-            <strong>No violent transformation</strong>
-            <span>Speed without humanity breaks delivery.</span>
+            <strong class="t-h-5">No violent transformation</strong>
+            <span class="t-b-2">Speed without humanity breaks delivery.</span>
           </div>
           <div class="manifesto-item">
-            <strong>Adapt before you scale</strong>
-            <span>Context and people come before playbook.</span>
+            <strong class="t-h-5">Adapt before you scale</strong>
+            <span class="t-b-2">Context and people come before playbook.</span>
           </div>
           <div class="manifesto-item">
-            <strong>Leaders enable</strong>
-            <span>Not perform agile. Not become human dashboards.</span>
+            <strong class="t-h-5">Leaders enable</strong>
+            <span class="t-b-2">Not perform agile. Not become human dashboards.</span>
           </div>
           <div class="manifesto-item">
-            <strong>Agile serves the org</strong>
-            <span>People do not serve agile.</span>
+            <strong class="t-h-5">Agile serves the org</strong>
+            <span class="t-b-2">People do not serve agile.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark">
+    <section class="concept-section">
       <div class="contain">
         <div class="section-header">
-          <span class="t-label">Who we assist</span>
-          <h2 class="t-h2">Built for transformation</h2>
+          <span class="eyebrow">Who we assist</span>
+          <h2 class="t-h-3">Built for transformation</h2>
         </div>
         <div class="serve-grid">
           <article class="serve-card">
-            <h3 class="t-h4">Teams</h3>
-            <ul>
+            <h3 class="t-h-5">Teams</h3>
+            <ul class="t-b-2">
               <li>Agile that works for you</li>
               <li>A voice in how you adapt</li>
               <li>Less theater, more work</li>
             </ul>
           </article>
           <article class="serve-card">
-            <h3 class="t-h4">Leaders</h3>
-            <ul>
+            <h3 class="t-h-5">Leaders</h3>
+            <ul class="t-b-2">
               <li>Implement without breaking people</li>
               <li>Scale by investing in humans</li>
               <li>End violent transformations</li>
             </ul>
           </article>
           <article class="serve-card">
-            <h3 class="t-h4">Organizations</h3>
-            <ul>
+            <h3 class="t-h-5">Organizations</h3>
+            <ul class="t-b-2">
               <li>Human Agile at scale</li>
               <li>Models that protect your asset</li>
               <li>Delivery that lasts</li>
@@ -826,20 +815,20 @@
 
     <section class="cta-section" id="join">
       <div class="contain">
-        <h2 class="t-h2">Join Human Agile</h2>
-        <p class="t-lead">We are building the first organization evangelizing Human Agile. Get early access to the model, community, and tools.</p>
+        <h2 class="t-h-3">Join Human Agile</h2>
+        <p class="intro t-b-2">We are building the first organization evangelizing Human Agile. Get early access to the model, community, and tools.</p>
         <form class="notify-form" id="notify-form">
           <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
           <button type="submit" class="btn btn-accent">Join the movement</button>
         </form>
-        <p class="notify-success">You are in. We will be in touch.</p>
+        <p class="notify-success t-b-2">You are in. We will be in touch.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 Agile Fragile. All rights reserved.</p>
-    <p class="tagline">Human Agile · Humans make the organization</p>
+  <footer class="site-footer contain">
+    <p class="t-b-3">&copy; 2026 Agile Fragile. All rights reserved.</p>
+    <p class="tagline t-b-3">Human Agile · Humans make the organization</p>
   </footer>
 
   <script>
@@ -886,7 +875,7 @@
         document.getElementById('index-score-num').textContent = pct + '%';
         var labelEl = document.getElementById('index-score-label');
         labelEl.textContent = label;
-        labelEl.className = 'index-score-label ' + cls;
+        labelEl.className = 'index-score-label t-b-3 ' + cls;
         document.getElementById('index-score-desc').textContent = desc;
 
         questionsEl.style.display = 'none';
