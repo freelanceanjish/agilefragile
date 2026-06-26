@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Agile Fragile — Coming soon. A new way to think about agility.">
-  <title>Coming Soon | Agile Fragile</title>
+  <meta name="description" content="Agile Fragile — Human-centered agility for teams. Workshops, community, and resources that put people before process.">
+  <title>Agile Fragile — Human-Centered Agility</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -409,6 +409,63 @@
       text-align: center;
     }
 
+    .model-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 940px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 900px) {
+      .model-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        max-width: none;
+      }
+    }
+
+    .model-step {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .model-step .step-label {
+      font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      opacity: 0.9;
+    }
+
+    .concept-section {
+      background: var(--black);
+      padding-block: var(--section);
+    }
+
+    .concept-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .concept-inner .intro {
+      width: 90%;
+      max-width: 940px;
+      text-wrap: pretty;
+      color: var(--gray-light);
+    }
+
+    .concept-inner .thesis {
+      width: 90%;
+      max-width: 800px;
+      color: var(--white);
+      text-wrap: pretty;
+    }
+
     .arrow-icon {
       width: 1.25em;
       height: auto;
@@ -425,20 +482,63 @@
 
   <main>
     <section class="section hero contain">
-      <h1 class="t-h-2">Life at Agile Fragile</h1>
+      <h1 class="t-h-2">Agility that doesn't break people.</h1>
       <p class="intro t-b-2">
-        We are reimagining how teams work — building a new model for people who want
-        real agility without the fragile process. Our community is powered by practitioners
-        who live and breathe better ways of delivering every day.
+        Agile Fragile is a human-centered model for teams tired of brittle process.
+        We help practitioners, leaders, and organizations build ways of working that
+        serve people first — and deliver better outcomes because of it.
       </p>
+    </section>
+
+    <section class="concept-section">
+      <div class="contain concept-inner">
+        <h2 class="t-h-3">Our Concept</h2>
+        <p class="thesis t-b-1">
+          Most agile fails not because the ideas are wrong — but because the
+          implementation ignores the humans doing the work.
+        </p>
+        <p class="intro t-b-2">
+          We believe agility should adapt to people, not the other way around.
+          That means honest conversation over ceremony, learning over rigid
+          frameworks, and teams that stay resilient because they are treated
+          as people — not resources on a board.
+        </p>
+      </div>
+    </section>
+
+    <section class="section contain">
+      <div class="values-header">
+        <h2 class="t-h-3">Our Model</h2>
+        <p class="intro t-b-2">
+          Three ways we help teams move from fragile process to human-centered agility.
+        </p>
+      </div>
+
+      <div class="model-grid">
+        <article class="model-step">
+          <p class="step-label">01 — Learn</p>
+          <h3 class="t-h-5">Workshops</h3>
+          <p class="t-b-2">Hands-on sessions for teams and leaders. Build skills in facilitation, retrospectives, and delivery practices designed around how people actually work.</p>
+        </article>
+        <article class="model-step">
+          <p class="step-label">02 — Connect</p>
+          <h3 class="t-h-5">Community</h3>
+          <p class="t-b-2">A practitioner-led space to share what works, learn from peers, and grow together — across teams, companies, and industries.</p>
+        </article>
+        <article class="model-step">
+          <p class="step-label">03 — Apply</p>
+          <h3 class="t-h-5">Resources</h3>
+          <p class="t-b-2">Practical guides, frameworks, and templates you can use immediately — to replace brittle process with purpose-driven delivery.</p>
+        </article>
+      </div>
     </section>
 
     <section class="section contain">
       <div class="values-header">
         <h2 class="t-h-3">Our Values</h2>
         <p class="intro t-b-2">
-          Our values are the foundation of how we work, and guide how we learn,
-          collaborate, and grow together.
+          Our values are how we live the model — they guide every workshop,
+          conversation, and resource we create.
         </p>
       </div>
 
@@ -462,10 +562,91 @@
 
     <section class="section contain">
       <div class="coming-header">
-        <h2 class="t-h-3">What's Coming</h2>
+        <h2 class="t-h-3">Who It's For</h2>
         <p class="intro t-b-2">
-          We are building something new for teams who want agility that actually works.
-          <em>Click each area to learn more about what we are launching.</em>
+          Built for people who care about how work gets done — not just that it gets done.
+          <em>Click each group to see how Agile Fragile serves them.</em>
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Team Leads</h3>
+              <div class="learn-more t-b-3">
+                <span>Learn more</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Team Leads</h3>
+              <ul>
+                <li>Run retrospectives and planning that people actually want to attend</li>
+                <li>Build psychological safety without losing accountability</li>
+                <li>Replace process theater with practices that fit your team</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Team Leads card"></button>
+        </div>
+
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Practitioners</h3>
+              <div class="learn-more t-b-3">
+                <span>Learn more</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Practitioners</h3>
+              <ul>
+                <li>Scrum masters, coaches, and delivery leads who want a better way</li>
+                <li>Peer community to test ideas and share real-world lessons</li>
+                <li>Resources grounded in practice, not theory</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Practitioners card"></button>
+        </div>
+
+        <div class="flip-card" data-card>
+          <div class="flip-card-inner">
+            <div class="flip-face front">
+              <h3 class="t-h-4">Organizations</h3>
+              <div class="learn-more t-b-3">
+                <span>Learn more</span>
+                <svg class="arrow-icon" viewBox="0 0 18 8" fill="none" aria-hidden="true">
+                  <path d="M9.84 4.82C9.36 4.84 9.51 4.85 9 4.85C4.58 4.85 1 3.99 1 2.93C1 1.86 4.58 1 9 1c4.42 0 8 0.86 8 1.93 0 0.77-1.88 1.44-4.6 1.74M9.84 4.82 7.74 2.6M9.84 4.82 7.74 7" stroke="currentColor" stroke-width="1"/>
+                </svg>
+              </div>
+            </div>
+            <div class="flip-face back">
+              <h3 class="t-h-4">Organizations</h3>
+              <ul>
+                <li>Custom workshops for teams adopting human-centered agility</li>
+                <li>Cultural change that starts with how people are treated</li>
+                <li>Sustainable delivery — not burnout dressed as agility</li>
+              </ul>
+            </div>
+          </div>
+          <button class="flip-btn" type="button" aria-label="Flip Organizations card"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contain">
+      <div class="coming-header">
+        <h2 class="t-h-3">What We Offer</h2>
+        <p class="intro t-b-2">
+          The full model — learn, connect, and apply.
+          <em>Click each offering for details.</em>
         </p>
       </div>
 
@@ -484,9 +665,9 @@
             <div class="flip-face back">
               <h3 class="t-h-4">Workshops</h3>
               <ul>
-                <li>Hands-on sessions for teams adopting modern agile practices</li>
-                <li>Facilitated retrospectives and planning workshops</li>
-                <li>Custom programs for leaders and practitioners</li>
+                <li>Human-centered agile for teams ready to move beyond ceremony</li>
+                <li>Facilitated retrospectives, planning, and leadership sessions</li>
+                <li>Custom programs for your context — not off-the-shelf playbooks</li>
               </ul>
             </div>
           </div>
@@ -507,9 +688,9 @@
             <div class="flip-face back">
               <h3 class="t-h-4">Community</h3>
               <ul>
-                <li>A space for practitioners to share what works</li>
-                <li>Peer learning groups and open discussions</li>
-                <li>Events that connect people across industries</li>
+                <li>Practitioners sharing what actually works — not what the manual says</li>
+                <li>Peer circles, open discussions, and cross-industry connection</li>
+                <li>A place to grow without performing agile for an audience</li>
               </ul>
             </div>
           </div>
@@ -530,9 +711,9 @@
             <div class="flip-face back">
               <h3 class="t-h-4">Resources</h3>
               <ul>
-                <li>Practical guides for healthier team delivery</li>
-                <li>Frameworks that replace brittle process with purpose</li>
-                <li>Tools and templates you can use right away</li>
+                <li>Guides for healthier team delivery and honest retrospectives</li>
+                <li>Frameworks that put people at the center of every decision</li>
+                <li>Templates and tools you can use in your next sprint</li>
               </ul>
             </div>
           </div>
@@ -543,8 +724,8 @@
 
     <section class="notify-section" id="notify">
       <div class="contain notify-inner">
-        <h2 class="t-h-3">Be the First to Know</h2>
-        <p class="desc t-b-2">Leave your email and we will notify you when we launch.</p>
+        <h2 class="t-h-3">Join the Movement</h2>
+        <p class="desc t-b-2">Be first to access workshops, community, and resources when we launch. Human-centered agility starts here.</p>
         <form class="notify-form" id="notify-form">
           <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
           <button type="submit">Notify me</button>
