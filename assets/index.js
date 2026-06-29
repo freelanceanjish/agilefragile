@@ -34,18 +34,18 @@
 
     if (pct <= 40) {
       label = 'Dark Agile';
-          desc = 'Product over people. Dark Agile runs deep. Name it before you scale again.';
-      ctaPrimary.textContent = 'Read where we drifted';
-      ctaPrimary.href = '/about.html#drift';
+      desc = 'Your organization performs agility more than it practices it. People are paying the price. Name it before you scale again.';
+      ctaPrimary.textContent = 'Read the field notes';
+      ctaPrimary.href = '/about.html#observation';
     } else if (pct <= 70) {
       label = 'Transitional';
-      desc = 'You remember the customer. The deliverers are still breaking in places.';
+      desc = 'You have not forgotten the human — but delivery pressure still breaks people in places. Reinforce before you scale.';
       ctaPrimary.textContent = 'See the Human Agile Model';
       ctaPrimary.href = '/model.html';
     } else {
       label = 'Human Agile';
-      desc = 'Humans on both sides of the product. Now protect that as you grow.';
-      ctaPrimary.textContent = 'How we help you scale';
+      desc = 'Humans are in the design. Now protect that as budgets tighten and speed returns.';
+      ctaPrimary.textContent = 'How we work with organizations';
       ctaPrimary.href = '/how-we-work.html';
     }
 
@@ -78,8 +78,8 @@
     questionsEl.style.display = 'block';
     document.querySelector('.index-meta').style.display = 'flex';
     resultEl.classList.remove('visible');
-    ctaPrimary.textContent = 'Read where we drifted';
-    ctaPrimary.href = '/about.html#drift';
+    ctaPrimary.textContent = 'Read the field notes';
+    ctaPrimary.href = '/about.html#observation';
     showQuestion(0);
   });
 
