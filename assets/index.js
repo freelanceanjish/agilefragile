@@ -45,7 +45,7 @@
     } else {
       label = 'Human Agile';
       desc = 'Humans are in the design. Now protect that as budgets tighten and speed returns.';
-      ctaPrimary.textContent = 'How we work with organizations';
+      ctaPrimary.textContent = 'Read the proposal';
       ctaPrimary.href = '/how-we-work.html';
     }
 
