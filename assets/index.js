@@ -39,7 +39,7 @@
       ctaPrimary.href = '/about.html#observation';
     } else if (pct <= 70) {
       label = 'Transitional';
-      desc = 'You have not forgotten the human — but delivery pressure still breaks people in places. Reinforce before you scale.';
+      desc = 'You have not forgotten the human, but delivery pressure still breaks people in places. Reinforce before you scale.';
       ctaPrimary.textContent = 'See the Human Agile Model';
       ctaPrimary.href = '/model.html';
     } else {
