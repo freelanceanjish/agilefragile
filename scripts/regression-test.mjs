@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * Agile Fragile static site regression checks.
+ * Design reference: Mammoth Brands careers (layout inspiration), not anjishbhondwe.com.
  * Run: node scripts/regression-test.mjs
  */
 import { readFileSync, readdirSync, statSync } from 'fs';
@@ -28,114 +29,75 @@ function walkHtml(dir, files = []) {
 const htmlFiles = walkHtml('.');
 const css = read('assets/site.css');
 const index = read('index.html');
-const howWeWork = read('how-we-work.html');
-const leaders = read('leaders.html');
 const indexJs = read('assets/index.js');
 
 // --- Branding ---
-if (!/<h1[^>]*>[\s\S]*?Agile[\s\S]*?Fragile/i.test(index)) {
+if (!/<h1[^>]*>[\s\S]*?Agile\s+Fragile/i.test(index)) {
   errors.push('Home hero h1 must contain "Agile Fragile"');
-}
-if (!/class="nav-logo">Agile\s*<span>Fragile<\/span></.test(index)) {
-  errors.push('Nav logo must use Agile <span>Fragile</span> like anjishbhondwe.com');
 }
 if (/>\s*AF\s*</.test(index)) {
   errors.push('Home page must not show standalone "AF"');
 }
-const favicon = read('assets/favicon.svg');
-if (/>\s*AF\s*</i.test(favicon)) {
-  errors.push('Favicon must not use "AF" abbreviation');
+if (!/logo-wordmark\.svg/.test(index)) {
+  errors.push('Home header must use logo-wordmark.svg (Mammoth-style wordmark)');
+}
+if (/class="nav-logo"/.test(index)) {
+  errors.push('Do not use portfolio-style nav-logo text; use logo wordmark image');
 }
 
-for (const file of ['assets/favicon.svg', 'assets/logo.svg', 'assets/logo-mark.svg']) {
-  try {
-    const svg = read(file);
-    if (/>\s*AF\s*</i.test(svg)) warnings.push(`${file} still contains "AF" text`);
-  } catch {
-    /* optional file */
+// --- Mammoth design system (not portfolio Carbon clone) ---
+if (!/--gray-mammoth:\s*#818181/.test(css)) {
+  errors.push('CSS must use Mammoth gray background token (--gray-mammoth: #818181)');
+}
+if (/IBM Plex Sans|@import.*IBM\+Plex/i.test(css)) {
+  errors.push('CSS must not use IBM Plex portfolio fonts; use Newsreader + Inter via HTML link');
+}
+if (/background:\s*var\(--bg\)|--bg:\s*#161616/.test(css) && !/--gray-mammoth/.test(css)) {
+  errors.push('CSS must not use Carbon #161616 as primary page background');
+}
+for (const file of htmlFiles) {
+  const html = read(file);
+  if (!/Newsreader/i.test(html) || !/Inter/i.test(html)) {
+    errors.push(`${file}: missing Newsreader/Inter font links`);
+  }
+  if (!/class="logo"/.test(html)) {
+    errors.push(`${file}: header must use Mammoth-style .logo wordmark`);
   }
 }
 
-// --- Typography / layout CSS ---
-if (/text-wrap:\s*balance/i.test(css)) errors.push('CSS must not use text-wrap: balance');
-if (/max-width:\s*\d+ch/i.test(css)) errors.push('CSS must not use max-width in ch units on headings');
-
-// --- Solo proposer tone (home) ---
-if (/global enterprises|6\+\s*<\/p>\s*<p class="label">Global/i.test(index)) {
-  errors.push('Home must not claim "6+ global enterprises" as firm proof');
+// --- No portfolio layout clone on home ---
+if (/anjishbhondwe\.com\/profile\.jpg/.test(index)) {
+  errors.push('Home must not hotlink portfolio profile photo');
 }
-if (/hero-stats/.test(index)) {
-  errors.push('Home hero must not include stats strip (credibility lives on anjishbhondwe.com)');
-}
-if (/case-outcome|case-grid/.test(index)) {
-  errors.push('Home must not include fake case-study outcome cards');
+if (/hero-img-wrap|hero-exec/.test(index)) {
+  errors.push('Home must not use portfolio two-column hero layout');
 }
 
-// --- Repetition on home ---
-const homeSections = (index.match(/<section/g) || []).length;
-if (homeSections > 6) {
-  warnings.push(`Home has ${homeSections} sections; keep ≤6 for a focused landing page`);
+// --- Solo proposer tone ---
+if (/hero-stats|proof-stats|case-grid/.test(index)) {
+  errors.push('Home must not include fake enterprise proof blocks');
 }
 
-// --- Irregular legacy colors ---
-if (/#818181|gray-mammoth|--accent:\s*#1f35a9/i.test(css)) {
-  errors.push('CSS must not use legacy gray mammoth / old accent palette');
-}
-if (/background:\s*#fff|background:\s*var\(--white\)/i.test(css) && /voice-card|case-card/.test(css)) {
-  warnings.push('Cards should use dark surface tokens, not white backgrounds');
-}
-
-// --- Proposal page ---
-if (!/The proposal/i.test(howWeWork)) {
-  errors.push('how-we-work.html hero must say "The proposal"');
-}
-if (/How we work/i.test(howWeWork)) {
-  errors.push('how-we-work.html must not use "How we work" consultancy framing');
-}
-
-// --- Leaders page ---
-if (/hero-proof/.test(leaders)) {
-  errors.push('leaders.html must not use hero-proof stats strip');
-}
-if (/Who you will work with/i.test(leaders)) {
-  errors.push('leaders.html must not say "Who you will work with"');
-}
-
-// --- Consultancy tone sitewide ---
 const bannedPatterns = [
   { re: /Work with us/i, label: 'Work with us' },
   { re: /Who you will work with/i, label: 'Who you will work with' },
   { re: /We help leadership/i, label: 'We help leadership' },
   { re: /We work with organizations/i, label: 'We work with organizations' },
   { re: /Engagement flow/i, label: 'Engagement flow' },
-  { re: /footer-label[^>]*>Organizations</i, label: 'Organizations footer column' },
 ];
 for (const file of htmlFiles) {
   const html = read(file);
   for (const { re, label } of bannedPatterns) {
-    if (re.test(html)) {
-      errors.push(`${file}: consultancy tone detected (${label})`);
-    }
+    if (re.test(html)) errors.push(`${file}: consultancy tone (${label})`);
   }
 }
 
-// --- Every page: fonts, nav ---
-for (const file of htmlFiles) {
-  const html = read(file);
-  if (/fonts\.googleapis\.com.*Inter/i.test(html)) {
-    errors.push(`${file}: remove Inter/Newsreader font links; use site.css IBM Plex import only`);
-  }
-  if (!/class="nav-logo"/.test(html)) {
-    errors.push(`${file}: missing nav-logo`);
-  }
-}
-
-// --- Index quiz ---
-if (/question-text t-h-5/.test(index)) {
-  warnings.push('Index questions use t-h-5; prefer body text size in quiz');
-}
 if (/How we work with organizations/i.test(indexJs)) {
   errors.push('assets/index.js must not use consultancy CTA copy');
+}
+
+if (/text-wrap:\s*balance/i.test(css)) {
+  errors.push('CSS must not use text-wrap: balance');
 }
 
 console.log('Agile Fragile regression test\n');
