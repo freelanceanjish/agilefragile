@@ -33,8 +33,11 @@ const leaders = read('leaders.html');
 const indexJs = read('assets/index.js');
 
 // --- Branding ---
-if (!/<h1[^>]*>[\s\S]*?Agile\s+Fragile/i.test(index)) {
+if (!/<h1[^>]*>[\s\S]*?Agile[\s\S]*?Fragile/i.test(index)) {
   errors.push('Home hero h1 must contain "Agile Fragile"');
+}
+if (!/class="nav-logo">Agile\s*<span>Fragile<\/span></.test(index)) {
+  errors.push('Nav logo must use Agile <span>Fragile</span> like anjishbhondwe.com');
 }
 if (/>\s*AF\s*</.test(index)) {
   errors.push('Home page must not show standalone "AF"');

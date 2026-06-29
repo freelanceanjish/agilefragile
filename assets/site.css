@@ -361,9 +361,28 @@ main {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.32px;
   color: var(--text);
   white-space: nowrap;
+}
+
+.nav-logo span {
+  color: var(--blue-40);
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 7vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--blue-40);
+  margin: 0;
+}
+
+.hero-name strong {
+  font-weight: inherit;
+  color: inherit;
 }
 
 /* Hero: exactly 3 text sizes — label, display, body */
@@ -1665,6 +1684,10 @@ main {
 @media (max-width: 767px) {
   .site-header {
     gap: 1rem;
+  }
+
+  .nav-logo {
+    font-size: 0.8125rem;
   }
 
   .nav-toggle {
