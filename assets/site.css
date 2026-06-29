@@ -366,8 +366,95 @@ main {
   white-space: nowrap;
 }
 
-.nav-logo span {
+/* Hero: exactly 3 text sizes — label, display, body */
+.hero-content {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.hero-content .eyebrow {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.hero-content .t-h-2 {
+  font-size: clamp(2.75rem, 7vw, 4.25rem);
+  line-height: 1.02;
   color: var(--blue-40);
+}
+
+.hero-content .hero-lead,
+.hero-content .hero-intro {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--text-2);
+  max-width: 36rem;
+}
+
+.hero-content .hero-proof,
+.hero-content .hero-meta {
+  display: none;
+}
+
+.index-question .question-text {
+  margin-bottom: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.result-score {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--blue-40);
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9375rem;
+}
+
+.human-arch-core {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 11rem;
+  min-width: min(100%, 20rem);
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--blue);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+
+.pipeline-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--blue);
+  color: var(--text);
+}
+
+.pipeline-step h3,
+.pipeline-step .step-desc {
+  color: var(--text-2);
+}
+
+.contrast-card.highlight {
+  background: var(--surface);
+  border-top: 2px solid var(--blue);
 }
 
 .header-cta {
@@ -1051,23 +1138,6 @@ main {
   display: grid;
   gap: var(--space-3);
   justify-items: center;
-}
-
-.human-arch-core {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 11rem;
-  min-width: min(100%, 20rem);
-  padding: 2rem 2.5rem;
-  border: 1px solid var(--blue);
-  background: var(--blue);
-  color: var(--white);
-  font-family: var(--font-serif);
-  font-size: clamp(2.25rem, 6vw, 4.5rem);
-  font-weight: 600;
-  line-height: 0.95;
-  text-align: center;
 }
 
 .human-arch-ring {
