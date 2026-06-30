@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 380" fill="none" role="img" aria-label="Agile Fragile">
-  <text x="40" y="158" fill="#ffffff" font-family="DM Sans, Arial Black, Helvetica, sans-serif" font-size="132" font-weight="700" letter-spacing="-0.04em">AGILE</text>
-  <text x="88" y="318" fill="#ffffff" font-family="DM Sans, Arial Black, Helvetica, sans-serif" font-size="132" font-weight="700" letter-spacing="-0.04em">FRAGILE</text>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&amp;display=swap');
+    .wm { font: 700 132px 'DM Sans', Arial Black, Helvetica, sans-serif; letter-spacing: -0.04em; fill: #ffffff; }
+  </style>
+  <text class="wm" x="700" y="158" text-anchor="middle">AGILE</text>
+  <text class="wm" x="718" y="318" text-anchor="middle">FRAGILE</text>
 </svg>
