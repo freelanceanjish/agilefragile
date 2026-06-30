@@ -1,4 +1,9 @@
 (function () {
+  var interactive = document.getElementById('model-walk');
+  if (interactive && window.location.hash === '#model-walk') {
+    interactive.open = true;
+  }
+
   var walk = document.querySelector('.model-walk');
   if (walk) {
     var btns = walk.querySelectorAll('.model-step-btn');
