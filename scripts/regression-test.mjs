@@ -214,6 +214,12 @@ if (!/body\.home-page \.site-header/.test(css) || !/opacity:\s*0/.test(css)) {
 if (!/home-header-visible/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must reveal header after hero scroll progress');
 }
+if (!/headerVisible/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must use hysteresis for header visibility to prevent flicker');
+}
+if (!/layoutVh/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must lock layout viewport height to prevent mobile address-bar flicker');
+}
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
   errors.push('site.js case study banner must not include version numbers');
 }
