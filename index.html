@@ -40,6 +40,15 @@
       </div>
     </section>
 
+    <details class="whats-new contain">
+      <summary class="t-b-3">What&rsquo;s new in v0.4</summary>
+      <ul class="t-b-3">
+        <li>Human Agile Index with shareable results and feedback</li>
+        <li>Interactive walk-through on the Model page</li>
+        <li>Open questions and reactions on the Proposal page</li>
+      </ul>
+    </details>
+
     <section class="section contain">
       <p class="eyebrow">What this is</p>
       <h2 class="t-h-3">A model being proposed, not a firm</h2>
@@ -138,7 +147,25 @@
           <p class="result-desc" id="index-score-desc"></p>
           <div class="cta-row" id="index-result-ctas">
             <a href="/model.html" class="hero-cta" id="index-cta-primary">Read the model</a>
-            <a href="/contact.html" class="btn-secondary">Contact</a>
+            <a href="/contact.html" class="btn-secondary" id="index-cta-contact">Contact</a>
+          </div>
+          <button type="button" class="btn-secondary index-share" id="index-share">Copy link to your score</button>
+          <p class="index-share-note t-b-3" id="index-share-note" hidden>Link copied. Share it when you reach out.</p>
+          <div class="index-feedback form-section" id="index-feedback">
+            <p class="feedback-prompt t-b-2">What would you want this model to solve first?</p>
+            <form class="index-feedback-form" data-form action="https://formsubmit.co/hello@agilefragile.com" method="POST">
+              <input type="hidden" name="_subject" value="Human Agile Index feedback">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="index_score" id="feedback-score">
+              <input type="hidden" name="index_label" id="feedback-label">
+              <textarea name="message" placeholder="Your reaction in a sentence or two" required aria-label="Feedback"></textarea>
+              <input type="email" name="email" placeholder="Email (optional)" aria-label="Email">
+              <button type="submit" data-sending="Sending…">Send feedback</button>
+            </form>
+            <p class="form-error">Something went wrong. Email hello@agilefragile.com directly.</p>
+            <p class="form-success">Thank you. Your note helps shape the next version.</p>
           </div>
           <button type="button" class="index-restart" id="index-restart">Take again</button>
         </div>

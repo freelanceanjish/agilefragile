@@ -100,6 +100,23 @@ if (/text-wrap:\s*balance/i.test(css)) {
   errors.push('CSS must not use text-wrap: balance');
 }
 
+// --- Case study interactivity ---
+if (!/index-feedback/.test(index)) {
+  errors.push('Home Index must include post-score feedback form');
+}
+if (!/index-share/.test(index)) {
+  errors.push('Home Index must include shareable score link');
+}
+if (!/model-walk/.test(read('model.html'))) {
+  errors.push('Model page must include interactive pipeline walk');
+}
+if (!/open-questions/.test(read('how-we-work.html'))) {
+  errors.push('Proposal page must include open questions section');
+}
+if (!/case-study-banner/.test(read('assets/site.js'))) {
+  errors.push('site.js must inject case study version banner');
+}
+
 console.log('Agile Fragile regression test\n');
 if (warnings.length) {
   console.log('Warnings:');

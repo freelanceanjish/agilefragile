@@ -54,23 +54,35 @@
       </div>
     </section>
 
-    <section class="section contain">
-      <div class="model-pipeline four">
-        <div class="pipeline-step">
-          <h3 class="t-h-4">Human</h3>
-          <p class="step-desc t-b-3">Name who is hurting. Who is excluded. Encourage before you push. Receiver and deliverer in the room before anything rolls out.</p>
+    <section class="section contain" id="model-walk">
+      <p class="eyebrow">Explore</p>
+      <h2 class="t-h-3">Walk the pipeline</h2>
+      <p class="intro t-b-2">Click each step. Human is the architecture; Adapt, Implement, and Scale orbit the people in the room.</p>
+      <div class="model-walk">
+        <div class="model-step-nav" role="tablist" aria-label="Human Agile pipeline steps">
+          <button type="button" role="tab" class="model-step-btn active" data-step="0" aria-selected="true" id="model-tab-0">Human</button>
+          <button type="button" role="tab" class="model-step-btn" data-step="1" aria-selected="false" id="model-tab-1">Adapt</button>
+          <button type="button" role="tab" class="model-step-btn" data-step="2" aria-selected="false" id="model-tab-2">Implement</button>
+          <button type="button" role="tab" class="model-step-btn" data-step="3" aria-selected="false" id="model-tab-3">Scale</button>
         </div>
-        <div class="pipeline-step">
-          <h3 class="t-h-4">Adapt</h3>
-          <p class="step-desc t-b-3">Figure out what's actually broken here. Not what the playbook says.</p>
-        </div>
-        <div class="pipeline-step">
-          <h3 class="t-h-4">Implement</h3>
-          <p class="step-desc t-b-3">Build it with the team in the room. Leaders help, they don't hover.</p>
-        </div>
-        <div class="pipeline-step">
-          <h3 class="t-h-4">Scale</h3>
-          <p class="step-desc t-b-3">Grow without losing the people who made it work.</p>
+        <div class="model-step-panels">
+          <div class="model-step-panel active" role="tabpanel" data-step-panel="0" aria-labelledby="model-tab-0">
+            <h3 class="t-h-4">Human</h3>
+            <p class="t-b-2">Name who is hurting. Who is excluded. Encourage before you push. Receiver and deliverer in the room before anything rolls out.</p>
+            <p class="t-b-3 model-step-prompt">Try the <a href="/#index" class="text-link">Human Agile Index</a> to surface what dashboards hide.</p>
+          </div>
+          <div class="model-step-panel" role="tabpanel" data-step-panel="1" aria-labelledby="model-tab-1" hidden>
+            <h3 class="t-h-4">Adapt</h3>
+            <p class="t-b-2">Figure out what is actually broken here. Not what the playbook says. Strip Dark Agile theater before you scale again.</p>
+          </div>
+          <div class="model-step-panel" role="tabpanel" data-step-panel="2" aria-labelledby="model-tab-2" hidden>
+            <h3 class="t-h-4">Implement</h3>
+            <p class="t-b-2">Build it with the team in the room. Leaders enable, they do not hover. Change co-designed, not pushed on a timeline.</p>
+          </div>
+          <div class="model-step-panel" role="tabpanel" data-step-panel="3" aria-labelledby="model-tab-3" hidden>
+            <h3 class="t-h-4">Scale</h3>
+            <p class="t-b-2">Grow without losing the people who made it work. Re-check the Index as pressure returns.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -302,5 +314,6 @@
     </div>
   </footer>
   <script src="/assets/site.js"></script>
+  <script src="/assets/explore.js"></script>
 </body>
 </html>

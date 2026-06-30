@@ -69,3 +69,32 @@ document.querySelectorAll('[data-form]').forEach(function (form) {
       });
   });
 });
+
+(function () {
+  var main = document.querySelector('main');
+  if (!main || document.querySelector('.case-study-banner')) return;
+  var banner = document.createElement('aside');
+  banner.className = 'case-study-banner contain';
+  banner.setAttribute('aria-label', 'Case study status');
+  banner.innerHTML =
+    '<p class="case-study-banner__label">Case study <span>v0.4</span></p>' +
+    '<p class="case-study-banner__text">A proposed model taking shape. Explore, react, leave a trace.</p>';
+  main.insertBefore(banner, main.firstChild);
+})();
+
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var score = params.get('score');
+  var label = params.get('label');
+  if (!score || !label) return;
+
+  var scoreField = document.getElementById('contact-index-score');
+  var labelField = document.getElementById('contact-index-label');
+  var message = document.querySelector('.contact-form textarea[name="message"]');
+
+  if (scoreField) scoreField.value = score + '%';
+  if (labelField) labelField.value = label;
+  if (message && !message.value) {
+    message.value = 'Human Agile Index: ' + score + '% (' + label + '). ';
+  }
+})();
