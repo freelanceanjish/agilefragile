@@ -199,6 +199,15 @@ if (!/case-study-banner/.test(read('assets/site.js'))) {
 if (!/home-page/.test(read('assets/site.js')) || !/landing/.test(read('assets/site.js'))) {
   errors.push('site.js must skip case study banner on home/landing pages');
 }
+if (!/insertAdjacentElement\('afterend'/.test(read('assets/site.js'))) {
+  errors.push('site.js must place case study banner after hero section, not under header');
+}
+if (!/--logo-height:/.test(css) || !/--site-header-clearance: calc/.test(css)) {
+  errors.push('CSS must calculate header clearance from logo height');
+}
+if (!/body\.home-page \.case-study-banner/.test(css)) {
+  errors.push('CSS must hide case study banner on home page');
+}
 if (!/body\.home-page \.site-header/.test(css) || !/opacity:\s*0/.test(css)) {
   errors.push('CSS must hide fixed header on home during hero scroll');
 }
