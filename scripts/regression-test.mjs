@@ -123,6 +123,9 @@ if (!/id="operating-rules"/.test(model)) {
 if (!/move-detail/.test(model)) {
   errors.push('Model page moves must include activities/outputs detail');
 }
+if (!/contrast-grid/.test(model)) {
+  errors.push('Model page divide must use contrast-grid pattern');
+}
 if (!/open-questions/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must include open questions section');
 }
