@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 32" fill="none" role="img" aria-label="Agile Fragile">
-  <text x="0" y="24" font-family="Newsreader, Georgia, serif" font-size="22" font-weight="600" letter-spacing="-0.02em">
-    <tspan fill="#ffffff">Agile </tspan><tspan fill="#1f35a9">Fragile</tspan>
-  </text>
+  <text x="0" y="24" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600" letter-spacing="-0.02em">Agile Fragile</text>
 </svg>
