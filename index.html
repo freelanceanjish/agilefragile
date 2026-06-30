@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body>
+<body class="home-page">
   <header class="site-header contain">
     <a href="/" class="logo">
       <img src="/assets/logo-wordmark.svg" alt="Agile Fragile" class="logo-wordmark" width="120" height="27">
@@ -30,9 +30,46 @@
   </header>
 
   <main class="landing">
-    <section id="hero" class="landing-hero">
-      <div class="landing-hero-scroll">
-        <img src="/assets/hero-wordmark.svg" alt="Agile Fragile" class="landing-hero-wordmark" width="1400" height="380">
+    <section id="hero" class="landing-hero" data-home-hero>
+      <div class="landing-hero-pin" id="hero-pin">
+        <div class="landing-hero-stage">
+          <div class="landing-hero-wordmark-wrap" id="hero-wordmark-wrap">
+            <img src="/assets/hero-wordmark.svg" alt="Agile Fragile" class="landing-hero-wordmark" width="1400" height="380">
+          </div>
+          <div class="landing-hero-panel is-bottom" id="hero-panel" aria-hidden="true">
+            <div class="landing-hero-panel-inner">
+              <div class="landing-hero-slides">
+                <div class="landing-hero-slide" data-slide="0">
+                  <span class="landing-hero-slide-eyebrow t-b-3">Move 1</span>
+                  <span class="landing-hero-slide-title t-h-4">Human</span>
+                  <span class="landing-hero-slide-desc t-b-2">People in the room before the rollout is designed.</span>
+                </div>
+                <div class="landing-hero-slide" data-slide="1">
+                  <span class="landing-hero-slide-eyebrow t-b-3">Move 2</span>
+                  <span class="landing-hero-slide-title t-h-4">Adapt</span>
+                  <span class="landing-hero-slide-desc t-b-2">Agility built with teams, not pushed on a timeline.</span>
+                </div>
+                <div class="landing-hero-slide" data-slide="2">
+                  <span class="landing-hero-slide-eyebrow t-b-3">Move 3</span>
+                  <span class="landing-hero-slide-title t-h-4">Implement</span>
+                  <span class="landing-hero-slide-desc t-b-2">Delivery that protects humans, not just dashboards.</span>
+                </div>
+                <div class="landing-hero-slide" data-slide="3">
+                  <span class="landing-hero-slide-eyebrow t-b-3">Move 4</span>
+                  <span class="landing-hero-slide-title t-h-4">Scale</span>
+                  <span class="landing-hero-slide-desc t-b-2">Grow only after the human gate clears.</span>
+                </div>
+              </div>
+            </div>
+            <div class="landing-hero-masks" aria-hidden="true">
+              <div class="landing-hero-mask landing-hero-mask--top" data-axis="y"></div>
+              <div class="landing-hero-mask landing-hero-mask--bottom-left" data-axis="y"></div>
+              <div class="landing-hero-mask landing-hero-mask--bottom-right" data-axis="y"></div>
+              <div class="landing-hero-mask landing-hero-mask--left" data-axis="x"></div>
+              <div class="landing-hero-mask landing-hero-mask--right" data-axis="x"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -328,6 +365,7 @@
   </footer>
 
   <script src="/assets/site.js"></script>
+  <script src="/assets/home-hero.js"></script>
   <script src="/assets/index.js"></script>
 </body>
 </html>
