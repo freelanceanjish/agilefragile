@@ -199,6 +199,12 @@ if (!/case-study-banner/.test(read('assets/site.js'))) {
 if (!/home-page/.test(read('assets/site.js')) || !/landing/.test(read('assets/site.js'))) {
   errors.push('site.js must skip case study banner on home/landing pages');
 }
+if (!/body\.home-page \.site-header/.test(css) || !/opacity:\s*0/.test(css)) {
+  errors.push('CSS must hide fixed header on home during hero scroll');
+}
+if (!/home-header-visible/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must reveal header after hero scroll progress');
+}
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
   errors.push('site.js case study banner must not include version numbers');
 }

@@ -234,6 +234,19 @@ a { color: inherit; text-decoration: none; }
 .header-links a:hover,
 .header-links a[aria-current="page"] { opacity: 0.75; }
 
+/* Home: hide fixed header during hero — giant wordmark is the logo */
+body.home-page .site-header {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+body.home-page.home-header-visible .site-header,
+body.home-page .site-header:focus-within,
+body.home-page .site-header.nav-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 main { padding-top: var(--site-header-clearance); }
 main.landing { padding-top: 0; }
 .section { padding-block: var(--section); }
@@ -2111,9 +2124,11 @@ main.landing { padding-top: 0; }
 .landing-hero-wordmark-wrap {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   width: 100%;
   will-change: transform;
-  padding-top: 40px;
+  padding-top: clamp(48px, 10vh, 96px);
+  min-height: 55vh;
 }
 
 .landing-hero-wordmark {
