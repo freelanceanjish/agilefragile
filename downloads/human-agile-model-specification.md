@@ -1,5 +1,5 @@
 # The Human Agile Model
-## Specification Document v0.7
+## Specification Document
 
 **Author:** Anjish Bhondwe  
 **Published at:** https://agilefragile.com/model.html  
