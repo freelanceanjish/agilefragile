@@ -74,9 +74,12 @@ def header_for(page: str) -> str:
     if isinstance(cur, str):
         attrs[cur] = ' aria-current="page"'
     links = NAV_LINKS.format(**attrs)
-    return f"""  <header class="site-header contain">
+    return f"""  <header class="site-header">
     <a href="/" class="logo">
-      <img src="/assets/logo-wordmark.svg" alt="Agile Fragile" class="logo-wordmark" width="120" height="27">
+      <svg class="wordmark-svg logo-wordmark" viewBox="0 0 1400 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agile Fragile" fill="none">
+        <text class="wordmark-line" x="700" y="158" text-anchor="middle">AGILE</text>
+        <text class="wordmark-line" x="718" y="318" text-anchor="middle">FRAGILE</text>
+      </svg>
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -94,7 +97,7 @@ def patch_file(path: Path) -> None:
             '  <link rel="stylesheet" href="/assets/site.css">',
             FONTS + "\n  <link rel=\"stylesheet\" href=\"/assets/site.css\">",
         )
-    text = re.sub(r"  <header class=\"site-header\"[^>]*>.*?</header>", header_for(path.name), text, count=1, flags=re.S)
+    text = re.sub(r"  <header class=\"site-header(?: contain)?\"[^>]*>.*?</header>", header_for(path.name), text, count=1, flags=re.S)
     text = re.sub(r"  <footer class=\"site-footer\"[^>]*>.*?</footer>", FOOTER, text, count=1, flags=re.S)
     path.write_text(text)
     print("patched", path.name)

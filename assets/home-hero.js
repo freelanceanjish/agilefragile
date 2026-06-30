@@ -73,7 +73,6 @@
       panel.style.transform = '';
       panel.style.height = mobile ? (vh * 0.45) + 'px' : (vh * 0.5) + 'px';
       slides[0] && slides[0].classList.add('is-active');
-      document.body.classList.add('home-header-visible');
       return;
     }
 
@@ -100,8 +99,6 @@
 
     updateMasks(panel.offsetHeight);
     updateSlides(progress);
-
-    document.body.classList.toggle('home-header-visible', progress > 0.82);
   }
 
   var ticking = false;

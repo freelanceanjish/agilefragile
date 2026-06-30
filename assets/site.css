@@ -132,9 +132,9 @@ a { color: inherit; text-decoration: none; }
 
 .site-header {
   position: fixed;
-  top: 16px;
-  left: 16px;
-  right: 16px;
+  top: 64px;
+  left: 64px;
+  right: 64px;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -143,16 +143,18 @@ a { color: inherit; text-decoration: none; }
 }
 .site-header .logo { display: flex; align-items: center; flex-shrink: 0; }
 .site-header .logo img,
-.site-header .logo .logo-wordmark {
-  width: 120px;
+.site-header .logo .logo-wordmark,
+.site-header .logo .wordmark-svg {
+  width: 100px;
   height: auto;
   display: block;
   flex-shrink: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .site-header .logo img,
-  .site-header .logo .logo-wordmark {
-    width: 180px;
+  .site-header .logo .logo-wordmark,
+  .site-header .logo .wordmark-svg {
+    width: 150px;
     height: auto;
   }
 }
@@ -2013,19 +2015,6 @@ main { padding-top: 80px; }
 /* Landing page */
 main.landing { padding-top: 0; }
 
-/* Home: header hidden until hero scroll completes */
-body.home-page .site-header {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s ease;
-}
-body.home-page.home-header-visible .site-header,
-body.home-page .site-header:focus-within,
-body.home-page .site-header.nav-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .my-section {
   margin-block: var(--section);
 }
@@ -2096,21 +2085,33 @@ body.home-page .site-header.nav-open {
   }
 }
 
+.wordmark-line {
+  fill: var(--white);
+  font-family: var(--font-sans);
+  font-size: 132px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
 .landing-hero-wordmark-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   will-change: transform;
   padding-top: 40px;
 }
 
 .landing-hero-wordmark {
   display: block;
-  width: 100%;
+  width: calc(100% - 80px);
+  max-width: 1400px;
   height: auto;
-  padding-inline: max(20px, var(--contain));
+  margin: 0 auto;
 }
 
 .landing-hero-panel {
   position: relative;
-  width: calc(100% - 2 * max(20px, var(--contain)));
+  width: calc(100% - 80px);
   margin: 0 auto 40px;
   border-radius: 8px;
   overflow: hidden;
@@ -2120,18 +2121,18 @@ body.home-page .site-header.nav-open {
 @media (min-width: 600px) {
   .landing-hero-panel {
     position: fixed;
-    left: max(20px, var(--contain));
-    right: max(20px, var(--contain));
+    left: 40px;
+    right: 40px;
     width: auto;
     margin: 0;
     z-index: 10;
   }
   .landing-hero-panel.is-bottom {
-    bottom: 10px;
+    bottom: 40px;
     top: auto;
   }
   .landing-hero-panel.is-top {
-    top: 10px;
+    top: 40px;
     bottom: auto;
   }
 }
