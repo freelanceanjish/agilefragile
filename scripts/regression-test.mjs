@@ -196,8 +196,23 @@ if (!/open-questions/.test(read('how-we-work.html'))) {
 if (!/case-study-banner/.test(read('assets/site.js'))) {
   errors.push('site.js must inject case study banner');
 }
+if (!/home-page/.test(read('assets/site.js')) || !/landing/.test(read('assets/site.js'))) {
+  errors.push('site.js must skip case study banner on home/landing pages');
+}
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
   errors.push('site.js case study banner must not include version numbers');
+}
+if (!/--logo-width:\s*168px/.test(css)) {
+  errors.push('CSS must define readable header logo width (--logo-width >= 168px)');
+}
+if (!/--site-header-clearance/.test(css)) {
+  errors.push('CSS must define --site-header-clearance to prevent header overlap');
+}
+if (!/z-index:\s*200/.test(css) || !/\.site-header/.test(css)) {
+  errors.push('Site header must sit above page content (z-index 200)');
+}
+if (!/viewBox="350 20 700 330"/.test(read('about.html'))) {
+  errors.push('Header wordmark must use cropped viewBox for readable logo size');
 }
 if (/v0\.[0-9]/.test(read('model.html'))) {
   errors.push('Model page must not display version numbers');
