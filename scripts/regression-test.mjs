@@ -132,14 +132,38 @@ if (!/id="agile-foundation"/.test(model)) {
 if (!/id="index-scoring"/.test(model)) {
   errors.push('Model page must explain Index scoring');
 }
+if (!/id="model-glossary"/.test(model)) {
+  errors.push('Model page must include terminology glossary');
+}
+if (!/id="four-moves-spec"/.test(model)) {
+  errors.push('Model page must include full four-moves specification');
+}
+if (!/id="model-copyright"/.test(model)) {
+  errors.push('Model page must include copyright and attribution');
+}
+if (!/id="model-document"/.test(model)) {
+  errors.push('Model page must be wrapped as specification document');
+}
 if (!/open-questions/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must include open questions section');
 }
 if (!/case-study-banner/.test(read('assets/site.js'))) {
   errors.push('site.js must inject case study version banner');
 }
-if (!/v0\.6/.test(read('assets/site.js'))) {
-  errors.push('site.js case study banner must reference v0.6');
+if (!/v0\.7/.test(read('assets/site.js'))) {
+  errors.push('site.js case study banner must reference v0.7');
+}
+const specMd = 'downloads/human-agile-model-specification.md';
+try {
+  const spec = read(specMd);
+  if (!/Copyright © 2026 Anjish Bhondwe/.test(spec)) {
+    errors.push('Downloadable model specification must include copyright notice');
+  }
+  if (!/Human gate/.test(spec)) {
+    errors.push('Downloadable model specification must document human gate');
+  }
+} catch {
+  errors.push('downloads/human-agile-model-specification.md must exist');
 }
 
 console.log('Agile Fragile regression test\n');
