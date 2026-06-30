@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /**
  * Agile Fragile static site regression checks.
- * Design reference: Mammoth Brands careers (layout inspiration), not anjishbhondwe.com.
+ * Design reference: mammothbrands.com/careers
+ * Tokens and type scale copied from Mammoth CSS.
+ * Fonts: Sanomat + PP Neue Montreal → Fraunces + DM Sans (Google substitutes).
  * Run: node scripts/regression-test.mjs
  */
 import { readFileSync, readdirSync, statSync } from 'fs';
@@ -41,8 +43,12 @@ if (/>\s*AF\s*</.test(index)) {
 if (!/logo-wordmark\.svg/.test(index)) {
   errors.push('Home header must use logo-wordmark.svg (Mammoth-style wordmark)');
 }
-if (!/fill="#1f35a9">Fragile/.test(read('assets/logo-wordmark.svg'))) {
-  errors.push('Header wordmark must use two-tone Agile (white) + Fragile (accent)');
+const wordmark = read('assets/logo-wordmark.svg');
+if (!/>Agile Fragile<\/text>/.test(wordmark) || !/fill="#ffffff"/.test(wordmark)) {
+  errors.push('Header wordmark must be all-white Mammoth-style serif wordmark');
+}
+if (/fill="#1f35a9">Fragile/.test(wordmark)) {
+  errors.push('Header wordmark must not use portfolio two-tone blue; Mammoth uses white wordmark');
 }
 if (/class="nav-logo"/.test(index)) {
   errors.push('Do not use portfolio-style nav-logo text; use logo wordmark image');
@@ -55,16 +61,19 @@ if (!/--gray-mammoth:\s*#818181/.test(css)) {
 if (!/--text-on-mammoth:/.test(css)) {
   errors.push('CSS must define readable secondary text token for Mammoth gray background');
 }
+if (!/--gray-medium:\s*#c8c8c8/.test(css)) {
+  errors.push('CSS must include Mammoth gray-medium token (#c8c8c8)');
+}
 if (/IBM Plex Sans|@import.*IBM\+Plex/i.test(css)) {
-  errors.push('CSS must not use IBM Plex portfolio fonts; use Newsreader + Inter via HTML link');
+  errors.push('CSS must not use IBM Plex portfolio fonts; use Fraunces + DM Sans via HTML link');
 }
 if (/background:\s*var\(--bg\)|--bg:\s*#161616/.test(css) && !/--gray-mammoth/.test(css)) {
   errors.push('CSS must not use Carbon #161616 as primary page background');
 }
 for (const file of htmlFiles) {
   const html = read(file);
-  if (!/Newsreader/i.test(html) || !/Inter/i.test(html)) {
-    errors.push(`${file}: missing Newsreader/Inter font links`);
+  if (!/Fraunces/i.test(html) || !/DM\+Sans|DM Sans/i.test(html)) {
+    errors.push(`${file}: missing Fraunces/DM Sans font links (Mammoth substitutes)`);
   }
   if (!/class="logo"/.test(html)) {
     errors.push(`${file}: header must use Mammoth-style .logo wordmark`);

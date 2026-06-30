@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 FONTS = """  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">"""
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">"""
 
 NAV_LINKS = """      <a href="/about.html"{about}>Story</a>
       <a href="/model.html"{model}>Model</a>
@@ -76,7 +76,7 @@ def header_for(page: str) -> str:
     links = NAV_LINKS.format(**attrs)
     return f"""  <header class="site-header contain">
     <a href="/" class="logo">
-      <img src="/assets/logo-wordmark.svg" alt="Agile Fragile" class="logo-wordmark" width="193" height="28">
+      <img src="/assets/logo-wordmark.svg" alt="Agile Fragile" class="logo-wordmark" width="100" height="15">
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <span></span><span></span><span></span>

@@ -1,17 +1,20 @@
 :root {
+  /* Mammoth Brands tokens (from mammothbrands.com) */
   --gray-mammoth: #818181;
   --black: #151517;
   --white: #ffffff;
   --gray-light: #f7f7f7;
+  --gray-medium: #c8c8c8;
   --gray-dark: #949494;
-  --text-on-mammoth: rgba(255, 255, 255, 0.88);
-  --text-muted-on-mammoth: rgba(255, 255, 255, 0.72);
   --accent: #1f35a9;
+  --text-on-mammoth: #f7f7f7;
+  --text-muted-on-mammoth: #c8c8c8;
   --contain: max(2vw, 10px);
   --block: 50px;
   --section: 100px;
-  --font-serif: "Newsreader", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  /* Mammoth: Sanomat + PP Neue Montreal. Substitutes: Fraunces + DM Sans */
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
 }
 
 @media (min-width: 1080px) {
@@ -64,10 +67,10 @@ a { color: inherit; text-decoration: none; }
 .prose-col.center { text-align: center; }
 
 .eyebrow {
-  font: 500 12px / 1.4 var(--font-sans);
+  font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--gray-light);
 }
 
 .section-title {
@@ -90,15 +93,15 @@ a { color: inherit; text-decoration: none; }
 .body-copy + .body-copy { margin-top: 1em; }
 
 .t-h-2 {
-  font: 600 clamp(40px, 7vw, 72px) / 1.1 var(--font-serif);
-  letter-spacing: -0.03em;
+  font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
+  letter-spacing: -0.02em;
 }
 @media (min-width: 600px) {
-  .t-h-2 { font-size: clamp(56px, 6vw, 88px); }
+  .t-h-2 { font-size: clamp(70px, 8vw, 150px); }
 }
 
 .t-h-3 {
-  font: 600 clamp(28px, 4vw, 48px) / 1.12 var(--font-serif);
+  font: 600 clamp(40px, 13vw, 60px) / 1.05 var(--font-serif);
   letter-spacing: -0.02em;
 }
 
@@ -143,13 +146,13 @@ a { color: inherit; text-decoration: none; }
 .site-header .logo { display: flex; align-items: center; flex-shrink: 0; }
 .site-header .logo img,
 .site-header .logo .logo-wordmark {
-  height: 24px;
-  width: auto;
+  width: 100px;
+  height: auto;
   display: block;
 }
 @media (min-width: 768px) {
   .site-header .logo img,
-  .site-header .logo .logo-wordmark { height: 28px; }
+  .site-header .logo .logo-wordmark { width: 150px; }
 }
 
 .nav-toggle {
@@ -216,11 +219,10 @@ a { color: inherit; text-decoration: none; }
 }
 .header-links a {
   color: var(--white);
-  opacity: 0.92;
   transition: opacity 0.2s;
 }
 .header-links a:hover,
-.header-links a[aria-current="page"] { opacity: 1; }
+.header-links a[aria-current="page"] { opacity: 0.75; }
 
 main { padding-top: 80px; }
 .section { padding-block: var(--section); }
@@ -823,13 +825,13 @@ main { padding-top: 80px; }
   background: var(--black);
   color: var(--gray-light);
   border-radius: 8px;
-  padding: 40px 28px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
 }
-@media (min-width: 900px) {
-  .footer-panel { padding: 40px; gap: 56px; }
+@media (min-width: 768px) {
+  .footer-panel { padding: 40px; gap: 40px; }
 }
 .footer-top {
   display: flex;
@@ -847,12 +849,16 @@ main { padding-top: 80px; }
   }
 }
 .footer-logo img {
-  width: 120px;
+  width: min(50%, 300px);
   height: auto;
   display: block;
 }
-@media (min-width: 900px) {
-  .footer-logo img { width: 160px; }
+@media (min-width: 768px) {
+  .footer-logo img {
+    width: 20%;
+    min-width: 200px;
+    max-width: 300px;
+  }
 }
 .footer-cols {
   display: flex;
@@ -947,7 +953,7 @@ main { padding-top: 80px; }
   }
 }
 .story-beat .beat-num {
-  color: var(--accent);
+  color: var(--gray-light);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
