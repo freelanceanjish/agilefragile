@@ -13,10 +13,22 @@
   --section: 100px;
   --font-serif: "Fraunces", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
+  --header-top: 16px;
+  --header-inset: 16px;
+  --logo-width: 168px;
+  --site-header-clearance: 6.5rem;
 }
 
 @media (min-width: 1080px) {
   :root { --block: 100px; --section: 200px; }
+}
+@media (min-width: 600px) {
+  :root {
+    --header-top: 64px;
+    --header-inset: 64px;
+    --logo-width: 240px;
+    --site-header-clearance: 10rem;
+  }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -132,31 +144,23 @@ a { color: inherit; text-decoration: none; }
 
 .site-header {
   position: fixed;
-  top: 64px;
-  left: 64px;
-  right: 64px;
-  z-index: 100;
+  top: var(--header-top);
+  left: var(--header-inset);
+  right: var(--header-inset);
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 16px;
 }
 .site-header .logo { display: flex; align-items: center; flex-shrink: 0; }
 .site-header .logo img,
 .site-header .logo .logo-wordmark,
 .site-header .logo .wordmark-svg {
-  width: 100px;
+  width: var(--logo-width);
   height: auto;
   display: block;
   flex-shrink: 0;
-}
-@media (min-width: 600px) {
-  .site-header .logo img,
-  .site-header .logo .logo-wordmark,
-  .site-header .logo .wordmark-svg {
-    width: 150px;
-    height: auto;
-  }
 }
 
 .nav-toggle {
@@ -194,6 +198,8 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: flex-end;
   gap: 12px 20px;
+  flex: 1;
+  min-width: 0;
   font: 500 clamp(12px, 1.1vw, 16px) / 1.4 var(--font-sans);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -228,7 +234,8 @@ a { color: inherit; text-decoration: none; }
 .header-links a:hover,
 .header-links a[aria-current="page"] { opacity: 0.75; }
 
-main { padding-top: 80px; }
+main { padding-top: var(--site-header-clearance); }
+main.landing { padding-top: 0; }
 .section { padding-block: var(--section); }
 
 .hero {
@@ -1797,7 +1804,7 @@ main { padding-top: 80px; }
 /* Case study interactivity */
 .case-study-banner {
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
   padding: 12px 16px;
   background: var(--black);
   border-radius: 8px;
@@ -1806,6 +1813,9 @@ main { padding-top: 80px; }
   flex-wrap: wrap;
   align-items: baseline;
   gap: 8px 16px;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: max(20px, var(--contain));
 }
 .case-study-banner__label {
   font: 600 12px / 1.4 var(--font-sans);
@@ -2088,9 +2098,14 @@ main.landing { padding-top: 0; }
 .wordmark-line {
   fill: var(--white);
   font-family: var(--font-sans);
-  font-size: 132px;
   font-weight: 700;
   letter-spacing: -0.04em;
+}
+.wordmark-line--header {
+  font-size: 132px;
+}
+.landing-hero-wordmark .wordmark-line {
+  font-size: 132px;
 }
 
 .landing-hero-wordmark-wrap {

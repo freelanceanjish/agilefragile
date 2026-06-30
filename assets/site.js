@@ -73,8 +73,9 @@ document.querySelectorAll('[data-form]').forEach(function (form) {
 (function () {
   var main = document.querySelector('main');
   if (!main || document.querySelector('.case-study-banner')) return;
+  if (document.body.classList.contains('home-page') || main.classList.contains('landing')) return;
   var banner = document.createElement('aside');
-  banner.className = 'case-study-banner contain';
+  banner.className = 'case-study-banner';
   banner.setAttribute('aria-label', 'Case study status');
   banner.innerHTML =
     '<p class="case-study-banner__label">Case study</p>' +
