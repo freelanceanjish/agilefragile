@@ -16,7 +16,8 @@
   --header-top: 16px;
   --header-inset: 16px;
   --logo-width: 168px;
-  --site-header-clearance: 6.5rem;
+  --logo-height: calc(var(--logo-width) * 330 / 700);
+  --site-header-clearance: calc(var(--header-top) + var(--logo-height) + 3rem);
 }
 
 @media (min-width: 1080px) {
@@ -27,7 +28,6 @@
     --header-top: 64px;
     --header-inset: 64px;
     --logo-width: 240px;
-    --site-header-clearance: 10rem;
   }
 }
 
@@ -1815,9 +1815,13 @@ main.landing { padding-top: 0; }
 .notify-form button:disabled { opacity: 0.6; cursor: wait; }
 
 /* Case study interactivity */
+body.home-page .case-study-banner {
+  display: none !important;
+}
+
 .case-study-banner {
   margin-top: 0;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   padding: 12px 16px;
   background: var(--black);
   border-radius: 8px;
