@@ -41,6 +41,9 @@ if (/>\s*AF\s*</.test(index)) {
 if (!/logo-wordmark\.svg/.test(index)) {
   errors.push('Home header must use logo-wordmark.svg (Mammoth-style wordmark)');
 }
+if (!/fill="#1f35a9">Fragile/.test(read('assets/logo-wordmark.svg'))) {
+  errors.push('Header wordmark must use two-tone Agile (white) + Fragile (accent)');
+}
 if (/class="nav-logo"/.test(index)) {
   errors.push('Do not use portfolio-style nav-logo text; use logo wordmark image');
 }
@@ -48,6 +51,9 @@ if (/class="nav-logo"/.test(index)) {
 // --- Mammoth design system (not portfolio Carbon clone) ---
 if (!/--gray-mammoth:\s*#818181/.test(css)) {
   errors.push('CSS must use Mammoth gray background token (--gray-mammoth: #818181)');
+}
+if (!/--text-on-mammoth:/.test(css)) {
+  errors.push('CSS must define readable secondary text token for Mammoth gray background');
 }
 if (/IBM Plex Sans|@import.*IBM\+Plex/i.test(css)) {
   errors.push('CSS must not use IBM Plex portfolio fonts; use Newsreader + Inter via HTML link');
