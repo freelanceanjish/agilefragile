@@ -411,6 +411,11 @@ main { padding-top: 80px; }
   opacity: 0.9;
   text-wrap: pretty;
 }
+.pipeline-step a {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .process-flow {
   display: grid;
@@ -967,7 +972,7 @@ main { padding-top: 80px; }
 .contrast-card.highlight {
   background: var(--accent);
 }
-.contrast-card h3 { margin-bottom: 0; }
+.contrast-card h3 { margin-bottom: 16px; }
 .contrast-card ul {
   list-style: none;
   display: flex;
@@ -1069,59 +1074,30 @@ main { padding-top: 80px; }
   text-wrap: pretty;
 }
 
-.model-spec {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-@media (min-width: 768px) {
-  .model-spec { grid-template-columns: repeat(3, 1fr); }
-}
-.model-spec-card {
-  background: var(--black);
-  border-radius: 8px;
-  padding: 28px 24px;
-}
-.model-spec-card h3 { margin-bottom: 12px; }
-.model-spec-card p { color: var(--gray-light); }
-
-.human-roles {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  max-width: 960px;
-  margin: 32px auto 0;
-}
-@media (min-width: 600px) {
-  .human-roles { grid-template-columns: repeat(3, 1fr); }
-}
-.human-roles article {
-  background: var(--black);
-  border-radius: 8px;
-  padding: 24px 20px;
-}
-.human-roles h3 { margin-bottom: 8px; }
-.human-roles p { color: var(--gray-light); }
-
-.gate-list {
-  max-width: 720px;
-  margin-top: 24px;
-}
-.gate-list ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.gate-list li {
-  background: var(--black);
-  border-radius: 8px;
-  padding: 20px 24px;
+.hero-intro {
+  max-width: 40rem;
+  font: 400 clamp(17px, 1.2vw, 20px) / 1.65 var(--font-sans);
   color: var(--gray-light);
-  font: 400 15px / 1.55 var(--font-sans);
-  border-left: 3px solid var(--accent);
+  text-wrap: pretty;
+}
+
+.model-roles { margin-top: 40px; }
+
+.model-gate { margin-top: 8px; }
+
+.model-gate-link {
+  text-align: center;
+  margin-top: 24px;
+  color: var(--gray-light);
+}
+
+.concept-section .model-gate-link a.text-link {
+  color: var(--gray-light);
+}
+
+.detail-card > p.t-b-3 {
+  color: var(--gray-light);
+  margin-top: 12px;
 }
 
 .move-detail {
@@ -1146,84 +1122,6 @@ main { padding-top: 80px; }
   color: var(--gray-light);
 }
 .model-step-panel ul li { margin-bottom: 6px; }
-
-.model-rules {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-@media (min-width: 600px) {
-  .model-rules { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 900px) {
-  .model-rules { grid-template-columns: repeat(3, 1fr); }
-}
-.model-rules article {
-  background: var(--black);
-  border-radius: 8px;
-  padding: 24px 20px;
-}
-.model-rules h3 { margin-bottom: 8px; }
-.model-rules p { color: var(--gray-light); }
-.rule-num {
-  display: block;
-  color: var(--accent);
-  margin-bottom: 8px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-}
-
-.divide-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  max-width: 960px;
-  margin: 0 auto;
-}
-@media (min-width: 700px) {
-  .divide-grid { grid-template-columns: 1fr 1fr; }
-}
-.divide-col {
-  border-radius: 8px;
-  padding: 28px 24px;
-  background: var(--black);
-}
-.divide-dark { border-top: 3px solid rgba(255, 255, 255, 0.15); }
-.divide-human { border-top: 3px solid var(--accent); }
-.divide-col h3 { margin-bottom: 16px; }
-.divide-col ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.divide-col li {
-  padding-left: 1rem;
-  position: relative;
-  color: var(--gray-light);
-}
-.divide-col li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--gray-dark);
-}
-
-.model-use-steps {
-  max-width: 640px;
-  margin: 0;
-  padding-left: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  color: var(--gray-light);
-}
-.model-use-steps li::marker {
-  color: var(--accent);
-  font-weight: 600;
-}
 
 .pull-statement {
   font: 500 clamp(22px, 3vw, 32px) / 1.35 var(--font-serif);
@@ -1637,7 +1535,7 @@ main { padding-top: 80px; }
 .index-feedback.form-section.submitted .index-feedback-form { display: none; }
 
 .model-walk {
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 .model-step-nav {
