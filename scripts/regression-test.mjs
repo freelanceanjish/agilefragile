@@ -126,14 +126,20 @@ if (!/move-detail/.test(model)) {
 if (!/contrast-grid/.test(model)) {
   errors.push('Model page divide must use contrast-grid pattern');
 }
+if (!/id="agile-foundation"/.test(model)) {
+  errors.push('Model page must include agile foundation section');
+}
+if (!/id="index-scoring"/.test(model)) {
+  errors.push('Model page must explain Index scoring');
+}
 if (!/open-questions/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must include open questions section');
 }
 if (!/case-study-banner/.test(read('assets/site.js'))) {
   errors.push('site.js must inject case study version banner');
 }
-if (!/v0\.5/.test(read('assets/site.js'))) {
-  errors.push('site.js case study banner must reference v0.5');
+if (!/v0\.6/.test(read('assets/site.js'))) {
+  errors.push('site.js case study banner must reference v0.6');
 }
 
 console.log('Agile Fragile regression test\n');

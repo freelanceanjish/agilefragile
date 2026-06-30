@@ -77,7 +77,7 @@ document.querySelectorAll('[data-form]').forEach(function (form) {
   banner.className = 'case-study-banner contain';
   banner.setAttribute('aria-label', 'Case study status');
   banner.innerHTML =
-    '<p class="case-study-banner__label">Case study <span>v0.5</span></p>' +
+    '<p class="case-study-banner__label">Case study <span>v0.6</span></p>' +
     '<p class="case-study-banner__text">A proposed model taking shape. Explore, react, leave a trace.</p>';
   main.insertBefore(banner, main.firstChild);
 })();
