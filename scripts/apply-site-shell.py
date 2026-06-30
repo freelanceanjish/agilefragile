@@ -76,7 +76,7 @@ def header_for(page: str) -> str:
     links = NAV_LINKS.format(**attrs)
     return f"""  <header class="site-header contain">
     <a href="/" class="logo">
-      <img src="/assets/logo-wordmark.svg" alt="Agile Fragile" class="logo-wordmark" width="100" height="15">
+      <img src="/assets/logo-wordmark.svg" alt="Agile Fragile" class="logo-wordmark" width="100" height="31">
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <span></span><span></span><span></span>

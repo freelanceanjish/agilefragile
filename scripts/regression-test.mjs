@@ -41,8 +41,8 @@ if (!/logo-wordmark\.svg/.test(index)) {
   errors.push('Home header must use logo-wordmark.svg');
 }
 const wordmark = read('assets/logo-wordmark.svg');
-if (!/>Agile Fragile<\/text>/.test(wordmark) || !/fill="#ffffff"/.test(wordmark)) {
-  errors.push('Header wordmark must be all-white serif wordmark');
+if (!/>Agile<\/text>/.test(wordmark) || !/>Fragile<\/text>/.test(wordmark) || !/fill="#ffffff"/.test(wordmark)) {
+  errors.push('Header wordmark must be all-white stacked serif wordmark');
 }
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
   errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');
