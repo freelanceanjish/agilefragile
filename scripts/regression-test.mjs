@@ -107,14 +107,30 @@ if (!/index-feedback/.test(index)) {
 if (!/index-share/.test(index)) {
   errors.push('Home Index must include shareable score link');
 }
-if (!/model-walk/.test(read('model.html'))) {
+const model = read('model.html');
+if (!/model-walk/.test(model)) {
   errors.push('Model page must include interactive pipeline walk');
+}
+if (!/id="model-definition"/.test(model)) {
+  errors.push('Model page must define the model (model-definition section)');
+}
+if (!/id="human-gate"/.test(model)) {
+  errors.push('Model page must include human gate section');
+}
+if (!/id="operating-rules"/.test(model)) {
+  errors.push('Model page must include operating rules');
+}
+if (!/move-detail/.test(model)) {
+  errors.push('Model page moves must include activities/outputs detail');
 }
 if (!/open-questions/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must include open questions section');
 }
 if (!/case-study-banner/.test(read('assets/site.js'))) {
   errors.push('site.js must inject case study version banner');
+}
+if (!/v0\.5/.test(read('assets/site.js'))) {
+  errors.push('site.js case study banner must reference v0.5');
 }
 
 console.log('Agile Fragile regression test\n');
