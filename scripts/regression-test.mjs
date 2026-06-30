@@ -37,11 +37,17 @@ if (!/Agile\s+Fragile/i.test(index)) {
 if (!/id="hero"/.test(index) || !/landing-hero/.test(index)) {
   errors.push('Home page must use landing hero section');
 }
+if (!/hero-wordmark\.svg/.test(index)) {
+  errors.push('Home hero must use full-width hero-wordmark.svg');
+}
 if (!/id="explore"/.test(index) || !/landing-cards/.test(index)) {
   errors.push('Home page must include explore cards section');
 }
 if (!/id="impact"/.test(index) || !/landing-stats/.test(index)) {
   errors.push('Home page must include impact stats section');
+}
+if (!/id="leadership"/.test(index)) {
+  errors.push('Home page must include leadership section');
 }
 if (/>\s*AF\s*</.test(index)) {
   errors.push('Home page must not show standalone "AF"');
