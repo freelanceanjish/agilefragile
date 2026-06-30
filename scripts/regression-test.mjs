@@ -37,8 +37,17 @@ if (!/Agile\s+Fragile/i.test(index)) {
 if (!/id="hero"/.test(index) || !/landing-hero/.test(index)) {
   errors.push('Home page must use landing hero section');
 }
+if (!/data-home-hero/.test(index)) {
+  errors.push('Home hero must use scroll-driven data-home-hero');
+}
 if (!/hero-wordmark\.svg/.test(index)) {
   errors.push('Home hero must use full-width hero-wordmark.svg');
+}
+if (!/home-hero\.js/.test(index)) {
+  errors.push('Home page must load home-hero.js for scroll effects');
+}
+if (!/landing-hero-panel/.test(index)) {
+  errors.push('Home hero must include fixed panel with mask wipe');
 }
 if (!/id="explore"/.test(index) || !/landing-cards/.test(index)) {
   errors.push('Home page must include explore cards section');
