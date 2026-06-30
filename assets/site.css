@@ -147,10 +147,14 @@ a { color: inherit; text-decoration: none; }
   width: 100px;
   height: auto;
   display: block;
+  flex-shrink: 0;
 }
 @media (min-width: 768px) {
   .site-header .logo img,
-  .site-header .logo .logo-wordmark { width: 150px; }
+  .site-header .logo .logo-wordmark {
+    width: 150px;
+    height: auto;
+  }
 }
 
 .nav-toggle {
