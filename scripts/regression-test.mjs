@@ -148,10 +148,13 @@ if (!/open-questions/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must include open questions section');
 }
 if (!/case-study-banner/.test(read('assets/site.js'))) {
-  errors.push('site.js must inject case study version banner');
+  errors.push('site.js must inject case study banner');
 }
-if (!/v0\.7/.test(read('assets/site.js'))) {
-  errors.push('site.js case study banner must reference v0.7');
+if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
+  errors.push('site.js case study banner must not include version numbers');
+}
+if (/v0\.[0-9]/.test(read('model.html'))) {
+  errors.push('Model page must not display version numbers');
 }
 const specMd = 'downloads/human-agile-model-specification.md';
 try {
