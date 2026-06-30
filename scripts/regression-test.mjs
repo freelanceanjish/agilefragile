@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 /**
  * Agile Fragile static site regression checks.
- * Design reference: mammothbrands.com/careers
- * Tokens and type scale copied from Mammoth CSS.
- * Fonts: Sanomat + PP Neue Montreal → Fraunces + DM Sans (Google substitutes).
  * Run: node scripts/regression-test.mjs
  */
 import { readFileSync, readdirSync, statSync } from 'fs';
@@ -41,42 +38,42 @@ if (/>\s*AF\s*</.test(index)) {
   errors.push('Home page must not show standalone "AF"');
 }
 if (!/logo-wordmark\.svg/.test(index)) {
-  errors.push('Home header must use logo-wordmark.svg (Mammoth-style wordmark)');
+  errors.push('Home header must use logo-wordmark.svg');
 }
 const wordmark = read('assets/logo-wordmark.svg');
 if (!/>Agile Fragile<\/text>/.test(wordmark) || !/fill="#ffffff"/.test(wordmark)) {
-  errors.push('Header wordmark must be all-white Mammoth-style serif wordmark');
+  errors.push('Header wordmark must be all-white serif wordmark');
 }
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
-  errors.push('Header wordmark must not use portfolio two-tone blue; Mammoth uses white wordmark');
+  errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');
 }
 if (/class="nav-logo"/.test(index)) {
   errors.push('Do not use portfolio-style nav-logo text; use logo wordmark image');
 }
 
-// --- Mammoth design system (not portfolio Carbon clone) ---
-if (!/--gray-mammoth:\s*#818181/.test(css)) {
-  errors.push('CSS must use Mammoth gray background token (--gray-mammoth: #818181)');
+// --- Agile Fragile design system ---
+if (!/--page-gray:\s*#818181/.test(css)) {
+  errors.push('CSS must use page gray background token (--page-gray: #818181)');
 }
-if (!/--text-on-mammoth:/.test(css)) {
-  errors.push('CSS must define readable secondary text token for Mammoth gray background');
+if (!/--text-secondary:/.test(css)) {
+  errors.push('CSS must define readable secondary text token for gray page background');
 }
 if (!/--gray-medium:\s*#c8c8c8/.test(css)) {
-  errors.push('CSS must include Mammoth gray-medium token (#c8c8c8)');
+  errors.push('CSS must include gray-medium token (#c8c8c8)');
 }
 if (/IBM Plex Sans|@import.*IBM\+Plex/i.test(css)) {
   errors.push('CSS must not use IBM Plex portfolio fonts; use Fraunces + DM Sans via HTML link');
 }
-if (/background:\s*var\(--bg\)|--bg:\s*#161616/.test(css) && !/--gray-mammoth/.test(css)) {
+if (/background:\s*var\(--bg\)|--bg:\s*#161616/.test(css) && !/--page-gray/.test(css)) {
   errors.push('CSS must not use Carbon #161616 as primary page background');
 }
 for (const file of htmlFiles) {
   const html = read(file);
   if (!/Fraunces/i.test(html) || !/DM\+Sans|DM Sans/i.test(html)) {
-    errors.push(`${file}: missing Fraunces/DM Sans font links (Mammoth substitutes)`);
+    errors.push(`${file}: missing Fraunces/DM Sans font links`);
   }
   if (!/class="logo"/.test(html)) {
-    errors.push(`${file}: header must use Mammoth-style .logo wordmark`);
+    errors.push(`${file}: header must use .logo wordmark`);
   }
 }
 
@@ -182,6 +179,14 @@ try {
   }
 } catch {
   errors.push('downloads/human-agile-model-specification.md must exist');
+}
+
+const attributionGuardFiles = ['assets/site.css', 'scripts/apply-site-shell.py', ...htmlFiles];
+const forbiddenRef = /mammothbrands|mammoth-brand|gray-mammoth|text-on-mammoth/i;
+for (const file of attributionGuardFiles) {
+  if (forbiddenRef.test(read(file))) {
+    errors.push(`${file}: must not reference third-party design sources in code`);
+  }
 }
 
 console.log('Agile Fragile regression test\n');

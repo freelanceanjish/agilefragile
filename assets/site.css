@@ -1,18 +1,16 @@
 :root {
-  /* Mammoth Brands tokens (from mammothbrands.com) */
-  --gray-mammoth: #818181;
+  --page-gray: #818181;
   --black: #151517;
   --white: #ffffff;
   --gray-light: #f7f7f7;
   --gray-medium: #c8c8c8;
   --gray-dark: #949494;
   --accent: #1f35a9;
-  --text-on-mammoth: #f7f7f7;
-  --text-muted-on-mammoth: #c8c8c8;
+  --text-secondary: #f7f7f7;
+  --text-muted: #c8c8c8;
   --contain: max(2vw, 10px);
   --block: 50px;
   --section: 100px;
-  /* Mammoth: Sanomat + PP Neue Montreal. Substitutes: Fraunces + DM Sans */
   --font-serif: "Fraunces", Georgia, serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
 }
@@ -25,7 +23,7 @@
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans);
-  background: var(--gray-mammoth);
+  background: var(--page-gray);
   color: var(--white);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -45,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 .intro {
   font: 500 clamp(18px, 1.25vw, 24px) / 1.15 var(--font-sans);
   letter-spacing: 0.02em;
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
 }
 ::selection { background: var(--accent); color: var(--white); }
 a { color: inherit; text-decoration: none; }
@@ -297,7 +295,7 @@ main { padding-top: 80px; }
   max-width: 38rem;
 }
 .concept-inner .intro,
-.concept-inner .body-copy { color: var(--text-on-mammoth); }
+.concept-inner .body-copy { color: var(--text-secondary); }
 
 .story-prose {
   width: 100%;
@@ -339,7 +337,7 @@ main { padding-top: 80px; }
 }
 .page-header .intro {
   text-wrap: pretty;
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
 }
 
 .values-header,
@@ -356,7 +354,7 @@ main { padding-top: 80px; }
   width: 100%;
   max-width: 38rem;
   text-wrap: pretty;
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
 }
 .coming-header .intro em { font-style: italic; opacity: 0.85; }
 
@@ -563,7 +561,7 @@ main { padding-top: 80px; }
 .flip-face.front { background: var(--accent); color: var(--white); }
 .flip-face.back {
   background: var(--white);
-  color: var(--gray-mammoth);
+  color: var(--page-gray);
   transform: rotateY(180deg);
   overflow-y: auto;
 }
@@ -596,7 +594,7 @@ main { padding-top: 80px; }
 .index-header .intro {
   max-width: 38rem;
   margin: 16px auto 0;
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
   text-wrap: pretty;
 }
 .index-panel {
@@ -675,7 +673,7 @@ main { padding-top: 80px; }
   margin-bottom: 20px;
 }
 .index-result .result-desc {
-  color: var(--gray-mammoth);
+  color: var(--page-gray);
   margin-bottom: 28px;
   text-wrap: pretty;
 }
@@ -765,7 +763,7 @@ main { padding-top: 80px; }
   text-align: center;
 }
 .index-panel .form-success {
-  color: var(--gray-mammoth);
+  color: var(--page-gray);
 }
 .form-section.submitted .contact-form,
 .form-section.submitted .notify-form { display: none; }
@@ -817,7 +815,7 @@ main { padding-top: 80px; }
   gap: 8px;
 }
 
-/* Mammoth-style footer */
+/* Site footer */
 .site-footer {
   padding: 16px 16px var(--block);
 }
@@ -930,7 +928,7 @@ main { padding-top: 80px; }
   list-style: none;
 }
 .footer-legal .sep { opacity: 0.4; }
-.footer-copy { color: var(--text-muted-on-mammoth); }
+.footer-copy { color: var(--text-muted); }
 
 .story-arc {
   max-width: 940px;
@@ -958,12 +956,12 @@ main { padding-top: 80px; }
   text-transform: uppercase;
 }
 .story-beat p {
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
   text-wrap: pretty;
 }
 
 .concept-inner .intro a {
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -978,7 +976,7 @@ main { padding-top: 80px; }
 }
 .page-end-cta .intro {
   margin: 16px 0 28px;
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
 }
 
 .contrast-grid {
@@ -1104,7 +1102,7 @@ main { padding-top: 80px; }
 .hero-intro {
   max-width: 40rem;
   font: 400 clamp(17px, 1.2vw, 20px) / 1.65 var(--font-sans);
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
   text-wrap: pretty;
 }
 
@@ -1145,7 +1143,7 @@ main { padding-top: 80px; }
   background: var(--white);
   color: var(--black);
 }
-.foundation-value--primary p { color: var(--gray-mammoth); }
+.foundation-value--primary p { color: var(--page-gray); }
 .foundation-rank {
   display: block;
   color: var(--accent);
@@ -1263,7 +1261,7 @@ main { padding-top: 80px; }
   align-items: center;
   text-align: center;
 }
-.model-doc-byline { color: var(--text-on-mammoth); }
+.model-doc-byline { color: var(--text-secondary); }
 .model-doc-byline a {
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -1279,7 +1277,7 @@ main { padding-top: 80px; }
   font: 500 11px / 1.4 var(--font-sans);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
   padding: 8px 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 4px;
@@ -1325,7 +1323,7 @@ main { padding-top: 80px; }
 }
 .model-diagram figcaption {
   margin-top: 12px;
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
   text-align: center;
 }
 
@@ -1393,7 +1391,7 @@ main { padding-top: 80px; }
 .page-header-block .intro {
   max-width: 38rem;
   margin: 16px auto 0;
-  color: var(--text-on-mammoth);
+  color: var(--text-secondary);
   text-wrap: pretty;
 }
 
@@ -1600,7 +1598,7 @@ main { padding-top: 80px; }
 }
 .case-card p {
   font: 400 15px / 1.6 var(--font-sans);
-  color: var(--gray-mammoth);
+  color: var(--page-gray);
   flex: 1;
 }
 .case-card .case-outcome {
@@ -1924,7 +1922,7 @@ main { padding-top: 80px; }
 }
 .model-step-panel[hidden] { display: none; }
 .model-step-panel h3 { margin-bottom: 12px; }
-.model-step-prompt { margin-top: 16px; color: var(--text-on-mammoth); }
+.model-step-prompt { margin-top: 16px; color: var(--text-secondary); }
 
 .open-questions {
   display: flex;

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply Mammoth-era header, fonts, and footer to all HTML pages."""
+"""Apply shared header, fonts, and footer to all HTML pages."""
 import re
 from pathlib import Path
 
