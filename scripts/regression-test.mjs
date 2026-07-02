@@ -71,6 +71,12 @@ if (!/id="explore"/.test(index) || !/landing-cards/.test(index)) {
 if (!/id="vision"/.test(index) || !/vision-flip/.test(index) || !/We forgot people come before the product/.test(index)) {
   errors.push('Home vision section must use scannable flip layout with core thesis line');
 }
+if (/Not maturity\. Drift\./.test(index)) {
+  errors.push('Home vision must not use machine-style Not maturity. Drift. line');
+}
+if (!/\.vision-meter[\s\S]*background:\s*var\(--black\)/.test(css) || !/\.vision-flip-card[\s\S]*background:\s*var\(--black\)/.test(css)) {
+  errors.push('Vision section cards must use black background, not mixed accent colors');
+}
 if (!/id="impact"/.test(index) || !/landing-stats/.test(index)) {
   errors.push('Home page must include impact stats section');
 }

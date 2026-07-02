@@ -2705,12 +2705,8 @@ main.landing { padding-top: 0; }
   padding: 22px 20px;
   border-radius: 8px;
   text-align: left;
-  background: rgba(21, 21, 23, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-.vision-flip-card--drift {
-  background: rgba(31, 53, 169, 0.35);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .vision-flip-label {
@@ -2739,7 +2735,8 @@ main.landing { padding-top: 0; }
   max-width: 680px;
   padding: clamp(20px, 4vw, 28px) clamp(16px, 3vw, 24px);
   border-radius: 8px;
-  background: var(--accent);
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   text-align: center;
 }
 
@@ -2763,7 +2760,7 @@ main.landing { padding-top: 0; }
 
 .vision-meter-label {
   font: 500 clamp(11px, 1.15vw, 14px) / 1.35 var(--font-sans);
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--text-secondary);
   max-width: 14rem;
 }
 
@@ -2771,24 +2768,18 @@ main.landing { padding-top: 0; }
   font: 500 10px / 1 var(--font-sans);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--gray-medium);
   padding-top: 0.35rem;
-}
-
-.vision-drift {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  margin: 0;
 }
 
 .vision-close {
   width: 100%;
   max-width: 640px;
-  padding-top: 4px;
+  padding: clamp(22px, 4vw, 28px) clamp(18px, 3vw, 24px);
+  border-radius: 8px;
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
 }
 
 .vision-close-lead {
