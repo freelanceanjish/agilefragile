@@ -260,6 +260,15 @@ try {
   errors.push('downloads/human-agile-model-specification.md must exist');
 }
 
+// --- Copy style: no em dashes (U+2014) in public site copy ---
+const emDash = /\u2014/;
+const copyFiles = [...htmlFiles, specMd];
+for (const file of copyFiles) {
+  if (emDash.test(read(file))) {
+    errors.push(`${file}: must not contain em dashes (use commas, colons, or periods instead)`);
+  }
+}
+
 const attributionGuardFiles = ['assets/site.css', 'scripts/apply-site-shell.py', ...htmlFiles];
 const forbiddenRef = /mammothbrands|mammoth-brand|gray-mammoth|text-on-mammoth/i;
 for (const file of attributionGuardFiles) {
