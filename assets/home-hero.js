@@ -45,22 +45,42 @@
     return isMobile() ? 0.14 : 0.1;
   }
 
+  function panelFullHeight() {
+    if (isMobile()) {
+      return Math.max(Math.round(layoutVh * 0.54), 320);
+    }
+    return layoutVh - 20;
+  }
+
   function panelHeightFor(progress) {
     var mobile = isMobile();
     var start = panelRevealStart();
-    var maxHeight = mobile ? layoutVh * 0.42 : layoutVh - 20;
+    var maxHeight = panelFullHeight();
+    var expandEnd = start + (mobile ? 0.05 : 0.06);
 
     if (progress < start) return 0;
 
+    if (progress < expandEnd) {
+      return Math.round(mapRange(progress, start, expandEnd, 0, maxHeight));
+    }
+
     if (mobile) {
-      return mapRange(progress, start, 0.48, 0, maxHeight);
+      if (progress < 0.58) return maxHeight;
+      return Math.round(mapRange(progress, 0.58, 0.76, maxHeight, 0));
     }
 
-    if (progress <= 0.5) {
-      return mapRange(progress, start, 0.5, 0, maxHeight);
-    }
+    if (progress <= 0.5) return maxHeight;
+    return Math.round(mapRange(progress, 0.5, 1, maxHeight, 0));
+  }
 
-    return mapRange(progress, 0.5, 1, maxHeight, 0);
+  function slideRangeEnd() {
+    return isMobile() ? 0.58 : 1;
+  }
+
+  function slideRangeStart() {
+    var start = panelRevealStart();
+    var expandEnd = start + (isMobile() ? 0.05 : 0.06);
+    return expandEnd + 0.01;
   }
 
   function updateHeader(progress) {
@@ -113,11 +133,10 @@
   }
 
   function updateSlides(progress) {
-    var mobile = isMobile();
-    var end = mobile ? 0.5 : 1;
-    var start = panelRevealStart() + 0.04;
+    var end = slideRangeEnd();
+    var start = slideRangeStart();
 
-    if (progress < start || progress >= end - 0.04 || !slides.length) {
+    if (progress < start || progress >= end - 0.03 || !slides.length) {
       if (activeSlide !== -1) {
         slides.forEach(function (slide) { slide.classList.remove('is-active'); });
         activeSlide = -1;
@@ -147,7 +166,7 @@
     if (reduced) {
       wordmarkWrap.style.transform = '';
       panel.style.transform = '';
-      panel.style.height = Math.round(mobile ? layoutVh * 0.42 : layoutVh * 0.5) + 'px';
+      panel.style.height = Math.round(mobile ? panelFullHeight() : layoutVh * 0.5) + 'px';
       setPanelVisible(panel.offsetHeight);
       if (activeSlide !== 0 && slides[0]) {
         slides.forEach(function (slide) { slide.classList.remove('is-active'); });

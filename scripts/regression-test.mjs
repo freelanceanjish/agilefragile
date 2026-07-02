@@ -232,6 +232,19 @@ if (!/layoutVh/.test(read('assets/home-hero.js'))) {
 if (!/height:\s*0/.test(css) || !/\.landing-hero-panel/.test(css)) {
   errors.push('CSS must start hero panel hidden (height 0) until scroll reveals it');
 }
+if (!/panelFullHeight/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must define panelFullHeight for readable hero slide panel');
+}
+if (!/slideRangeStart/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must delay slides until hero panel reaches full height');
+}
+const homeHeroJs = read('assets/home-hero.js');
+if (!/layoutVh \* 0\.5[4-9]/.test(homeHeroJs) && !/layoutVh \* 0\.5/.test(homeHeroJs)) {
+  errors.push('home-hero.js mobile panel must use at least 50% viewport height');
+}
+if (!/overflow-y:\s*auto/.test(css) || !/landing-hero-slide/.test(css)) {
+  errors.push('CSS must allow hero slides to scroll when panel content exceeds height');
+}
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
   errors.push('site.js case study banner must not include version numbers');
 }
