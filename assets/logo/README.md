@@ -1,4 +1,4 @@
-# Agile Fragile — Square Logo
+# Agile Fragile: Square Logo
 
 Bold sans wordmark inside a square. Matches site style (Inter 700, gray/white/black palette).
 
@@ -6,7 +6,7 @@ Bold sans wordmark inside a square. Matches site style (Inter 700, gray/white/bl
 
 | File | Background | Text |
 |------|------------|------|
-| `square-af-gray.svg` | Gray `#818181` | White — **primary** |
+| `square-af-gray.svg` | Gray `#818181` | White: **primary** |
 | `square-af-white.svg` | White | Black |
 | `square-af-black.svg` | Black `#151517` | White |
 | `square-af-accent.svg` | Blue `#1f35a9` | White |
