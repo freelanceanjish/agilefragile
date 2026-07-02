@@ -15,8 +15,11 @@
   var lastWidth = window.innerWidth;
   var lastScrollY = window.scrollY || 0;
   var scrollingUp = false;
+  var isScrolling = false;
+  var scrollStopTimer = null;
   var headerVisible = false;
   var activeSlide = -1;
+  var SCROLL_STOP_MS = 200;
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -62,14 +65,29 @@
 
   function updateHeader(progress) {
     var showAt = isMobile() ? 0.42 : 0.36;
+    var eligible = progress > showAt;
 
-    if (scrollingUp || progress < panelRevealStart()) {
+    if (!eligible) {
       headerVisible = false;
-    } else if (!scrollingUp && progress > showAt) {
+    } else if (isScrolling && scrollingUp) {
+      headerVisible = false;
+    } else if (!isScrolling) {
+      headerVisible = true;
+    } else if (isScrolling && !scrollingUp) {
       headerVisible = true;
     }
 
     document.body.classList.toggle('home-header-visible', headerVisible);
+  }
+
+  function markScrolling() {
+    isScrolling = true;
+    if (scrollStopTimer) clearTimeout(scrollStopTimer);
+    scrollStopTimer = setTimeout(function () {
+      isScrolling = false;
+      scrollStopTimer = null;
+      requestUpdate();
+    }, SCROLL_STOP_MS);
   }
 
   function setPanelVisible(height) {
@@ -180,6 +198,7 @@
     var y = window.scrollY || 0;
     scrollingUp = y < lastScrollY - 1;
     lastScrollY = y;
+    markScrolling();
     requestUpdate();
   }, { passive: true });
 
