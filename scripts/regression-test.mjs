@@ -232,6 +232,15 @@ if (!/layoutVh/.test(read('assets/home-hero.js'))) {
 if (!/height:\s*0/.test(css) || !/\.landing-hero-panel/.test(css)) {
   errors.push('CSS must start hero panel hidden (height 0) until scroll reveals it');
 }
+if (!/The drift/.test(index) || !/landing-hero-slide--drift/.test(index)) {
+  errors.push('Home hero first slide must label the drift');
+}
+if (!/Product first/.test(index) || !/People later/.test(index)) {
+  errors.push('Home hero drift slide must keep Product first / People later headline');
+}
+if (!/We forgot the order/.test(index)) {
+  errors.push('Home hero drift slide must keep We forgot the order closing line');
+}
 if (!/panelFullHeight/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must define panelFullHeight for readable hero slide panel');
 }
