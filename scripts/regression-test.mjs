@@ -50,8 +50,8 @@ if (!/text-anchor="middle"/.test(heroWordmark)) {
 if (!/Fraunces/i.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
 }
-if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, Before Transformation/.test(index)) {
-  errors.push('Home hero logo must include full tagline on one line under wordmark');
+if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, <em>Before Transformation<\/em>/.test(index)) {
+  errors.push('Home hero logo must include full tagline with italic Before Transformation');
 }
 if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*150px/.test(css)) {
   errors.push('Hero wordmark must stay giant on desktop (150px Fraunces)');
@@ -99,8 +99,8 @@ if (!/font-serif/.test(css) || !/\.wordmark-line[\s\S]*font-family:\s*var\(--fon
 if (!/logo-lockup/.test(wordmark) && !/logo-lockup/.test(read('about.html'))) {
   errors.push('Header logo must use logo-lockup with tagline');
 }
-if (!/Human First Reformation, Before Transformation/.test(read('about.html'))) {
-  errors.push('Header logo must include full tagline');
+if (!/Human First Reformation, <em>Before Transformation<\/em>/.test(read('about.html'))) {
+  errors.push('Header logo must include tagline with italic Before Transformation');
 }
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
   errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');
