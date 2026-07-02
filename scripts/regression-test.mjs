@@ -50,8 +50,8 @@ if (!/text-anchor="middle"/.test(heroWordmark)) {
 if (!/Fraunces/i.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
 }
-if (!/logo-tagline--hero/.test(index) || !/So God created man in His own image/.test(index)) {
-  errors.push('Home hero logo must include scripture tagline under wordmark');
+if (!/logo-tagline--hero/.test(index) || !/Human First Reformation Before Transformation/.test(index)) {
+  errors.push('Home hero logo must include tagline under wordmark');
 }
 if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*150px/.test(css)) {
   errors.push('Hero wordmark must stay giant on desktop (150px Fraunces)');
@@ -96,8 +96,8 @@ if (!/font-serif/.test(css) || !/\.wordmark-line[\s\S]*font-family:\s*var\(--fon
 if (!/logo-lockup/.test(wordmark) && !/logo-lockup/.test(read('about.html'))) {
   errors.push('Header logo must use logo-lockup with tagline');
 }
-if (!/So God created man in His own image/.test(read('about.html'))) {
-  errors.push('Header logo must include scripture tagline');
+if (!/Human First Reformation Before Transformation/.test(read('about.html'))) {
+  errors.push('Header logo must include tagline');
 }
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
   errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');
