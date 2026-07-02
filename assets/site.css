@@ -2125,7 +2125,7 @@ main.landing { padding-top: 0; }
   color: var(--white);
 }
 .focus-line .text-stat {
-  font-size: 1.3em;
+  font-size: clamp(1.85rem, 4.2vw, 2.65rem);
 }
 .landing-story-lead strong {
   font-family: var(--font-serif);
@@ -2135,7 +2135,11 @@ main.landing { padding-top: 0; }
   color: var(--white);
 }
 
-/* Hero: scroll-driven wordmark + fixed panel + gray wipe masks */
+.hero .focus-line {
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 .landing-hero {
   position: relative;
   width: 100%;
@@ -2327,12 +2331,15 @@ main.landing { padding-top: 0; }
 .hero-stat {
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: clamp(1.85rem, 6.5vw, 2.75rem);
+  font-size: clamp(2.75rem, 11vw, 4.25rem);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   color: var(--white);
   font-variant-numeric: tabular-nums;
   vertical-align: middle;
+  display: inline-block;
+  margin-inline: 0.06em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.2);
 }
 
 .landing-hero-slide-eyebrow {
@@ -2344,11 +2351,12 @@ main.landing { padding-top: 0; }
 .text-stat {
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 1.4em;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.65rem, 3.8vw, 2.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
   color: var(--accent);
+  display: inline-block;
 }
 .landing-drift .text-stat,
 .landing-prose .text-stat {
@@ -2569,8 +2577,8 @@ main.landing { padding-top: 0; }
 }
 
 .landing-stat-big {
-  font: 600 clamp(80px, 7vw, 140px) / 1 var(--font-serif);
-  letter-spacing: -0.02em;
+  font: 600 clamp(96px, 9vw, 168px) / 1 var(--font-serif);
+  letter-spacing: -0.03em;
   color: var(--white);
 }
 
