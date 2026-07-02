@@ -2231,9 +2231,34 @@ main.landing { padding-top: 0; }
   }
 }
 .landing-hero-slide.is-active { opacity: 1; }
-.landing-hero-slide:nth-child(2) { background: #2a3fc4; }
-.landing-hero-slide:nth-child(3) { background: #172a8f; }
-.landing-hero-slide:nth-child(4) { background: var(--black); }
+.landing-hero-slide--drift { background: var(--accent); }
+.landing-hero-slide--proof { background: #2a3fc4; }
+.landing-hero-slide--move:nth-of-type(3) { background: #2436a8; }
+.landing-hero-slide--move:nth-of-type(4) { background: #172a8f; }
+.landing-hero-slide--move:nth-of-type(5) { background: #101d66; }
+.landing-hero-slide--move:nth-of-type(6) { background: var(--black); }
+
+.landing-hero-slide-title em {
+  font-style: italic;
+  font-family: var(--font-serif);
+  font-weight: 500;
+}
+.landing-hero-slide-desc em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+}
+.landing-hero-slide-desc strong,
+.landing-hero-slide-title strong {
+  font-weight: 700;
+}
+.hero-stat {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
 
 .landing-hero-slide-eyebrow {
   letter-spacing: 0.1em;
@@ -2242,9 +2267,70 @@ main.landing { padding-top: 0; }
 }
 .landing-hero-slide-title { color: var(--white); }
 .landing-hero-slide-desc {
-  max-width: 28rem;
+  max-width: 32rem;
   color: rgba(255, 255, 255, 0.9);
   text-wrap: pretty;
+  line-height: 1.55;
+}
+
+.text-stat {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+.landing-drift .text-stat {
+  color: var(--white);
+}
+
+/* Drift analysis — paragraph prose on dark band */
+.landing-drift {
+  background: var(--black);
+  border-radius: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-top: clamp(48px, 8vw, 80px);
+  padding-bottom: clamp(48px, 8vw, 80px);
+}
+@media (min-width: 600px) {
+  .landing-drift {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+.landing-drift .landing-section-lead {
+  color: var(--gray-light);
+  max-width: 38rem;
+}
+.drift-prose {
+  margin-top: 32px;
+  max-width: 38rem;
+}
+.drift-prose p {
+  color: var(--gray-light);
+  text-wrap: pretty;
+}
+.drift-prose p + p {
+  margin-top: 1.25em;
+}
+.drift-prose strong {
+  color: var(--white);
+  font-weight: 700;
+}
+.drift-prose em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+}
+.drift-prose--page {
+  max-width: 38rem;
+  margin: 28px auto 0;
+  text-align: center;
+}
+.drift-prose--page p {
+  color: var(--text-secondary);
+}
+.drift-prose--page strong {
+  color: var(--white);
 }
 
 .landing-hero-masks {
