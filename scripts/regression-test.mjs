@@ -41,11 +41,14 @@ if (!/data-home-hero/.test(index)) {
   errors.push('Home hero must use scroll-driven data-home-hero');
 }
 if (!/wordmark-line/.test(index) || !/text-anchor="middle"/.test(index)) {
-  errors.push('Home hero wordmark must be inline centered SVG with DM Sans');
+  errors.push('Home hero wordmark must be inline centered SVG with Fraunces');
 }
 const heroWordmark = read('assets/hero-wordmark.svg');
 if (!/text-anchor="middle"/.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use centered text-anchor middle');
+}
+if (!/Fraunces/i.test(heroWordmark)) {
+  errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
 }
 if (!/home-hero\.js/.test(index)) {
   errors.push('Home page must load home-hero.js for scroll effects');
@@ -70,13 +73,16 @@ if (!/logo-wordmark\.svg/.test(index) && !/wordmark-svg logo-wordmark/.test(inde
 }
 const wordmark = read('assets/logo-wordmark.svg');
 if (!/>AGILE<\/text>/.test(wordmark) || !/>FRAGILE<\/text>/.test(wordmark)) {
-  errors.push('Header wordmark must be all-caps white stacked sans wordmark');
+  errors.push('Header wordmark must be all-caps white stacked Fraunces wordmark');
 }
 if (!/text-anchor="middle"/.test(wordmark)) {
   errors.push('Wordmark SVG files must center AGILE/FRAGILE with text-anchor middle');
 }
-if (!/DM Sans/i.test(wordmark)) {
-  errors.push('Header wordmark must use DM Sans bold sans-serif');
+if (!/Fraunces/i.test(wordmark)) {
+  errors.push('Header wordmark must use Fraunces serif');
+}
+if (!/font-serif/.test(css) || !/\.wordmark-line[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
+  errors.push('CSS .wordmark-line must use Fraunces via --font-serif');
 }
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
   errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');

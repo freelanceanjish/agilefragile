@@ -2181,9 +2181,9 @@ main.landing { padding-top: 0; }
 
 .wordmark-line {
   fill: var(--white);
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 .wordmark-line--header {
   font-size: 132px;
