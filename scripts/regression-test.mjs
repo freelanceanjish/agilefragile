@@ -50,6 +50,9 @@ if (!/text-anchor="middle"/.test(heroWordmark)) {
 if (!/Fraunces/i.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
 }
+if (!/logo-tagline--hero/.test(index) || !/So God created man in His own image/.test(index)) {
+  errors.push('Home hero logo must include scripture tagline under wordmark');
+}
 if (!/home-hero\.js/.test(index)) {
   errors.push('Home page must load home-hero.js for scroll effects');
 }
@@ -83,6 +86,12 @@ if (!/Fraunces/i.test(wordmark)) {
 }
 if (!/font-serif/.test(css) || !/\.wordmark-line[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
   errors.push('CSS .wordmark-line must use Fraunces via --font-serif');
+}
+if (!/logo-lockup/.test(wordmark) && !/logo-lockup/.test(read('about.html'))) {
+  errors.push('Header logo must use logo-lockup with tagline');
+}
+if (!/So God created man in His own image/.test(read('about.html'))) {
+  errors.push('Header logo must include scripture tagline');
 }
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
   errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');
