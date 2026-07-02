@@ -102,6 +102,12 @@ if (!/logo-lockup/.test(wordmark) && !/logo-lockup/.test(read('about.html'))) {
 if (!/Human First Reformation, <em>Before Transformation<\/em>/.test(read('about.html'))) {
   errors.push('Header logo must include tagline with italic Before Transformation');
 }
+if (!/\.logo-tagline em[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
+  errors.push('CSS .logo-tagline em must use Fraunces italic for visible contrast');
+}
+if (!/Fraunces:ital,opsz,wght/.test(read('index.html'))) {
+  errors.push('HTML must load Fraunces italic for tagline emphasis');
+}
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
   errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');
 }
