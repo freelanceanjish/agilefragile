@@ -2087,6 +2087,54 @@ main.landing { padding-top: 0; }
   text-underline-offset: 3px;
 }
 
+/* Emphasis: size + serif so focus words read on gray and in hero panels */
+.focus-line {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2.8vw, 1.55rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  margin-bottom: 0.4em;
+}
+.focus-word {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.22em;
+  letter-spacing: -0.02em;
+  color: inherit;
+}
+.focus-label {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.18em;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+.landing-prose strong:not(.text-stat),
+.drift-prose strong:not(.text-stat),
+.hero-lead strong,
+.hero-intro strong,
+.concept-inner .thesis strong,
+.intro strong:not(.text-stat) {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.12em;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+.focus-line .text-stat {
+  font-size: 1.3em;
+}
+.landing-story-lead strong {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.08em;
+  letter-spacing: -0.015em;
+  color: var(--white);
+}
+
 /* Hero: scroll-driven wordmark + fixed panel + gray wipe masks */
 .landing-hero {
   position: relative;
@@ -2238,26 +2286,53 @@ main.landing { padding-top: 0; }
 .landing-hero-slide--move:nth-of-type(5) { background: #101d66; }
 .landing-hero-slide--move:nth-of-type(6) { background: var(--black); }
 
+.landing-hero-slide-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(1.65rem, 5.5vw, 2.65rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
 .landing-hero-slide-title em {
   font-style: italic;
   font-family: var(--font-serif);
   font-weight: 500;
+  font-size: 1.05em;
+}
+.landing-hero-slide-desc {
+  max-width: 32rem;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  text-wrap: pretty;
 }
 .landing-hero-slide-desc em {
   font-style: italic;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.05em;
+  color: rgba(255, 255, 255, 0.98);
 }
-.landing-hero-slide-desc strong,
-.landing-hero-slide-title strong {
-  font-weight: 700;
+.landing-hero-slide-desc .focus-line {
+  font-size: clamp(1.25rem, 3.2vw, 1.5rem);
+  color: var(--white);
+  margin-bottom: 0.5em;
+}
+.landing-hero-slide-desc strong:not(.hero-stat) {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.25em;
+  letter-spacing: -0.02em;
+  color: var(--white);
 }
 .hero-stat {
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 1.2em;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.85rem, 6.5vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
   color: var(--white);
   font-variant-numeric: tabular-nums;
+  vertical-align: middle;
 }
 
 .landing-hero-slide-eyebrow {
@@ -2265,21 +2340,18 @@ main.landing { padding-top: 0; }
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.72);
 }
-.landing-hero-slide-title { color: var(--white); }
-.landing-hero-slide-desc {
-  max-width: 32rem;
-  color: rgba(255, 255, 255, 0.9);
-  text-wrap: pretty;
-  line-height: 1.55;
-}
 
 .text-stat {
   font-family: var(--font-serif);
   font-weight: 700;
+  font-size: 1.4em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
   color: var(--accent);
 }
-.landing-drift .text-stat {
+.landing-drift .text-stat,
+.landing-prose .text-stat {
   color: var(--white);
 }
 
@@ -2315,7 +2387,10 @@ main.landing { padding-top: 0; }
 }
 .drift-prose strong {
   color: var(--white);
-  font-weight: 700;
+  font-weight: 600;
+}
+.drift-prose strong.focus-label {
+  font-size: 1.22em;
 }
 .drift-prose em {
   font-style: italic;
