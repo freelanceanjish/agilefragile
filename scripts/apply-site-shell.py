@@ -81,7 +81,7 @@ def header_for(page: str) -> str:
         <text class="wordmark-line wordmark-line--header" x="700" y="158" text-anchor="middle">AGILE</text>
         <text class="wordmark-line wordmark-line--header" x="718" y="318" text-anchor="middle">FRAGILE</text>
       </svg>
-      <span class="logo-tagline">Human First Reformation</span>
+      <span class="logo-tagline">Human First Reformation, Before Transformation</span>
       </span>
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
