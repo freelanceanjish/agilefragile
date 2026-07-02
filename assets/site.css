@@ -2218,8 +2218,8 @@ main.landing { padding-top: 0; }
 
 .landing-hero-panel {
   position: relative;
-  width: calc(100% - 80px);
-  margin: 0 auto 40px;
+  width: calc(100% - 32px);
+  margin: 0 auto 24px;
   border-radius: 8px;
   overflow: hidden;
   height: 0;
@@ -2280,6 +2280,26 @@ main.landing { padding-top: 0; }
 @media (max-width: 599px) {
   .landing-hero-slide {
     transition: none;
+    justify-content: flex-start;
+    padding: 20px 18px 24px;
+    gap: 10px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .landing-hero-slide-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.85rem);
+    line-height: 1.12;
+  }
+  .landing-hero-slide-desc {
+    font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+    line-height: 1.5;
+  }
+  .landing-hero-slide-desc .focus-line {
+    font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+    margin-top: 0.25em;
+  }
+  .hero-stat {
+    font-size: clamp(2.1rem, 9.5vw, 3rem);
   }
 }
 .landing-hero-slide.is-active { opacity: 1; }
