@@ -74,8 +74,11 @@ if (!/id="vision"/.test(index) || !/vision-flip/.test(index) || !/We forgot peop
 if (/Not maturity\. Drift\./.test(index)) {
   errors.push('Home vision must not use machine-style Not maturity. Drift. line');
 }
-if (!/\.vision-meter[\s\S]*background:\s*var\(--black\)/.test(css) || !/\.vision-flip-card[\s\S]*background:\s*var\(--black\)/.test(css)) {
-  errors.push('Vision section cards must use black background, not mixed accent colors');
+if (!/\.vision-meter[\s\S]*background:\s*#000000/.test(css) || !/\.vision-flip-card[\s\S]*background:\s*#000000/.test(css)) {
+  errors.push('Vision section cards must use pure black (#000), not gray or accent');
+}
+if (!/slideOpacities/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must crossfade hero slides for smooth scroll transitions');
 }
 if (!/id="impact"/.test(index) || !/landing-stats/.test(index)) {
   errors.push('Home page must include impact stats section');
