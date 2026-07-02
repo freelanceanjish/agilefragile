@@ -53,6 +53,12 @@ if (!/Fraunces/i.test(heroWordmark)) {
 if (!/logo-tagline--hero/.test(index) || !/So God created man in His own image/.test(index)) {
   errors.push('Home hero logo must include scripture tagline under wordmark');
 }
+if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*150px/.test(css)) {
+  errors.push('Hero wordmark must stay giant on desktop (150px Fraunces)');
+}
+if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*185px/.test(css)) {
+  errors.push('Hero wordmark must stay giant on mobile (185px Fraunces)');
+}
 if (!/home-hero\.js/.test(index)) {
   errors.push('Home page must load home-hero.js for scroll effects');
 }
