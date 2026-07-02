@@ -50,7 +50,7 @@ if (!/text-anchor="middle"/.test(heroWordmark)) {
 if (!/Fraunces/i.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
 }
-if (!/logo-tagline--hero/.test(index) || !/Human First Reformation Before Transformation/.test(index)) {
+if (!/logo-tagline--hero/.test(index) || !/>Human First Reformation</.test(index)) {
   errors.push('Home hero logo must include tagline under wordmark');
 }
 if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*150px/.test(css)) {
@@ -96,7 +96,7 @@ if (!/font-serif/.test(css) || !/\.wordmark-line[\s\S]*font-family:\s*var\(--fon
 if (!/logo-lockup/.test(wordmark) && !/logo-lockup/.test(read('about.html'))) {
   errors.push('Header logo must use logo-lockup with tagline');
 }
-if (!/Human First Reformation Before Transformation/.test(read('about.html'))) {
+if (!/>Human First Reformation</.test(read('about.html'))) {
   errors.push('Header logo must include tagline');
 }
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
