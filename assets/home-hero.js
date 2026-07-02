@@ -154,51 +154,93 @@
     });
   }
 
-  function slideIndexFor(progress) {
-    var end = slideRangeEnd();
+  function smoothstep(t) {
+    var x = clamp(t, 0, 1);
+    return x * x * (3 - 2 * x);
+  }
+
+  function slideOpacities(progress) {
     var start = slideRangeStart();
+    var end = slideRangeEnd();
     var pad = 0.03;
 
     if (progress < start || progress >= end - pad || !slides.length) {
-      return -1;
+      return null;
     }
 
     var span = end - start - pad;
-    var t = clamp((progress - start) / span, 0, 0.9999);
+    var t = clamp((progress - start) / span, 0, 1);
     var weights = SLIDE_WEIGHTS;
+    var count = weights.length;
     var total = 0;
     var i;
 
-    for (i = 0; i < weights.length; i += 1) {
+    for (i = 0; i < count; i += 1) {
       total += weights[i];
     }
 
-    var acc = 0;
-    for (i = 0; i < weights.length; i += 1) {
-      acc += weights[i] / total;
-      if (t < acc) return i;
+    var ops = new Array(count);
+    for (i = 0; i < count; i += 1) {
+      ops[i] = 0;
     }
 
-    return slides.length - 1;
+    var acc = 0;
+    var fade = 0.24;
+
+    for (i = 0; i < count; i += 1) {
+      var seg = weights[i] / total;
+      var segStart = acc;
+      var segEnd = acc + seg;
+      acc = segEnd;
+
+      if (t < segStart || t > segEnd) continue;
+
+      var local = (t - segStart) / seg;
+
+      if (i > 0 && local < fade) {
+        var blendIn = smoothstep(local / fade);
+        ops[i] = blendIn;
+        ops[i - 1] = Math.max(ops[i - 1], 1 - blendIn);
+      } else if (i < count - 1 && local > 1 - fade) {
+        var blendOut = smoothstep((local - (1 - fade)) / fade);
+        ops[i] = 1 - blendOut;
+        ops[i + 1] = Math.max(ops[i + 1], blendOut);
+      } else {
+        ops[i] = 1;
+      }
+    }
+
+    return ops;
   }
 
   function updateSlides(progress) {
-    var index = slideIndexFor(progress);
+    var ops = slideOpacities(progress);
 
-    if (index === -1) {
-      if (activeSlide !== -1) {
-        slides.forEach(function (slide) { slide.classList.remove('is-active'); });
-        activeSlide = -1;
-      }
+    if (!ops) {
+      slides.forEach(function (slide) {
+        slide.style.opacity = '0';
+        slide.style.zIndex = '0';
+        slide.classList.remove('is-active');
+      });
+      activeSlide = -1;
       return;
     }
 
-    if (index === activeSlide) return;
+    var best = -1;
+    var bestOp = 0;
 
-    activeSlide = index;
     slides.forEach(function (slide, i) {
-      slide.classList.toggle('is-active', i === activeSlide);
+      var op = ops[i] || 0;
+      slide.style.opacity = String(op);
+      slide.style.zIndex = op > 0.02 ? String(10 + i) : '0';
+      slide.classList.toggle('is-active', op > 0.45);
+      if (op > bestOp) {
+        bestOp = op;
+        best = i;
+      }
     });
+
+    activeSlide = best;
   }
 
   function update() {

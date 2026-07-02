@@ -2374,9 +2374,10 @@ main.landing { padding-top: 0; }
   padding: 32px 24px;
   text-align: center;
   opacity: 0;
-  transition: opacity 0.12s linear;
+  transition: none;
   background: var(--accent);
   color: var(--white);
+  will-change: opacity;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -2405,7 +2406,9 @@ main.landing { padding-top: 0; }
     font-size: clamp(2.1rem, 9.5vw, 3rem);
   }
 }
-.landing-hero-slide.is-active { opacity: 1; }
+.landing-hero-slide.is-active {
+  z-index: 2;
+}
 .landing-hero-slide--drift { background: var(--accent); }
 .landing-hero-slide--proof { background: #2a3fc4; }
 .landing-hero-slide--move:nth-of-type(3) { background: #2436a8; }
@@ -2705,8 +2708,8 @@ main.landing { padding-top: 0; }
   padding: 22px 20px;
   border-radius: 8px;
   text-align: left;
-  background: var(--black);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .vision-flip-label {
@@ -2735,8 +2738,8 @@ main.landing { padding-top: 0; }
   max-width: 680px;
   padding: clamp(20px, 4vw, 28px) clamp(16px, 3vw, 24px);
   border-radius: 8px;
-  background: var(--black);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   text-align: center;
 }
 
@@ -2777,8 +2780,8 @@ main.landing { padding-top: 0; }
   max-width: 640px;
   padding: clamp(22px, 4vw, 28px) clamp(18px, 3vw, 24px);
   border-radius: 8px;
-  background: var(--black);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   text-align: center;
 }
 
