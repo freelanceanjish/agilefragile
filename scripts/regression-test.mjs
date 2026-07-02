@@ -254,6 +254,12 @@ if (!/layoutVh \* 0\.5[4-9]/.test(homeHeroJs) && !/layoutVh \* 0\.5/.test(homeHe
 if (!/overflow-y:\s*auto/.test(css) || !/landing-hero-slide/.test(css)) {
   errors.push('CSS must allow hero slides to scroll when panel content exceeds height');
 }
+if (!/max-width:\s*599px/.test(css) || !/\.landing-hero-panel[\s\S]*position:\s*fixed/.test(css)) {
+  errors.push('CSS must use fixed bottom hero panel on mobile so blue slides stay visible');
+}
+if (!/190svh/.test(css) || !/landing-hero-pin/.test(css)) {
+  errors.push('CSS must give mobile hero enough scroll height for slide panel');
+}
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
   errors.push('site.js case study banner must not include version numbers');
 }

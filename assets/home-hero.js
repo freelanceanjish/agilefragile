@@ -42,7 +42,7 @@
   }
 
   function panelRevealStart() {
-    return isMobile() ? 0.14 : 0.1;
+    return isMobile() ? 0.08 : 0.1;
   }
 
   function panelFullHeight() {
@@ -65,8 +65,8 @@
     }
 
     if (mobile) {
-      if (progress < 0.58) return maxHeight;
-      return Math.round(mapRange(progress, 0.58, 0.76, maxHeight, 0));
+      if (progress < 0.68) return maxHeight;
+      return Math.round(mapRange(progress, 0.68, 0.86, maxHeight, 0));
     }
 
     if (progress <= 0.5) return maxHeight;
@@ -74,7 +74,7 @@
   }
 
   function slideRangeEnd() {
-    return isMobile() ? 0.58 : 1;
+    return isMobile() ? 0.68 : 1;
   }
 
   function slideRangeStart() {
@@ -185,7 +185,8 @@
 
     if (mobile) {
       panel.style.transform = '';
-      panel.classList.remove('is-top', 'is-bottom');
+      panel.classList.add('is-bottom');
+      panel.classList.remove('is-top');
     } else {
       var panelY = panelHeight > 0
         ? Math.round(mapRange(progress, panelRevealStart(), 0.5, 200, 0))

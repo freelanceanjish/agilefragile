@@ -2148,6 +2148,11 @@ main.landing { padding-top: 0; }
 .landing-hero-pin {
   min-height: 100svh;
 }
+@media (max-width: 599px) {
+  .landing-hero-pin {
+    min-height: 190svh;
+  }
+}
 @media (min-width: 600px) {
   .landing-hero-pin { min-height: 200svh; }
 }
@@ -2158,6 +2163,11 @@ main.landing { padding-top: 0; }
   flex-direction: column;
   justify-content: flex-start;
   min-height: 100svh;
+}
+@media (max-width: 599px) {
+  .landing-hero-stage {
+    min-height: 190svh;
+  }
 }
 @media (min-width: 600px) {
   .landing-hero-stage {
@@ -2181,6 +2191,10 @@ main.landing { padding-top: 0; }
 @media (max-width: 599px) {
   .landing-hero-wordmark .wordmark-line {
     font-size: 168px;
+  }
+  .landing-hero-wordmark-wrap {
+    min-height: 70svh;
+    padding-top: clamp(16px, 4vh, 32px);
   }
 }
 
@@ -2227,6 +2241,20 @@ main.landing { padding-top: 0; }
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
+}
+@media (max-width: 599px) {
+  .landing-hero-panel {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    bottom: 16px;
+    margin: 0;
+    z-index: 10;
+  }
+  .landing-hero-panel.is-bottom {
+    top: auto;
+  }
 }
 @media (min-width: 600px) {
   .landing-hero-panel {
