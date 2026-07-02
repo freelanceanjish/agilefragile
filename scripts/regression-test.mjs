@@ -102,6 +102,12 @@ if (!/logo-lockup/.test(wordmark) && !/logo-lockup/.test(read('about.html'))) {
 if (!/Human First Reformation, <em>Before Transformation<\/em>/.test(read('about.html'))) {
   errors.push('Header logo must include tagline with italic Before Transformation');
 }
+if (!/\.logo-tagline em[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
+  errors.push('CSS .logo-tagline em must use Fraunces italic for visible contrast');
+}
+if (!/Fraunces:ital,opsz,wght/.test(read('index.html'))) {
+  errors.push('HTML must load Fraunces italic for tagline emphasis');
+}
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
   errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');
 }
@@ -290,7 +296,13 @@ if (!/overflow-y:\s*auto/.test(css) || !/landing-hero-slide/.test(css)) {
 if (!/max-width:\s*599px/.test(css) || !/\.landing-hero-panel[\s\S]*position:\s*fixed/.test(css)) {
   errors.push('CSS must use fixed bottom hero panel on mobile so blue slides stay visible');
 }
-if (!/190svh/.test(css) || !/landing-hero-pin/.test(css)) {
+if (/landing-hero-slide-eyebrow[^>]*>Move [1-4]/.test(index)) {
+  errors.push('Home hero slides must not use Move 1-4 eyebrow labels');
+}
+if (!/SLIDE_WEIGHTS/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must weight first two hero slides for longer read time');
+}
+if (!/210svh/.test(css) || !/landing-hero-pin/.test(css)) {
   errors.push('CSS must give mobile hero enough scroll height for slide panel');
 }
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
