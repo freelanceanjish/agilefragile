@@ -215,10 +215,19 @@ if (!/home-header-visible/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must reveal header after hero scroll progress');
 }
 if (!/headerVisible/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must use hysteresis for header visibility to prevent flicker');
+  errors.push('home-hero.js must control header visibility during hero scroll');
+}
+if (!/scrollingUp/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must hide header when scrolling up');
+}
+if (!/panelRevealStart/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must delay panel reveal until after hero scroll starts');
 }
 if (!/layoutVh/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must lock layout viewport height to prevent mobile address-bar flicker');
+}
+if (!/height:\s*0/.test(css) || !/\.landing-hero-panel/.test(css)) {
+  errors.push('CSS must start hero panel hidden (height 0) until scroll reveals it');
 }
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
   errors.push('site.js case study banner must not include version numbers');

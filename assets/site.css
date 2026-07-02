@@ -2104,7 +2104,7 @@ main.landing { padding-top: 0; }
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: 100svh;
 }
 @media (min-width: 600px) {
@@ -2126,25 +2126,42 @@ main.landing { padding-top: 0; }
 .landing-hero-wordmark .wordmark-line {
   font-size: 132px;
 }
+@media (max-width: 599px) {
+  .landing-hero-wordmark .wordmark-line {
+    font-size: 168px;
+  }
+}
 
 .landing-hero-wordmark-wrap {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
-  padding-top: clamp(48px, 10vh, 96px);
-  min-height: 55vh;
+  padding-top: clamp(24px, 6vh, 48px);
+  min-height: 88svh;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+@media (min-width: 600px) {
+  .landing-hero-wordmark-wrap {
+    align-items: flex-start;
+    padding-top: clamp(48px, 10vh, 96px);
+    min-height: 55vh;
+  }
+}
 
 .landing-hero-wordmark {
   display: block;
-  width: calc(100% - 80px);
+  width: calc(100% - 32px);
   max-width: 1400px;
   height: auto;
   margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .landing-hero-wordmark {
+    width: calc(100% - 80px);
+  }
 }
 
 .landing-hero-panel {
@@ -2153,7 +2170,8 @@ main.landing { padding-top: 0; }
   margin: 0 auto 40px;
   border-radius: 8px;
   overflow: hidden;
-  height: 50svh;
+  height: 0;
+  visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
