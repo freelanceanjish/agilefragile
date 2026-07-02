@@ -235,17 +235,23 @@ if (!/body\.home-page \.site-header/.test(css) || !/opacity:\s*0/.test(css)) {
 if (!/home-header-visible/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must reveal header after hero scroll progress');
 }
+if (!/home-hero-wordmark-visible/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must sync giant hero wordmark visibility with header chrome');
+}
 if (!/headerVisible/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must control header visibility during hero scroll');
 }
-if (!/scrollingUp/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must hide header when scrolling up');
+if (!/activelyScrolling/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must hide header and wordmark while actively scrolling');
 }
 if (!/isScrolling/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must restore header when scrolling stops');
 }
 if (!/scrollDirection/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must track scroll direction for header hide on scroll up');
+  errors.push('home-hero.js must track scroll direction for chrome hide while scrolling');
+}
+if (!/home-hero-wordmark-visible/.test(css)) {
+  errors.push('CSS must toggle giant hero wordmark visibility on home page');
 }
 if (!/panelRevealStart/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must delay panel reveal until after hero scroll starts');

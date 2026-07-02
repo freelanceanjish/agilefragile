@@ -267,6 +267,20 @@ body.home-page .site-header.nav-open {
   pointer-events: auto;
 }
 
+body.home-page .landing-hero-wordmark-wrap {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+body.home-page.home-hero-wordmark-visible .landing-hero-wordmark-wrap {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 main { padding-top: var(--site-header-clearance); }
 main.landing { padding-top: 0; }
 .section { padding-block: var(--section); }

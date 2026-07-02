@@ -102,20 +102,22 @@
     lastScrollY = y;
   }
 
-  function updateHeader(progress) {
+  function updateChrome(progress) {
+    var activelyScrolling = isScrolling || scrollDirection !== 'idle';
     var eligible = headerEligible(progress);
 
-    if (!eligible) {
+    if (activelyScrolling) {
       headerVisible = false;
-    } else if (scrollDirection === 'up') {
-      headerVisible = false;
-    } else if (scrollDirection === 'idle') {
+    } else if (eligible) {
       headerVisible = true;
     } else {
-      headerVisible = true;
+      headerVisible = false;
     }
 
+    var wordmarkVisible = !activelyScrolling && !eligible && progress <= panelRevealStart();
+
     document.body.classList.toggle('home-header-visible', headerVisible);
+    document.body.classList.toggle('home-hero-wordmark-visible', wordmarkVisible);
   }
 
   function markScrolling() {
@@ -193,10 +195,16 @@
         activeSlide = 0;
       }
       document.body.classList.add('home-header-visible');
+      document.body.classList.remove('home-hero-wordmark-visible');
       return;
     }
 
-    var wordmarkY = Math.round(mapRange(progress, 0, 0.5, 0, mobile ? layoutVh / 6 : layoutVh / 2));
+    updateChrome(progress);
+
+    var wordmarkY = 0;
+    if (document.body.classList.contains('home-hero-wordmark-visible')) {
+      wordmarkY = Math.round(mapRange(progress, 0, 0.5, 0, mobile ? layoutVh / 6 : layoutVh / 2));
+    }
     wordmarkWrap.style.transform = wordmarkY ? 'translate3d(0,' + wordmarkY + 'px,0)' : '';
 
     panel.style.height = Math.max(0, Math.round(panelHeight)) + 'px';
@@ -217,7 +225,6 @@
 
     updateMasks(panelHeight);
     updateSlides(progress);
-    updateHeader(progress);
   }
 
   var ticking = false;
