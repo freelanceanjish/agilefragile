@@ -68,6 +68,9 @@ if (!/landing-hero-panel/.test(index)) {
 if (!/id="explore"/.test(index) || !/landing-cards/.test(index)) {
   errors.push('Home page must include explore cards section');
 }
+if (!/id="vision"/.test(index) || !/vision-flip/.test(index) || !/We forgot people come before the product/.test(index)) {
+  errors.push('Home vision section must use scannable flip layout with core thesis line');
+}
 if (!/id="impact"/.test(index) || !/landing-stats/.test(index)) {
   errors.push('Home page must include impact stats section');
 }
