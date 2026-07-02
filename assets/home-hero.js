@@ -21,6 +21,7 @@
   var headerVisible = false;
   var activeSlide = -1;
   var SCROLL_STOP_MS = 280;
+  var SLIDE_WEIGHTS = [2.6, 2.6, 1, 1, 1, 1];
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -66,8 +67,8 @@
     }
 
     if (mobile) {
-      if (progress < 0.68) return maxHeight;
-      return Math.round(mapRange(progress, 0.68, 0.86, maxHeight, 0));
+      if (progress < 0.74) return maxHeight;
+      return Math.round(mapRange(progress, 0.74, 0.9, maxHeight, 0));
     }
 
     if (progress <= 0.5) return maxHeight;
@@ -75,7 +76,7 @@
   }
 
   function slideRangeEnd() {
-    return isMobile() ? 0.68 : 1;
+    return isMobile() ? 0.74 : 1;
   }
 
   function slideRangeStart() {
@@ -153,22 +154,43 @@
     });
   }
 
-  function updateSlides(progress) {
+  function slideIndexFor(progress) {
     var end = slideRangeEnd();
     var start = slideRangeStart();
+    var pad = 0.03;
 
-    if (progress < start || progress >= end - 0.03 || !slides.length) {
+    if (progress < start || progress >= end - pad || !slides.length) {
+      return -1;
+    }
+
+    var span = end - start - pad;
+    var t = clamp((progress - start) / span, 0, 0.9999);
+    var weights = SLIDE_WEIGHTS;
+    var total = 0;
+    var i;
+
+    for (i = 0; i < weights.length; i += 1) {
+      total += weights[i];
+    }
+
+    var acc = 0;
+    for (i = 0; i < weights.length; i += 1) {
+      acc += weights[i] / total;
+      if (t < acc) return i;
+    }
+
+    return slides.length - 1;
+  }
+
+  function updateSlides(progress) {
+    var index = slideIndexFor(progress);
+
+    if (index === -1) {
       if (activeSlide !== -1) {
         slides.forEach(function (slide) { slide.classList.remove('is-active'); });
         activeSlide = -1;
       }
       return;
-    }
-
-    var step = (end - start - 0.06) / slides.length;
-    var index = 0;
-    for (var i = 0; i < slides.length; i += 1) {
-      if (progress > start + step * (i + 0.5)) index = i;
     }
 
     if (index === activeSlide) return;

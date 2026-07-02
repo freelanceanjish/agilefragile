@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 FONTS = """  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">"""
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600;1,9..144,700&display=swap" rel="stylesheet">"""
 
 NAV_LINKS = """      <a href="/about.html"{about}>Story</a>
       <a href="/model.html"{model}>Model</a>
@@ -95,6 +95,12 @@ def header_for(page: str) -> str:
 
 def patch_file(path: Path) -> None:
     text = path.read_text()
+    text = re.sub(
+        r'  <link href="https://fonts\.googleapis\.com/css2\?family=DM\+Sans[^"]+" rel="stylesheet">',
+        '  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600;1,9..144,700&display=swap" rel="stylesheet">',
+        text,
+        count=1,
+    )
     if "fonts.googleapis.com" not in text:
         text = text.replace(
             '  <link rel="stylesheet" href="/assets/site.css">',
