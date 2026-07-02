@@ -223,6 +223,9 @@ if (!/scrollingUp/.test(read('assets/home-hero.js'))) {
 if (!/isScrolling/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must restore header when scrolling stops');
 }
+if (!/scrollDirection/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must track scroll direction for header hide on scroll up');
+}
 if (!/panelRevealStart/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must delay panel reveal until after hero scroll starts');
 }

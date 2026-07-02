@@ -15,11 +15,12 @@
   var lastWidth = window.innerWidth;
   var lastScrollY = window.scrollY || 0;
   var scrollingUp = false;
+  var scrollDirection = 'idle';
   var isScrolling = false;
   var scrollStopTimer = null;
   var headerVisible = false;
   var activeSlide = -1;
-  var SCROLL_STOP_MS = 200;
+  var SCROLL_STOP_MS = 280;
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -83,17 +84,34 @@
     return expandEnd + 0.01;
   }
 
-  function updateHeader(progress) {
+  function headerEligible(progress) {
     var showAt = isMobile() ? 0.42 : 0.36;
-    var eligible = progress > showAt;
+    if (progress > showAt) return true;
+    var scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    return scrollY > pin.offsetHeight * 0.4;
+  }
+
+  function recordScrollDirection(y) {
+    if (y < lastScrollY - 0.5) {
+      scrollDirection = 'up';
+      scrollingUp = true;
+    } else if (y > lastScrollY + 0.5) {
+      scrollDirection = 'down';
+      scrollingUp = false;
+    }
+    lastScrollY = y;
+  }
+
+  function updateHeader(progress) {
+    var eligible = headerEligible(progress);
 
     if (!eligible) {
       headerVisible = false;
-    } else if (isScrolling && scrollingUp) {
+    } else if (scrollDirection === 'up') {
       headerVisible = false;
-    } else if (!isScrolling) {
+    } else if (scrollDirection === 'idle') {
       headerVisible = true;
-    } else if (isScrolling && !scrollingUp) {
+    } else {
       headerVisible = true;
     }
 
@@ -105,6 +123,7 @@
     if (scrollStopTimer) clearTimeout(scrollStopTimer);
     scrollStopTimer = setTimeout(function () {
       isScrolling = false;
+      scrollDirection = 'idle';
       scrollStopTimer = null;
       requestUpdate();
     }, SCROLL_STOP_MS);
@@ -215,9 +234,20 @@
   }
 
   window.addEventListener('scroll', function () {
-    var y = window.scrollY || 0;
-    scrollingUp = y < lastScrollY - 1;
-    lastScrollY = y;
+    var y = window.scrollY || document.documentElement.scrollTop || 0;
+    recordScrollDirection(y);
+    markScrolling();
+    requestUpdate();
+  }, { passive: true });
+
+  window.addEventListener('wheel', function (event) {
+    if (event.deltaY < 0) {
+      scrollDirection = 'up';
+      scrollingUp = true;
+    } else if (event.deltaY > 0) {
+      scrollDirection = 'down';
+      scrollingUp = false;
+    }
     markScrolling();
     requestUpdate();
   }, { passive: true });
