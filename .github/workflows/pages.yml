@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   test:
@@ -42,3 +42,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Retry deploy on transient failure
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        id: deployment_retry
+        with:
+          timeout: 600000
