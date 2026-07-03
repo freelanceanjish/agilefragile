@@ -20,8 +20,10 @@
   var headerVisible = false;
   var activeSlide = -1;
   var slideZones = [];
-  var SCROLL_STOP_MS = 220;
+  var SCROLL_STOP_MS = 160;
+  var SETTLE_MIN_DELTA = 8;
   var SLIDE_WEIGHTS = [3, 3, 1.2, 1.2, 1.2, 3];
+  var settling = false;
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -150,6 +152,7 @@
       isScrolling = false;
       scrollDirection = 'idle';
       scrollStopTimer = null;
+      settleToActiveSlide();
       requestUpdate();
     }, SCROLL_STOP_MS);
   }
@@ -171,18 +174,69 @@
     });
   }
 
+  function scrollYForProgress(progress) {
+    var range = pin.offsetHeight - layoutVh;
+    return pin.offsetTop + progress * range;
+  }
+
   function pickSlide(progress) {
     if (!slideZones.length) rebuildSlideZones();
 
-    if (progress < slideRangeStart() || progress > slideRangeEnd()) {
+    if (progress < slideRangeStart()) {
+      return -1;
+    }
+
+    if (progress > slideRangeEnd()) {
+      if (progress < slideCollapseEnd()) {
+        return slideZones.length - 1;
+      }
       return -1;
     }
 
     var i;
+
+    if (scrollDirection === 'up') {
+      for (i = 0; i < slideZones.length; i += 1) {
+        if (progress < slideZones[i].end) return i;
+      }
+      return slideZones.length - 1;
+    }
+
+    if (scrollDirection === 'idle' && activeSlide >= 0 && activeSlide < slideZones.length) {
+      var sticky = slideZones[activeSlide];
+      if (progress >= sticky.start && progress < sticky.end) return activeSlide;
+    }
+
     for (i = slideZones.length - 1; i >= 0; i -= 1) {
-      if (progress >= slideZones[i].mid) return i;
+      if (progress >= slideZones[i].start) return i;
     }
     return 0;
+  }
+
+  function settleBiasFor(index) {
+    if (index <= 1 || index === slideZones.length - 1) return 0.18;
+    return 0.1;
+  }
+
+  function settleToActiveSlide() {
+    if (reduced || settling || activeSlide < 0) return;
+
+    var progress = scrollProgress();
+    if (progress < slideRangeStart() || progress >= slideCollapseEnd()) return;
+
+    var zone = slideZones[activeSlide];
+    if (!zone) return;
+
+    var targetProgress = zone.start + (zone.end - zone.start) * settleBiasFor(activeSlide);
+    var targetY = scrollYForProgress(targetProgress);
+    var y = window.scrollY || document.documentElement.scrollTop || 0;
+
+    if (Math.abs(targetY - y) < SETTLE_MIN_DELTA) return;
+
+    settling = true;
+    window.scrollTo({ top: Math.round(targetY), behavior: 'auto' });
+    settling = false;
+    requestUpdate();
   }
 
   function showSlide(index) {
