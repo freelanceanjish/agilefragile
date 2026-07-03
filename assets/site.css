@@ -2376,7 +2376,7 @@ main.landing { padding-top: 0; }
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: none;
+  transition: opacity 0.14s ease-out, visibility 0.14s ease-out;
   background: var(--accent);
   color: var(--white);
   -webkit-backface-visibility: hidden;
@@ -2411,7 +2411,11 @@ main.landing { padding-top: 0; }
   visibility: visible;
   pointer-events: auto;
   z-index: 2;
-  transition: opacity 0.06s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-hero-slide {
+    transition: none;
+  }
 }
 .landing-hero-slide--drift { background: var(--accent); }
 .landing-hero-slide--proof { background: #2a3fc4; }
