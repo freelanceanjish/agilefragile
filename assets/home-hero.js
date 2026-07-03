@@ -14,14 +14,14 @@
   var layoutVh = window.innerHeight;
   var lastWidth = window.innerWidth;
   var lastScrollY = window.scrollY || 0;
-  var scrollingUp = false;
   var scrollDirection = 'idle';
   var isScrolling = false;
   var scrollStopTimer = null;
   var headerVisible = false;
   var activeSlide = -1;
-  var SCROLL_STOP_MS = 280;
-  var SLIDE_WEIGHTS = [2.6, 2.6, 1, 1, 1, 2.4];
+  var slideZones = [];
+  var SCROLL_STOP_MS = 220;
+  var SLIDE_WEIGHTS = [3, 3, 1.2, 1.2, 1.2, 3];
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -44,53 +44,74 @@
   }
 
   function panelRevealStart() {
-    return isMobile() ? 0.08 : 0.1;
+    return isMobile() ? 0.07 : 0.09;
   }
 
   function panelFullHeight() {
     if (isMobile()) {
-      return Math.max(Math.round(layoutVh * 0.54), 320);
+      return Math.max(Math.round(layoutVh * 0.56), 320);
     }
     return layoutVh - 20;
   }
 
-  function panelHeightFor(progress) {
-    var mobile = isMobile();
+  function slideRangeStart() {
     var start = panelRevealStart();
-    var maxHeight = panelFullHeight();
-    var expandEnd = start + (mobile ? 0.05 : 0.06);
-    var slidesEnd = slideRangeEnd();
-    var collapseEnd = slideCollapseEnd();
-
-    if (progress < start) return 0;
-
-    if (progress < expandEnd) {
-      return Math.round(mapRange(progress, start, expandEnd, 0, maxHeight));
-    }
-
-    if (progress <= slidesEnd) return maxHeight;
-
-    if (progress >= collapseEnd) return 0;
-
-    return Math.round(mapRange(progress, slidesEnd, collapseEnd, maxHeight, 0));
+    var expandEnd = start + (isMobile() ? 0.04 : 0.05);
+    return expandEnd;
   }
 
   function slideRangeEnd() {
-    return isMobile() ? 0.82 : 0.92;
+    return isMobile() ? 0.84 : 0.9;
   }
 
   function slideCollapseEnd() {
     return isMobile() ? 0.96 : 0.98;
   }
 
-  function slideRangeStart() {
+  function rebuildSlideZones() {
+    var start = slideRangeStart();
+    var end = slideRangeEnd();
+    var span = end - start;
+    var total = 0;
+    var i;
+    var acc = 0;
+
+    slideZones = [];
+    for (i = 0; i < SLIDE_WEIGHTS.length; i += 1) {
+      total += SLIDE_WEIGHTS[i];
+    }
+
+    for (i = 0; i < SLIDE_WEIGHTS.length; i += 1) {
+      var width = (SLIDE_WEIGHTS[i] / total) * span;
+      var zoneStart = start + acc;
+      var zoneEnd = zoneStart + width;
+      slideZones.push({
+        start: zoneStart,
+        end: zoneEnd,
+        mid: zoneStart + width * 0.5
+      });
+      acc += width;
+    }
+  }
+
+  function panelHeightFor(progress) {
     var start = panelRevealStart();
-    var expandEnd = start + (isMobile() ? 0.05 : 0.06);
-    return expandEnd + 0.01;
+    var maxHeight = panelFullHeight();
+    var expandEnd = slideRangeStart();
+    var slidesEnd = slideRangeEnd();
+    var collapseEnd = slideCollapseEnd();
+
+    if (progress < start) return 0;
+    if (progress < expandEnd) {
+      return Math.round(mapRange(progress, start, expandEnd, 0, maxHeight));
+    }
+    if (progress <= slidesEnd) return maxHeight;
+    if (progress >= collapseEnd) return 0;
+    return Math.round(mapRange(progress, slidesEnd, collapseEnd, maxHeight, 0));
   }
 
   function headerEligible(progress) {
-    var showAt = isMobile() ? 0.42 : 0.36;
+    var showAt = isMobile() ? 0.4 : 0.34;
     if (progress > showAt) return true;
     var scrollY = window.scrollY || document.documentElement.scrollTop || 0;
     return scrollY > pin.offsetHeight * 0.4;
@@ -99,10 +120,8 @@
   function recordScrollDirection(y) {
     if (y < lastScrollY - 0.5) {
       scrollDirection = 'up';
-      scrollingUp = true;
     } else if (y > lastScrollY + 0.5) {
       scrollDirection = 'down';
-      scrollingUp = false;
     }
     lastScrollY = y;
   }
@@ -120,7 +139,6 @@
     }
 
     var wordmarkVisible = !activelyScrolling && !eligible && progress <= panelRevealStart();
-
     document.body.classList.toggle('home-header-visible', headerVisible);
     document.body.classList.toggle('home-hero-wordmark-visible', wordmarkVisible);
   }
@@ -142,126 +160,75 @@
     panel.setAttribute('aria-hidden', visible ? 'false' : 'true');
   }
 
-  function updateMasks(panelHeight) {
-    if (isMobile() || panelHeight < 12) return;
-
+  function setMasksOpen(open) {
     masks.forEach(function (mask) {
-      var maskHeight = mask.offsetHeight;
-      if (!maskHeight) return;
       var axis = mask.dataset.axis || 'y';
-      var scale = Math.min(1, panelHeight / (2 * maskHeight));
       if (axis === 'x') {
-        mask.style.transform = 'scaleX(' + scale + ')';
+        mask.style.transform = open ? 'scaleX(1)' : 'scaleX(0)';
       } else {
-        mask.style.transform = 'scaleY(' + scale + ')';
+        mask.style.transform = open ? 'scaleY(1)' : 'scaleY(0)';
       }
     });
   }
 
-  function smoothstep(t) {
-    var x = clamp(t, 0, 1);
-    return x * x * (3 - 2 * x);
+  function pickSlide(progress) {
+    if (!slideZones.length) rebuildSlideZones();
+
+    if (progress < slideRangeStart() || progress > slideRangeEnd()) {
+      return -1;
+    }
+
+    var i;
+    for (i = slideZones.length - 1; i >= 0; i -= 1) {
+      if (progress >= slideZones[i].mid) return i;
+    }
+    return 0;
   }
 
-  function slideOpacities(progress) {
-    var start = slideRangeStart();
-    var end = slideRangeEnd();
+  function showSlide(index) {
+    slides.forEach(function (slide, i) {
+      var on = i === index;
+      slide.classList.toggle('is-active', on);
+      slide.style.opacity = '';
+      slide.style.zIndex = on ? '2' : '0';
+    });
+    activeSlide = index;
+  }
 
-    if (progress < start || progress > end || !slides.length) {
-      return null;
-    }
-
-    var span = end - start;
-    var t = clamp((progress - start) / span, 0, 1);
-    var weights = SLIDE_WEIGHTS;
-    var count = weights.length;
-    var total = 0;
-    var i;
-
-    for (i = 0; i < count; i += 1) {
-      total += weights[i];
-    }
-
-    var ops = new Array(count);
-    for (i = 0; i < count; i += 1) {
-      ops[i] = 0;
-    }
-
-    var acc = 0;
-    var fade = 0.2;
-
-    for (i = 0; i < count; i += 1) {
-      var seg = weights[i] / total;
-      var segStart = acc;
-      var segEnd = acc + seg;
-      acc = segEnd;
-
-      if (t < segStart || t > segEnd) continue;
-
-      var local = (t - segStart) / seg;
-      var isLast = i === count - 1;
-
-      if (i > 0 && local < fade) {
-        var blendIn = smoothstep(local / fade);
-        ops[i] = blendIn;
-        ops[i - 1] = Math.max(ops[i - 1], 1 - blendIn);
-      } else if (!isLast && i < count - 1 && local > 1 - fade) {
-        var blendOut = smoothstep((local - (1 - fade)) / fade);
-        ops[i] = 1 - blendOut;
-        ops[i + 1] = Math.max(ops[i + 1], blendOut);
-      } else {
-        ops[i] = 1;
-      }
-    }
-
-    return ops;
+  function hideSlides() {
+    slides.forEach(function (slide) {
+      slide.classList.remove('is-active');
+      slide.style.opacity = '';
+      slide.style.zIndex = '0';
+    });
+    activeSlide = -1;
   }
 
   function updateSlides(progress) {
-    var ops = slideOpacities(progress);
+    var index = pickSlide(progress);
 
-    if (!ops) {
-      slides.forEach(function (slide) {
-        slide.style.opacity = '0';
-        slide.style.zIndex = '0';
-        slide.classList.remove('is-active');
-      });
-      activeSlide = -1;
+    if (index === -1) {
+      if (activeSlide !== -1) hideSlides();
       return;
     }
 
-    var best = -1;
-    var bestOp = 0;
-
-    slides.forEach(function (slide, i) {
-      var op = ops[i] || 0;
-      slide.style.opacity = String(op);
-      slide.style.zIndex = op > 0.02 ? String(10 + i) : '0';
-      slide.classList.toggle('is-active', op > 0.45);
-      if (op > bestOp) {
-        bestOp = op;
-        best = i;
-      }
-    });
-
-    activeSlide = best;
+    if (index === activeSlide) return;
+    showSlide(index);
   }
 
   function update() {
     var mobile = isMobile();
     var progress = scrollProgress();
     var panelHeight = panelHeightFor(progress);
+    var inSlides = progress >= slideRangeStart() && progress <= slideRangeEnd();
 
     if (reduced) {
       wordmarkWrap.style.transform = '';
       panel.style.transform = '';
       panel.style.height = Math.round(mobile ? panelFullHeight() : layoutVh * 0.5) + 'px';
       setPanelVisible(panel.offsetHeight);
-      if (activeSlide !== 0 && slides[0]) {
-        slides.forEach(function (slide) { slide.classList.remove('is-active'); });
-        slides[0].classList.add('is-active');
-        activeSlide = 0;
-      }
+      if (activeSlide !== 0 && slides[0]) showSlide(0);
+      setMasksOpen(true);
       document.body.classList.add('home-header-visible');
       document.body.classList.remove('home-hero-wordmark-visible');
       return;
@@ -271,22 +238,22 @@
 
     var wordmarkY = 0;
     if (document.body.classList.contains('home-hero-wordmark-visible')) {
-      wordmarkY = Math.round(mapRange(progress, 0, 0.5, 0, mobile ? layoutVh / 6 : layoutVh / 2));
+      wordmarkY = Math.round(mapRange(progress, 0, 0.45, 0, mobile ? layoutVh / 8 : layoutVh / 3));
     }
     wordmarkWrap.style.transform = wordmarkY ? 'translate3d(0,' + wordmarkY + 'px,0)' : '';
 
     panel.style.height = Math.max(0, Math.round(panelHeight)) + 'px';
     setPanelVisible(panelHeight);
-
     panel.style.transform = '';
     panel.classList.add('is-bottom');
     panel.classList.remove('is-top');
+    setMasksOpen(panelHeight > 12 && inSlides);
 
-    updateMasks(panelHeight);
     updateSlides(progress);
   }
 
   var ticking = false;
+
   function onFrame() {
     update();
     ticking = false;
@@ -299,6 +266,8 @@
     }
   }
 
+  rebuildSlideZones();
+
   window.addEventListener('scroll', function () {
     var y = window.scrollY || document.documentElement.scrollTop || 0;
     recordScrollDirection(y);
@@ -309,10 +278,8 @@
   window.addEventListener('wheel', function (event) {
     if (event.deltaY < 0) {
       scrollDirection = 'up';
-      scrollingUp = true;
     } else if (event.deltaY > 0) {
       scrollDirection = 'down';
-      scrollingUp = false;
     }
     markScrolling();
     requestUpdate();
@@ -322,6 +289,7 @@
     if (window.innerWidth !== lastWidth) {
       lastWidth = window.innerWidth;
       layoutVh = window.innerHeight;
+      rebuildSlideZones();
       requestUpdate();
     }
   }, { passive: true });
@@ -329,6 +297,7 @@
   window.addEventListener('orientationchange', function () {
     layoutVh = window.innerHeight;
     lastWidth = window.innerWidth;
+    rebuildSlideZones();
     requestUpdate();
   });
 

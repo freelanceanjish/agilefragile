@@ -2196,7 +2196,7 @@ main.landing { padding-top: 0; }
 }
 @media (max-width: 599px) {
   .landing-hero-pin {
-    min-height: 235svh;
+    min-height: 250svh;
   }
 }
 @media (min-width: 600px) {
@@ -2212,7 +2212,7 @@ main.landing { padding-top: 0; }
 }
 @media (max-width: 599px) {
   .landing-hero-stage {
-    min-height: 235svh;
+    min-height: 250svh;
   }
 }
 @media (min-width: 600px) {
@@ -2374,16 +2374,16 @@ main.landing { padding-top: 0; }
   padding: 32px 24px;
   text-align: center;
   opacity: 0;
-  transition: none;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
   background: var(--accent);
   color: var(--white);
-  will-change: opacity;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 @media (max-width: 599px) {
   .landing-hero-slide {
-    transition: none;
     justify-content: flex-start;
     padding: 20px 18px 24px;
     gap: 10px;
@@ -2407,6 +2407,9 @@ main.landing { padding-top: 0; }
   }
 }
 .landing-hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   z-index: 2;
 }
 .landing-hero-slide--drift { background: var(--accent); }
