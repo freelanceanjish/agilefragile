@@ -77,8 +77,8 @@ if (/Not maturity\. Drift\./.test(index)) {
 if (!/\.vision-meter[\s\S]*background:\s*#000000/.test(css) || !/\.vision-flip-card[\s\S]*background:\s*#000000/.test(css)) {
   errors.push('Vision section cards must use pure black (#000), not gray or accent');
 }
-if (!/slideOpacities/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must crossfade hero slides for smooth scroll transitions');
+if (!/pickSlide/.test(read('assets/home-hero.js')) || !/rebuildSlideZones/.test(read('assets/home-hero.js')) || !/settleToActiveSlide/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must use discrete slide snap zones with scroll-stop settle, not scroll crossfade');
 }
 if (!/id="impact"/.test(index) || !/landing-stats/.test(index)) {
   errors.push('Home page must include impact stats section');
@@ -314,10 +314,10 @@ if (!/SLIDE_WEIGHTS/.test(read('assets/home-hero.js'))) {
 if (!/slideCollapseEnd/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must collapse hero panel only after final slide');
 }
-if (!/2\.4/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must give Scale slide extra scroll weight');
+if (!/3, 3, 1\.2, 1\.2, 1\.2, 3/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must weight drift, proof, and Scale slides for readable dwell');
 }
-if (!/235svh/.test(css) || !/landing-hero-pin/.test(css)) {
+if (!/250svh/.test(css) || !/landing-hero-pin/.test(css)) {
   errors.push('CSS must give mobile hero enough scroll height for slide panel');
 }
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
