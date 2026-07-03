@@ -234,7 +234,7 @@
     if (Math.abs(targetY - y) < SETTLE_MIN_DELTA) return;
 
     settling = true;
-    window.scrollTo({ top: Math.round(targetY), behavior: 'auto' });
+    window.scrollTo({ top: Math.round(targetY), behavior: reduced ? 'auto' : 'smooth' });
     settling = false;
     requestUpdate();
   }
