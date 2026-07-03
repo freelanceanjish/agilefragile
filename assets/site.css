@@ -2196,7 +2196,7 @@ main.landing { padding-top: 0; }
 }
 @media (max-width: 599px) {
   .landing-hero-pin {
-    min-height: 210svh;
+    min-height: 235svh;
   }
 }
 @media (min-width: 600px) {
@@ -2212,7 +2212,7 @@ main.landing { padding-top: 0; }
 }
 @media (max-width: 599px) {
   .landing-hero-stage {
-    min-height: 210svh;
+    min-height: 235svh;
   }
 }
 @media (min-width: 600px) {
@@ -2414,7 +2414,7 @@ main.landing { padding-top: 0; }
 .landing-hero-slide--move:nth-of-type(3) { background: #2436a8; }
 .landing-hero-slide--move:nth-of-type(4) { background: #172a8f; }
 .landing-hero-slide--move:nth-of-type(5) { background: #101d66; }
-.landing-hero-slide--move:nth-of-type(6) { background: var(--black); }
+.landing-hero-slide--move:nth-of-type(6) { background: #172a8f; }
 
 .landing-hero-slide-title {
   font-family: var(--font-serif);
