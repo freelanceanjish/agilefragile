@@ -2309,23 +2309,29 @@ main.landing { padding-top: 0; }
   position: relative;
   width: calc(100% - 32px);
   margin: 0 auto 24px;
-  border-radius: 8px;
+  --hero-dock-radius: clamp(22px, 6vw, 28px);
+  border-radius: var(--hero-dock-radius);
   overflow: hidden;
   height: 0;
   visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.42),
+    0 4px 14px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 @media (max-width: 599px) {
   .landing-hero-panel {
     position: fixed;
-    left: 16px;
-    right: 16px;
+    left: 12px;
+    right: 12px;
     width: auto;
-    bottom: 16px;
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
     margin: 0;
     z-index: 10;
+    --hero-dock-radius: clamp(24px, 7vw, 30px);
   }
   .landing-hero-panel.is-bottom {
     top: auto;
@@ -2354,7 +2360,7 @@ main.landing { padding-top: 0; }
   position: absolute;
   inset: 0;
   background: var(--white);
-  border-radius: 8px;
+  border-radius: inherit;
   overflow: hidden;
 }
 
@@ -2379,6 +2385,7 @@ main.landing { padding-top: 0; }
   transition: opacity 0.14s ease-out, visibility 0.14s ease-out;
   background: var(--accent);
   color: var(--white);
+  border-radius: inherit;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -2548,60 +2555,6 @@ main.landing { padding-top: 0; }
 }
 .drift-prose--page strong {
   color: var(--white);
-}
-
-.landing-hero-masks {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  pointer-events: none;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.landing-hero-mask {
-  position: absolute;
-  background: var(--page-gray);
-}
-
-.landing-hero-mask--top {
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 22%;
-  transform-origin: top center;
-}
-
-.landing-hero-mask--bottom-left {
-  bottom: -1px;
-  left: 0;
-  width: 46%;
-  height: 14%;
-  transform-origin: bottom center;
-}
-
-.landing-hero-mask--bottom-right {
-  bottom: -1px;
-  right: 0;
-  width: 46%;
-  height: 14%;
-  transform-origin: bottom center;
-}
-
-.landing-hero-mask--left {
-  top: 0;
-  bottom: 0;
-  left: -1px;
-  width: 8%;
-  transform-origin: left center;
-}
-
-.landing-hero-mask--right {
-  top: 0;
-  bottom: 0;
-  right: -1px;
-  width: 8%;
-  transform-origin: right center;
 }
 
 /* Story lead */

@@ -5,7 +5,6 @@
   var pin = document.getElementById('hero-pin');
   var wordmarkWrap = document.getElementById('hero-wordmark-wrap');
   var panel = document.getElementById('hero-panel');
-  var masks = hero.querySelectorAll('.landing-hero-mask');
   var slides = hero.querySelectorAll('.landing-hero-slide');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -163,17 +162,6 @@
     panel.setAttribute('aria-hidden', visible ? 'false' : 'true');
   }
 
-  function setMasksOpen(open) {
-    masks.forEach(function (mask) {
-      var axis = mask.dataset.axis || 'y';
-      if (axis === 'x') {
-        mask.style.transform = open ? 'scaleX(1)' : 'scaleX(0)';
-      } else {
-        mask.style.transform = open ? 'scaleY(1)' : 'scaleY(0)';
-      }
-    });
-  }
-
   function scrollYForProgress(progress) {
     var range = pin.offsetHeight - layoutVh;
     return pin.offsetTop + progress * range;
@@ -274,7 +262,6 @@
     var mobile = isMobile();
     var progress = scrollProgress();
     var panelHeight = panelHeightFor(progress);
-    var inSlides = progress >= slideRangeStart() && progress <= slideRangeEnd();
 
     if (reduced) {
       wordmarkWrap.style.transform = '';
@@ -282,7 +269,6 @@
       panel.style.height = Math.round(mobile ? panelFullHeight() : layoutVh * 0.5) + 'px';
       setPanelVisible(panel.offsetHeight);
       if (activeSlide !== 0 && slides[0]) showSlide(0);
-      setMasksOpen(true);
       document.body.classList.add('home-header-visible');
       document.body.classList.remove('home-hero-wordmark-visible');
       return;
@@ -301,7 +287,6 @@
     panel.style.transform = '';
     panel.classList.add('is-bottom');
     panel.classList.remove('is-top');
-    setMasksOpen(panelHeight > 12 && inSlides);
 
     updateSlides(progress);
   }

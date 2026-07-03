@@ -62,8 +62,11 @@ if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*185px/.test(css
 if (!/home-hero\.js/.test(index)) {
   errors.push('Home page must load home-hero.js for scroll effects');
 }
+if (!/--hero-dock-radius/.test(css) || !/landing-hero-panel/.test(css)) {
+  errors.push('Hero slide panel must use smooth dock-style rounded corners');
+}
 if (!/landing-hero-panel/.test(index)) {
-  errors.push('Home hero must include fixed panel with mask wipe');
+  errors.push('Home hero must include fixed scroll slide panel');
 }
 if (!/id="explore"/.test(index) || !/landing-cards/.test(index)) {
   errors.push('Home page must include explore cards section');
