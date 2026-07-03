@@ -311,7 +311,13 @@ if (/landing-hero-slide-eyebrow[^>]*>Move [1-4]/.test(index)) {
 if (!/SLIDE_WEIGHTS/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must weight first two hero slides for longer read time');
 }
-if (!/210svh/.test(css) || !/landing-hero-pin/.test(css)) {
+if (!/slideCollapseEnd/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must collapse hero panel only after final slide');
+}
+if (!/2\.4/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must give Scale slide extra scroll weight');
+}
+if (!/235svh/.test(css) || !/landing-hero-pin/.test(css)) {
   errors.push('CSS must give mobile hero enough scroll height for slide panel');
 }
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {

@@ -21,7 +21,7 @@
   var headerVisible = false;
   var activeSlide = -1;
   var SCROLL_STOP_MS = 280;
-  var SLIDE_WEIGHTS = [2.6, 2.6, 1, 1, 1, 1];
+  var SLIDE_WEIGHTS = [2.6, 2.6, 1, 1, 1, 2.4];
 
   function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -59,6 +59,8 @@
     var start = panelRevealStart();
     var maxHeight = panelFullHeight();
     var expandEnd = start + (mobile ? 0.05 : 0.06);
+    var slidesEnd = slideRangeEnd();
+    var collapseEnd = slideCollapseEnd();
 
     if (progress < start) return 0;
 
@@ -66,17 +68,19 @@
       return Math.round(mapRange(progress, start, expandEnd, 0, maxHeight));
     }
 
-    if (mobile) {
-      if (progress < 0.74) return maxHeight;
-      return Math.round(mapRange(progress, 0.74, 0.9, maxHeight, 0));
-    }
+    if (progress <= slidesEnd) return maxHeight;
 
-    if (progress <= 0.5) return maxHeight;
-    return Math.round(mapRange(progress, 0.5, 1, maxHeight, 0));
+    if (progress >= collapseEnd) return 0;
+
+    return Math.round(mapRange(progress, slidesEnd, collapseEnd, maxHeight, 0));
   }
 
   function slideRangeEnd() {
-    return isMobile() ? 0.74 : 1;
+    return isMobile() ? 0.82 : 0.92;
+  }
+
+  function slideCollapseEnd() {
+    return isMobile() ? 0.96 : 0.98;
   }
 
   function slideRangeStart() {
@@ -162,13 +166,12 @@
   function slideOpacities(progress) {
     var start = slideRangeStart();
     var end = slideRangeEnd();
-    var pad = 0.03;
 
-    if (progress < start || progress >= end - pad || !slides.length) {
+    if (progress < start || progress > end || !slides.length) {
       return null;
     }
 
-    var span = end - start - pad;
+    var span = end - start;
     var t = clamp((progress - start) / span, 0, 1);
     var weights = SLIDE_WEIGHTS;
     var count = weights.length;
@@ -185,7 +188,7 @@
     }
 
     var acc = 0;
-    var fade = 0.24;
+    var fade = 0.2;
 
     for (i = 0; i < count; i += 1) {
       var seg = weights[i] / total;
@@ -196,12 +199,13 @@
       if (t < segStart || t > segEnd) continue;
 
       var local = (t - segStart) / seg;
+      var isLast = i === count - 1;
 
       if (i > 0 && local < fade) {
         var blendIn = smoothstep(local / fade);
         ops[i] = blendIn;
         ops[i - 1] = Math.max(ops[i - 1], 1 - blendIn);
-      } else if (i < count - 1 && local > 1 - fade) {
+      } else if (!isLast && i < count - 1 && local > 1 - fade) {
         var blendOut = smoothstep((local - (1 - fade)) / fade);
         ops[i] = 1 - blendOut;
         ops[i + 1] = Math.max(ops[i + 1], blendOut);
@@ -274,18 +278,9 @@
     panel.style.height = Math.max(0, Math.round(panelHeight)) + 'px';
     setPanelVisible(panelHeight);
 
-    if (mobile) {
-      panel.style.transform = '';
-      panel.classList.add('is-bottom');
-      panel.classList.remove('is-top');
-    } else {
-      var panelY = panelHeight > 0
-        ? Math.round(mapRange(progress, panelRevealStart(), 0.5, 200, 0))
-        : 0;
-      panel.style.transform = panelY ? 'translate3d(0,' + panelY + 'px,0)' : '';
-      panel.classList.toggle('is-bottom', progress <= 0.5);
-      panel.classList.toggle('is-top', progress > 0.5);
-    }
+    panel.style.transform = '';
+    panel.classList.add('is-bottom');
+    panel.classList.remove('is-top');
 
     updateMasks(panelHeight);
     updateSlides(progress);
