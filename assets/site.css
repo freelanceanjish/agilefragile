@@ -2508,10 +2508,10 @@ main.landing { padding-top: 0; }
   border-radius: 8px;
   box-sizing: border-box;
   container-type: size;
-  display: grid;
-  place-items: start;
-  align-content: start;
-  justify-content: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   width: var(--logo-mark-side);
   height: var(--logo-mark-side);
   aspect-ratio: 1 / 1;
@@ -2529,9 +2529,7 @@ main.landing { padding-top: 0; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  align-self: start;
-  justify-self: start;
+  justify-content: center;
   margin: 0;
   text-align: left;
   color: var(--white);
