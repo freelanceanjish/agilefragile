@@ -5,6 +5,7 @@
   var total = questions.length;
   var current = 0;
   var scores = [];
+  var answerLabels = [];
   var bar = document.getElementById('index-bar');
   var counter = document.getElementById('index-counter');
   var questionsEl = document.getElementById('index-questions');
@@ -15,10 +16,19 @@
   var feedbackLabel = document.getElementById('feedback-label');
   var shareBtn = document.getElementById('index-share');
   var shareNote = document.getElementById('index-share-note');
+  var reportForm = document.getElementById('index-score-report');
+  var reportStatus = document.getElementById('index-report-status');
+  var resultName = document.getElementById('index-result-name');
+  var resultEmail = document.getElementById('index-result-email');
+  var resultOrg = document.getElementById('index-result-org');
+  var reportEndpoint = 'https://formsubmit.co/ajax/hello@agilefragile.com';
 
   var progressLabels = ['Starting', 'Going', 'Halfway', 'Keep going', 'Almost there', 'Nearly done', 'Last stretch', 'Final'];
   var lastPct = 0;
   var lastLabel = '';
+  var reportSent = false;
+  var reportTimer = null;
+  var reportDelayMs = 3000;
 
   function updateProgress() {
     bar.style.width = ((current / total) * 100) + '%';
@@ -39,6 +49,72 @@
   function shareUrl(pct, label) {
     var base = window.location.origin + window.location.pathname;
     return base + '?score=' + encodeURIComponent(pct) + '&label=' + encodeURIComponent(label) + '#index';
+  }
+
+  function questionSummary() {
+    var lines = [];
+    questions.forEach(function (q, i) {
+      var text = q.querySelector('.question-text');
+      var question = text ? text.textContent.trim() : 'Question ' + (i + 1);
+      var answer = answerLabels[i] || 'No answer';
+      lines.push((i + 1) + '. ' + question + ' → ' + answer + ' (' + (scores[i] != null ? scores[i] : '-') + '/3)');
+    });
+    return lines.join('\n');
+  }
+
+  function setReportStatus(message) {
+    if (!reportStatus) return;
+    reportStatus.textContent = message;
+  }
+
+  function populateReportFields(pct, label) {
+    if (!reportForm) return;
+
+    document.getElementById('report-score').value = pct + '%';
+    document.getElementById('report-label').value = label;
+    document.getElementById('report-answers').value = questionSummary();
+    document.getElementById('report-time').value = new Date().toISOString();
+    document.getElementById('report-url').value = window.location.href;
+    document.getElementById('report-name').value = resultName && resultName.value ? resultName.value.trim() : '';
+    document.getElementById('report-email').value = resultEmail && resultEmail.value ? resultEmail.value.trim() : '';
+    document.getElementById('report-org').value = resultOrg && resultOrg.value ? resultOrg.value.trim() : '';
+  }
+
+  function sendIndexReport(pct, label) {
+    if (reportSent || !reportForm) return;
+
+    populateReportFields(pct, label);
+    setReportStatus('Sending your score to Agile Fragile…');
+
+    fetch(reportEndpoint, {
+      method: 'POST',
+      body: new FormData(reportForm),
+      headers: { Accept: 'application/json' }
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('send failed');
+        reportSent = true;
+        setReportStatus('Score sent to hello@agilefragile.com.');
+      })
+      .catch(function () {
+        setReportStatus('Could not send automatically. Email hello@agilefragile.com with your score.');
+      });
+  }
+
+  function scheduleIndexReport(pct, label) {
+    if (reportTimer) clearTimeout(reportTimer);
+    reportSent = false;
+    setReportStatus('Sending your score in a few seconds. Add optional details above if you want them included.');
+    reportTimer = setTimeout(function () {
+      sendIndexReport(pct, label);
+    }, reportDelayMs);
+  }
+
+  function cancelScheduledReport() {
+    if (reportTimer) {
+      clearTimeout(reportTimer);
+      reportTimer = null;
+    }
   }
 
   function applyResult(pct, label, desc) {
@@ -87,6 +163,7 @@
     resultEl.classList.add('visible');
     bar.style.width = '100%';
     counter.textContent = 'Done';
+    scheduleIndexReport(pct, label);
   }
 
   function showResultFromParams(pct, label) {
@@ -116,6 +193,7 @@
   document.querySelectorAll('.index-opt').forEach(function (btn) {
     btn.addEventListener('click', function () {
       scores[current] = parseInt(btn.getAttribute('data-score'), 10);
+      answerLabels[current] = btn.textContent.trim();
       current++;
       if (current < total) {
         showQuestion(current);
@@ -128,6 +206,13 @@
   document.getElementById('index-restart').addEventListener('click', function () {
     current = 0;
     scores = [];
+    answerLabels = [];
+    reportSent = false;
+    cancelScheduledReport();
+    setReportStatus('');
+    if (resultName) resultName.value = '';
+    if (resultEmail) resultEmail.value = '';
+    if (resultOrg) resultOrg.value = '';
     questionsEl.style.display = 'block';
     document.querySelector('.index-meta').style.display = 'flex';
     resultEl.classList.remove('visible');
@@ -153,6 +238,17 @@
       }
     });
   }
+
+  [resultName, resultEmail, resultOrg].forEach(function (field) {
+    if (!field) return;
+    field.addEventListener('input', function () {
+      if (!resultEl.classList.contains('visible') || reportSent) return;
+      cancelScheduledReport();
+      reportTimer = setTimeout(function () {
+        sendIndexReport(lastPct, lastLabel);
+      }, 1200);
+    });
+  });
 
   var params = new URLSearchParams(window.location.search);
   var sharedScore = params.get('score');
