@@ -21,7 +21,7 @@
   var resultName = document.getElementById('index-result-name');
   var resultEmail = document.getElementById('index-result-email');
   var resultOrg = document.getElementById('index-result-org');
-  var reportEndpoint = 'https://formsubmit.co/ajax/hello@agilefragile.com';
+  var reportEndpoint = 'https://formsubmit.co/ajax/57204796c707cbb81e1252017cac8686';
 
   var progressLabels = ['Starting', 'Going', 'Halfway', 'Keep going', 'Almost there', 'Nearly done', 'Last stretch', 'Final'];
   var lastPct = 0;
