@@ -47,8 +47,20 @@ const heroWordmark = read('assets/hero-wordmark.svg');
 if (!/text-anchor="start"/.test(heroWordmark) || !/>Fragile\.<\/text>/.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use left-aligned text-anchor start and period after Fragile');
 }
-if (!/landing-hero-logo-box/.test(index)) {
-  errors.push('Home hero logo must sit inside centered landing-hero-logo-box');
+if (!/landing-hero-logo-box/.test(index) || !/logo-mark-box/.test(index)) {
+  errors.push('Home hero logo must sit inside centered square logo-mark-box');
+}
+if (!/landing-hero-lockup/.test(index)) {
+  errors.push('Home hero must group logo box and tagline in landing-hero-lockup');
+}
+if (!/logo-mark-box landing-hero-logo-box[\s\S]*?<\/div>[\s\S]*<p class="logo-tagline logo-tagline--hero"/.test(index)) {
+  errors.push('Home hero tagline must sit outside the logo box');
+}
+if (!/logo-mark-box--header/.test(index)) {
+  errors.push('Home header must use compact logo mark box for scroll chrome');
+}
+if (!/landing-hero-logo-morph/.test(index)) {
+  errors.push('Home hero must morph logo box into header on scroll');
 }
 if (!/Fraunces/i.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
@@ -56,11 +68,11 @@ if (!/Fraunces/i.test(heroWordmark)) {
 if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, <em>Before Transformation<\/em>/.test(index)) {
   errors.push('Home hero logo must include full tagline with italic Before Transformation');
 }
-if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*150px/.test(css)) {
-  errors.push('Hero wordmark must stay giant on desktop (150px Fraunces)');
+if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*108px/.test(css)) {
+  errors.push('Hero wordmark must size for square logo box on desktop');
 }
-if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*185px/.test(css)) {
-  errors.push('Hero wordmark must stay giant on mobile (185px Fraunces)');
+if (!/\.logo-mark-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css)) {
+  errors.push('Logo mark box must be square');
 }
 if (!/home-hero\.js/.test(index)) {
   errors.push('Home page must load home-hero.js for scroll effects');
@@ -98,8 +110,8 @@ if (!/id="leadership"/.test(index)) {
 if (/>\s*AF\s*</.test(index)) {
   errors.push('Home page must not show standalone "AF"');
 }
-if (!/logo-wordmark\.svg/.test(index) && !/wordmark-svg logo-wordmark/.test(index)) {
-  errors.push('Home header must use logo wordmark');
+if (!/logo-mark-box--header/.test(index) && !/wordmark-svg logo-wordmark/.test(index)) {
+  errors.push('Home header must use logo mark box or wordmark');
 }
 const wordmark = read('assets/logo-wordmark.svg');
 if (!/>Agile<\/text>/.test(wordmark) || !/>Fragile<\/text>/.test(wordmark)) {
@@ -155,7 +167,11 @@ for (const file of htmlFiles) {
     errors.push(`${file}: missing Fraunces/DM Sans font links`);
   }
   if (!/class="logo"/.test(html)) {
-    errors.push(`${file}: header must use .logo wordmark`);
+    errors.push(`${file}: header must use .logo`);
+  }
+  const hasHeaderMark = /logo-wordmark|wordmark-svg logo-wordmark|logo-mark-box/.test(html);
+  if (!hasHeaderMark) {
+    errors.push(`${file}: header must include logo wordmark or logo mark box`);
   }
 }
 
@@ -286,11 +302,17 @@ if (!/home-hero-mode/.test(css) || !/home-header-compact/.test(css)) {
 if (!/logo-tagline--hero[\s\S]*color:\s*var\(--white\)/.test(css)) {
   errors.push('Home hero tagline must use white text below the logo');
 }
-if (!/\.landing-hero-logo-box[\s\S]*background:\s*var\(--black\)/.test(css)) {
-  errors.push('Home hero logo box must use black background');
+if (!/\.logo-mark-box[\s\S]*background:\s*var\(--black\)/.test(css)) {
+  errors.push('Logo mark box must use black background');
 }
-if (!/\.landing-hero-logo[\s\S]*align-items:\s*flex-start/.test(css)) {
-  errors.push('Home hero logo lockup must left-align wordmark inside the box');
+if (!/\.logo-mark-box[\s\S]*justify-content:\s*flex-start/.test(css)) {
+  errors.push('Logo mark box must left-align wordmark inside the square');
+}
+if (!/landing-hero-logo-morph/.test(css)) {
+  errors.push('CSS must morph hero logo box into header corner on scroll');
+}
+if (!/--home-header-logo-size/.test(css)) {
+  errors.push('Home page must size compact header logo box with --home-header-logo-size');
 }
 if (/hero-glass/.test(index)) {
   errors.push('Home hero must not include broken glass effect markup');
