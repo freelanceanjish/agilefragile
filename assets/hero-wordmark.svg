@@ -5,5 +5,5 @@
     .wm { font: 600 132px 'Fraunces', Georgia, serif; letter-spacing: -0.02em; fill: #ffffff; }
   </style>
   <text class="wm" x="700" y="158" text-anchor="middle">Agile</text>
-  <text class="wm" x="718" y="318" text-anchor="middle">Fragile</text>
+  <text class="wm" x="700" y="318" text-anchor="middle">Fragile</text>
 </svg>
