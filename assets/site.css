@@ -1217,6 +1217,18 @@ main.landing { padding-top: 0; }
   text-wrap: pretty;
 }
 
+.contact-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 90%;
+  max-width: 40rem;
+}
+
+.contact-intro .hero-intro {
+  max-width: none;
+}
+
 .contact-proposed {
   width: 90%;
   max-width: 40rem;
