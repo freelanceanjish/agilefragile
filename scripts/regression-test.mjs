@@ -193,7 +193,10 @@ if (!/index-feedback/.test(index)) {
   errors.push('Home Index must include post-score feedback form');
 }
 if (!/index-score-report/.test(index) || !/sendIndexReport|index-score-report/.test(indexJs)) {
-  errors.push('Home Index must auto-send completed scores to hello@agilefragile.com');
+  errors.push('Home Index must auto-send completed scores via FormSubmit');
+}
+if (!/formsubmit\.co\/57204796c707cbb81e1252017cac8686/.test(index) || !/formsubmit\.co\/57204796c707cbb81e1252017cac8686/.test(read('contact.html'))) {
+  errors.push('Site forms must use activated FormSubmit endpoint hash');
 }
 if (!/index-report-opt/.test(index) || !/index-result-email/.test(index)) {
   errors.push('Home Index result must include optional contact fields for score report');
