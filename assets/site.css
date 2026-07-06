@@ -187,6 +187,14 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.01em;
   color: inherit;
 }
+.logo-tagline-lead {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(1em + 1px);
+  letter-spacing: inherit;
+  color: inherit;
+}
 .site-header .logo-tagline {
   max-width: min(96vw, 28rem);
   font-size: clamp(8px, 1.9vw, 11px);
