@@ -274,6 +274,9 @@ if (!/hero-glass/.test(index) || !/hero-glass-crack/.test(css) || !/landing-hero
 if (!/home-hero-mode[\s\S]*\.header-links[\s\S]*display:\s*none/.test(css)) {
   errors.push('CSS must hide header navigation on home landing hero mode');
 }
+if (!/site-header\.nav-open \.header-links/.test(css) || !/site-header:not\(\.nav-open\)/.test(css)) {
+  errors.push('Compact home nav dropdown must key off .site-header.nav-open, not body.nav-open');
+}
 if (!/logo-tagline--hero[\s\S]*color:\s*var\(--accent\)/.test(css)) {
   errors.push('Home hero tagline must use site accent blue');
 }

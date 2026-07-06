@@ -175,6 +175,18 @@
     document.documentElement.style.setProperty('--home-chrome', chrome.toFixed(4));
     document.body.classList.toggle('home-hero-mode', chrome < 0.42);
     document.body.classList.toggle('home-header-compact', chrome >= 0.42);
+
+    if (chrome < 0.42) {
+      var siteHeader = document.querySelector('.site-header');
+      var toggle = document.querySelector('.nav-toggle');
+      if (siteHeader && siteHeader.classList.contains('nav-open')) {
+        siteHeader.classList.remove('nav-open');
+        if (toggle) {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open menu');
+        }
+      }
+    }
   }
 
   function markScrolling() {
