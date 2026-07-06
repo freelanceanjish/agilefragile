@@ -2489,14 +2489,25 @@ main.landing { padding-top: 0; }
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+
+.landing-hero-logo-box {
+  background: var(--black);
+  border-radius: 8px;
+  padding: clamp(28px, 5vw, 52px) clamp(32px, 6vw, 64px);
+  width: fit-content;
+  max-width: min(94vw, 40rem);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
 .landing-hero-logo {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  align-items: flex-start;
+  width: auto;
+  margin: 0;
   z-index: 4;
 }
 
@@ -2505,18 +2516,18 @@ main.landing { padding-top: 0; }
   transform: none;
   left: auto;
   top: auto;
-  width: max-content;
-  max-width: min(96vw, 40rem);
-  white-space: nowrap;
-  margin: clamp(18px, 3vh, 32px) 0 0;
+  width: 100%;
+  max-width: none;
+  white-space: normal;
+  margin: clamp(16px, 2.5vh, 28px) 0 0;
   padding-top: 0;
   font-size: clamp(11px, 2.4vw, 17px);
-  line-height: 1.35;
+  line-height: 1.45;
   letter-spacing: 0.05em;
   color: var(--white);
   opacity: 1;
-  text-align: center;
-  text-shadow: 0 1px 10px rgba(21, 21, 23, 0.35);
+  text-align: left;
+  text-shadow: none;
   pointer-events: none;
   z-index: 6;
 }
@@ -2535,9 +2546,9 @@ main.landing { padding-top: 0; }
 
 .landing-hero-wordmark {
   display: block;
-  width: min(100%, 1400px);
-  max-width: 1400px;
+  width: auto;
   height: auto;
+  max-width: min(88vw, 34rem);
   margin: 0;
   position: relative;
   z-index: 4;

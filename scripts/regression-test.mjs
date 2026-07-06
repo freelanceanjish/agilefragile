@@ -40,12 +40,15 @@ if (!/id="hero"/.test(index) || !/landing-hero/.test(index)) {
 if (!/data-home-hero/.test(index)) {
   errors.push('Home hero must use scroll-driven data-home-hero');
 }
-if (!/wordmark-line/.test(index) || !/text-anchor="middle"/.test(index)) {
-  errors.push('Home hero wordmark must be inline centered SVG with Fraunces');
+if (!/wordmark-line/.test(index) || !/text-anchor="start"/.test(index) || !/>Fragile\.<\/text>/.test(index)) {
+  errors.push('Home hero wordmark must be left-aligned inline SVG with Fraunces and a period after Fragile');
 }
 const heroWordmark = read('assets/hero-wordmark.svg');
-if (!/text-anchor="middle"/.test(heroWordmark)) {
-  errors.push('hero-wordmark.svg must use centered text-anchor middle');
+if (!/text-anchor="start"/.test(heroWordmark) || !/>Fragile\.<\/text>/.test(heroWordmark)) {
+  errors.push('hero-wordmark.svg must use left-aligned text-anchor start and period after Fragile');
+}
+if (!/landing-hero-logo-box/.test(index)) {
+  errors.push('Home hero logo must sit inside centered landing-hero-logo-box');
 }
 if (!/Fraunces/i.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
@@ -282,6 +285,12 @@ if (!/home-hero-mode/.test(css) || !/home-header-compact/.test(css)) {
 }
 if (!/logo-tagline--hero[\s\S]*color:\s*var\(--white\)/.test(css)) {
   errors.push('Home hero tagline must use white text below the logo');
+}
+if (!/\.landing-hero-logo-box[\s\S]*background:\s*var\(--black\)/.test(css)) {
+  errors.push('Home hero logo box must use black background');
+}
+if (!/\.landing-hero-logo[\s\S]*align-items:\s*flex-start/.test(css)) {
+  errors.push('Home hero logo lockup must left-align wordmark inside the box');
 }
 if (/hero-glass/.test(index)) {
   errors.push('Home hero must not include broken glass effect markup');
