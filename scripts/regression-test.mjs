@@ -128,8 +128,8 @@ if (!/id="leadership"/.test(index)) {
 if (/>\s*AF\s*</.test(index)) {
   errors.push('Home page must not show standalone "AF"');
 }
-if (!/logo-mark-box--header/.test(index) && !/wordmark-svg logo-wordmark/.test(index)) {
-  errors.push('Home header must use logo mark box or wordmark');
+if (!/logo-mark-box--header/.test(index)) {
+  errors.push('Home header must use logo mark box');
 }
 const wordmark = read('assets/logo-wordmark.svg');
 if (!/>Agile<\/text>/.test(wordmark) || !/>Fragile<\/text>/.test(wordmark)) {
@@ -143,12 +143,6 @@ if (!/Fraunces/i.test(wordmark)) {
 }
 if (!/font-serif/.test(css) || !/\.wordmark-line[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
   errors.push('CSS .wordmark-line must use Fraunces via --font-serif');
-}
-if (!/logo-lockup/.test(wordmark) && !/logo-lockup/.test(read('about.html'))) {
-  errors.push('Header logo must use logo-lockup with tagline');
-}
-if (!/<strong class="logo-tagline-lead">Human First Reformation,<\/strong> <em>Before Transformation<\/em>/.test(read('about.html'))) {
-  errors.push('Header tagline must bold Human First Reformation, and italic Before Transformation');
 }
 if (!/\.logo-tagline--hero \.logo-tagline-lead[\s\S]*font-weight:\s*700/.test(css) || !/\.logo-tagline--hero \.logo-tagline-lead[\s\S]*clamp\(12px/.test(css)) {
   errors.push('CSS hero tagline lead must be bold and +1px larger than the base tagline');
@@ -193,9 +187,8 @@ for (const file of htmlFiles) {
   if (!/class="logo"/.test(html)) {
     errors.push(`${file}: header must use .logo`);
   }
-  const hasHeaderMark = /logo-wordmark|wordmark-svg logo-wordmark|logo-mark-box/.test(html);
-  if (!hasHeaderMark) {
-    errors.push(`${file}: header must include logo wordmark or logo mark box`);
+  if (!/logo-mark-box--header/.test(html) || !/>Fragile\.<\/span>/.test(html)) {
+    errors.push(`${file}: header must use logo mark box with Agile and Fragile.`);
   }
 }
 
@@ -317,8 +310,8 @@ if (!/proposal-page/.test(read('how-we-work.html'))) {
 if (!/insertAdjacentElement\('afterend'/.test(read('assets/site.js'))) {
   errors.push('site.js must place case study banner after hero section, not under header');
 }
-if (!/--logo-height:/.test(css) || !/--site-header-clearance: calc/.test(css)) {
-  errors.push('CSS must calculate header clearance from logo height');
+if (!/--header-logo-mark-size/.test(css) || !/--site-header-clearance: calc/.test(css)) {
+  errors.push('CSS must calculate header clearance from header logo mark size');
 }
 if (!/body\.home-page \.case-study-banner/.test(css)) {
   errors.push('CSS must hide case study banner on home page');
@@ -438,8 +431,8 @@ if (!/--site-header-clearance/.test(css)) {
 if (!/z-index:\s*200/.test(css) || !/\.site-header/.test(css)) {
   errors.push('Site header must sit above page content (z-index 200)');
 }
-if (!/viewBox="350 20 700 330"/.test(read('about.html'))) {
-  errors.push('Header wordmark must use cropped viewBox for readable logo size');
+if (!/logo-mark-box--header/.test(read('about.html')) || !/logo-mark-box--header/.test(read('leaders.html'))) {
+  errors.push('Inner pages must use header logo mark box');
 }
 if (/v0\.[0-9]/.test(read('model.html'))) {
   errors.push('Model page must not display version numbers');

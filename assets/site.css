@@ -17,7 +17,8 @@
   --header-inset: 16px;
   --logo-width: 168px;
   --logo-height: calc(var(--logo-width) * 330 / 700);
-  --site-header-clearance: calc(var(--header-top) + var(--logo-height) + 5.25rem);
+  --header-logo-mark-size: clamp(88px, 20vw, 112px);
+  --site-header-clearance: calc(var(--header-top) + var(--header-logo-mark-size) + 5.25rem);
   --hero-panel-bottom: 12px;
   --home-chrome: 0;
 }
@@ -2572,16 +2573,24 @@ body.home-page .site-header .logo {
   overflow: visible;
 }
 
-body.home-page .site-header .logo-mark-box--header {
-  --logo-mark-side: var(--home-header-logo-size);
+.site-header .logo {
+  overflow: visible;
+}
+
+.site-header .logo-mark-box--header {
+  --logo-mark-side: var(--header-logo-mark-size);
   --logo-mark-pad: 4px;
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
   overflow: visible;
 }
 
-body.home-page .site-header .logo-mark-box--header .logo-mark-stack {
+.site-header .logo-mark-box--header .logo-mark-stack {
   font-size: clamp(1.98rem, 29cqmin, 2.18rem);
+}
+
+body.home-page .site-header .logo-mark-box--header {
+  --logo-mark-side: var(--home-header-logo-size);
 }
 
 .logo-tagline--hero {
