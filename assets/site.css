@@ -877,7 +877,8 @@ main.landing { padding-top: 0; }
   color: var(--page-gray);
 }
 .form-section.submitted .contact-form,
-.form-section.submitted .notify-form { display: none; }
+.form-section.submitted .notify-form,
+.form-section.submitted .pulse-form { display: none; }
 .form-section.submitted .form-success { display: block; }
 
 .teaser-links {
@@ -2139,31 +2140,7 @@ body.home-page .case-study-banner {
 .model-step-panel h3 { margin-bottom: 12px; }
 .model-step-prompt { margin-top: 16px; color: var(--text-secondary); }
 
-.open-questions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 720px;
-}
-.open-question {
-  background: var(--black);
-  border-radius: 8px;
-  padding: 4px 20px;
-}
-.open-question summary {
-  cursor: pointer;
-  padding: 16px 0;
-  list-style: none;
-  color: var(--white);
-}
-.open-question summary::-webkit-details-marker { display: none; }
-.open-question p {
-  padding-bottom: 16px;
-  color: var(--gray-light);
-}
-
 .pulse-form {
-  max-width: 480px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2181,10 +2158,8 @@ body.home-page .case-study-banner {
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  background: var(--black);
   border-radius: 6px;
   font: 400 15px / 1.4 var(--font-sans);
-  color: var(--gray-light);
   cursor: pointer;
 }
 .pulse-opt input { accent-color: var(--accent); }
@@ -2192,21 +2167,137 @@ body.home-page .case-study-banner {
 .pulse-form input[type="email"] {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.2);
-  color: var(--white);
+  border-radius: 6px;
   font: 400 15px / 1.5 var(--font-sans);
 }
-.pulse-form button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  background: var(--accent);
-  color: var(--white);
-  font: 500 14px / 1.4 var(--font-sans);
+.pulse-form textarea:focus,
+.pulse-form input[type="email"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Proposal page: case study lab band */
+.proposal-lab {
+  background: var(--black);
+  border-radius: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
+  padding-top: clamp(48px, 8vw, 80px);
+  padding-bottom: clamp(48px, 8vw, 80px);
+}
+@media (min-width: 600px) {
+  .proposal-lab {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+.proposal-lab-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(36px, 5vw, 52px);
+}
+
+.proposal-lab-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  max-width: 38rem;
+}
+.proposal-lab-header .eyebrow { color: var(--accent); }
+.proposal-lab-header .intro {
+  color: var(--gray-light);
+  text-wrap: pretty;
+}
+
+.proposal-lab .open-questions {
+  width: 100%;
+  max-width: 38rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.proposal-lab .open-question {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.proposal-lab .open-question:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.proposal-lab .open-question summary {
   cursor: pointer;
-  align-self: flex-start;
+  padding: 20px 0;
+  list-style: none;
+  color: var(--white);
+  transition: color 0.2s;
+}
+.proposal-lab .open-question summary::-webkit-details-marker { display: none; }
+.proposal-lab .open-question summary:hover { color: rgba(255, 255, 255, 0.82); }
+.proposal-lab .open-question[open] summary { color: var(--accent); }
+.proposal-lab .open-question p {
+  padding-bottom: 20px;
+  margin-top: -4px;
+  color: var(--gray-light);
+  text-wrap: pretty;
+  line-height: 1.65;
+}
+
+.proposal-feedback {
+  width: 100%;
+  max-width: 38rem;
+}
+
+.proposal-feedback-panel {
+  background: var(--white);
+  color: var(--black);
+  border-radius: 8px;
+  padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 32px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+.proposal-feedback-panel h3 { color: var(--black); }
+.proposal-feedback-lead {
+  color: var(--page-gray);
+  text-wrap: pretty;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.proposal-lab .pulse-form { text-align: left; }
+.proposal-lab .pulse-opt {
+  background: #f6f7fb;
+  border: 1px solid rgba(21, 21, 23, 0.1);
+  color: var(--black);
+  transition: border-color 0.2s, background 0.2s;
+}
+.proposal-lab .pulse-opt:has(input:checked) {
+  border-color: var(--accent);
+  background: #eef0f8;
+}
+.proposal-lab .pulse-form textarea,
+.proposal-lab .pulse-form input[type="email"] {
+  border: 1px solid rgba(21, 21, 23, 0.18);
+  background: var(--white);
+  color: var(--black);
+}
+.proposal-lab .pulse-form input::placeholder,
+.proposal-lab .pulse-form textarea::placeholder {
+  color: var(--gray-dark);
+}
+.proposal-lab .pulse-form .hero-cta {
+  align-self: center;
+  margin-top: 4px;
+}
+
+.proposal-feedback-panel .form-error {
+  color: #b42318;
+  margin-top: 12px;
+}
+.proposal-feedback-panel .form-success {
+  color: var(--page-gray);
+  margin-top: 12px;
 }
 
 .sr-only {

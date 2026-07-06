@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600;1,9..144,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body>
+<body class="proposal-page">
   <header class="site-header">
     <a href="/" class="logo">
       <span class="logo-lockup">
@@ -195,47 +195,54 @@
       </div>
     </section>
 
-    <section class="section contain" id="open-questions">
-      <p class="eyebrow">Work in progress</p>
-      <h2 class="t-h-3">Open questions I am testing</h2>
-      <p class="intro t-b-2">This proposal is a case study. These are live questions, not finished answers.</p>
-      <div class="open-questions">
-        <details class="open-question">
-          <summary class="t-h-5">Can a solo proposer model spread without a firm behind it?</summary>
-          <p class="t-b-2">Agile Fragile is the public home of the idea, not a consultancy. I am testing whether leaders engage with a model before they engage with a vendor.</p>
-        </details>
-        <details class="open-question">
-          <summary class="t-h-5">Does the Index change the conversation before any rollout talk?</summary>
-          <p class="t-b-2">Eight questions, one score. I want to know if it surfaces what executives already sense but do not name.</p>
-        </details>
-        <details class="open-question">
-          <summary class="t-h-5">What belongs in Restore, Support, and Sustain?</summary>
-          <p class="t-b-2">Workshops, community, and resources are directions, not products. Your reaction below helps decide what to build next.</p>
-        </details>
-      </div>
-    </section>
+    <section class="my-section proposal-lab" id="open-questions">
+      <div class="contain proposal-lab-inner">
+        <div class="proposal-lab-header">
+          <p class="eyebrow">Case study in progress</p>
+          <h2 class="t-h-3">Open questions I am testing</h2>
+          <p class="intro t-b-2">This proposal is live field work. These are the questions I am working through, not polished answers.</p>
+        </div>
 
-    <section class="section contain form-section" id="proposal-pulse">
-      <h2 class="t-h-4">Which part resonates?</h2>
-      <p class="intro t-b-2">Pick what fits. Optional email if you want a reply.</p>
-      <form class="pulse-form" data-form action="https://formsubmit.co/57204796c707cbb81e1252017cac8686" method="POST">
-        <input type="hidden" name="_subject" value="Proposal pulse reaction">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-        <fieldset class="pulse-options">
-          <legend class="sr-only">Resonance options</legend>
-          <label class="pulse-opt"><input type="checkbox" name="resonates" value="Human-first diagnosis"> Human-first diagnosis</label>
-          <label class="pulse-opt"><input type="checkbox" name="resonates" value="Restore workshops"> Restore workshops</label>
-          <label class="pulse-opt"><input type="checkbox" name="resonates" value="Support community"> Support community</label>
-          <label class="pulse-opt"><input type="checkbox" name="resonates" value="Sustain resources"> Sustain resources</label>
-        </fieldset>
-        <textarea name="comment" placeholder="Anything else? (optional)" aria-label="Comment"></textarea>
-        <input type="email" name="email" placeholder="Email (optional)" aria-label="Email">
-        <button type="submit" data-sending="Sending…">Send reaction</button>
-      </form>
-      <p class="form-error">Something went wrong. Email hello@agilefragile.com directly.</p>
-      <p class="form-success">Got it. This shapes the next version of the proposal.</p>
+        <div class="open-questions" aria-label="Open questions">
+          <details class="open-question">
+            <summary class="t-h-5">Can a solo proposer model spread without a firm behind it?</summary>
+            <p class="t-b-2">Agile Fragile is the public home of the idea, not a consultancy. I am testing whether leaders engage with a model before they engage with a vendor.</p>
+          </details>
+          <details class="open-question">
+            <summary class="t-h-5">Does the Index change the conversation before any rollout talk?</summary>
+            <p class="t-b-2">Eight questions, one score. I want to know if it surfaces what executives already sense but do not name.</p>
+          </details>
+          <details class="open-question">
+            <summary class="t-h-5">What belongs in Restore, Support, and Sustain?</summary>
+            <p class="t-b-2">Workshops, community, and resources are directions, not products. Your reaction below helps decide what to build next.</p>
+          </details>
+        </div>
+
+        <div class="proposal-feedback form-section" id="proposal-pulse">
+          <div class="proposal-feedback-panel">
+            <h3 class="t-h-5">Which part resonates?</h3>
+            <p class="proposal-feedback-lead t-b-2">Pick what fits. Leave your email only if you want a reply.</p>
+            <form class="pulse-form" data-form action="https://formsubmit.co/57204796c707cbb81e1252017cac8686" method="POST">
+              <input type="hidden" name="_subject" value="Proposal pulse reaction">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+              <fieldset class="pulse-options">
+                <legend class="sr-only">Resonance options</legend>
+                <label class="pulse-opt"><input type="checkbox" name="resonates" value="Human-first diagnosis"> Human-first diagnosis</label>
+                <label class="pulse-opt"><input type="checkbox" name="resonates" value="Restore workshops"> Restore workshops</label>
+                <label class="pulse-opt"><input type="checkbox" name="resonates" value="Support community"> Support community</label>
+                <label class="pulse-opt"><input type="checkbox" name="resonates" value="Sustain resources"> Sustain resources</label>
+              </fieldset>
+              <textarea name="comment" placeholder="Anything else? (optional)" aria-label="Comment"></textarea>
+              <input type="email" name="email" placeholder="Email (optional)" aria-label="Email">
+              <button type="submit" class="hero-cta" data-sending="Sending…">Send reaction</button>
+            </form>
+            <p class="form-error">Something went wrong. Email hello@agilefragile.com directly.</p>
+            <p class="form-success">Got it. This shapes the next version of the proposal.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section contain">

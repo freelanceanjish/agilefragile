@@ -250,6 +250,15 @@ if (!/case-study-banner/.test(read('assets/site.js'))) {
 if (!/home-page/.test(read('assets/site.js')) || !/landing/.test(read('assets/site.js'))) {
   errors.push('site.js must skip case study banner on home/landing pages');
 }
+if (!/proposal-page/.test(read('assets/site.js'))) {
+  errors.push('site.js must skip case study banner on proposal page');
+}
+if (!/proposal-lab/.test(read('how-we-work.html'))) {
+  errors.push('Proposal page must use unified proposal-lab section for open questions and feedback');
+}
+if (!/proposal-page/.test(read('how-we-work.html'))) {
+  errors.push('Proposal page body must use proposal-page class');
+}
 if (!/insertAdjacentElement\('afterend'/.test(read('assets/site.js'))) {
   errors.push('site.js must place case study banner after hero section, not under header');
 }
