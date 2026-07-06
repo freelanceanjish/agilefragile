@@ -2416,20 +2416,21 @@ main.landing { padding-top: 0; }
   max-width: min(96vw, 40rem);
   white-space: nowrap;
   margin: 0;
-  padding-top: clamp(8px, 1.5vh, 16px);
+  padding-top: clamp(18px, 3vh, 32px);
   font-size: clamp(11px, 2.4vw, 17px);
   line-height: 1.35;
   letter-spacing: 0.05em;
-  color: var(--black);
+  color: var(--white);
   opacity: 1;
   text-align: center;
+  text-shadow: 0 1px 10px rgba(21, 21, 23, 0.35);
   pointer-events: none;
   z-index: 6;
 }
 
 .logo-tagline--hero em {
-  color: var(--black);
-  opacity: 0.88;
+  color: var(--white);
+  opacity: 0.92;
 }
 @media (min-width: 600px) {
   .landing-hero-wordmark-wrap {
