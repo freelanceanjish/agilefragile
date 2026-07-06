@@ -269,7 +269,7 @@ a { color: inherit; text-decoration: none; }
 /* Home: scroll-driven chrome morph between hero landing and compact header */
 body.home-page {
   scroll-behavior: auto;
-  --home-header-logo-size: clamp(56px, 14vw, 88px);
+  --home-header-logo-size: clamp(96px, 22vw, 124px);
   --site-header-clearance: calc(var(--header-top) + var(--home-header-logo-size) + 5.25rem);
 }
 
@@ -2515,20 +2515,15 @@ main.landing { padding-top: 0; }
 }
 
 .landing-hero-logo-box {
-  width: clamp(260px, 44vw, 380px);
-  padding: clamp(10px, 1.8vw, 16px);
-}
-
-.landing-hero-logo-box .landing-hero-wordmark {
-  height: 100%;
-  width: auto;
-  max-width: 104%;
-  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  width: clamp(280px, 48vw, 400px);
+  padding: clamp(8px, 1.4vw, 14px);
 }
 
 body.home-page .site-header .logo-mark-box--header {
+  aspect-ratio: 1 / 1;
   width: var(--home-header-logo-size);
-  padding: clamp(6px, 1.4vw, 10px);
+  padding: 10px;
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
 }
@@ -2536,11 +2531,26 @@ body.home-page .site-header .logo-mark-box--header {
 .logo-mark-wordmark,
 .landing-hero-wordmark {
   display: block;
-  width: 100%;
-  height: auto;
   margin: 0;
   position: relative;
   z-index: 4;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+.landing-hero-wordmark .wordmark-line {
+  font-size: 108px;
+}
+
+.logo-mark-wordmark .wordmark-line {
+  font-size: 88px;
+}
+
+@media (min-width: 600px) {
+  .landing-hero-wordmark .wordmark-line {
+    font-size: 156px;
+  }
 }
 
 .logo-tagline--hero {
@@ -2573,15 +2583,6 @@ body.home-page .site-header .logo-mark-box--header {
     align-items: center;
     padding-top: clamp(48px, 10vh, 96px);
     min-height: 55vh;
-  }
-}
-
-.landing-hero-wordmark .wordmark-line {
-  font-size: 104px;
-}
-@media (min-width: 600px) {
-  .landing-hero-wordmark .wordmark-line {
-    font-size: 148px;
   }
 }
 

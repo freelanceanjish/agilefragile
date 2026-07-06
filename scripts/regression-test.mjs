@@ -68,13 +68,16 @@ if (!/Fraunces/i.test(heroWordmark)) {
 if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, <em>Before Transformation<\/em>/.test(index)) {
   errors.push('Home hero logo must include full tagline with italic Before Transformation');
 }
-if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*148px/.test(css)) {
+if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*156px/.test(css)) {
   errors.push('Hero wordmark must size for square logo box on desktop');
 }
-if (!/\.landing-hero-logo-box \.landing-hero-wordmark[\s\S]*height:\s*100%/.test(css)) {
-  errors.push('Hero wordmark must fill the square logo box height');
+if (!/\.logo-mark-wordmark \.wordmark-line[\s\S]*font-size:\s*88px/.test(css)) {
+  errors.push('Header logo mark must use readable Fraunces size inside compact box');
 }
-if (!/\.logo-mark-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css)) {
+if (!/\.logo-mark-wordmark[\s\S]*height:\s*100%/.test(css)) {
+  errors.push('Logo mark SVG must fill box height');
+}
+if (!/\.logo-mark-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css) || !/landing-hero-logo-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css)) {
   errors.push('Logo mark box must be square');
 }
 if (!/home-hero\.js/.test(index)) {
