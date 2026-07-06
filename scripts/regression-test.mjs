@@ -280,8 +280,20 @@ if (/hero-glass/.test(index)) {
 if (!/home-hero-mode[\s\S]*\.header-links[\s\S]*display:\s*none/.test(css)) {
   errors.push('CSS must hide header navigation on home landing hero mode');
 }
-if (!/site-header\.nav-open \.header-links/.test(css) || !/site-header:not\(\.nav-open\)/.test(css)) {
-  errors.push('Compact home nav dropdown must key off .site-header.nav-open, not body.nav-open');
+if (!/\.site-header\.nav-open \.header-links/.test(css)) {
+  errors.push('Nav dropdown must key off .site-header.nav-open');
+}
+if (!/\.header-links\s*\{[^}]*display:\s*none/.test(css)) {
+  errors.push('CSS must hide header links by default until hamburger opens');
+}
+if (!/\.site-header\.nav-open \.header-links[\s\S]*display:\s*flex/.test(css)) {
+  errors.push('CSS must show nav dropdown when hamburger opens on all pages');
+}
+if (/min-width:\s*768px[\s\S]*\.nav-toggle\s*\{[^}]*display:\s*none/.test(css)) {
+  errors.push('CSS must not hide hamburger on desktop; site uses hamburger-only navigation');
+}
+if (/\.header-links\s*\{[^}]*flex-wrap:\s*wrap/.test(css)) {
+  errors.push('CSS must not use horizontal flex-wrap header links');
 }
 if (!/scrollDirection/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must track scroll direction for slide snap behavior');
