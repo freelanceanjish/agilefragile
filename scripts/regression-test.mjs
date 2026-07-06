@@ -179,10 +179,17 @@ if (/IBM Plex Sans|@import.*IBM\+Plex/i.test(css)) {
 if (/background:\s*var\(--bg\)|--bg:\s*#161616/.test(css) && !/--page-gray/.test(css)) {
   errors.push('CSS must not use Carbon #161616 as primary page background');
 }
+const favicon = read('assets/favicon.svg');
+if (!/#151517/.test(favicon) || !/>Agile<\/tspan>/.test(favicon) || !/>Fragile\.<\/tspan>/.test(favicon)) {
+  errors.push('favicon.svg must use the black square Agile Fragile. logo mark');
+}
 for (const file of htmlFiles) {
   const html = read(file);
   if (!/Fraunces/i.test(html) || !/DM\+Sans|DM Sans/i.test(html)) {
     errors.push(`${file}: missing Fraunces/DM Sans font links`);
+  }
+  if (!/favicon\.svg/.test(html) || !/favicon-32\.png/.test(html) || !/apple-touch-icon/.test(html)) {
+    errors.push(`${file}: must link SVG, PNG, and apple-touch favicons`);
   }
   if (!/class="logo"/.test(html)) {
     errors.push(`${file}: header must use .logo`);

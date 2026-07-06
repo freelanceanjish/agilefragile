@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" fill="#818181"/>
-  <rect x="8" y="8" width="16" height="16" fill="#1f35a9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Agile Fragile">
+  <rect width="32" height="32" rx="4" fill="#151517"/>
+  <text fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" font-size="6.5" font-weight="600" letter-spacing="-0.03em">
+    <tspan x="3.5" y="11.5">Agile</tspan>
+    <tspan x="3.5" y="20.5">Fragile.</tspan>
+  </text>
 </svg>

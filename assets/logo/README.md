@@ -23,6 +23,9 @@ Bold sans wordmark inside a square. Matches site style (Inter 700, gray/white/bl
 
 | File | Use |
 |------|-----|
-| `favicon.svg` | Browser tab (32×32) |
+| `favicon.svg` | Source: black square with Agile / Fragile. (32×32 viewBox) |
+| `../favicon-32.png` | Browser tab fallback (32×32) |
+| `../favicon-16.png` | Browser tab fallback (16×16) |
+| `../apple-touch-icon.png` | iOS home screen (180×180) |
 
 PNG exports: `downloads/logo-variations/`
