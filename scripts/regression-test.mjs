@@ -96,11 +96,11 @@ if (!/logo-wordmark\.svg/.test(index) && !/wordmark-svg logo-wordmark/.test(inde
   errors.push('Home header must use logo wordmark');
 }
 const wordmark = read('assets/logo-wordmark.svg');
-if (!/>AGILE<\/text>/.test(wordmark) || !/>FRAGILE<\/text>/.test(wordmark)) {
-  errors.push('Header wordmark must be all-caps white stacked Fraunces wordmark');
+if (!/>Agile<\/text>/.test(wordmark) || !/>Fragile<\/text>/.test(wordmark)) {
+  errors.push('Header wordmark must use title case Agile Fragile stacked Fraunces wordmark');
 }
 if (!/text-anchor="middle"/.test(wordmark)) {
-  errors.push('Wordmark SVG files must center AGILE/FRAGILE with text-anchor middle');
+  errors.push('Wordmark SVG files must center Agile/Fragile with text-anchor middle');
 }
 if (!/Fraunces/i.test(wordmark)) {
   errors.push('Header wordmark must use Fraunces serif');
@@ -268,8 +268,11 @@ if (!/chromeMorph/.test(read('assets/home-hero.js'))) {
 if (!/home-hero-mode/.test(css) || !/home-header-compact/.test(css)) {
   errors.push('CSS must style hero landing mode and compact header mode on home page');
 }
-if (!/hero-glass/.test(index) || !/hero-glass-crack/.test(css)) {
-  errors.push('Home hero logo must include broken glass fracture marks');
+if (!/hero-glass/.test(index) || !/hero-glass-crack/.test(css) || !/landing-hero-logo-frame/.test(index)) {
+  errors.push('Home hero logo must include broken glass fracture marks around the wordmark frame');
+}
+if (!/home-hero-mode[\s\S]*\.header-links[\s\S]*display:\s*none/.test(css)) {
+  errors.push('CSS must hide header navigation on home landing hero mode');
 }
 if (!/logo-tagline--hero[\s\S]*color:\s*var\(--accent\)/.test(css)) {
   errors.push('Home hero tagline must use site accent blue');
