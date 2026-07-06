@@ -1217,6 +1217,26 @@ main.landing { padding-top: 0; }
   text-wrap: pretty;
 }
 
+.contact-proposed {
+  width: 90%;
+  max-width: 40rem;
+  margin: 0;
+  text-align: center;
+  font: 400 clamp(15px, 1.1vw, 18px) / 1.5 var(--font-sans);
+  color: var(--text-secondary);
+}
+
+.contact-proposed em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.contact-proposed a.text-link {
+  color: inherit;
+  font-style: italic;
+}
+
 .model-roles { margin-top: 40px; }
 
 .model-gate { margin-top: 8px; }
