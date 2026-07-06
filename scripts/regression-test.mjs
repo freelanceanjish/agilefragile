@@ -40,15 +40,15 @@ if (!/id="hero"/.test(index) || !/landing-hero/.test(index)) {
 if (!/data-home-hero/.test(index)) {
   errors.push('Home hero must use scroll-driven data-home-hero');
 }
-if (!/logo-mark-stack/.test(index) || !/logo-mark-line--agile/.test(index) || !/logo-mark-line--fragile/.test(index)) {
-  errors.push('Home logo mark must stack Agile top-left and Fragile bottom-right in the box');
+if (!/logo-mark-stack/.test(index) || !/>Agile<\/span>/.test(index) || !/>Fragile\.<\/span>/.test(index)) {
+  errors.push('Home logo mark must stack Agile and Fragile. as left-aligned lines in the box');
 }
 if (!/>Fragile\.<\/span>/.test(index)) {
   errors.push('Home logo mark line two must read Fragile. with a trailing period');
 }
 const heroWordmark = read('assets/hero-wordmark.svg');
-if (!/text-anchor="start"/.test(heroWordmark) || !/text-anchor="end"/.test(heroWordmark)) {
-  errors.push('hero-wordmark.svg must anchor Agile start and Fragile end');
+if (!/text-anchor="start"/.test(heroWordmark) || /text-anchor="end"/.test(heroWordmark)) {
+  errors.push('hero-wordmark.svg must left-anchor both Agile and Fragile.');
 }
 if (!/landing-hero-logo-box/.test(index) || !/logo-mark-box/.test(index)) {
   errors.push('Home hero logo must sit inside logo-mark-box');
@@ -71,28 +71,19 @@ if (!/Fraunces/i.test(heroWordmark)) {
 if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, <em>Before Transformation<\/em>/.test(index)) {
   errors.push('Home hero logo must include full tagline with italic Before Transformation');
 }
-if (!/\.landing-hero-logo-box \.logo-mark-line[\s\S]*cqmin/.test(css)) {
-  errors.push('Hero logo mark must scale type to the square box');
-}
-if (!/logo-mark-box--header[\s\S]*\.logo-mark-line[\s\S]*font-size:\s*clamp/.test(css)) {
-  errors.push('Header logo mark must use responsive Fraunces size');
-}
-if (!/\.logo-mark-stack[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
-  errors.push('Logo mark stack must use Fraunces serif');
-}
-if (!/\.logo-mark-stack[\s\S]*align-items:\s*flex-start/.test(css)) {
+if (!/\.logo-mark-stack[\s\S]*align-items:\s*flex-start/.test(css) || !/\.logo-mark-stack[\s\S]*text-align:\s*left/.test(css)) {
   errors.push('Logo mark lines must be left-aligned in the tight square box');
 }
-if (!/\.logo-mark-line--fragile[\s\S]*align-self:\s*flex-start/.test(css)) {
-  errors.push('Fragile line must stay left-aligned in the square box');
+if (!/\.logo-mark-line[\s\S]*display:\s*block/.test(css) || !/\.logo-mark-line \+ \.logo-mark-line/.test(css)) {
+  errors.push('Logo mark lines must stack as block lines sharing the same left edge');
 }
 if (!/--logo-mark-pad/.test(css) || !/padding:\s*var\(--logo-mark-pad\)/.test(css)) {
-  errors.push('Logo mark box must use equal padding from Agile top-left and Fragile period bottom-right');
+  errors.push('Logo mark box must use tight equal padding around the wordmark');
 }
 if (!/logo-mark-box--header[\s\S]*overflow:\s*visible/.test(css)) {
   errors.push('Header logo mark must not clip the Fragile period');
 }
-if (!/\.logo-mark-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css)) {
+if (!/\.logo-mark-box::after[\s\S]*padding-bottom:\s*100%/.test(css)) {
   errors.push('Logo mark box must be square');
 }
 if (!/--home-header-logo-size/.test(css)) {
