@@ -269,8 +269,7 @@ a { color: inherit; text-decoration: none; }
 /* Home: scroll-driven chrome morph between hero landing and compact header */
 body.home-page {
   scroll-behavior: auto;
-  --home-header-logo-size: clamp(104px, 24vw, 132px);
-  --site-header-clearance: calc(var(--header-top) + var(--home-header-logo-size) + 5.25rem);
+  --site-header-clearance: calc(var(--header-top) + 5.5rem + 5.25rem);
 }
 
 body.home-page .site-header {
@@ -2506,57 +2505,57 @@ main.landing { padding-top: 0; }
 .logo-mark-box {
   background: var(--black);
   border-radius: 8px;
-  aspect-ratio: 1 / 1;
   box-sizing: border-box;
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-  overflow: hidden;
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: clamp(6px, 1vw, 10px) clamp(8px, 1.2vw, 12px);
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.35),
     0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .logo-mark-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  flex: 1;
-  min-width: 0;
-  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  row-gap: 0.06em;
+  width: max-content;
+  max-width: 100%;
   color: var(--white);
   font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .logo-mark-line {
   display: block;
-  line-height: 0.88;
   white-space: nowrap;
 }
 
-.landing-hero-logo-box {
-  width: clamp(300px, 52vw, 440px);
-  padding: clamp(14px, 2.4vw, 22px);
-  --logo-mark-font: clamp(2.5rem, 10vw, 3.75rem);
+.logo-mark-line--agile {
+  grid-row: 1;
+  justify-self: start;
+}
+
+.logo-mark-line--fragile {
+  grid-row: 2;
+  justify-self: end;
 }
 
 .landing-hero-logo-box .logo-mark-line {
-  font-size: var(--logo-mark-font);
+  font-size: clamp(3rem, 12vw, 6rem);
 }
 
 body.home-page .site-header .logo-mark-box--header {
-  width: var(--home-header-logo-size);
-  padding: clamp(8px, 2vw, 12px);
+  padding: 6px 8px;
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
-  --logo-mark-font: calc((var(--home-header-logo-size) - 1.5rem) * 0.34);
 }
 
 body.home-page .site-header .logo-mark-box--header .logo-mark-line {
-  font-size: var(--logo-mark-font);
+  font-size: clamp(0.95rem, 2.6vw, 1.2rem);
 }
 
 .logo-tagline--hero {
