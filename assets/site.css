@@ -18,6 +18,7 @@
   --logo-width: 168px;
   --logo-height: calc(var(--logo-width) * 330 / 700);
   --site-header-clearance: calc(var(--header-top) + var(--logo-height) + 5.25rem);
+  --hero-panel-bottom: 12px;
 }
 
 @media (min-width: 1080px) {
@@ -28,6 +29,7 @@
     --header-top: 64px;
     --header-inset: 64px;
     --logo-width: 240px;
+    --hero-panel-bottom: 40px;
   }
 }
 
@@ -2204,21 +2206,28 @@ main.landing { padding-top: 0; }
 }
 
 .landing-hero-stage {
-  position: relative;
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 100svh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 100svh;
+  z-index: 1;
+  isolation: isolate;
 }
 @media (max-width: 599px) {
   .landing-hero-stage {
-    min-height: 250svh;
+    height: 100svh;
+    min-height: 100svh;
   }
 }
 @media (min-width: 600px) {
   .landing-hero-stage {
     display: block;
-    min-height: 200svh;
+    height: 100svh;
+    min-height: 100svh;
   }
 }
 
@@ -2306,14 +2315,19 @@ main.landing { padding-top: 0; }
 }
 
 .landing-hero-panel {
-  position: relative;
-  width: calc(100% - 32px);
-  margin: 0 auto 24px;
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: max(var(--hero-panel-bottom), env(safe-area-inset-bottom, 0px));
+  width: auto;
+  margin: 0;
   --hero-dock-radius: clamp(22px, 6vw, 28px);
   border-radius: var(--hero-dock-radius);
   overflow: hidden;
   height: 0;
   visibility: hidden;
+  z-index: 5;
+  max-height: calc(100svh - var(--site-header-clearance) - var(--hero-panel-bottom) - 12px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -2324,35 +2338,13 @@ main.landing { padding-top: 0; }
 }
 @media (max-width: 599px) {
   .landing-hero-panel {
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    width: auto;
-    bottom: max(12px, env(safe-area-inset-bottom, 0px));
-    margin: 0;
-    z-index: 10;
     --hero-dock-radius: clamp(24px, 7vw, 30px);
-  }
-  .landing-hero-panel.is-bottom {
-    top: auto;
   }
 }
 @media (min-width: 600px) {
   .landing-hero-panel {
-    position: fixed;
     left: 40px;
     right: 40px;
-    width: auto;
-    margin: 0;
-    z-index: 10;
-  }
-  .landing-hero-panel.is-bottom {
-    bottom: 40px;
-    top: auto;
-  }
-  .landing-hero-panel.is-top {
-    top: 40px;
-    bottom: auto;
   }
 }
 

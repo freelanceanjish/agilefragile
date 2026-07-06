@@ -48,11 +48,23 @@
     return isMobile() ? 0.07 : 0.09;
   }
 
+  function panelInsetBottom() {
+    return isMobile() ? 12 : 40;
+  }
+
+  function headerClearancePx() {
+    var value = getComputedStyle(document.documentElement).getPropertyValue('--site-header-clearance');
+    return parseFloat(value) || 120;
+  }
+
   function panelFullHeight() {
+    var bottom = panelInsetBottom();
+    var maxByHeader = layoutVh - headerClearancePx() - bottom - 12;
+
     if (isMobile()) {
-      return Math.max(Math.round(layoutVh * 0.56), 320);
+      return Math.max(280, Math.min(Math.round(layoutVh * 0.56), Math.round(maxByHeader)));
     }
-    return layoutVh - 20;
+    return Math.max(320, Math.min(Math.round(layoutVh - bottom - 12), Math.round(maxByHeader)));
   }
 
   function slideRangeStart() {

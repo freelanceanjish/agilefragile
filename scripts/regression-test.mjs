@@ -305,8 +305,11 @@ if (!/layoutVh \* 0\.5[4-9]/.test(homeHeroJs) && !/layoutVh \* 0\.5/.test(homeHe
 if (!/overflow-y:\s*auto/.test(css) || !/landing-hero-slide/.test(css)) {
   errors.push('CSS must allow hero slides to scroll when panel content exceeds height');
 }
-if (!/max-width:\s*599px/.test(css) || !/\.landing-hero-panel[\s\S]*position:\s*fixed/.test(css)) {
-  errors.push('CSS must use fixed bottom hero panel on mobile so blue slides stay visible');
+if (!/max-width:\s*599px/.test(css) || !/\.landing-hero-stage[\s\S]*position:\s*sticky/.test(css) || !/\.landing-hero-panel[\s\S]*position:\s*absolute/.test(css)) {
+  errors.push('CSS must keep hero slide panel absolute inside sticky hero stage');
+}
+if (!/max-height:[\s\S]*site-header-clearance/.test(css) || !/\.landing-hero-panel/.test(css)) {
+  errors.push('CSS must cap hero panel height below header clearance');
 }
 if (/landing-hero-slide-eyebrow[^>]*>Move [1-4]/.test(index)) {
   errors.push('Home hero slides must not use Move 1-4 eyebrow labels');
