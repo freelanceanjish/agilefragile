@@ -268,17 +268,17 @@ if (!/chromeMorph/.test(read('assets/home-hero.js'))) {
 if (!/home-hero-mode/.test(css) || !/home-header-compact/.test(css)) {
   errors.push('CSS must style hero landing mode and compact header mode on home page');
 }
-if (!/hero-glass/.test(index) || !/hero-glass-crack/.test(css) || !/landing-hero-logo-frame/.test(index)) {
-  errors.push('Home hero logo must include broken glass fracture marks around the wordmark frame');
+if (!/logo-tagline--hero[\s\S]*color:\s*var\(--black\)/.test(css)) {
+  errors.push('Home hero tagline must use black text below the logo');
+}
+if (/hero-glass/.test(index)) {
+  errors.push('Home hero must not include broken glass effect markup');
 }
 if (!/home-hero-mode[\s\S]*\.header-links[\s\S]*display:\s*none/.test(css)) {
   errors.push('CSS must hide header navigation on home landing hero mode');
 }
 if (!/site-header\.nav-open \.header-links/.test(css) || !/site-header:not\(\.nav-open\)/.test(css)) {
   errors.push('Compact home nav dropdown must key off .site-header.nav-open, not body.nav-open');
-}
-if (!/logo-tagline--hero[\s\S]*color:\s*var\(--accent\)/.test(css)) {
-  errors.push('Home hero tagline must use site accent blue');
 }
 if (!/scrollDirection/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must track scroll direction for slide snap behavior');

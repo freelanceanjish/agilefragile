@@ -380,10 +380,6 @@ body.home-page .landing-hero-wordmark-wrap {
   will-change: transform, opacity;
 }
 
-body.home-page .hero-glass {
-  opacity: calc(0.62 * (1 - var(--home-chrome)));
-}
-
 body.home-page .landing-section {
   scroll-margin-top: var(--site-header-clearance);
 }
@@ -393,8 +389,7 @@ body.home-page .landing-section {
   body.home-page .site-header .logo,
   body.home-page .header-links,
   body.home-page .nav-toggle,
-  body.home-page .landing-hero-wordmark-wrap,
-  body.home-page .hero-glass {
+  body.home-page .landing-hero-wordmark-wrap {
     transition: none;
   }
 }
@@ -2438,63 +2433,13 @@ main.landing { padding-top: 0; }
   backface-visibility: hidden;
   transform: translateZ(0);
 }
-.landing-hero-logo-frame {
-  position: relative;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
 .landing-hero-logo {
   position: relative;
   display: block;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   z-index: 4;
-}
-
-.hero-glass {
-  position: absolute;
-  inset: -28% -20%;
-  z-index: 1;
-  pointer-events: none;
-  overflow: visible;
-  -webkit-mask: radial-gradient(
-    ellipse 50% 44% at 50% 40%,
-    transparent 0,
-    transparent 54%,
-    #000 72%,
-    #000 100%
-  );
-  mask: radial-gradient(
-    ellipse 50% 44% at 50% 40%,
-    transparent 0,
-    transparent 54%,
-    #000 72%,
-    #000 100%
-  );
-}
-
-.hero-glass-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.hero-glass-crack {
-  stroke: rgba(255, 255, 255, 0.42);
-  stroke-width: 1.4;
-  stroke-linecap: round;
-}
-
-.hero-glass-crack--fine {
-  stroke: rgba(255, 255, 255, 0.28);
-  stroke-width: 0.9;
-}
-
-.hero-glass-shard {
-  fill: rgba(255, 255, 255, 0.06);
-  stroke: rgba(255, 255, 255, 0.32);
-  stroke-width: 1;
 }
 
 .logo-tagline--hero {
@@ -2510,17 +2455,16 @@ main.landing { padding-top: 0; }
   font-size: clamp(11px, 2.4vw, 17px);
   line-height: 1.35;
   letter-spacing: 0.05em;
-  color: var(--accent);
+  color: var(--black);
   opacity: 1;
   text-align: center;
-  text-shadow: 0 1px 10px rgba(21, 21, 23, 0.35);
   pointer-events: none;
   z-index: 6;
 }
 
 .logo-tagline--hero em {
-  color: var(--accent);
-  opacity: 0.92;
+  color: var(--black);
+  opacity: 0.88;
 }
 @media (min-width: 600px) {
   .landing-hero-wordmark-wrap {
