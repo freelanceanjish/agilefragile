@@ -2350,9 +2350,6 @@ body.home-page .case-study-banner {
 .proposal-page .page-header .intro,
 .proposal-page .coming-header .intro {
   color: var(--gray-light);
-  font-weight: 400;
-  line-height: 1.65;
-  letter-spacing: 0.01em;
 }
 
 .proposal-page .story-arc {
@@ -2362,22 +2359,13 @@ body.home-page .case-study-banner {
 .proposal-page .story-beat h2 {
   margin-bottom: 8px;
 }
-.proposal-page .story-beat p {
-  font: 400 clamp(16px, 1.15vw, 18px) / 1.65 var(--font-sans);
-  color: var(--gray-light);
-  letter-spacing: 0.01em;
-  text-wrap: pretty;
-}
-.proposal-page .story-beat p + p {
+.proposal-page .story-beat .body-copy + .body-copy {
   margin-top: 0.85em;
 }
 
 .proposal-page .proposal-footnote {
   margin-top: clamp(28px, 4vw, 36px);
   max-width: 38rem;
-  font: 400 clamp(16px, 1.15vw, 18px) / 1.65 var(--font-sans);
-  color: var(--gray-light);
-  text-wrap: pretty;
 }
 .proposal-page .proposal-footnote a.text-link {
   color: var(--white);
@@ -2389,7 +2377,6 @@ body.home-page .case-study-banner {
 .proposal-page .detail-card li {
   color: var(--gray-light);
   text-wrap: pretty;
-  line-height: 1.55;
 }
 
 .proposal-page .proposal-cta {
@@ -2401,37 +2388,33 @@ body.home-page .case-study-banner {
   color: var(--gray-light);
 }
 
-/* Proposal page: reader journey */
+.proposal-page .concept-inner .drift-prose,
+.proposal-page .concept-inner .story-prose {
+  width: 100%;
+  max-width: 38rem;
+}
+
+/* Proposal page: reader journey (layout only; type uses theme classes) */
 .proposal-page .hero .proposal-path {
   width: 100%;
   max-width: 38rem;
   text-align: left;
   margin-top: 4px;
 }
-.proposal-path-lead {
-  font: 500 12px / 1.4 var(--font-sans);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gray-dark);
-  margin-bottom: 12px;
-}
 .proposal-path ol {
   list-style: none;
   counter-reset: path-step;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 .proposal-path li {
   counter-increment: path-step;
-  font: 400 clamp(15px, 1.1vw, 17px) / 1.5 var(--font-sans);
-  color: var(--gray-light);
   text-wrap: pretty;
 }
 .proposal-path li::before {
   content: counter(path-step, decimal-leading-zero) " · ";
   color: var(--accent);
-  font-weight: 500;
 }
 .proposal-path a {
   color: var(--white);
@@ -2440,6 +2423,13 @@ body.home-page .case-study-banner {
 }
 .proposal-path a:hover {
   color: var(--gray-light);
+}
+.proposal-page .proposal-act-label {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.proposal-page .proposal-path > .eyebrow {
+  margin-bottom: 12px;
 }
 
 .proposal-act {
@@ -2451,18 +2441,8 @@ body.home-page .case-study-banner {
 .proposal-act-intro {
   padding-bottom: clamp(20px, 3vw, 32px);
 }
-.proposal-act-label {
-  font: 500 12px / 1.4 var(--font-sans);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
 .proposal-act-bridge {
   max-width: 38rem;
-  font: 400 clamp(16px, 1.15vw, 18px) / 1.65 var(--font-sans);
-  color: var(--gray-light);
-  text-wrap: pretty;
 }
 .proposal-act .concept-section:first-of-type {
   padding-top: 0;
