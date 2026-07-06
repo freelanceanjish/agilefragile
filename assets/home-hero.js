@@ -16,7 +16,6 @@
   var scrollDirection = 'idle';
   var isScrolling = false;
   var scrollStopTimer = null;
-  var headerVisible = false;
   var activeSlide = -1;
   var slideZones = [];
   var SCROLL_STOP_MS = 160;
@@ -146,11 +145,20 @@
     return Math.round(mapRange(progress, slidesEnd, collapseEnd, maxHeight, 0));
   }
 
-  function headerEligible(progress) {
-    var showAt = isMobile() ? 0.4 : 0.34;
-    if (progress > showAt) return true;
+  function chromeMorph(progress) {
     var scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-    return scrollY > pin.offsetHeight * 0.4;
+    if (scrollY < 4 && progress <= 0) return 0;
+
+    var morphEnd = isMobile() ? 0.14 : 0.09;
+    var fromHero = clamp(progress / morphEnd, 0, 1);
+
+    var pinRange = pin.offsetHeight - layoutVh;
+    var afterHero = 0;
+    if (pinRange > 0 && scrollY > pinRange * 0.25) {
+      afterHero = clamp((scrollY - pinRange * 0.25) / (layoutVh * 0.18), 0, 1);
+    }
+
+    return clamp(Math.max(fromHero, afterHero), 0, 1);
   }
 
   function recordScrollDirection(y) {
@@ -163,20 +171,10 @@
   }
 
   function updateChrome(progress) {
-    var activelyScrolling = isScrolling || scrollDirection !== 'idle';
-    var eligible = headerEligible(progress);
-
-    if (activelyScrolling) {
-      headerVisible = false;
-    } else if (eligible) {
-      headerVisible = true;
-    } else {
-      headerVisible = false;
-    }
-
-    var wordmarkVisible = !activelyScrolling && !eligible && progress <= panelRevealStart();
-    document.body.classList.toggle('home-header-visible', headerVisible);
-    document.body.classList.toggle('home-hero-wordmark-visible', wordmarkVisible);
+    var chrome = chromeMorph(progress);
+    document.documentElement.style.setProperty('--home-chrome', chrome.toFixed(4));
+    document.body.classList.toggle('home-hero-mode', chrome < 0.42);
+    document.body.classList.toggle('home-header-compact', chrome >= 0.42);
   }
 
   function markScrolling() {
@@ -304,18 +302,13 @@
       panel.style.height = Math.round(mobile ? panelFullHeight() : layoutVh * 0.5) + 'px';
       setPanelVisible(panel.offsetHeight);
       if (activeSlide !== 0 && slides[0]) showSlide(0);
-      document.body.classList.add('home-header-visible');
-      document.body.classList.remove('home-hero-wordmark-visible');
+      document.documentElement.style.setProperty('--home-chrome', '1');
+      document.body.classList.remove('home-hero-mode');
+      document.body.classList.add('home-header-compact');
       return;
     }
 
     updateChrome(progress);
-
-    var wordmarkY = 0;
-    if (document.body.classList.contains('home-hero-wordmark-visible')) {
-      wordmarkY = Math.round(mapRange(progress, 0, 0.45, 0, mobile ? layoutVh / 8 : layoutVh / 3));
-    }
-    wordmarkWrap.style.transform = wordmarkY ? 'translate3d(0,' + wordmarkY + 'px,0)' : '';
 
     panel.style.height = Math.max(0, Math.round(panelHeight)) + 'px';
     setPanelVisible(panelHeight);
@@ -341,6 +334,10 @@
   }
 
   rebuildSlideZones();
+
+  document.documentElement.style.setProperty('--home-chrome', '0');
+  document.body.classList.add('home-hero-mode');
+  document.body.classList.remove('home-header-compact');
 
   window.addEventListener('scroll', function () {
     var y = window.scrollY || document.documentElement.scrollTop || 0;
