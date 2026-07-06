@@ -71,8 +71,8 @@ if (!/Fraunces/i.test(heroWordmark)) {
 if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, <em>Before Transformation<\/em>/.test(index)) {
   errors.push('Home hero logo must include full tagline with italic Before Transformation');
 }
-if (!/\.landing-hero-logo-box \.logo-mark-line[\s\S]*font-size:\s*clamp/.test(css)) {
-  errors.push('Hero logo mark must use responsive Fraunces size');
+if (!/\.landing-hero-logo-box \.logo-mark-line[\s\S]*cqmin/.test(css)) {
+  errors.push('Hero logo mark must scale type to the square box');
 }
 if (!/logo-mark-box--header[\s\S]*\.logo-mark-line[\s\S]*font-size:\s*clamp/.test(css)) {
   errors.push('Header logo mark must use responsive Fraunces size');
@@ -80,8 +80,11 @@ if (!/logo-mark-box--header[\s\S]*\.logo-mark-line[\s\S]*font-size:\s*clamp/.tes
 if (!/\.logo-mark-stack[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
   errors.push('Logo mark stack must use Fraunces serif');
 }
-if (!/\.logo-mark-line--agile[\s\S]*grid-column:\s*1/.test(css) || !/\.logo-mark-line--fragile[\s\S]*grid-column:\s*2/.test(css)) {
-  errors.push('Logo mark must use diagonal grid: Agile top-left cell, Fragile bottom-right cell');
+if (!/\.logo-mark-stack[\s\S]*align-items:\s*flex-start/.test(css)) {
+  errors.push('Logo mark lines must be left-aligned in the square box');
+}
+if (!/\.logo-mark-line--fragile[\s\S]*align-self:\s*flex-start/.test(css)) {
+  errors.push('Fragile line must stay left-aligned in the square box');
 }
 if (!/--logo-mark-pad/.test(css) || !/padding:\s*var\(--logo-mark-pad\)/.test(css)) {
   errors.push('Logo mark box must use equal padding from Agile top-left and Fragile period bottom-right');
@@ -89,8 +92,11 @@ if (!/--logo-mark-pad/.test(css) || !/padding:\s*var\(--logo-mark-pad\)/.test(cs
 if (!/logo-mark-box--header[\s\S]*overflow:\s*visible/.test(css)) {
   errors.push('Header logo mark must not clip the Fragile period');
 }
-if (!/\.logo-mark-box[\s\S]*width:\s*fit-content/.test(css)) {
-  errors.push('Logo mark box must wrap tightly around the wordmark');
+if (!/\.logo-mark-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css)) {
+  errors.push('Logo mark box must be square');
+}
+if (!/--home-header-logo-size/.test(css)) {
+  errors.push('Home page must size compact header logo square with --home-header-logo-size');
 }
 if (!/home-hero\.js/.test(index)) {
   errors.push('Home page must load home-hero.js for scroll effects');
