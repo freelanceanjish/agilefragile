@@ -269,6 +269,8 @@ a { color: inherit; text-decoration: none; }
 /* Home: scroll-driven chrome morph between hero landing and compact header */
 body.home-page {
   scroll-behavior: auto;
+  --home-header-logo-size: clamp(56px, 14vw, 88px);
+  --site-header-clearance: calc(var(--header-top) + var(--home-header-logo-size) + 5.25rem);
 }
 
 body.home-page .site-header {
@@ -277,7 +279,9 @@ body.home-page .site-header {
 
 body.home-page .site-header .logo {
   opacity: var(--home-chrome);
-  transform: translate3d(calc((1 - var(--home-chrome)) * 18vw), 0, 0) scale(calc(0.72 + var(--home-chrome) * 0.28));
+  transform:
+    translate3d(calc((1 - var(--home-chrome)) * -14vw), calc((1 - var(--home-chrome)) * 10vh), 0)
+    scale(calc(0.4 + var(--home-chrome) * 0.6));
 }
 
 body.home-page.home-hero-mode .site-header {
@@ -305,12 +309,18 @@ body.home-page.home-hero-mode .header-links {
   display: none;
 }
 
-body.home-page .landing-hero-wordmark-wrap {
-  opacity: calc(1 - min(1, var(--home-chrome) * 1.15));
+body.home-page .landing-hero-logo-morph {
+  opacity: calc(1 - min(1, var(--home-chrome) * 1.08));
   transform:
-    translate3d(calc(var(--home-chrome) * -34vw), calc(var(--home-chrome) * -18vh), 0)
-    scale(calc(1 - var(--home-chrome) * 0.76));
+    translate3d(calc(var(--home-chrome) * -42vw), calc(var(--home-chrome) * -38vh), 0)
+    scale(calc(1 - var(--home-chrome) * 0.74));
   will-change: transform, opacity;
+  transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.home-page .landing-hero-lockup .logo-tagline--hero {
+  opacity: calc(1 - min(1, var(--home-chrome) * 2.2));
+  transition: opacity 0.2s ease-out;
 }
 
 body.home-page .landing-section {
@@ -322,7 +332,7 @@ body.home-page .landing-section {
   body.home-page .site-header .logo,
   body.home-page .header-links,
   body.home-page .nav-toggle,
-  body.home-page .landing-hero-wordmark-wrap {
+  body.home-page .landing-hero-logo-morph {
     transition: none;
   }
 }
@@ -2463,13 +2473,7 @@ main.landing { padding-top: 0; }
 .wordmark-line--header {
   font-size: 132px;
 }
-.landing-hero-wordmark .wordmark-line {
-  font-size: 150px;
-}
 @media (max-width: 599px) {
-  .landing-hero-wordmark .wordmark-line {
-    font-size: 185px;
-  }
   .landing-hero-wordmark-wrap {
     align-items: center;
     justify-content: center;
@@ -2490,24 +2494,45 @@ main.landing { padding-top: 0; }
   transform: translateZ(0);
 }
 
-.landing-hero-logo-box {
+.landing-hero-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 2.5vh, 28px);
+}
+
+.logo-mark-box {
   background: var(--black);
   border-radius: 8px;
-  padding: clamp(28px, 5vw, 52px) clamp(32px, 6vw, 64px);
-  width: fit-content;
-  max-width: min(94vw, 40rem);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.35),
     0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.landing-hero-logo {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: auto;
+.landing-hero-logo-box {
+  width: clamp(220px, 38vw, 340px);
+  padding: clamp(16px, 3vw, 28px);
+}
+
+body.home-page .site-header .logo-mark-box--header {
+  width: var(--home-header-logo-size);
+  padding: clamp(6px, 1.4vw, 10px);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+}
+
+.logo-mark-wordmark,
+.landing-hero-wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
   margin: 0;
+  position: relative;
   z-index: 4;
 }
 
@@ -2516,17 +2541,17 @@ main.landing { padding-top: 0; }
   transform: none;
   left: auto;
   top: auto;
-  width: 100%;
-  max-width: none;
+  width: max-content;
+  max-width: min(96vw, 40rem);
   white-space: normal;
-  margin: clamp(16px, 2.5vh, 28px) 0 0;
+  margin: 0;
   padding-top: 0;
   font-size: clamp(11px, 2.4vw, 17px);
   line-height: 1.45;
   letter-spacing: 0.05em;
   color: var(--white);
   opacity: 1;
-  text-align: left;
+  text-align: center;
   text-shadow: none;
   pointer-events: none;
   z-index: 6;
@@ -2544,14 +2569,13 @@ main.landing { padding-top: 0; }
   }
 }
 
-.landing-hero-wordmark {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: min(88vw, 34rem);
-  margin: 0;
-  position: relative;
-  z-index: 4;
+.landing-hero-wordmark .wordmark-line {
+  font-size: 76px;
+}
+@media (min-width: 600px) {
+  .landing-hero-wordmark .wordmark-line {
+    font-size: 108px;
+  }
 }
 
 .landing-hero-panel {
