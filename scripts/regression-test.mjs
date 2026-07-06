@@ -153,8 +153,11 @@ if (!/<strong class="logo-tagline-lead">Human First Reformation,<\/strong> <em>B
 if (!/\.logo-tagline--hero \.logo-tagline-lead[\s\S]*font-weight:\s*700/.test(css) || !/\.logo-tagline--hero \.logo-tagline-lead[\s\S]*clamp\(12px/.test(css)) {
   errors.push('CSS hero tagline lead must be bold and +1px larger than the base tagline');
 }
-if (!/\.logo-tagline em[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
-  errors.push('CSS .logo-tagline em must use Fraunces italic for visible contrast');
+if (!/\.logo-tagline[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
+  errors.push('CSS .logo-tagline must use Fraunces serif to match the Agile Fragile logo');
+}
+if (!/\.logo-tagline-lead[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
+  errors.push('CSS .logo-tagline-lead must use Fraunces serif to match the Agile Fragile logo');
 }
 if (!/Fraunces:ital,opsz,wght/.test(read('index.html'))) {
   errors.push('HTML must load Fraunces italic for tagline emphasis');
