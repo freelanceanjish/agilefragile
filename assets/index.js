@@ -12,15 +12,14 @@
   var resultEl = document.getElementById('index-result');
   var ctaPrimary = document.getElementById('index-cta-primary');
   var ctaContact = document.getElementById('index-cta-contact');
-  var feedbackScore = document.getElementById('feedback-score');
-  var feedbackLabel = document.getElementById('feedback-label');
   var shareBtn = document.getElementById('index-share');
   var shareNote = document.getElementById('index-share-note');
   var reportForm = document.getElementById('index-score-report');
   var reportStatus = document.getElementById('index-report-status');
-  var resultName = document.getElementById('index-result-name');
+  var resultIndustry = document.getElementById('index-result-industry');
+  var resultAnon = document.getElementById('index-result-anon');
+  var resultIdent = document.getElementById('index-report-ident');
   var resultEmail = document.getElementById('index-result-email');
-  var resultOrg = document.getElementById('index-result-org');
   var reportEndpoint = 'https://formsubmit.co/ajax/57204796c707cbb81e1252017cac8686';
 
   var progressLabels = ['Starting', 'Going', 'Halfway', 'Keep going', 'Almost there', 'Nearly done', 'Last stretch', 'Final'];
@@ -28,7 +27,7 @@
   var lastLabel = '';
   var reportSent = false;
   var reportTimer = null;
-  var reportDelayMs = 3000;
+  var reportDelayMs = 1200;
 
   function updateProgress() {
     bar.style.width = ((current / total) * 100) + '%';
@@ -62,9 +61,24 @@
     return lines.join('\n');
   }
 
+  function isAnonymous() {
+    return resultAnon && resultAnon.checked;
+  }
+
   function setReportStatus(message) {
     if (!reportStatus) return;
     reportStatus.textContent = message;
+  }
+
+  function toggleIdentFields() {
+    if (!resultIdent) return;
+    var anon = isAnonymous();
+    resultIdent.hidden = anon;
+    if (anon && resultEmail) resultEmail.value = '';
+  }
+
+  function industrySelected() {
+    return resultIndustry && resultIndustry.value;
   }
 
   function populateReportFields(pct, label) {
@@ -75,16 +89,18 @@
     document.getElementById('report-answers').value = questionSummary();
     document.getElementById('report-time').value = new Date().toISOString();
     document.getElementById('report-url').value = window.location.href;
-    document.getElementById('report-name').value = resultName && resultName.value ? resultName.value.trim() : '';
-    document.getElementById('report-email').value = resultEmail && resultEmail.value ? resultEmail.value.trim() : '';
-    document.getElementById('report-org').value = resultOrg && resultOrg.value ? resultOrg.value.trim() : '';
+    document.getElementById('report-industry').value = resultIndustry ? resultIndustry.value : '';
+    document.getElementById('report-anon').value = isAnonymous() ? 'Yes' : 'No';
+    document.getElementById('report-email').value = !isAnonymous() && resultEmail && resultEmail.value
+      ? resultEmail.value.trim()
+      : '';
   }
 
   function sendIndexReport(pct, label) {
-    if (reportSent || !reportForm) return;
+    if (reportSent || !reportForm || !industrySelected()) return;
 
     populateReportFields(pct, label);
-    setReportStatus('Sending your score to Agile Fragile…');
+    setReportStatus('Sending your score…');
 
     fetch(reportEndpoint, {
       method: 'POST',
@@ -94,17 +110,21 @@
       .then(function (res) {
         if (!res.ok) throw new Error('send failed');
         reportSent = true;
-        setReportStatus('Score sent to hello@agilefragile.com.');
+        setReportStatus('Score sent. Thank you.');
       })
       .catch(function () {
-        setReportStatus('Could not send automatically. Email hello@agilefragile.com with your score.');
+        setReportStatus('Could not send. Pick your industry again or email hello@agilefragile.com.');
       });
   }
 
   function scheduleIndexReport(pct, label) {
+    if (!industrySelected()) {
+      setReportStatus('Select your industry domain to send your score.');
+      return;
+    }
     if (reportTimer) clearTimeout(reportTimer);
     reportSent = false;
-    setReportStatus('Sending your score in a few seconds. Add optional details above if you want them included.');
+    setReportStatus('Sending your score…');
     reportTimer = setTimeout(function () {
       sendIndexReport(pct, label);
     }, reportDelayMs);
@@ -117,6 +137,16 @@
     }
   }
 
+  function resetReportForm() {
+    reportSent = false;
+    cancelScheduledReport();
+    setReportStatus('');
+    if (resultIndustry) resultIndustry.value = '';
+    if (resultAnon) resultAnon.checked = true;
+    if (resultEmail) resultEmail.value = '';
+    toggleIdentFields();
+  }
+
   function applyResult(pct, label, desc) {
     lastPct = pct;
     lastLabel = label;
@@ -125,8 +155,6 @@
     document.getElementById('index-score-label').textContent = label;
     document.getElementById('index-score-desc').textContent = desc;
 
-    if (feedbackScore) feedbackScore.value = pct + '%';
-    if (feedbackLabel) feedbackLabel.value = label;
     if (ctaContact) ctaContact.href = contactUrl(pct, label);
 
     if (window.history && window.history.replaceState) {
@@ -163,7 +191,8 @@
     resultEl.classList.add('visible');
     bar.style.width = '100%';
     counter.textContent = 'Done';
-    scheduleIndexReport(pct, label);
+    resetReportForm();
+    setReportStatus('Select your industry domain to send your score.');
   }
 
   function showResultFromParams(pct, label) {
@@ -188,6 +217,7 @@
     resultEl.classList.add('visible');
     bar.style.width = '100%';
     counter.textContent = 'Shared score';
+    setReportStatus('');
   }
 
   document.querySelectorAll('.index-opt').forEach(function (btn) {
@@ -207,12 +237,7 @@
     current = 0;
     scores = [];
     answerLabels = [];
-    reportSent = false;
-    cancelScheduledReport();
-    setReportStatus('');
-    if (resultName) resultName.value = '';
-    if (resultEmail) resultEmail.value = '';
-    if (resultOrg) resultOrg.value = '';
+    resetReportForm();
     questionsEl.style.display = 'block';
     document.querySelector('.index-meta').style.display = 'flex';
     resultEl.classList.remove('visible');
@@ -239,16 +264,31 @@
     });
   }
 
-  [resultName, resultEmail, resultOrg].forEach(function (field) {
-    if (!field) return;
-    field.addEventListener('input', function () {
+  if (resultAnon) {
+    resultAnon.addEventListener('change', function () {
+      toggleIdentFields();
+      if (!reportSent && industrySelected()) scheduleIndexReport(lastPct, lastLabel);
+    });
+  }
+
+  if (resultIndustry) {
+    resultIndustry.addEventListener('change', function () {
       if (!resultEl.classList.contains('visible') || reportSent) return;
+      scheduleIndexReport(lastPct, lastLabel);
+    });
+  }
+
+  if (resultEmail) {
+    resultEmail.addEventListener('input', function () {
+      if (!resultEl.classList.contains('visible') || reportSent || isAnonymous()) return;
       cancelScheduledReport();
       reportTimer = setTimeout(function () {
         sendIndexReport(lastPct, lastLabel);
-      }, 1200);
+      }, reportDelayMs);
     });
-  });
+  }
+
+  toggleIdentFields();
 
   var params = new URLSearchParams(window.location.search);
   var sharedScore = params.get('score');

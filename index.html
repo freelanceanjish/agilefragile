@@ -335,11 +335,34 @@
           </div>
           <button type="button" class="btn-secondary index-share" id="index-share">Copy link to your score</button>
           <p class="index-share-note t-b-3" id="index-share-note" hidden>Link copied. Share it when you reach out.</p>
-          <div class="index-report-opt" id="index-report-opt">
-            <p class="index-report-lead t-b-3">Optional: add your details to include in the score report sent to Agile Fragile.</p>
-            <input type="text" id="index-result-name" placeholder="Name (optional)" aria-label="Name optional">
-            <input type="email" id="index-result-email" placeholder="Email (optional)" aria-label="Email optional">
-            <input type="text" id="index-result-org" placeholder="Organization (optional)" aria-label="Organization optional">
+          <div class="index-report-form" id="index-report-opt">
+            <p class="index-report-lead t-b-3">Share your score</p>
+            <label class="index-field" for="index-result-industry">
+              <span class="index-field-label">Industry domain <span class="index-field-req" aria-hidden="true">*</span></span>
+              <select id="index-result-industry" required aria-required="true" aria-label="Industry domain required">
+                <option value="">Select industry</option>
+                <option value="Financial services">Financial services</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Retail and consumer">Retail and consumer</option>
+                <option value="Technology and software">Technology and software</option>
+                <option value="Telecom and media">Telecom and media</option>
+                <option value="Government and public sector">Government and public sector</option>
+                <option value="Manufacturing and industrial">Manufacturing and industrial</option>
+                <option value="Energy and utilities">Energy and utilities</option>
+                <option value="Professional services">Professional services</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <label class="index-anon-toggle">
+              <input type="checkbox" id="index-result-anon" checked>
+              <span>Submit anonymously</span>
+            </label>
+            <div class="index-report-ident" id="index-report-ident" hidden>
+              <label class="index-field" for="index-result-email">
+                <span class="index-field-label">Email <span class="index-field-hint">(optional)</span></span>
+                <input type="email" id="index-result-email" placeholder="you@company.com" aria-label="Email optional">
+              </label>
+            </div>
             <p class="index-report-status t-b-3" id="index-report-status" aria-live="polite"></p>
           </div>
           <form id="index-score-report" class="index-score-report" hidden aria-hidden="true">
@@ -352,26 +375,10 @@
             <input type="hidden" name="answers" id="report-answers">
             <input type="hidden" name="submitted_at" id="report-time">
             <input type="hidden" name="page_url" id="report-url">
-            <input type="hidden" name="name" id="report-name">
+            <input type="hidden" name="industry_domain" id="report-industry">
+            <input type="hidden" name="anonymous" id="report-anon">
             <input type="hidden" name="email" id="report-email">
-            <input type="hidden" name="organization" id="report-org">
           </form>
-          <div class="index-feedback form-section" id="index-feedback">
-            <p class="feedback-prompt t-b-2">What would you want this model to solve first?</p>
-            <form class="index-feedback-form" data-form action="https://formsubmit.co/57204796c707cbb81e1252017cac8686" method="POST">
-              <input type="hidden" name="_subject" value="Human Agile Index feedback">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
-              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-              <input type="hidden" name="index_score" id="feedback-score">
-              <input type="hidden" name="index_label" id="feedback-label">
-              <textarea name="message" placeholder="Your reaction in a sentence or two" required aria-label="Feedback"></textarea>
-              <input type="email" name="email" placeholder="Email (optional)" aria-label="Email">
-              <button type="submit" data-sending="Sending…">Send feedback</button>
-            </form>
-            <p class="form-error">Something went wrong. Email hello@agilefragile.com directly.</p>
-            <p class="form-success">Thank you. Your note helps shape the next version.</p>
-          </div>
           <button type="button" class="index-restart" id="index-restart">Take again</button>
         </div>
       </div>
