@@ -78,8 +78,8 @@ def header_for(page: str) -> str:
     <a href="/" class="logo">
       <span class="logo-lockup">
       <svg class="wordmark-svg logo-wordmark" viewBox="350 20 700 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agile Fragile" fill="none">
-        <text class="wordmark-line wordmark-line--header" x="700" y="158" text-anchor="middle">AGILE</text>
-        <text class="wordmark-line wordmark-line--header" x="718" y="318" text-anchor="middle">FRAGILE</text>
+        <text class="wordmark-line wordmark-line--header" x="700" y="158" text-anchor="middle">Agile</text>
+        <text class="wordmark-line wordmark-line--header" x="718" y="318" text-anchor="middle">Fragile</text>
       </svg>
       <span class="logo-tagline">Human First Reformation, <em>Before Transformation</em></span>
       </span>
