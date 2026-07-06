@@ -68,8 +68,8 @@ if (!/landing-hero-logo-morph/.test(index)) {
 if (!/Fraunces/i.test(heroWordmark)) {
   errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
 }
-if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, <em>Before Transformation<\/em>/.test(index)) {
-  errors.push('Home hero logo must include full tagline with italic Before Transformation');
+if (!/logo-tagline--hero/.test(index) || !/<strong class="logo-tagline-lead">Human First<\/strong> <em>Reformation, Before Transformation<\/em>/.test(index)) {
+  errors.push('Home hero logo must include tagline with bold Human First and italic remainder');
 }
 if (!/\.logo-mark-box[\s\S]*justify-content:\s*center/.test(css) || !/\.logo-mark-box[\s\S]*align-items:\s*flex-start/.test(css)) {
   errors.push('Logo mark must be left-aligned and vertically centered in the square');
@@ -147,8 +147,11 @@ if (!/font-serif/.test(css) || !/\.wordmark-line[\s\S]*font-family:\s*var\(--fon
 if (!/logo-lockup/.test(wordmark) && !/logo-lockup/.test(read('about.html'))) {
   errors.push('Header logo must use logo-lockup with tagline');
 }
-if (!/Human First Reformation, <em>Before Transformation<\/em>/.test(read('about.html'))) {
-  errors.push('Header logo must include tagline with italic Before Transformation');
+if (!/<strong class="logo-tagline-lead">Human First<\/strong> <em>Reformation, Before Transformation<\/em>/.test(read('about.html'))) {
+  errors.push('Header logo must include tagline with bold Human First and italic remainder');
+}
+if (!/\.logo-tagline-lead[\s\S]*font-weight:\s*700/.test(css) || !/\.logo-tagline-lead[\s\S]*font-size:\s*calc\(1em \+ 1px\)/.test(css)) {
+  errors.push('CSS .logo-tagline-lead must be bold and one step larger than the tagline');
 }
 if (!/\.logo-tagline em[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
   errors.push('CSS .logo-tagline em must use Fraunces italic for visible contrast');
