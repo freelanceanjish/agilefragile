@@ -2796,32 +2796,10 @@ main.landing { padding-top: 0; }
   text-wrap: pretty;
 }
 
-/* Vision: typography-led, aligned with landing prose sections */
+/* Vision: thesis beat only; budget detail lives in #drift below */
 .landing-vision .landing-section-lead {
   max-width: 38rem;
   text-wrap: pretty;
-}
-
-.vision-prose {
-  max-width: 38rem;
-  text-align: left;
-}
-
-.vision-contrast {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25em;
-  padding-bottom: 0.25em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  margin-bottom: 0.25em;
-}
-
-.vision-contrast p {
-  margin: 0;
-}
-
-.vision-prose .focus-line {
-  margin-top: 0.15em;
 }
 
 /* Impact: giant stats */

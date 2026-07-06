@@ -71,11 +71,14 @@ if (!/landing-hero-panel/.test(index)) {
 if (!/id="explore"/.test(index) || !/landing-cards/.test(index)) {
   errors.push('Home page must include explore cards section');
 }
-if (!/id="vision"/.test(index) || !/vision-prose/.test(index) || !/We forgot people come before the product/.test(index)) {
-  errors.push('Home vision section must use prose layout with core thesis line');
+if (!/id="vision"/.test(index) || !/We forgot people come before the product/.test(index)) {
+  errors.push('Home vision section must keep core thesis headline and lead');
 }
-if (/vision-flip-card|vision-meter/.test(index)) {
-  errors.push('Home vision must not use boxed flip cards or meter panels');
+if (/vision-prose|vision-contrast|vision-meter|vision-flip/.test(index)) {
+  errors.push('Home vision must stay a thesis beat only, not repeat drift budget content');
+}
+if (!/id="drift"/.test(index) || !/The budget nobody audits/.test(index)) {
+  errors.push('Home page must include drift section with budget audit headline');
 }
 if (/Not maturity\. Drift\./.test(index)) {
   errors.push('Home vision must not use machine-style Not maturity. Drift. line');
