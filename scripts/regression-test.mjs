@@ -80,8 +80,11 @@ if (!/logo-mark-box--header[\s\S]*\.logo-mark-line[\s\S]*font-size:\s*clamp/.tes
 if (!/\.logo-mark-stack[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
   errors.push('Logo mark stack must use Fraunces serif');
 }
-if (!/\.logo-mark-line--agile[\s\S]*align-self:\s*flex-start/.test(css) || !/\.logo-mark-line--fragile[\s\S]*align-self:\s*flex-end/.test(css)) {
-  errors.push('Square logo mark must pin Agile top-left and Fragile period bottom-right');
+if (!/\.logo-mark-stack[\s\S]*align-items:\s*flex-start/.test(css)) {
+  errors.push('Logo mark lines must be left-aligned in the tight square box');
+}
+if (!/\.logo-mark-line--fragile[\s\S]*align-self:\s*flex-start/.test(css)) {
+  errors.push('Fragile line must stay left-aligned in the square box');
 }
 if (!/--logo-mark-pad/.test(css) || !/padding:\s*var\(--logo-mark-pad\)/.test(css)) {
   errors.push('Logo mark box must use equal padding from Agile top-left and Fragile period bottom-right');
