@@ -75,14 +75,13 @@ def header_for(page: str) -> str:
         attrs[cur] = ' aria-current="page"'
     links = NAV_LINKS.format(**attrs)
     return f"""  <header class="site-header">
-    <a href="/" class="logo">
-      <span class="logo-lockup">
-      <svg class="wordmark-svg logo-wordmark" viewBox="350 20 700 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agile Fragile" fill="none">
-        <text class="wordmark-line wordmark-line--header" x="700" y="158" text-anchor="middle">Agile</text>
-        <text class="wordmark-line wordmark-line--header" x="718" y="318" text-anchor="middle">Fragile</text>
-      </svg>
-      <span class="logo-tagline"><strong class="logo-tagline-lead">Human First Reformation,</strong> <em>Before Transformation</em></span>
-      </span>
+    <a href="/" class="logo" aria-label="Agile Fragile">
+      <div class="logo-mark-box logo-mark-box--header">
+        <span class="logo-mark-stack">
+          <span class="logo-mark-line">Agile</span>
+          <span class="logo-mark-line">Fragile.</span>
+        </span>
+      </div>
     </a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
