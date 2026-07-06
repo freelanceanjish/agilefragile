@@ -2326,6 +2326,81 @@ body.home-page .case-study-banner {
   margin-top: 12px;
 }
 
+/* Proposal page: unified reading typography and alignment */
+.proposal-page .concept-inner {
+  align-items: flex-start;
+  text-align: left;
+  gap: 16px;
+}
+.proposal-page .concept-inner .thesis,
+.proposal-page .concept-inner .body-copy {
+  max-width: 38rem;
+}
+.proposal-page .concept-inner .body-copy + .body-copy {
+  margin-top: 0.85em;
+}
+
+.proposal-page .page-header,
+.proposal-page .coming-header {
+  align-items: flex-start;
+  text-align: left;
+  max-width: 38rem;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+.proposal-page .page-header .intro,
+.proposal-page .coming-header .intro {
+  color: var(--gray-light);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+.proposal-page .story-arc {
+  max-width: 38rem;
+  margin-inline: 0;
+}
+.proposal-page .story-beat h2 {
+  margin-bottom: 8px;
+}
+.proposal-page .story-beat p {
+  font: 400 clamp(16px, 1.15vw, 18px) / 1.65 var(--font-sans);
+  color: var(--gray-light);
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
+}
+.proposal-page .story-beat p + p {
+  margin-top: 0.85em;
+}
+
+.proposal-page .proposal-footnote {
+  margin-top: clamp(28px, 4vw, 36px);
+  max-width: 38rem;
+  font: 400 clamp(16px, 1.15vw, 18px) / 1.65 var(--font-sans);
+  color: var(--gray-light);
+  text-wrap: pretty;
+}
+.proposal-page .proposal-footnote a.text-link {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.proposal-page .detail-card > p.t-b-3,
+.proposal-page .detail-card li {
+  color: var(--gray-light);
+  text-wrap: pretty;
+  line-height: 1.55;
+}
+
+.proposal-page .proposal-cta {
+  margin-top: 24px;
+  display: inline-block;
+}
+
+.proposal-page .hero-intro {
+  color: var(--gray-light);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
