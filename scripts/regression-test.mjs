@@ -80,11 +80,14 @@ if (!/logo-mark-box--header[\s\S]*\.logo-mark-line[\s\S]*font-size:\s*clamp/.tes
 if (!/\.logo-mark-stack[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
   errors.push('Logo mark stack must use Fraunces serif');
 }
-if (!/\.logo-mark-line--agile[\s\S]*justify-self:\s*start/.test(css)) {
-  errors.push('Agile must sit at the top-left inside the logo box');
+if (!/\.logo-mark-line--agile[\s\S]*grid-column:\s*1/.test(css) || !/\.logo-mark-line--fragile[\s\S]*grid-column:\s*2/.test(css)) {
+  errors.push('Logo mark must use diagonal grid: Agile top-left cell, Fragile bottom-right cell');
 }
-if (!/\.logo-mark-line--fragile[\s\S]*justify-self:\s*end/.test(css)) {
-  errors.push('Fragile must sit at the bottom-right inside the logo box');
+if (!/--logo-mark-pad/.test(css) || !/padding:\s*var\(--logo-mark-pad\)/.test(css)) {
+  errors.push('Logo mark box must use equal padding from Agile top-left and Fragile period bottom-right');
+}
+if (!/logo-mark-box--header[\s\S]*overflow:\s*visible/.test(css)) {
+  errors.push('Header logo mark must not clip the Fragile period');
 }
 if (!/\.logo-mark-box[\s\S]*width:\s*fit-content/.test(css)) {
   errors.push('Logo mark box must wrap tightly around the wordmark');

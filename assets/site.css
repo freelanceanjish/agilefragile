@@ -2506,22 +2506,25 @@ main.landing { padding-top: 0; }
   background: var(--black);
   border-radius: 8px;
   box-sizing: border-box;
-  display: inline-flex;
+  display: inline-block;
   width: fit-content;
   max-width: 100%;
-  padding: clamp(6px, 1vw, 10px) clamp(8px, 1.2vw, 12px);
+  --logo-mark-pad: 8px;
+  padding: var(--logo-mark-pad);
+  overflow: visible;
   box-shadow:
     0 24px 80px rgba(0, 0, 0, 0.35),
     0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .logo-mark-stack {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: inline-grid;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto;
-  row-gap: 0.06em;
+  column-gap: clamp(0.28em, 2.5vw, 0.62em);
+  row-gap: clamp(0.05em, 0.6vw, 0.12em);
   width: max-content;
-  max-width: 100%;
+  max-width: none;
   color: var(--white);
   font-family: var(--font-serif);
   font-weight: 600;
@@ -2535,27 +2538,36 @@ main.landing { padding-top: 0; }
 }
 
 .logo-mark-line--agile {
+  grid-column: 1;
   grid-row: 1;
   justify-self: start;
+  align-self: start;
 }
 
 .logo-mark-line--fragile {
+  grid-column: 2;
   grid-row: 2;
   justify-self: end;
+  align-self: end;
 }
 
 .landing-hero-logo-box .logo-mark-line {
   font-size: clamp(3rem, 12vw, 6rem);
 }
 
+body.home-page .site-header .logo {
+  overflow: visible;
+}
+
 body.home-page .site-header .logo-mark-box--header {
-  padding: 6px 8px;
+  --logo-mark-pad: 6px;
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+  overflow: visible;
 }
 
 body.home-page .site-header .logo-mark-box--header .logo-mark-line {
-  font-size: clamp(0.95rem, 2.6vw, 1.2rem);
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
 }
 
 .logo-tagline--hero {
