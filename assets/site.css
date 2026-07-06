@@ -269,7 +269,7 @@ a { color: inherit; text-decoration: none; }
 /* Home: scroll-driven chrome morph between hero landing and compact header */
 body.home-page {
   scroll-behavior: auto;
-  --home-header-logo-size: clamp(104px, 24vw, 128px);
+  --home-header-logo-size: clamp(72px, 17vw, 92px);
   --site-header-clearance: calc(var(--header-top) + var(--home-header-logo-size) + 5.25rem);
 }
 
@@ -2507,14 +2507,14 @@ main.landing { padding-top: 0; }
   background: var(--black);
   border-radius: 8px;
   box-sizing: border-box;
-  container-type: size;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: max-content;
   aspect-ratio: 1 / 1;
   text-align: left;
-  --logo-mark-pad: 6px;
+  --logo-mark-pad: 4px;
   padding: var(--logo-mark-pad);
   overflow: visible;
   box-shadow:
@@ -2527,19 +2527,17 @@ main.landing { padding-top: 0; }
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
   margin: 0;
   text-align: left;
   color: var(--white);
   font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 0.92;
+  line-height: 0.88;
 }
 
 .logo-mark-line {
   display: block;
-  width: 100%;
   margin: 0;
   padding: 0;
   text-align: left;
@@ -2547,15 +2545,11 @@ main.landing { padding-top: 0; }
 }
 
 .logo-mark-line + .logo-mark-line {
-  margin-top: 0.06em;
-}
-
-.landing-hero-logo-box {
-  width: clamp(220px, 40vw, 340px);
+  margin-top: 0.02em;
 }
 
 .landing-hero-logo-box .logo-mark-stack {
-  font-size: clamp(1.85rem, 20cqmin, 3.85rem);
+  font-size: clamp(2.35rem, 7.25vw, 3.65rem);
 }
 
 body.home-page .site-header .logo {
@@ -2563,16 +2557,16 @@ body.home-page .site-header .logo {
 }
 
 body.home-page .site-header .logo-mark-box--header {
-  width: var(--home-header-logo-size);
-  height: var(--home-header-logo-size);
-  --logo-mark-pad: 5px;
+  width: max-content;
+  height: auto;
+  --logo-mark-pad: 3px;
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
   overflow: visible;
 }
 
 body.home-page .site-header .logo-mark-box--header .logo-mark-stack {
-  font-size: clamp(0.9rem, 18cqmin, 1.15rem);
+  font-size: clamp(0.68rem, 2vw, 0.82rem);
 }
 
 .logo-tagline--hero {
