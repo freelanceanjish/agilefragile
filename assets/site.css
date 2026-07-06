@@ -269,7 +269,8 @@ a { color: inherit; text-decoration: none; }
 /* Home: scroll-driven chrome morph between hero landing and compact header */
 body.home-page {
   scroll-behavior: auto;
-  --site-header-clearance: calc(var(--header-top) + 5.5rem + 5.25rem);
+  --home-header-logo-size: clamp(104px, 24vw, 128px);
+  --site-header-clearance: calc(var(--header-top) + var(--home-header-logo-size) + 5.25rem);
 }
 
 body.home-page .site-header {
@@ -2505,10 +2506,12 @@ main.landing { padding-top: 0; }
 .logo-mark-box {
   background: var(--black);
   border-radius: 8px;
+  aspect-ratio: 1 / 1;
   box-sizing: border-box;
-  display: inline-block;
-  width: fit-content;
-  max-width: 100%;
+  container-type: size;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
   --logo-mark-pad: 8px;
   padding: var(--logo-mark-pad);
   overflow: visible;
@@ -2518,13 +2521,15 @@ main.landing { padding-top: 0; }
 }
 
 .logo-mark-stack {
-  display: inline-grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
-  column-gap: clamp(0.28em, 2.5vw, 0.62em);
-  row-gap: clamp(0.05em, 0.6vw, 0.12em);
-  width: max-content;
-  max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
   color: var(--white);
   font-family: var(--font-serif);
   font-weight: 600;
@@ -2535,24 +2540,20 @@ main.landing { padding-top: 0; }
 .logo-mark-line {
   display: block;
   white-space: nowrap;
+  text-align: left;
 }
 
-.logo-mark-line--agile {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: start;
-  align-self: start;
-}
-
+.logo-mark-line--agile,
 .logo-mark-line--fragile {
-  grid-column: 2;
-  grid-row: 2;
-  justify-self: end;
-  align-self: end;
+  align-self: flex-start;
+}
+
+.landing-hero-logo-box {
+  width: clamp(280px, 48vw, 400px);
 }
 
 .landing-hero-logo-box .logo-mark-line {
-  font-size: clamp(3rem, 12vw, 6rem);
+  font-size: clamp(2rem, 21cqmin, 4rem);
 }
 
 body.home-page .site-header .logo {
@@ -2560,6 +2561,7 @@ body.home-page .site-header .logo {
 }
 
 body.home-page .site-header .logo-mark-box--header {
+  width: var(--home-header-logo-size);
   --logo-mark-pad: 6px;
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
@@ -2567,7 +2569,7 @@ body.home-page .site-header .logo-mark-box--header {
 }
 
 body.home-page .site-header .logo-mark-box--header .logo-mark-line {
-  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  font-size: clamp(0.9rem, 17cqmin, 1.15rem);
 }
 
 .logo-tagline--hero {
