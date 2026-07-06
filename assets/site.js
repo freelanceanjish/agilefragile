@@ -73,7 +73,7 @@ document.querySelectorAll('[data-form]').forEach(function (form) {
 (function () {
   var main = document.querySelector('main');
   if (!main || document.querySelector('.case-study-banner')) return;
-  if (document.body.classList.contains('home-page') || main.classList.contains('landing')) return;
+  if (document.body.classList.contains('home-page') || main.classList.contains('landing') || document.body.classList.contains('proposal-page')) return;
 
   var banner = document.createElement('aside');
   banner.className = 'case-study-banner';
