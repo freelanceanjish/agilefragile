@@ -2515,8 +2515,15 @@ main.landing { padding-top: 0; }
 }
 
 .landing-hero-logo-box {
-  width: clamp(220px, 38vw, 340px);
-  padding: clamp(16px, 3vw, 28px);
+  width: clamp(260px, 44vw, 380px);
+  padding: clamp(10px, 1.8vw, 16px);
+}
+
+.landing-hero-logo-box .landing-hero-wordmark {
+  height: 100%;
+  width: auto;
+  max-width: 104%;
+  flex-shrink: 0;
 }
 
 body.home-page .site-header .logo-mark-box--header {
@@ -2570,11 +2577,11 @@ body.home-page .site-header .logo-mark-box--header {
 }
 
 .landing-hero-wordmark .wordmark-line {
-  font-size: 76px;
+  font-size: 104px;
 }
 @media (min-width: 600px) {
   .landing-hero-wordmark .wordmark-line {
-    font-size: 108px;
+    font-size: 148px;
   }
 }
 
