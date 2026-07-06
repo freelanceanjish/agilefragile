@@ -314,6 +314,22 @@ if (!/proposal-lab/.test(read('how-we-work.html'))) {
 if (!/proposal-page/.test(read('how-we-work.html'))) {
   errors.push('Proposal page body must use proposal-page class');
 }
+const proposalHtml = read('how-we-work.html');
+if (/focus-label">Manifesto intent/.test(proposalHtml)) {
+  errors.push('Proposal page must not duplicate Manifesto intent block; link to home #drift instead');
+}
+if (/class="voice-card"/.test(proposalHtml)) {
+  errors.push('Proposal page must not duplicate field voice cards; link to leaders #field-voices instead');
+}
+if (/class="quote-card"/.test(proposalHtml)) {
+  errors.push('Proposal page must not duplicate leader quote cards; link to leaders #leader-voices instead');
+}
+if (/class="story-beat"/.test(proposalHtml)) {
+  errors.push('Proposal page must not duplicate story-arc beats; link to model #four-moves-spec instead');
+}
+if (!/href="\/#drift"/.test(proposalHtml)) {
+  errors.push('Proposal page must link to canonical people gap on home #drift');
+}
 if (!/insertAdjacentElement\('afterend'/.test(read('assets/site.js'))) {
   errors.push('site.js must place case study banner after hero section, not under header');
 }
