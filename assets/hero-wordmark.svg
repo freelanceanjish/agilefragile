@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" fill="none" role="img" aria-label="Agile Fragile">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none" role="img" aria-label="Agile Fragile">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;display=swap');
     .wm { font: 600 132px 'Fraunces', Georgia, serif; letter-spacing: -0.02em; fill: #ffffff; }
   </style>
-  <text class="wm" x="0" y="158" text-anchor="start">Agile</text>
-  <text class="wm" x="0" y="318" text-anchor="start">Fragile.</text>
+  <text class="wm" x="0" y="145" text-anchor="start">Agile</text>
+  <text class="wm" x="0" y="310" text-anchor="start">Fragile.</text>
 </svg>
