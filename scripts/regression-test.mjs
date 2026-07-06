@@ -59,8 +59,8 @@ if (!/landing-hero-lockup/.test(index)) {
 if (!/logo-mark-box landing-hero-logo-box[\s\S]*?<\/div>[\s\S]*<p class="logo-tagline logo-tagline--hero"/.test(index)) {
   errors.push('Home hero tagline must sit outside the logo box');
 }
-if (!/logo-mark-box--header/.test(index)) {
-  errors.push('Home header must use compact logo mark box for scroll chrome');
+if (!/logo-mark-box--header">[\s\S]*<span class="logo-mark-stack"/.test(index)) {
+  errors.push('Home header logo mark must use valid div/span markup (no p inside span)');
 }
 if (!/landing-hero-logo-morph/.test(index)) {
   errors.push('Home hero must morph logo box into header on scroll');
@@ -83,7 +83,7 @@ if (!/--logo-mark-pad/.test(css) || !/padding:\s*var\(--logo-mark-pad\)/.test(cs
 if (!/logo-mark-box--header[\s\S]*overflow:\s*visible/.test(css)) {
   errors.push('Header logo mark must not clip the Fragile period');
 }
-if (!/\.logo-mark-box::after[\s\S]*padding-bottom:\s*100%/.test(css)) {
+if (!/\.logo-mark-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css)) {
   errors.push('Logo mark box must be square');
 }
 if (!/--home-header-logo-size/.test(css)) {
