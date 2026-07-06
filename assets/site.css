@@ -2552,7 +2552,7 @@ main.landing { padding-top: 0; }
 }
 
 .landing-hero-logo-box .logo-mark-stack {
-  font-size: clamp(1.9rem, 21cqmin, 3.35rem);
+  font-size: clamp(2.2rem, 24cqmin, 3.65rem);
 }
 
 body.home-page .site-header .logo {
@@ -2568,7 +2568,7 @@ body.home-page .site-header .logo-mark-box--header {
 }
 
 body.home-page .site-header .logo-mark-box--header .logo-mark-stack {
-  font-size: clamp(0.78rem, 17cqmin, 0.98rem);
+  font-size: clamp(1.08rem, 20cqmin, 1.28rem);
 }
 
 .logo-tagline--hero {
