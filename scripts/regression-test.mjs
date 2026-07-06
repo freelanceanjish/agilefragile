@@ -256,29 +256,29 @@ if (!/--logo-height:/.test(css) || !/--site-header-clearance: calc/.test(css)) {
 if (!/body\.home-page \.case-study-banner/.test(css)) {
   errors.push('CSS must hide case study banner on home page');
 }
-if (!/body\.home-page \.site-header/.test(css) || !/opacity:\s*0/.test(css)) {
-  errors.push('CSS must hide fixed header on home during hero scroll');
+if (!/body\.home-page \.site-header/.test(css) || !/--home-chrome/.test(css)) {
+  errors.push('CSS must drive home header morph from --home-chrome scroll variable');
 }
-if (!/home-header-visible/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must reveal header after hero scroll progress');
+if (!/home-hero-mode/.test(read('assets/home-hero.js')) || !/home-header-compact/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must toggle home-hero-mode and home-header-compact from scroll');
 }
-if (!/home-hero-wordmark-visible/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must sync giant hero wordmark visibility with header chrome');
+if (!/chromeMorph/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must morph header chrome from hero scroll progress');
 }
-if (!/headerVisible/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must control header visibility during hero scroll');
+if (!/home-hero-mode/.test(css) || !/home-header-compact/.test(css)) {
+  errors.push('CSS must style hero landing mode and compact header mode on home page');
 }
-if (!/activelyScrolling/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must hide header and wordmark while actively scrolling');
+if (!/hero-glass/.test(index) || !/hero-glass-crack/.test(css)) {
+  errors.push('Home hero logo must include broken glass fracture marks');
 }
-if (!/isScrolling/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must restore header when scrolling stops');
+if (!/logo-tagline--hero[\s\S]*color:\s*var\(--accent\)/.test(css)) {
+  errors.push('Home hero tagline must use site accent blue');
 }
 if (!/scrollDirection/.test(read('assets/home-hero.js'))) {
-  errors.push('home-hero.js must track scroll direction for chrome hide while scrolling');
+  errors.push('home-hero.js must track scroll direction for slide snap behavior');
 }
-if (!/home-hero-wordmark-visible/.test(css)) {
-  errors.push('CSS must toggle giant hero wordmark visibility on home page');
+if (!/isScrolling/.test(read('assets/home-hero.js'))) {
+  errors.push('home-hero.js must settle slides when scrolling stops');
 }
 if (!/panelRevealStart/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must delay panel reveal until after hero scroll starts');
