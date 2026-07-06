@@ -71,8 +71,8 @@ if (!/Fraunces/i.test(heroWordmark)) {
 if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, <em>Before Transformation<\/em>/.test(index)) {
   errors.push('Home hero logo must include full tagline with italic Before Transformation');
 }
-if (!/\.logo-mark-stack[\s\S]*align-items:\s*flex-start/.test(css) || !/\.logo-mark-stack[\s\S]*text-align:\s*left/.test(css)) {
-  errors.push('Logo mark lines must be left-aligned in the tight square box');
+if (!/\.logo-mark-box[\s\S]*place-items:\s*start/.test(css) || !/\.logo-mark-stack[\s\S]*align-items:\s*flex-start/.test(css)) {
+  errors.push('Logo mark text must anchor top-left in the square, not center in the box');
 }
 if (!/\.logo-mark-line[\s\S]*display:\s*block/.test(css) || !/\.logo-mark-line \+ \.logo-mark-line/.test(css)) {
   errors.push('Logo mark lines must stack as block lines sharing the same left edge');
