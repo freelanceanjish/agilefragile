@@ -71,14 +71,14 @@ if (!/landing-hero-panel/.test(index)) {
 if (!/id="explore"/.test(index) || !/landing-cards/.test(index)) {
   errors.push('Home page must include explore cards section');
 }
-if (!/id="vision"/.test(index) || !/vision-flip/.test(index) || !/We forgot people come before the product/.test(index)) {
-  errors.push('Home vision section must use scannable flip layout with core thesis line');
+if (!/id="vision"/.test(index) || !/vision-prose/.test(index) || !/We forgot people come before the product/.test(index)) {
+  errors.push('Home vision section must use prose layout with core thesis line');
+}
+if (/vision-flip-card|vision-meter/.test(index)) {
+  errors.push('Home vision must not use boxed flip cards or meter panels');
 }
 if (/Not maturity\. Drift\./.test(index)) {
   errors.push('Home vision must not use machine-style Not maturity. Drift. line');
-}
-if (!/\.vision-meter[\s\S]*background:\s*#000000/.test(css) || !/\.vision-flip-card[\s\S]*background:\s*#000000/.test(css)) {
-  errors.push('Vision section cards must use pure black (#000), not gray or accent');
 }
 if (!/pickSlide/.test(read('assets/home-hero.js')) || !/rebuildSlideZones/.test(read('assets/home-hero.js')) || !/settleToActiveSlide/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must use discrete slide snap zones with scroll-stop settle, not scroll crossfade');

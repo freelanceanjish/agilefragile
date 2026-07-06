@@ -2796,137 +2796,32 @@ main.landing { padding-top: 0; }
   text-wrap: pretty;
 }
 
-/* Vision: scannable flip + meter instead of dense prose */
-.landing-vision .landing-section-inner {
-  gap: clamp(28px, 5vw, 40px);
-}
-
-.vision-punch {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: clamp(1.4rem, 3.4vw, 2rem);
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  color: var(--white);
-  max-width: 22rem;
+/* Vision: typography-led, aligned with landing prose sections */
+.landing-vision .landing-section-lead {
+  max-width: 38rem;
   text-wrap: pretty;
 }
 
-.vision-flip {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  width: 100%;
-  max-width: 760px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-@media (min-width: 640px) {
-  .vision-flip {
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-}
-
-.vision-flip-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 22px 20px;
-  border-radius: 8px;
+.vision-prose {
+  max-width: 38rem;
   text-align: left;
-  background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.vision-flip-label {
-  font: 500 clamp(10px, 1vw, 12px) / 1 var(--font-sans);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gray-medium);
-}
-
-.vision-flip-text {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  margin: 0;
-}
-
-.vision-meter {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 12px 14px;
-  align-items: center;
-  width: 100%;
-  max-width: 680px;
-  padding: clamp(20px, 4vw, 28px) clamp(16px, 3vw, 24px);
-  border-radius: 8px;
-  background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  text-align: center;
-}
-
-.vision-meter-col {
+.vision-contrast {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  gap: 1.25em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 0.25em;
 }
 
-.vision-meter-num {
-  font: 600 clamp(2.25rem, 7.5vw, 3.75rem) / 1 var(--font-serif);
-  letter-spacing: -0.03em;
-  color: var(--white);
-}
-
-.vision-meter-slash {
-  font-size: 0.55em;
-  opacity: 0.7;
-}
-
-.vision-meter-label {
-  font: 500 clamp(11px, 1.15vw, 14px) / 1.35 var(--font-sans);
-  color: var(--text-secondary);
-  max-width: 14rem;
-}
-
-.vision-meter-vs {
-  font: 500 10px / 1 var(--font-sans);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gray-medium);
-  padding-top: 0.35rem;
-}
-
-.vision-close {
-  width: 100%;
-  max-width: 640px;
-  padding: clamp(22px, 4vw, 28px) clamp(18px, 3vw, 24px);
-  border-radius: 8px;
-  background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  text-align: center;
-}
-
-.vision-close-lead {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  margin: 0 0 12px;
-}
-
-.vision-close-body {
-  color: var(--text-secondary);
-  text-wrap: pretty;
+.vision-contrast p {
   margin: 0;
+}
+
+.vision-prose .focus-line {
+  margin-top: 0.15em;
 }
 
 /* Impact: giant stats */
