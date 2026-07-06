@@ -2508,8 +2508,11 @@ main.landing { padding-top: 0; }
   border-radius: 8px;
   box-sizing: border-box;
   container-type: size;
-  display: inline-grid;
-  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  aspect-ratio: 1 / 1;
   text-align: left;
   --logo-mark-pad: 6px;
   padding: var(--logo-mark-pad);
@@ -2519,22 +2522,12 @@ main.landing { padding-top: 0; }
     0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.logo-mark-box::after {
-  content: "";
-  grid-area: 1 / 1;
-  width: 0;
-  min-width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-}
-
 .logo-mark-stack {
-  grid-area: 1 / 1;
-  place-self: start start;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 100%;
   margin: 0;
   text-align: left;
   color: var(--white);
@@ -2546,6 +2539,7 @@ main.landing { padding-top: 0; }
 
 .logo-mark-line {
   display: block;
+  width: 100%;
   margin: 0;
   padding: 0;
   text-align: left;
@@ -2557,11 +2551,11 @@ main.landing { padding-top: 0; }
 }
 
 .landing-hero-logo-box {
-  font-size: clamp(2.35rem, 11vw, 4.25rem);
+  width: clamp(220px, 40vw, 340px);
 }
 
 .landing-hero-logo-box .logo-mark-stack {
-  font-size: 1em;
+  font-size: clamp(1.85rem, 20cqmin, 3.85rem);
 }
 
 body.home-page .site-header .logo {
@@ -2570,7 +2564,7 @@ body.home-page .site-header .logo {
 
 body.home-page .site-header .logo-mark-box--header {
   width: var(--home-header-logo-size);
-  font-size: clamp(0.95rem, 18cqmin, 1.2rem);
+  height: var(--home-header-logo-size);
   --logo-mark-pad: 5px;
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
@@ -2578,7 +2572,7 @@ body.home-page .site-header .logo-mark-box--header {
 }
 
 body.home-page .site-header .logo-mark-box--header .logo-mark-stack {
-  font-size: 1em;
+  font-size: clamp(0.9rem, 18cqmin, 1.15rem);
 }
 
 .logo-tagline--hero {
