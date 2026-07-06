@@ -269,7 +269,7 @@ a { color: inherit; text-decoration: none; }
 /* Home: scroll-driven chrome morph between hero landing and compact header */
 body.home-page {
   scroll-behavior: auto;
-  --home-header-logo-size: clamp(72px, 17vw, 92px);
+  --home-header-logo-size: clamp(88px, 20vw, 112px);
   --site-header-clearance: calc(var(--header-top) + var(--home-header-logo-size) + 5.25rem);
 }
 
@@ -2507,14 +2507,17 @@ main.landing { padding-top: 0; }
   background: var(--black);
   border-radius: 8px;
   box-sizing: border-box;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: max-content;
+  container-type: size;
+  display: grid;
+  place-items: start;
+  align-content: start;
+  justify-content: start;
+  width: var(--logo-mark-side);
+  height: var(--logo-mark-side);
   aspect-ratio: 1 / 1;
   text-align: left;
-  --logo-mark-pad: 4px;
+  --logo-mark-pad: 5px;
+  --logo-mark-side: clamp(196px, 34vw, 288px);
   padding: var(--logo-mark-pad);
   overflow: visible;
   box-shadow:
@@ -2527,6 +2530,8 @@ main.landing { padding-top: 0; }
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  align-self: start;
+  justify-self: start;
   margin: 0;
   text-align: left;
   color: var(--white);
@@ -2549,7 +2554,7 @@ main.landing { padding-top: 0; }
 }
 
 .landing-hero-logo-box .logo-mark-stack {
-  font-size: clamp(2.35rem, 7.25vw, 3.65rem);
+  font-size: clamp(1.9rem, 21cqmin, 3.35rem);
 }
 
 body.home-page .site-header .logo {
@@ -2557,16 +2562,15 @@ body.home-page .site-header .logo {
 }
 
 body.home-page .site-header .logo-mark-box--header {
-  width: max-content;
-  height: auto;
-  --logo-mark-pad: 3px;
+  --logo-mark-side: var(--home-header-logo-size);
+  --logo-mark-pad: 4px;
   border-radius: 6px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
   overflow: visible;
 }
 
 body.home-page .site-header .logo-mark-box--header .logo-mark-stack {
-  font-size: clamp(0.68rem, 2vw, 0.82rem);
+  font-size: clamp(0.78rem, 17cqmin, 0.98rem);
 }
 
 .logo-tagline--hero {
