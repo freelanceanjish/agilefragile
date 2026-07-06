@@ -284,8 +284,20 @@ if (!/id="model-copyright"/.test(model)) {
 if (!/id="model-document"/.test(model)) {
   errors.push('Model page must be wrapped as specification document');
 }
-if (!/open-questions/.test(read('how-we-work.html'))) {
-  errors.push('Proposal page must include open questions section');
+if (!/id="field-voices"/.test(read('leaders.html')) || !/id="leader-voices"/.test(read('leaders.html'))) {
+  errors.push('Leaders page must include field voices and leader quote sections');
+}
+if (!/socio-technical/.test(read('leaders.html')) || !/socio-technical/.test(read('how-we-work.html'))) {
+  errors.push('Leaders and proposal pages must frame socio-technical tension');
+}
+if (!/id="voices"/.test(index)) {
+  errors.push('Home page must surface field voices');
+}
+if (/leaders\.html[\s\S]*process-flow[\s\S]*<h3 class="t-h-5">Human<\/h3>/.test(read('leaders.html'))) {
+  errors.push('Leaders page must not repeat the four-move process-flow boxes');
+}
+if (/how-we-work\.html[\s\S]*process-flow[\s\S]*<h3 class="t-h-5">Human<\/h3>/.test(read('how-we-work.html'))) {
+  errors.push('Proposal page must not repeat the four-move process-flow boxes');
 }
 if (!/case-study-banner/.test(read('assets/site.js'))) {
   errors.push('site.js must inject case study banner');
