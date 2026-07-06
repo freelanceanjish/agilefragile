@@ -283,6 +283,29 @@ body.home-page .site-header.nav-open {
   pointer-events: auto;
 }
 
+/* Clip scrolling page content below the fixed header and menu */
+body.home-page.home-header-visible::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--site-header-clearance);
+  background: var(--page-gray);
+  z-index: 199;
+  pointer-events: none;
+}
+
+body.home-page.home-header-visible .landing-hero-stage {
+  top: var(--site-header-clearance);
+  height: calc(100svh - var(--site-header-clearance));
+  min-height: calc(100svh - var(--site-header-clearance));
+}
+
+body.home-page .landing-section {
+  scroll-margin-top: var(--site-header-clearance);
+}
+
 body.home-page .landing-hero-wordmark-wrap {
   opacity: 0;
   visibility: hidden;

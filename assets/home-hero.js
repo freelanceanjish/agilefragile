@@ -52,9 +52,32 @@
     return isMobile() ? 12 : 40;
   }
 
+  var headerClearanceCache = null;
+
   function headerClearancePx() {
-    var value = getComputedStyle(document.documentElement).getPropertyValue('--site-header-clearance');
-    return parseFloat(value) || 120;
+    if (headerClearanceCache !== null) return headerClearanceCache;
+
+    var header = document.querySelector('.site-header');
+    if (header) {
+      var bottom = header.getBoundingClientRect().bottom;
+      if (bottom > 0) {
+        headerClearanceCache = Math.ceil(bottom) + 8;
+        return headerClearanceCache;
+      }
+    }
+
+    var probe = document.createElement('div');
+    probe.style.cssText =
+      'position:absolute;visibility:hidden;pointer-events:none;height:var(--site-header-clearance);width:0;';
+    document.body.appendChild(probe);
+    var measured = probe.getBoundingClientRect().height;
+    probe.remove();
+    headerClearanceCache = measured > 0 ? Math.ceil(measured) : 120;
+    return headerClearanceCache;
+  }
+
+  function resetHeaderClearanceCache() {
+    headerClearanceCache = null;
   }
 
   function panelFullHeight() {
@@ -337,6 +360,7 @@
   }, { passive: true });
 
   window.addEventListener('resize', function () {
+    resetHeaderClearanceCache();
     if (window.innerWidth !== lastWidth) {
       lastWidth = window.innerWidth;
       layoutVh = window.innerHeight;
@@ -346,6 +370,7 @@
   }, { passive: true });
 
   window.addEventListener('orientationchange', function () {
+    resetHeaderClearanceCache();
     layoutVh = window.innerHeight;
     lastWidth = window.innerWidth;
     rebuildSlideZones();
