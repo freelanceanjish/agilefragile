@@ -335,6 +335,27 @@
           </div>
           <button type="button" class="btn-secondary index-share" id="index-share">Copy link to your score</button>
           <p class="index-share-note t-b-3" id="index-share-note" hidden>Link copied. Share it when you reach out.</p>
+          <div class="index-report-opt" id="index-report-opt">
+            <p class="index-report-lead t-b-3">Optional: add your details to include in the score report sent to Agile Fragile.</p>
+            <input type="text" id="index-result-name" placeholder="Name (optional)" aria-label="Name optional">
+            <input type="email" id="index-result-email" placeholder="Email (optional)" aria-label="Email optional">
+            <input type="text" id="index-result-org" placeholder="Organization (optional)" aria-label="Organization optional">
+            <p class="index-report-status t-b-3" id="index-report-status" aria-live="polite"></p>
+          </div>
+          <form id="index-score-report" class="index-score-report" hidden aria-hidden="true">
+            <input type="hidden" name="_subject" value="Human Agile Index score">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="index_score" id="report-score">
+            <input type="hidden" name="index_label" id="report-label">
+            <input type="hidden" name="answers" id="report-answers">
+            <input type="hidden" name="submitted_at" id="report-time">
+            <input type="hidden" name="page_url" id="report-url">
+            <input type="hidden" name="name" id="report-name">
+            <input type="hidden" name="email" id="report-email">
+            <input type="hidden" name="organization" id="report-org">
+          </form>
           <div class="index-feedback form-section" id="index-feedback">
             <p class="feedback-prompt t-b-2">What would you want this model to solve first?</p>
             <form class="index-feedback-form" data-form action="https://formsubmit.co/hello@agilefragile.com" method="POST">

@@ -192,6 +192,12 @@ if (/text-wrap:\s*balance/i.test(css)) {
 if (!/index-feedback/.test(index)) {
   errors.push('Home Index must include post-score feedback form');
 }
+if (!/index-score-report/.test(index) || !/sendIndexReport|index-score-report/.test(indexJs)) {
+  errors.push('Home Index must auto-send completed scores to hello@agilefragile.com');
+}
+if (!/index-report-opt/.test(index) || !/index-result-email/.test(index)) {
+  errors.push('Home Index result must include optional contact fields for score report');
+}
 if (!/index-share/.test(index)) {
   errors.push('Home Index must include shareable score link');
 }
