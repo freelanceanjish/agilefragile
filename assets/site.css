@@ -2400,7 +2400,9 @@ main.landing { padding-top: 0; }
 }
 .landing-hero-logo {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -2408,15 +2410,15 @@ main.landing { padding-top: 0; }
 }
 
 .logo-tagline--hero {
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translateX(-50%);
+  position: static;
+  transform: none;
+  left: auto;
+  top: auto;
   width: max-content;
   max-width: min(96vw, 40rem);
   white-space: nowrap;
-  margin: 0;
-  padding-top: clamp(18px, 3vh, 32px);
+  margin: clamp(18px, 3vh, 32px) 0 0;
+  padding-top: 0;
   font-size: clamp(11px, 2.4vw, 17px);
   line-height: 1.35;
   letter-spacing: 0.05em;
@@ -2434,7 +2436,7 @@ main.landing { padding-top: 0; }
 }
 @media (min-width: 600px) {
   .landing-hero-wordmark-wrap {
-    align-items: flex-start;
+    align-items: center;
     padding-top: clamp(48px, 10vh, 96px);
     min-height: 55vh;
   }
@@ -2442,17 +2444,12 @@ main.landing { padding-top: 0; }
 
 .landing-hero-wordmark {
   display: block;
-  width: calc(100% - 32px);
+  width: min(100%, 1400px);
   max-width: 1400px;
   height: auto;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   z-index: 4;
-}
-@media (min-width: 600px) {
-  .landing-hero-wordmark {
-    width: calc(100% - 80px);
-  }
 }
 
 .landing-hero-panel {
