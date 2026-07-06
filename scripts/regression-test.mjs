@@ -189,17 +189,14 @@ if (/text-wrap:\s*balance/i.test(css)) {
 }
 
 // --- Case study interactivity ---
-if (!/index-feedback/.test(index)) {
-  errors.push('Home Index must include post-score feedback form');
+if (!/index-report-form/.test(index) || !/index-result-industry/.test(index) || !/index-result-anon/.test(index)) {
+  errors.push('Home Index result must include compact score form with industry domain and anonymous option');
 }
-if (!/index-score-report/.test(index) || !/sendIndexReport|index-score-report/.test(indexJs)) {
-  errors.push('Home Index must auto-send completed scores via FormSubmit');
+if (!/industry_domain/.test(index) || !/sendIndexReport|index-score-report/.test(indexJs)) {
+  errors.push('Home Index must send completed scores with industry domain via FormSubmit');
 }
-if (!/formsubmit\.co\/57204796c707cbb81e1252017cac8686/.test(index) || !/formsubmit\.co\/57204796c707cbb81e1252017cac8686/.test(read('contact.html'))) {
+if (!/formsubmit\.co\/57204796c707cbb81e1252017cac8686/.test(read('contact.html')) || !/57204796c707cbb81e1252017cac8686/.test(indexJs)) {
   errors.push('Site forms must use activated FormSubmit endpoint hash');
-}
-if (!/index-report-opt/.test(index) || !/index-result-email/.test(index)) {
-  errors.push('Home Index result must include optional contact fields for score report');
 }
 if (!/index-share/.test(index)) {
   errors.push('Home Index must include shareable score link');
