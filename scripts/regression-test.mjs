@@ -43,8 +43,8 @@ if (!/data-home-hero/.test(index)) {
 if (!/logo-mark-stack/.test(index) || !/logo-mark-line--agile/.test(index) || !/logo-mark-line--fragile/.test(index)) {
   errors.push('Home logo mark must stack Agile top-left and Fragile bottom-right in the box');
 }
-if (!/>Fragile<\/span>/.test(index) || />Fragile\.<\/span>/.test(index)) {
-  errors.push('Home logo mark must use Fragile without a trailing period in the box');
+if (!/>Fragile\.<\/span>/.test(index)) {
+  errors.push('Home logo mark line two must read Fragile. with a trailing period');
 }
 const heroWordmark = read('assets/hero-wordmark.svg');
 if (!/text-anchor="start"/.test(heroWordmark) || !/text-anchor="end"/.test(heroWordmark)) {
