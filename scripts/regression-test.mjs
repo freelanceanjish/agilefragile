@@ -271,8 +271,8 @@ if (!/chromeMorph/.test(read('assets/home-hero.js'))) {
 if (!/home-hero-mode/.test(css) || !/home-header-compact/.test(css)) {
   errors.push('CSS must style hero landing mode and compact header mode on home page');
 }
-if (!/logo-tagline--hero[\s\S]*color:\s*var\(--black\)/.test(css)) {
-  errors.push('Home hero tagline must use black text below the logo');
+if (!/logo-tagline--hero[\s\S]*color:\s*var\(--white\)/.test(css)) {
+  errors.push('Home hero tagline must use white text below the logo');
 }
 if (/hero-glass/.test(index)) {
   errors.push('Home hero must not include broken glass effect markup');
