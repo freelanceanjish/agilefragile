@@ -40,8 +40,8 @@ if (!/id="hero"/.test(index) || !/landing-hero/.test(index)) {
 if (!/data-home-hero/.test(index)) {
   errors.push('Home hero must use scroll-driven data-home-hero');
 }
-if (!/wordmark-line/.test(index) || !/text-anchor="start"/.test(index) || !/>Fragile\.<\/text>/.test(index)) {
-  errors.push('Home hero wordmark must be left-aligned inline SVG with Fraunces and a period after Fragile');
+if (!/logo-mark-stack/.test(index) || !/logo-mark-line/.test(index) || !/>Fragile\./.test(index)) {
+  errors.push('Home hero logo must use left-aligned HTML Fraunces stack with period after Fragile');
 }
 const heroWordmark = read('assets/hero-wordmark.svg');
 if (!/text-anchor="start"/.test(heroWordmark) || !/>Fragile\.<\/text>/.test(heroWordmark)) {
@@ -68,16 +68,16 @@ if (!/Fraunces/i.test(heroWordmark)) {
 if (!/logo-tagline--hero/.test(index) || !/Human First Reformation, <em>Before Transformation<\/em>/.test(index)) {
   errors.push('Home hero logo must include full tagline with italic Before Transformation');
 }
-if (!/\.landing-hero-wordmark \.wordmark-line[\s\S]*font-size:\s*156px/.test(css)) {
-  errors.push('Hero wordmark must size for square logo box on desktop');
+if (!/\.landing-hero-logo-box[\s\S]*--logo-mark-font/.test(css)) {
+  errors.push('Hero logo mark must scale type to fill the square box');
 }
-if (!/\.logo-mark-wordmark \.wordmark-line[\s\S]*font-size:\s*88px/.test(css)) {
-  errors.push('Header logo mark must use readable Fraunces size inside compact box');
+if (!/logo-mark-box--header[\s\S]*--logo-mark-font/.test(css)) {
+  errors.push('Header logo mark must scale type from box size');
 }
-if (!/\.logo-mark-wordmark[\s\S]*height:\s*100%/.test(css)) {
-  errors.push('Logo mark SVG must fill box height');
+if (!/\.logo-mark-stack[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
+  errors.push('Logo mark stack must use Fraunces serif');
 }
-if (!/\.logo-mark-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css) || !/landing-hero-logo-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css)) {
+if (!/\.logo-mark-box[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css)) {
   errors.push('Logo mark box must be square');
 }
 if (!/home-hero\.js/.test(index)) {
@@ -311,8 +311,8 @@ if (!/logo-tagline--hero[\s\S]*color:\s*var\(--white\)/.test(css)) {
 if (!/\.logo-mark-box[\s\S]*background:\s*var\(--black\)/.test(css)) {
   errors.push('Logo mark box must use black background');
 }
-if (!/\.logo-mark-box[\s\S]*justify-content:\s*flex-start/.test(css)) {
-  errors.push('Logo mark box must left-align wordmark inside the square');
+if (!/\.logo-mark-box[\s\S]*justify-content:\s*stretch/.test(css)) {
+  errors.push('Logo mark box must stretch stack to fill the square');
 }
 if (!/landing-hero-logo-morph/.test(css)) {
   errors.push('CSS must morph hero logo box into header corner on scroll');
