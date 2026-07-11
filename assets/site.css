@@ -1941,6 +1941,115 @@ main.landing { padding-top: 0; }
   background: var(--accent);
 }
 
+/* Human impact bar charts (leaders page) */
+.impact-lead {
+  max-width: 42rem;
+  margin: 0 auto 32px;
+  color: var(--gray-light);
+  text-wrap: pretty;
+  line-height: 1.65;
+}
+.impact-lead a.text-link {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.impact-charts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (min-width: 900px) {
+  .impact-charts { grid-template-columns: 1fr 1fr; }
+}
+
+.impact-chart-panel {
+  background: var(--black);
+  border-radius: 8px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.impact-chart-panel figcaption {
+  margin-bottom: 0;
+}
+.impact-chart-note {
+  color: var(--gray-light);
+  text-wrap: pretty;
+  line-height: 1.5;
+}
+.impact-chart-note a.text-link {
+  color: var(--white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.impact-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.impact-chart-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+  gap: 10px 12px;
+  align-items: center;
+}
+@media (max-width: 599px) {
+  .impact-chart-row {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+  }
+  .impact-chart-track { grid-column: 1 / -1; }
+}
+.impact-chart-label {
+  color: var(--gray-light);
+  text-wrap: pretty;
+  line-height: 1.4;
+}
+.impact-chart-track {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.impact-chart-bar {
+  height: 100%;
+  width: calc(var(--impact-pct, 0) * 1%);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+.impact-chart-bar--delivery { background: var(--accent); }
+.impact-chart-bar--process { background: var(--gray-dark); }
+.impact-chart-bar--human { background: var(--white); }
+.impact-chart-bar--strain { background: #c45c4a; }
+.impact-chart-bar--velocity { background: #e8a838; }
+.impact-chart-val {
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+  min-width: 2.75rem;
+  text-align: right;
+}
+
+.impact-legend {
+  max-width: 42rem;
+  margin: 28px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--gray-light);
+  text-wrap: pretty;
+  line-height: 1.6;
+}
+.impact-legend p + p { margin-top: 0; }
+.impact-legend .focus-label {
+  font-size: 1em;
+}
+
 .text-link {
   text-decoration: underline;
   text-underline-offset: 3px;

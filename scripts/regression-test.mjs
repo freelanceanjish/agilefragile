@@ -290,6 +290,12 @@ if (!/id="field-voices"/.test(read('leaders.html')) || !/id="leader-voices"/.tes
 if (!/socio-technical/.test(read('leaders.html')) || !/socio-technical/.test(read('how-we-work.html'))) {
   errors.push('Leaders and proposal pages must frame socio-technical tension');
 }
+if (!/id="human-impact"/.test(read('leaders.html'))) {
+  errors.push('Leaders page must include human impact section with socio-technical charts');
+}
+if (!/forced agile/.test(read('leaders.html')) || !/fake agile/.test(read('leaders.html'))) {
+  errors.push('Leaders page must name forced agile and fake agile alongside Dark Agile');
+}
 if (!/id="voices"/.test(index)) {
   errors.push('Home page must surface field voices');
 }
