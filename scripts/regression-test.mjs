@@ -508,6 +508,23 @@ if (!/href="\/#drift"/.test(modelHtml) || !/href="\/leaders\.html#human-impact"/
   errors.push('Model drift section must link to canonical home drift and leaders charts');
 }
 
+// --- Intellectual property notices ---
+for (const file of htmlFiles) {
+  const html = read(file);
+  if (!html.includes('footer-ip') || !html.includes('model.html#model-copyright')) {
+    errors.push(`${file}: footer must include intellectual property notice linking to model #model-copyright`);
+  }
+}
+if (!/id="model-copyright"/.test(modelHtml) || !/Trademark applications are pending/.test(modelHtml)) {
+  errors.push('Model page must include canonical intellectual property section with trademark notice');
+}
+if (!index.includes('index-ip') || !index.includes('Human Agile Index™')) {
+  errors.push('Home Index section must include instrument intellectual property footnote');
+}
+if (!read('downloads/human-agile-model-specification.md').includes('Trademark applications are pending')) {
+  errors.push('Model specification must include trademark notice matching model page');
+}
+
 // --- Copy style: no em dashes (U+2014) in public site copy ---
 const emDash = /\u2014/;
 const copyFiles = [...htmlFiles, specMd];

@@ -16,6 +16,10 @@ This document is the literary and artistic expression of the Human Agile Model m
 
 You may link to this document and quote brief excerpts with attribution. You may not reproduce, adapt, or commercialize this specification without written permission from the author.
 
+**Trademarks.** Human Agile™, Human Agile Index™, Human Agile Model™, and Agile Fragile™ are trademarks of Anjish Bhondwe. Trademark applications are pending.
+
+**Human Agile Index.** The Index is a proprietary diagnostic instrument. Research use is invited under a non-exclusive license with attribution. Commercial reproduction, adaptation, or competing instruments based on these questions require written permission from hello@agilefragile.com.
+
 **Required attribution:** "Human Agile Model" by Anjish Bhondwe, agilefragile.com
 
 ---
