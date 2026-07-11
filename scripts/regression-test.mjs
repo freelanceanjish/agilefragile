@@ -448,7 +448,7 @@ if (!/slideCollapseEnd/.test(read('assets/home-hero.js'))) {
 if (!/3, 3, 1\.2, 1\.2, 1\.2, 3/.test(read('assets/home-hero.js'))) {
   errors.push('home-hero.js must weight drift, proof, and Scale slides for readable dwell');
 }
-if (!/250svh/.test(css) || !/landing-hero-pin/.test(css)) {
+if (!/180svh/.test(css) || !/landing-hero-pin/.test(css)) {
   errors.push('CSS must give mobile hero enough scroll height for slide panel');
 }
 if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
@@ -480,6 +480,32 @@ try {
   }
 } catch {
   errors.push('downloads/human-agile-model-specification.md must exist');
+}
+
+const aboutHtml = read('about.html');
+const leadersHtml = read('leaders.html');
+const modelHtml = read('model.html');
+
+if ((aboutHtml.match(/class="voice-card"/g) || []).length > 1) {
+  errors.push('About page must not duplicate field voice cards; link to leaders #field-voices instead');
+}
+if ((aboutHtml.match(/class="quote-card"/g) || []).length > 2) {
+  errors.push('About page must not duplicate full advocate archive; link to leaders #leader-voices instead');
+}
+if (/focus-label">Manifesto intent/.test(modelHtml)) {
+  errors.push('Model page must not duplicate Manifesto intent block; link to home #drift instead');
+}
+if (!/founder-card--solo/.test(leadersHtml)) {
+  errors.push('Leaders founder card must use solo layout without photo column squeeze');
+}
+if (!/id="evidence-methods"/.test(leadersHtml)) {
+  errors.push('Leaders human impact must include evidence and methods footnote');
+}
+if (!/id="impact"[\s\S]*landing-section-title/.test(index)) {
+  errors.push('Home impact section must include a section title');
+}
+if (!/href="\/#drift"/.test(modelHtml) || !/href="\/leaders\.html#human-impact"/.test(modelHtml)) {
+  errors.push('Model drift section must link to canonical home drift and leaders charts');
 }
 
 // --- Copy style: no em dashes (U+2014) in public site copy ---
