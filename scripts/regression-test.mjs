@@ -538,6 +538,10 @@ if (!read('how-we-work.html').includes('id="partnership"')) {
   errors.push('Proposal page must include partnership and licensing outreach section');
 }
 
+if (!/margin-inline:\s*auto/.test(css) || !/\.section-follow[\s\S]*text-align:\s*center/.test(css)) {
+  errors.push('section-follow links must be centered under section headers');
+}
+
 // --- Copy style: no em dashes (U+2014) in public site copy ---
 const emDash = /\u2014/;
 const copyFiles = [...htmlFiles, specMd, 'downloads/partnership-and-licensing.md'];
