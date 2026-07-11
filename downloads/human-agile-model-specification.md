@@ -76,14 +76,18 @@ The Agile Manifesto (2001) lists individuals and interactions over processes and
 ## 5. Model architecture
 
 ```
-                    ┌─────────────┐
-                    │    HUMAN    │  ← Architecture (center)
-                    └──────┬──────┘
-           ┌───────────────┼───────────────┐
-           ▼               ▼               ▼
-        ADAPT          IMPLEMENT          SCALE
-     (strip harm)     (co-build)     (re-humanize)
+                         ○
+                        / \
+                    HUMAN figure
+                   (architecture)
+                         │
+           ┌─────────────┼─────────────┐
+           ▼             ▼             ▼
+        ADAPT        IMPLEMENT        SCALE
+     (strip harm)   (co-build)   (re-humanize)
 ```
+
+The published diagram uses a human figure icon at the center, not a box. See agilefragile.com/model.html#model-architecture.
 
 **Roles:**
 - **Receiver**: customers, users, downstream teams, adopting business units

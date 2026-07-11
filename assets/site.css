@@ -1580,6 +1580,32 @@ main.landing { padding-top: 0; }
   text-align: center;
 }
 
+.human-arch-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  background: currentColor;
+  mask: url(/assets/human-architecture-icon.svg) center / contain no-repeat;
+  -webkit-mask: url(/assets/human-architecture-icon.svg) center / contain no-repeat;
+}
+.human-arch-icon--hero {
+  width: clamp(2.5rem, 8vw, 3.25rem);
+  height: clamp(2.5rem, 8vw, 3.25rem);
+  color: var(--white);
+}
+.landing-hero-slide-title--human {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+}
+.model-step-btn .human-arch-icon--tab {
+  width: 1.05em;
+  height: 1.05em;
+  margin-right: 0.35em;
+  vertical-align: -0.2em;
+}
+
 .model-glossary { max-width: 1000px; margin: 0 auto; }
 
 .model-glossary-list {
