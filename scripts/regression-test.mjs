@@ -538,6 +538,19 @@ if (!read('how-we-work.html').includes('id="partnership"')) {
   errors.push('Proposal page must include partnership and licensing outreach section');
 }
 
+if (!read('assets/human-architecture-icon.svg').includes('<circle cx="12" cy="7"')) {
+  errors.push('human-architecture-icon.svg must define the human figure icon');
+}
+if (!/<circle cx="12" cy="7"/.test(read('model.html'))) {
+  errors.push('Model diagram must render human figure icon at architecture center');
+}
+if (/x="200" y="24" width="160" height="72"/.test(read('model.html'))) {
+  errors.push('Model diagram must not use Human label box at architecture center');
+}
+if (!/human-arch-icon/.test(index) || !/human-arch-icon--hero/.test(index)) {
+  errors.push('Home hero Human slide must use human-arch-icon');
+}
+
 if (!/margin-inline:\s*auto/.test(css) || !/\.section-follow[\s\S]*text-align:\s*center/.test(css)) {
   errors.push('section-follow links must be centered under section headers');
 }
