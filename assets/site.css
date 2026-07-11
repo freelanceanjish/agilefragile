@@ -2092,7 +2092,7 @@ main.landing { padding-top: 0; }
   max-width: 38rem;
   margin: 0 auto;
   text-align: center;
-  color: var(--gray-dark);
+  color: var(--gray-light);
   text-wrap: pretty;
   line-height: 1.55;
 }

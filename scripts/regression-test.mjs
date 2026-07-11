@@ -296,6 +296,9 @@ if (!/id="human-impact"/.test(read('leaders.html'))) {
 if (!/forced agile/.test(read('leaders.html')) || !/fake agile/.test(read('leaders.html'))) {
   errors.push('Leaders page must name forced agile and fake agile alongside Dark Agile');
 }
+if (!/\.impact-method\s*\{[^}]*color:\s*var\(--gray-light\)/.test(css)) {
+  errors.push('impact-method footnote must use gray-light for readable contrast on page-gray');
+}
 if (!/id="voices"/.test(index)) {
   errors.push('Home page must surface field voices');
 }
