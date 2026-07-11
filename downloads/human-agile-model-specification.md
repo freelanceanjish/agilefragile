@@ -34,6 +34,8 @@ The model is proposed by Anjish Bhondwe from field work across federated organis
 |------|------------|
 | **Human Agile** | An organizational state where receiver, deliverer, and changer are in the design of agile change; agility is practiced with humans inside, not performed for dashboards. |
 | **Dark Agile** | Agility performed for dashboards, not practiced with humans inside. Speed, competition, and programme timelines turn agile into an instrument. Burnout, silence in retros, and attrition are treated as individual failure, not design failure. |
+| **Forced agile** | Transformation dictated by budget and timeline. Adoption pushed without agency. Deliverers carry the programme on top of the day job. |
+| **Fake agile** | Ceremony and reporting without human practice. Teams comply in meetings and reject the system in the room. |
 | **Human gate** | A checkpoint of five questions that must be answered affirmatively before Adapt, Implement, or Scale runs. If the answer is no, stop adding process. |
 | **Receiver** | Customers, users, downstream teams, and business units asked to adopt change. Back in the journey, not an afterthought. |
 | **Deliverer** | Engineers, product teams, and operators carrying the day job plus the transformation. Back in the room, not on a velocity chart. |
