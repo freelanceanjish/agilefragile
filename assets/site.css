@@ -1082,8 +1082,9 @@ main.landing { padding-top: 0; }
 }
 .index-ip {
   color: var(--text-muted);
-  margin: 12px 0 0;
+  margin: 12px auto 0;
   max-width: 52ch;
+  text-align: center;
 }
 
 .sponsor-thesis {
@@ -2449,6 +2450,9 @@ body.home-page .case-study-banner {
 .section-follow {
   margin-top: 24px;
   max-width: 38rem;
+  margin-inline: auto;
+  text-align: center;
+  color: var(--text-secondary);
 }
 .page-header + .voice-grid--teaser,
 .coming-header + .voice-grid--teaser,
