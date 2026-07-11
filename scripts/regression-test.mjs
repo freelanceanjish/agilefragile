@@ -501,6 +501,9 @@ if (!/founder-card--solo/.test(leadersHtml)) {
 if (!/id="evidence-methods"/.test(leadersHtml)) {
   errors.push('Leaders human impact must include evidence and methods footnote');
 }
+if (!/id="tool-governance"/.test(leadersHtml)) {
+  errors.push('Leaders page must include tool governance section on sponsor transparency');
+}
 if (!/id="impact"[\s\S]*landing-section-title/.test(index)) {
   errors.push('Home impact section must include a section title');
 }
@@ -524,10 +527,20 @@ if (!index.includes('index-ip') || !index.includes('Human Agile Index™')) {
 if (!read('downloads/human-agile-model-specification.md').includes('Trademark applications are pending')) {
   errors.push('Model specification must include trademark notice matching model page');
 }
+for (const file of ['downloads/partnership-and-licensing.md', 'downloads/partnership-and-licensing.pdf']) {
+  try {
+    read(file);
+  } catch {
+    errors.push(`${file} must exist for partnership outreach`);
+  }
+}
+if (!read('how-we-work.html').includes('id="partnership"')) {
+  errors.push('Proposal page must include partnership and licensing outreach section');
+}
 
 // --- Copy style: no em dashes (U+2014) in public site copy ---
 const emDash = /\u2014/;
-const copyFiles = [...htmlFiles, specMd];
+const copyFiles = [...htmlFiles, specMd, 'downloads/partnership-and-licensing.md'];
 for (const file of copyFiles) {
   if (emDash.test(read(file))) {
     errors.push(`${file}: must not contain em dashes (use commas, colons, or periods instead)`);
