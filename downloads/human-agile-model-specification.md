@@ -87,7 +87,7 @@ The Agile Manifesto (2001) lists individuals and interactions over processes and
      (strip harm)   (co-build)   (re-humanize)
 ```
 
-The published diagram uses a human figure icon at the center, not a box. See agilefragile.com/model.html#model-architecture.
+The published diagram uses a black panel with a human figure at the center and outlined move cards below. See agilefragile.com/model.html#model-architecture.
 
 **Roles:**
 - **Receiver**: customers, users, downstream teams, adopting business units

@@ -105,27 +105,52 @@
 
     <section class="section contain">
       <figure class="model-diagram" aria-labelledby="model-diagram-caption">
-        <svg viewBox="0 0 560 320" role="img" aria-label="Human Agile Model architecture diagram: Human figure at center, Adapt Implement Scale orbiting">
-          <rect width="560" height="320" fill="transparent"/>
-          <text x="280" y="14" text-anchor="middle" fill="#e8e8ec" font-family="DM Sans, sans-serif" font-size="11" letter-spacing="2">ARCHITECTURE</text>
-          <circle cx="280" cy="58" r="34" fill="none" stroke="#1f35a9" stroke-width="2" opacity="0.45"/>
-          <g transform="translate(256 34) scale(2)" fill="#1f35a9" aria-hidden="true">
+        <svg viewBox="0 0 640 380" role="img" aria-label="Human Agile Model architecture diagram: Human gate at center, Adapt Implement Scale below">
+          <defs>
+            <linearGradient id="arch-gate-glow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="arch-soft" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="0.6" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <rect width="640" height="380" rx="14" fill="#151517"/>
+          <rect x="1" y="1" width="638" height="378" rx="13" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="320" y="34" text-anchor="middle" fill="rgba(255,255,255,0.52)" font-family="DM Sans, sans-serif" font-size="10" letter-spacing="3.2" font-weight="500">ARCHITECTURE</text>
+          <line x1="48" y1="44" x2="592" y2="44" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <ellipse cx="320" cy="118" rx="118" ry="34" fill="url(#arch-gate-glow)"/>
+          <circle cx="320" cy="96" r="40" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+          <circle cx="320" cy="96" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4 6"/>
+          <g transform="translate(308 84) scale(2)" fill="#ffffff" aria-hidden="true">
             <circle cx="12" cy="7" r="4.25"/>
             <path d="M4 21c0-5.8 3.58-9.5 8-9.5s8 3.7 8 9.5"/>
           </g>
-          <text x="280" y="108" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600">Human</text>
-          <rect x="40" y="200" width="140" height="56" rx="8" fill="#1f35a9"/>
-          <text x="110" y="234" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500">Adapt</text>
-          <rect x="210" y="248" width="140" height="56" rx="8" fill="#1f35a9"/>
-          <text x="280" y="282" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500">Implement</text>
-          <rect x="380" y="200" width="140" height="56" rx="8" fill="#1f35a9"/>
-          <text x="450" y="234" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500">Scale</text>
-          <line x1="280" y1="118" x2="110" y2="200" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2"/>
-          <line x1="280" y1="118" x2="280" y2="248" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2"/>
-          <line x1="280" y1="118" x2="450" y2="200" stroke="rgba(255, 255, 255, 0.28)" stroke-width="2"/>
-          <text x="110" y="188" text-anchor="middle" fill="#e8e8ec" font-family="DM Sans, sans-serif" font-size="10">strip harm</text>
-          <text x="280" y="236" text-anchor="middle" fill="#e8e8ec" font-family="DM Sans, sans-serif" font-size="10">co-build</text>
-          <text x="450" y="188" text-anchor="middle" fill="#e8e8ec" font-family="DM Sans, sans-serif" font-size="10">re-humanize</text>
+          <text x="320" y="152" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="26" font-weight="600">Human</text>
+          <text x="320" y="172" text-anchor="middle" fill="rgba(255,255,255,0.58)" font-family="DM Sans, sans-serif" font-size="11" letter-spacing="1.6" font-weight="500">THE GATE</text>
+          <line x1="88" y1="196" x2="552" y2="196" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+          <text x="320" y="214" text-anchor="middle" fill="rgba(255,255,255,0.46)" font-family="DM Sans, sans-serif" font-size="10" letter-spacing="0.4">Adapt, Implement, and Scale run only when the gate passes</text>
+          <path d="M320 196 L320 232" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+          <path d="M320 232 L128 248" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <path d="M320 232 L320 248" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <path d="M320 232 L512 248" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <circle cx="320" cy="232" r="3.5" fill="#ffffff"/>
+          <circle cx="128" cy="248" r="3" fill="rgba(255,255,255,0.72)"/>
+          <circle cx="320" cy="248" r="3" fill="rgba(255,255,255,0.72)"/>
+          <circle cx="512" cy="248" r="3" fill="rgba(255,255,255,0.72)"/>
+          <rect x="56" y="258" width="144" height="88" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+          <rect x="248" y="258" width="144" height="88" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+          <rect x="440" y="258" width="144" height="88" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+          <text x="128" y="292" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="600">Adapt</text>
+          <text x="320" y="292" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="600">Implement</text>
+          <text x="512" y="292" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="600">Scale</text>
+          <text x="128" y="318" text-anchor="middle" fill="rgba(255,255,255,0.62)" font-family="DM Sans, sans-serif" font-size="11" letter-spacing="0.3">strip harm</text>
+          <text x="320" y="318" text-anchor="middle" fill="rgba(255,255,255,0.62)" font-family="DM Sans, sans-serif" font-size="11" letter-spacing="0.3">co-build</text>
+          <text x="512" y="318" text-anchor="middle" fill="rgba(255,255,255,0.62)" font-family="DM Sans, sans-serif" font-size="11" letter-spacing="0.3">re-humanize</text>
+          <text x="128" y="336" text-anchor="middle" fill="rgba(255,255,255,0.38)" font-family="DM Sans, sans-serif" font-size="9" letter-spacing="1.2">01</text>
+          <text x="320" y="336" text-anchor="middle" fill="rgba(255,255,255,0.38)" font-family="DM Sans, sans-serif" font-size="9" letter-spacing="1.2">02</text>
+          <text x="512" y="336" text-anchor="middle" fill="rgba(255,255,255,0.38)" font-family="DM Sans, sans-serif" font-size="9" letter-spacing="1.2">03</text>
         </svg>
         <figcaption id="model-diagram-caption" class="t-b-3">Human at the center. Adapt, Implement, and Scale run only when the human gate passes.</figcaption>
       </figure>
