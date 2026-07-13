@@ -501,7 +501,7 @@ if (!/founder-card--solo/.test(leadersHtml)) {
 if (!/id="evidence-methods"/.test(leadersHtml)) {
   errors.push('Leaders human impact must include evidence and methods footnote');
 }
-if (!/How I got these numbers/.test(leadersHtml)) {
+if (!/How we ran the survey/.test(leadersHtml)) {
   errors.push('Leaders evidence footnote must use plain human voice');
 }
 if (!/id="tool-governance"/.test(leadersHtml)) {
