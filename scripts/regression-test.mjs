@@ -296,6 +296,15 @@ if (!/id="human-impact"/.test(read('leaders.html'))) {
 if (!/forced agile/.test(read('leaders.html')) || !/fake agile/.test(read('leaders.html'))) {
   errors.push('Leaders page must name forced agile and fake agile alongside Dark Agile');
 }
+if (!/id="human-impact-ai"/.test(read('leaders.html')) || !/AI adaptation angle/.test(read('leaders.html'))) {
+  errors.push('Leaders page must include AI adaptation angle with human impact charts');
+}
+if (!/Dark AI/.test(read('leaders.html')) || !/forced AI/.test(read('leaders.html')) || !/fake AI/.test(read('leaders.html'))) {
+  errors.push('Leaders page must name Dark AI, forced AI, and fake AI alongside agile patterns');
+}
+if (!/Dark AI/.test(read('downloads/human-agile-model-specification.md')) || !/Dark AI/.test(model)) {
+  errors.push('Model spec and glossary must define Dark AI, forced AI, and fake AI terms');
+}
 if (!/\.impact-method\s*\{[^}]*color:\s*var\(--gray-light\)/.test(css)) {
   errors.push('impact-method footnote must use gray-light for readable contrast on page-gray');
 }

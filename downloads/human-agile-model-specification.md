@@ -40,6 +40,9 @@ The model is proposed by Anjish Bhondwe from field work across federated organis
 | **Dark Agile** | Agility performed for dashboards, not practiced with humans inside. Speed, competition, and programme timelines turn agile into an instrument. Burnout, silence in retros, and attrition are treated as individual failure, not design failure. |
 | **Forced agile** | Transformation dictated by budget and timeline. Adoption pushed without agency. Deliverers carry the programme on top of the day job. |
 | **Fake agile** | Ceremony and reporting without human practice. Teams comply in meetings and reject the system in the room. |
+| **Dark AI** | AI performed for board slides and efficiency metrics, not practiced with humans inside. Headcount reduction treated as success while deliverers absorb the risk. |
+| **Forced AI** | AI adoption dictated by mandate and timeline. Copilot licenses rolled out without training, safety review, or agency. |
+| **Fake AI** | AI theater without human practice. Prompt templates and usage quotas without skill building or honest feedback loops. |
 | **Human gate** | A checkpoint of five questions that must be answered affirmatively before Adapt, Implement, or Scale runs. If the answer is no, stop adding process. |
 | **Receiver** | Customers, users, downstream teams, and business units asked to adopt change. Back in the journey, not an afterthought. |
 | **Deliverer** | Engineers, product teams, and operators carrying the day job plus the transformation. Back in the room, not on a velocity chart. |

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="For enterprise leaders evaluating the Human Agile model. Field notes on transformation risk, people, and Dark Agile. Proposed by Anjish Bhondwe.">
+  <meta name="description" content="For enterprise leaders evaluating the Human Agile model. Field notes on transformation and AI adaptation risk, people, and Dark Agile. Proposed by Anjish Bhondwe.">
   <title>For Leaders | Agile Fragile</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -89,7 +89,7 @@
         <h2 class="t-h-3">The socio-technical tension</h2>
         <p class="thesis">Every transformation runs two systems at once. Most enterprises only fund one.</p>
         <p class="intro t-b-2">Every transformation runs two systems. The technical one is loud: tools, velocity, dashboards, milestones. The social one is human: trust, safety, belonging, honest feedback. Fund one without the other and people pay. That is not a culture side issue. That is the design failure.</p>
-        <p class="intro t-b-2">When budget and timeline own the rollout, interviews name the same harm differently: <strong>Dark Agile</strong>, <strong>forced agile</strong>, <strong>fake agile</strong>. Same wound. Different programme language. <a href="#tool-governance" class="text-link">Tool governance</a> is where I see sponsors lose the plot most often.</p>
+        <p class="intro t-b-2">When budget and timeline own the rollout, interviews name the same harm differently: <strong>Dark Agile</strong>, <strong>forced agile</strong>, <strong>fake agile</strong>. Same wound. Different programme language. The same pattern shows up in <strong>AI adaptation</strong>: <strong>Dark AI</strong>, <strong>forced AI</strong>, <strong>fake AI</strong>. Two angles. One social system underfunded. <a href="#tool-governance" class="text-link">Tool governance</a> is where I see sponsors lose the plot most often.</p>
       </div>
     </section>
 
@@ -128,23 +128,25 @@
 
     <section class="section contain" id="human-impact" aria-labelledby="human-impact-title">
       <div class="coming-header">
-        <h2 class="t-h-3" id="human-impact-title">Human impact under forced transformation</h2>
-        <p class="intro t-b-2">From our anonymous field survey across telecom, financial services, retail, and tech. These are not industry benchmarks. They are what respondents said when we asked what the rollout did to them.</p>
+        <h2 class="t-h-3" id="human-impact-title">Human impact under forced change</h2>
+        <p class="intro t-b-2">From our anonymous field survey across telecom, financial services, retail, and tech. Two angles keep showing up: agile transformation and AI adaptation. These are not industry benchmarks. They are what respondents said when we asked what the change did to them.</p>
       </div>
 
       <div class="impact-layout">
-        <p class="intro t-b-2 impact-lead">I have sat with strong delivery teams that were shutting down mid-transformation: green velocity, solid record, humans breaking. These charts pair <a href="/#drift" class="text-link">where attention goes</a> with what that costs people.</p>
+        <p class="intro t-b-2 impact-lead">I have sat with strong delivery teams that were shutting down mid-transformation: green velocity, solid record, humans breaking. The same teams are now absorbing AI mandates on top of that load. These charts pair <a href="/#drift" class="text-link">where attention goes</a> with what that costs people.</p>
 
-        <ul class="impact-terms t-b-3" aria-label="Transformation patterns named in interviews">
-          <li><strong>Dark Agile</strong> dashboard theater</li>
-          <li><strong>Forced agile</strong> budget-dictated rollout</li>
-          <li><strong>Fake agile</strong> ceremony without belief</li>
-        </ul>
+        <div class="impact-angle" id="human-impact-agile">
+          <h3 class="t-h-4 impact-angle-title">Agile transformation angle</h3>
+          <ul class="impact-terms t-b-3" aria-label="Agile transformation patterns named in interviews">
+            <li><strong>Dark Agile</strong> dashboard theater</li>
+            <li><strong>Forced agile</strong> budget-dictated rollout</li>
+            <li><strong>Fake agile</strong> ceremony without belief</li>
+          </ul>
 
-        <div class="impact-charts">
+        <div class="impact-charts impact-charts--agile">
           <figure class="impact-chart-panel">
             <figcaption>
-              <span class="impact-chart-eyebrow t-b-3">Budget attention</span>
+              <span class="impact-chart-eyebrow t-b-3">Agile budget attention</span>
               <span class="t-h-5">Where transformation energy goes today</span>
             </figcaption>
             <p class="t-b-3 impact-chart-note">From programme reviews I sat in. Mirrors the <a href="/#drift" class="text-link">37-point people gap</a> on the home page.</p>
@@ -181,7 +183,7 @@
 
           <figure class="impact-chart-panel">
             <figcaption>
-              <span class="impact-chart-eyebrow t-b-3">Human strain</span>
+              <span class="impact-chart-eyebrow t-b-3">Agile human strain</span>
               <span class="t-h-5">What underfunding the social system costs</span>
             </figcaption>
             <p class="t-b-3 impact-chart-note">Share of interviewees who named each impact. Not a census of all IT workers.</p>
@@ -226,7 +228,7 @@
           </figure>
         </div>
 
-        <div class="impact-def-grid" aria-label="What each human strain measure means">
+        <div class="impact-def-grid" aria-label="What each agile human strain measure means">
           <article class="impact-def">
             <h3 class="t-h-5">Burnout or sustained overload</h3>
             <p class="t-b-3">Chronic exhaustion, sprints stacked on unfinished work, crying in bathrooms while dashboards stay green.</p>
@@ -244,15 +246,130 @@
             <p class="t-b-3">Teams leadership flagged as high velocity who reported shutdown under forced rollout waves.</p>
           </article>
         </div>
+        </div>
 
-        <p class="t-b-3 impact-method" id="evidence-methods"><strong>How we ran the survey.</strong> Anonymous interviews across telecom, financial services, retail, and technology. Percentages are share of respondents who named each impact, not a census of all IT workers. Budget figures come from programme reviews I attended. This is our field read, not peer-reviewed industry data. Cite: agilefragile.com/leaders.html#human-impact.</p>
+        <div class="impact-angle" id="human-impact-ai">
+          <h3 class="t-h-4 impact-angle-title">AI adaptation angle</h3>
+          <p class="intro t-b-2 impact-angle-lead">AI adoption is landing on teams already strained by agile transformation. Respondents did not separate the wounds. They described what stacked on top: mandates without training, efficiency targets without safety, and fear that honest feedback about AI would be read as resistance.</p>
+          <ul class="impact-terms t-b-3" aria-label="AI adaptation patterns named in interviews">
+            <li><strong>Dark AI</strong> board-slide theater</li>
+            <li><strong>Forced AI</strong> mandate-dictated rollout</li>
+            <li><strong>Fake AI</strong> licenses without learning</li>
+          </ul>
+
+        <div class="impact-charts impact-charts--ai">
+          <figure class="impact-chart-panel">
+            <figcaption>
+              <span class="impact-chart-eyebrow t-b-3">AI budget attention</span>
+              <span class="t-h-5">Where AI programme energy goes today</span>
+            </figcaption>
+            <p class="t-b-3 impact-chart-note">From AI readiness reviews I sat in. Mirrors the same people gap pattern: tools first, humans last.</p>
+            <div class="impact-chart" role="img" aria-label="AI adaptation budget attention: tools and automation metrics 52 percent, compliance and reporting 22 percent, humans carrying the change 14 percent">
+              <div class="impact-chart-row">
+                <div class="impact-chart-meta">
+                  <span class="impact-chart-label t-b-3">Tools &amp; automation metrics</span>
+                  <span class="impact-chart-val t-b-3">~52%</span>
+                </div>
+                <div class="impact-chart-track" aria-hidden="true">
+                  <div class="impact-chart-bar impact-chart-bar--delivery" style="--impact-pct: 52"></div>
+                </div>
+              </div>
+              <div class="impact-chart-row">
+                <div class="impact-chart-meta">
+                  <span class="impact-chart-label t-b-3">Compliance &amp; reporting</span>
+                  <span class="impact-chart-val t-b-3">~22%</span>
+                </div>
+                <div class="impact-chart-track" aria-hidden="true">
+                  <div class="impact-chart-bar impact-chart-bar--process" style="--impact-pct: 22"></div>
+                </div>
+              </div>
+              <div class="impact-chart-row">
+                <div class="impact-chart-meta">
+                  <span class="impact-chart-label t-b-3">Humans carrying change</span>
+                  <span class="impact-chart-val t-b-3">~14%</span>
+                </div>
+                <div class="impact-chart-track" aria-hidden="true">
+                  <div class="impact-chart-bar impact-chart-bar--human" style="--impact-pct: 14"></div>
+                </div>
+              </div>
+            </div>
+          </figure>
+
+          <figure class="impact-chart-panel">
+            <figcaption>
+              <span class="impact-chart-eyebrow t-b-3">AI human strain</span>
+              <span class="t-h-5">What stacking AI on an underfunded social system costs</span>
+            </figcaption>
+            <p class="t-b-3 impact-chart-note">Share of interviewees who named each AI adaptation impact. Often the same people already reporting agile strain.</p>
+            <div class="impact-chart" role="img" aria-label="AI human strain from field interviews: workload stacking 74 percent, skill anxiety 71 percent, trust erosion 64 percent, top performers with parallel strain 76 percent">
+              <div class="impact-chart-row">
+                <div class="impact-chart-meta">
+                  <span class="impact-chart-label t-b-3">Workload stacking</span>
+                  <span class="impact-chart-val t-b-3">~74%</span>
+                </div>
+                <div class="impact-chart-track" aria-hidden="true">
+                  <div class="impact-chart-bar impact-chart-bar--strain" style="--impact-pct: 74"></div>
+                </div>
+              </div>
+              <div class="impact-chart-row">
+                <div class="impact-chart-meta">
+                  <span class="impact-chart-label t-b-3">Skill anxiety</span>
+                  <span class="impact-chart-val t-b-3">~71%</span>
+                </div>
+                <div class="impact-chart-track" aria-hidden="true">
+                  <div class="impact-chart-bar impact-chart-bar--strain" style="--impact-pct: 71"></div>
+                </div>
+              </div>
+              <div class="impact-chart-row">
+                <div class="impact-chart-meta">
+                  <span class="impact-chart-label t-b-3">Trust erosion</span>
+                  <span class="impact-chart-val t-b-3">~64%</span>
+                </div>
+                <div class="impact-chart-track" aria-hidden="true">
+                  <div class="impact-chart-bar impact-chart-bar--strain" style="--impact-pct: 64"></div>
+                </div>
+              </div>
+              <div class="impact-chart-row">
+                <div class="impact-chart-meta">
+                  <span class="impact-chart-label t-b-3">Top performers, parallel strain</span>
+                  <span class="impact-chart-val t-b-3">~76%</span>
+                </div>
+                <div class="impact-chart-track" aria-hidden="true">
+                  <div class="impact-chart-bar impact-chart-bar--velocity" style="--impact-pct: 76"></div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="impact-def-grid" aria-label="What each AI human strain measure means">
+          <article class="impact-def">
+            <h3 class="t-h-5">Workload stacking</h3>
+            <p class="t-b-3">AI adoption added on top of the day job and the agile programme. Same headcount, more output expected, no time removed.</p>
+          </article>
+          <article class="impact-def">
+            <h3 class="t-h-5">Skill anxiety</h3>
+            <p class="t-b-3">Copilot licenses rolled out without training. People told to upskill on their own time while measured on usage quotas.</p>
+          </article>
+          <article class="impact-def">
+            <h3 class="t-h-5">Trust erosion</h3>
+            <p class="t-b-3">Fear that honest questions about AI readiness will be read as resistance or replaceability. Silence in the room while the board deck shows progress.</p>
+          </article>
+          <article class="impact-def">
+            <h3 class="t-h-5">Top performers, parallel strain</h3>
+            <p class="t-b-3">High-output teams asked to lead AI pilots while still carrying transformation debt from the agile rollout.</p>
+          </article>
+        </div>
+        </div>
+
+        <p class="t-b-3 impact-method" id="evidence-methods"><strong>How we ran the survey.</strong> Anonymous interviews across telecom, financial services, retail, and technology. Percentages are share of respondents who named each impact, not a census of all IT workers. Budget figures come from programme and AI readiness reviews I attended. Agile and AI adaptation are reported as two angles on the same social system. This is our field read, not peer-reviewed industry data. Cite: agilefragile.com/leaders.html#human-impact.</p>
       </div>
     </section>
 
     <section class="section contain" id="field-voices">
       <div class="page-header">
         <h2 class="t-h-3">What our survey reveals</h2>
-        <p class="intro t-b-2">Anonymous voices from our field survey. Different sectors. Same wound. Not people complaining about agile. People describing what happened when the social system broke and the dashboard stayed green.</p>
+        <p class="intro t-b-2">Anonymous voices from our field survey. Different sectors. Same wound. Not people complaining about agile or AI. People describing what happened when the social system broke and the dashboard stayed green.</p>
       </div>
       <div class="voice-grid">
         <figure class="voice-card">
@@ -270,6 +387,14 @@
         <figure class="voice-card">
           <blockquote>"Leadership sees green dashboards. We see people crying in the bathroom. Both are true in the same building."</blockquote>
           <cite>People lead, technology</cite>
+        </figure>
+        <figure class="voice-card">
+          <blockquote>"They rolled out Copilot to everyone on a Monday. By Friday we had usage targets. Nobody asked if we had time to learn it on top of the agile programme."</blockquote>
+          <cite>Engineer, technology</cite>
+        </figure>
+        <figure class="voice-card">
+          <blockquote>"The AI steering deck shows 90% adoption. Half my team is afraid to say the tools are making more review work, not less."</blockquote>
+          <cite>Tech lead, financial services</cite>
         </figure>
       </div>
       <p class="section-follow t-b-2"><a href="/about.html#voices" class="text-link">One more voice on the story page</a></p>
