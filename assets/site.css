@@ -2079,6 +2079,28 @@ main.landing { padding-top: 0; }
   color: var(--white);
 }
 
+.impact-angle {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+  padding-top: clamp(8px, 2vw, 16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.impact-angle:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+.impact-angle-title {
+  text-align: center;
+  margin: 0;
+}
+.impact-angle-lead {
+  max-width: 38rem;
+  margin: 0 auto;
+  text-align: center;
+  text-wrap: pretty;
+}
+
 .impact-terms {
   list-style: none;
   display: flex;
