@@ -14,6 +14,14 @@ function read(path) {
   return readFileSync(join(root, path), 'utf8');
 }
 
+function assertValidUtf8(path) {
+  try {
+    readFileSync(join(root, path));
+  } catch (err) {
+    errors.push(`${path} must be valid UTF-8 (${err.message})`);
+  }
+}
+
 function walkHtml(dir, files = []) {
   for (const name of readdirSync(join(root, dir))) {
     const p = join(dir, name);
@@ -320,7 +328,9 @@ if (!/IAPP/.test(read('downloads/human-agile-model-specification.md'))) {
 if (!read('assets/human-focus-foundations-diagram.svg').includes('CONVERGENCE')) {
   errors.push('assets/human-focus-foundations-diagram.svg must define symmetric convergence artwork');
 }
-if (!/hf-showcase/.test(model) || !/hf-showcase-key/.test(model)) {
+assertValidUtf8('assets/human-focus-foundations-diagram.svg');
+assertValidUtf8('assets/human-focus-foundations-diagram-print.svg');
+if (!/hf-showcase-svg/.test(model) || !/hf-showcase-key/.test(model)) {
   errors.push('Model page must showcase Figure HF-1 with a readable key, not downloads only');
 }
 if (!/id="figure-hf-1"/.test(model) || !/human-focus-foundations-figure\.pdf/.test(model)) {
