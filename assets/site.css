@@ -434,6 +434,27 @@ main.landing { padding-top: 0; }
 .concept-inner .intro,
 .concept-inner .body-copy { color: var(--text-secondary); }
 
+.concept-inner--prose {
+  align-items: flex-start;
+  text-align: left;
+}
+.concept-inner--prose > .t-h-3 {
+  width: 100%;
+  max-width: 38rem;
+}
+
+.prose-section {
+  max-width: 38rem;
+  margin-inline: auto;
+}
+.prose-section .t-h-3 {
+  margin-bottom: 1.25rem;
+}
+.prose-follow {
+  margin-top: 1.25rem;
+  color: var(--gray-light);
+}
+
 .story-prose {
   width: 100%;
   max-width: 38rem;
@@ -2065,15 +2086,6 @@ main.landing { padding-top: 0; }
   margin-top: clamp(24px, 4vw, 40px);
 }
 
-.research-guidelines .glossary-item dd {
-  text-wrap: pretty;
-}
-
-.research-guidelines .glossary-item dd strong {
-  color: var(--white);
-  font-weight: 600;
-}
-
 /* Human impact bar charts (leaders page) */
 .impact-layout {
   max-width: 1000px;
@@ -2084,9 +2096,9 @@ main.landing { padding-top: 0; }
 }
 
 .impact-lead {
-  max-width: 38rem;
-  margin: 0 auto;
-  text-align: center;
+  max-width: none;
+  margin: 0;
+  text-align: left;
   text-wrap: pretty;
 }
 .impact-lead a.text-link {
@@ -2105,13 +2117,13 @@ main.landing { padding-top: 0; }
   padding-top: 0;
 }
 .impact-angle-title {
-  text-align: center;
+  text-align: left;
   margin: 0;
 }
 .impact-angle-lead {
-  max-width: 38rem;
-  margin: 0 auto;
-  text-align: center;
+  max-width: none;
+  margin: 0;
+  text-align: left;
   text-wrap: pretty;
 }
 

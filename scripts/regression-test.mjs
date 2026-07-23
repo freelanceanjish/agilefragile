@@ -311,8 +311,8 @@ if (!/Dark AI/.test(read('downloads/human-agile-model-specification.md')) || !/D
 if (!/id="with-human-for-human"/.test(model) || !/id="research-foundation"/.test(model) || !/id="industry-proposal"/.test(model)) {
   errors.push('Model page must include with human for human, research foundation, and industry proposal sections');
 }
-if (!/id="industry-adoption"/.test(read('how-we-work.html')) || !/With human, for human/.test(read('how-we-work.html'))) {
-  errors.push('Proposal page must present the industry adoption path with human, for human ethic');
+if (!/id="industry-adoption"/.test(read('how-we-work.html')) || !/model\.html#with-human-for-human/.test(read('how-we-work.html'))) {
+  errors.push('Proposal page must guide readers to the model without duplicating the full proposal');
 }
 if (!/With human, for human/.test(read('downloads/human-agile-model-specification.md'))) {
   errors.push('Model specification must document the with human, for human design ethic');
