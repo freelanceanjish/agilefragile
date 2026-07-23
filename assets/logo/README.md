@@ -1,6 +1,6 @@
 # Agile Fragile: Square Logo
 
-Bold sans wordmark inside a square. Matches site style (Inter 700, gray/white/black palette).
+Bold Inter wordmark inside a square. Matches site typography (Inter, gray/white/black palette).
 
 ## AF mark (recommended)
 

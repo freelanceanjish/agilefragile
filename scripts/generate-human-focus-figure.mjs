@@ -30,7 +30,7 @@ const html = `<!DOCTYPE html>
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: "DM Sans", system-ui, sans-serif;
+      font-family: "Inter", system-ui, sans-serif;
       color: #151517;
       background: #fff;
     }

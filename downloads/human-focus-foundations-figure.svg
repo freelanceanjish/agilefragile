@@ -15,8 +15,8 @@
   <rect width="960" height="620" rx="14" fill="#ffffff"/>
   <rect x="1" y="1" width="958" height="618" rx="13" fill="none" stroke="#d8d8de" stroke-width="1"/>
 
-  <text x="480" y="38" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="3.2" font-weight="500">FIGURE HF-1</text>
-  <text x="480" y="68" text-anchor="middle" fill="#151517" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600">Two foundations, one human focus</text>
+  <text x="480" y="38" text-anchor="middle" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="3.2" font-weight="500">FIGURE HF-1</text>
+  <text x="480" y="68" text-anchor="middle" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Two foundations, one human focus</text>
   <line x1="48" y1="84" x2="912" y2="84" stroke="#e8e8ec" stroke-width="1"/>
 
   <rect x="40" y="104" width="260" height="264" rx="12" fill="#f7f7f7" stroke="#c8c8c8" stroke-width="1.5"/>
@@ -28,16 +28,16 @@
   <path d="M300 236 H344" stroke="#1f35a9" stroke-width="1.75" marker-end="url(#hf-arrow-in)"/>
   <path d="M660 236 H616" stroke="#1f35a9" stroke-width="1.75" marker-end="url(#hf-arrow-in)"/>
 
-  <text x="170" y="136" text-anchor="middle" fill="#151517" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="600">Agile Manifesto</text>
-  <text x="170" y="156" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="1.8" font-weight="500">2001 &#183; DELIVERY</text>
+  <text x="170" y="136" text-anchor="middle" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600">Agile Manifesto</text>
+  <text x="170" y="156" text-anchor="middle" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="1.8" font-weight="500">2001 &#183; DELIVERY</text>
   <line x1="64" y1="168" x2="276" y2="168" stroke="#e0e0e6" stroke-width="1"/>
-  <text x="64" y="196" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Individuals and interactions</text>
-  <text x="64" y="214" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">over processes and tools</text>
-  <text x="64" y="244" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Customer collaboration</text>
-  <text x="64" y="262" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">over contract negotiation</text>
-  <text x="64" y="292" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Responding to change</text>
-  <text x="64" y="310" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">with people in the design</text>
-  <text x="64" y="348" fill="#949494" font-family="DM Sans, system-ui, sans-serif" font-size="9" letter-spacing="1.2">FOUNDATION A</text>
+  <text x="64" y="196" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Individuals and interactions</text>
+  <text x="64" y="214" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="11">over processes and tools</text>
+  <text x="64" y="244" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Customer collaboration</text>
+  <text x="64" y="262" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="11">over contract negotiation</text>
+  <text x="64" y="292" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Responding to change</text>
+  <text x="64" y="310" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="11">with people in the design</text>
+  <text x="64" y="348" fill="#949494" font-family="Inter, system-ui, sans-serif" font-size="9" letter-spacing="1.2">FOUNDATION A</text>
 
   <ellipse cx="480" cy="198" rx="88" ry="52" fill="url(#hf-gate-glow)"/>
   <circle cx="480" cy="188" r="36" fill="none" stroke="#1f35a9" stroke-width="1.5"/>
@@ -46,30 +46,30 @@
     <circle cx="12" cy="7" r="4.25"/>
     <path d="M4 21c0-5.8 3.58-9.5 8-9.5s8 3.7 8 9.5"/>
   </g>
-  <text x="480" y="248" text-anchor="middle" fill="#151517" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="600">Human focus</text>
-  <text x="480" y="268" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="1.8" font-weight="500">THE HUMAN GATE</text>
-  <text x="480" y="348" text-anchor="middle" fill="#949494" font-family="DM Sans, system-ui, sans-serif" font-size="9" letter-spacing="1.2">CONVERGENCE</text>
+  <text x="480" y="248" text-anchor="middle" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="600">Human focus</text>
+  <text x="480" y="268" text-anchor="middle" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="1.8" font-weight="500">THE HUMAN GATE</text>
+  <text x="480" y="348" text-anchor="middle" fill="#949494" font-family="Inter, system-ui, sans-serif" font-size="9" letter-spacing="1.2">CONVERGENCE</text>
 
-  <text x="790" y="136" text-anchor="middle" fill="#151517" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="600">Responsible AI</text>
-  <text x="790" y="152" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="9" letter-spacing="1.1" font-weight="500">IAPP MAPS OECD, EU HLEG, PRIVACY LAW</text>
-  <text x="790" y="166" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="1.4" font-weight="500">ADAPTATION</text>
+  <text x="790" y="136" text-anchor="middle" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="600">Responsible AI</text>
+  <text x="790" y="152" text-anchor="middle" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="9" letter-spacing="1.1" font-weight="500">IAPP MAPS OECD, EU HLEG, PRIVACY LAW</text>
+  <text x="790" y="166" text-anchor="middle" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="1.4" font-weight="500">ADAPTATION</text>
   <line x1="684" y1="176" x2="896" y2="176" stroke="#e0e0e6" stroke-width="1"/>
-  <text x="684" y="204" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Human oversight and values</text>
-  <text x="684" y="222" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">over automation metrics</text>
-  <text x="684" y="252" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Fairness and accountability</text>
-  <text x="684" y="270" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">transparency and explainability</text>
-  <text x="684" y="300" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Privacy, robustness, security</text>
-  <text x="684" y="318" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">with humans in the loop</text>
-  <text x="684" y="348" fill="#949494" font-family="DM Sans, system-ui, sans-serif" font-size="9" letter-spacing="1.2">FOUNDATION B</text>
+  <text x="684" y="204" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Human oversight and values</text>
+  <text x="684" y="222" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="11">over automation metrics</text>
+  <text x="684" y="252" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Fairness and accountability</text>
+  <text x="684" y="270" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="11">transparency and explainability</text>
+  <text x="684" y="300" fill="#151517" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">Privacy, robustness, security</text>
+  <text x="684" y="318" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="11">with humans in the loop</text>
+  <text x="684" y="348" fill="#949494" font-family="Inter, system-ui, sans-serif" font-size="9" letter-spacing="1.2">FOUNDATION B</text>
 
   <path d="M480 368 V404" stroke="#1f35a9" stroke-width="1.5"/>
   <circle cx="480" cy="368" r="3.5" fill="#1f35a9"/>
 
   <rect x="80" y="404" width="800" height="112" rx="12" fill="#151517"/>
-  <text x="480" y="434" text-anchor="middle" fill="rgba(255,255,255,0.72)" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="2.4" font-weight="500">TRANSFORMATION TABERNACLE</text>
-  <text x="480" y="462" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="600">Receiver &#183; Deliverer &#183; Changer in the design</text>
-  <text x="480" y="484" text-anchor="middle" fill="rgba(255,255,255,0.72)" font-family="DM Sans, system-ui, sans-serif" font-size="11">before Adapt, Implement, Scale &#183; agile and AI change run together</text>
-  <text x="480" y="504" text-anchor="middle" fill="rgba(255,255,255,0.52)" font-family="DM Sans, system-ui, sans-serif" font-size="10">Both traditions fail when the social system is underfunded</text>
+  <text x="480" y="434" text-anchor="middle" fill="rgba(255,255,255,0.72)" font-family="Inter, system-ui, sans-serif" font-size="10" letter-spacing="2.4" font-weight="500">TRANSFORMATION TABERNACLE</text>
+  <text x="480" y="462" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600">Receiver &#183; Deliverer &#183; Changer in the design</text>
+  <text x="480" y="484" text-anchor="middle" fill="rgba(255,255,255,0.72)" font-family="Inter, system-ui, sans-serif" font-size="11">before Adapt, Implement, Scale &#183; agile and AI change run together</text>
+  <text x="480" y="504" text-anchor="middle" fill="rgba(255,255,255,0.52)" font-family="Inter, system-ui, sans-serif" font-size="10">Both traditions fail when the social system is underfunded</text>
 
-  <text x="480" y="568" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="9">Copyright &#169; 2026 Anjish Bhondwe &#183; Human Agile Model &#183; agilefragile.com</text>
+  <text x="480" y="568" text-anchor="middle" fill="#666670" font-family="Inter, system-ui, sans-serif" font-size="9">Copyright &#169; 2026 Anjish Bhondwe &#183; Human Agile Model &#183; agilefragile.com</text>
 </svg>
