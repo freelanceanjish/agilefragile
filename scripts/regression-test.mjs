@@ -369,14 +369,24 @@ if (/leaders\.html[\s\S]*process-flow[\s\S]*<h3 class="t-h-5">Human<\/h3>/.test(
 if (/how-we-work\.html[\s\S]*process-flow[\s\S]*<h3 class="t-h-5">Human<\/h3>/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must not repeat the four-move process-flow boxes');
 }
-if (!/case-study-banner/.test(read('assets/site.js'))) {
-  errors.push('site.js must inject case study banner');
+// --- Page layout rail (logo-aligned, no case study banner) ---
+if (/case-study-banner/.test(read('assets/site.js'))) {
+  errors.push('site.js must not inject case study banner');
 }
-if (!/home-page/.test(read('assets/site.js')) || !/landing/.test(read('assets/site.js'))) {
-  errors.push('site.js must skip case study banner on home/landing pages');
+if (/case-study-banner/.test(css)) {
+  errors.push('CSS must not style case study banner');
 }
-if (!/proposal-page/.test(read('assets/site.js'))) {
-  errors.push('site.js must skip case study banner on proposal page');
+if (!/--content-rail:/.test(css) || !/padding-inline:\s*max\(20px,\s*var\(--content-rail\)\)/.test(css)) {
+  errors.push('CSS must align page content to --content-rail (logo text inset)');
+}
+if (!/\.hero[\s\S]*align-items:\s*flex-start/.test(css) || !/\.hero[\s\S]*text-align:\s*left/.test(css)) {
+  errors.push('Hero sections must use left-aligned page rail');
+}
+if (!/\.concept-inner[\s\S]*align-items:\s*flex-start/.test(css) || !/\.concept-inner[\s\S]*text-align:\s*left/.test(css)) {
+  errors.push('Concept sections must use left-aligned page rail');
+}
+if (!/\.section-follow[\s\S]*text-align:\s*left/.test(css)) {
+  errors.push('section-follow links must align left with section headers');
 }
 if (!/proposal-lab/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must use unified proposal-lab section for open questions and feedback');
@@ -400,14 +410,8 @@ if (/class="story-beat"/.test(proposalHtml)) {
 if (!/href="\/#drift"/.test(proposalHtml)) {
   errors.push('Proposal page must link to canonical people gap on home #drift');
 }
-if (!/insertAdjacentElement\('afterend'/.test(read('assets/site.js'))) {
-  errors.push('site.js must place case study banner after hero section, not under header');
-}
 if (!/--header-logo-mark-size/.test(css) || !/--site-header-clearance: calc/.test(css)) {
   errors.push('CSS must calculate header clearance from header logo mark size');
-}
-if (!/body\.home-page \.case-study-banner/.test(css)) {
-  errors.push('CSS must hide case study banner on home page');
 }
 if (!/body\.home-page \.site-header/.test(css) || !/--home-chrome/.test(css)) {
   errors.push('CSS must drive home header morph from --home-chrome scroll variable');
@@ -511,9 +515,6 @@ if (!/3, 3, 1\.2, 1\.2, 1\.2, 3/.test(read('assets/home-hero.js'))) {
 }
 if (!/180svh/.test(css) || !/landing-hero-pin/.test(css)) {
   errors.push('CSS must give mobile hero enough scroll height for slide panel');
-}
-if (/case-study-banner__label">Case study <span>v0\./.test(read('assets/site.js'))) {
-  errors.push('site.js case study banner must not include version numbers');
 }
 if (!/--logo-width:\s*168px/.test(css)) {
   errors.push('CSS must define readable header logo width (--logo-width >= 168px)');
@@ -646,9 +647,6 @@ if (!/human-arch-icon/.test(index) || !/human-arch-icon--hero/.test(index)) {
   errors.push('Home hero Human slide must use human-arch-icon');
 }
 
-if (!/margin-inline:\s*auto/.test(css) || !/\.section-follow[\s\S]*text-align:\s*center/.test(css)) {
-  errors.push('section-follow links must be centered under section headers');
-}
 
 // --- Copy style: no em dashes (U+2014) in public site copy ---
 const emDash = /\u2014/;
