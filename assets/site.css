@@ -76,6 +76,32 @@ a { color: inherit; text-decoration: none; }
   padding-inline: max(20px, var(--content-rail));
 }
 
+/* Grids and data blocks align to the same left rail as section headers */
+.contain > .impact-layout,
+.contain > .leader-pillar,
+.contain > .story-arc,
+.contain > .sponsor-compare,
+.contain > .voice-grid,
+.contain > .value-row,
+.contain > .priority-stack,
+.contain > .detail-grid,
+.contain > .model-pipeline,
+.contain > .contrast-grid,
+.contain > .index-legend,
+.contain > .card-grid,
+.contain > .process-flow,
+.contain > .lens-grid,
+.contain > .exec-summary,
+.contain > .model-moves-spec,
+.contain > .proof-stats,
+.contain > .model-glossary-list,
+.contain > .model-interactive,
+.contain > .sponsor-governance-prose {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
 /* Reading measure: full page rail unless a box or explicit narrow column */
 .prose-col {
   width: 100%;
@@ -839,12 +865,12 @@ main.landing { padding-top: 0; }
 
 .index-section { padding-block: var(--section); }
 .index-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 40px;
 }
 .index-header .intro {
-  max-width: 38rem;
-  margin: 16px auto 0;
+  width: 100%;
+  margin: 16px 0 0;
   color: var(--text-secondary);
   text-wrap: pretty;
 }
@@ -1216,8 +1242,7 @@ main.landing { padding-top: 0; }
 .sponsor-compare {
   display: grid;
   gap: 16px;
-  max-width: 940px;
-  margin: 0 auto 28px;
+  margin: 0 0 28px;
 }
 @media (min-width: 768px) {
   .sponsor-compare { grid-template-columns: 1fr 1fr; }
@@ -1274,8 +1299,6 @@ main.landing { padding-top: 0; }
 }
 
 .story-arc {
-  max-width: 940px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
@@ -1375,8 +1398,6 @@ main.landing { padding-top: 0; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 @media (min-width: 600px) {
   .voice-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1536,8 +1557,7 @@ main.landing { padding-top: 0; }
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 560px;
-  margin: 0 auto 40px;
+  margin: 0 0 40px;
 }
 .priority-layer {
   border-radius: 8px;
@@ -1567,7 +1587,7 @@ main.landing { padding-top: 0; }
   color: var(--white);
   font: 500 clamp(22px, 3vw, 28px) / 1.2 var(--font-serif);
 }
-.lens-grid { max-width: 1000px; margin: 0 auto; }
+.lens-grid { width: 100%; margin: 0; }
 
 .index-legend {
   display: grid;
@@ -1633,13 +1653,11 @@ main.landing { padding-top: 0; }
   background: var(--black);
   border-radius: 8px;
   padding: 24px 28px;
-  max-width: 1000px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 .model-doc-byline { color: var(--text-secondary); }
 .model-doc-byline a {
@@ -1651,7 +1669,7 @@ main.landing { padding-top: 0; }
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .model-jump a {
   font: 500 11px / 1.4 var(--font-sans);
@@ -1738,8 +1756,6 @@ main.landing { padding-top: 0; }
 .model-glossary { max-width: 1000px; margin: 0 auto; }
 
 .model-glossary-list {
-  max-width: 720px;
-  margin: 0 auto;
   background: var(--black);
   border-radius: 8px;
   overflow: hidden;
@@ -2152,8 +2168,6 @@ main.landing { padding-top: 0; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 @media (min-width: 900px) {
   .leader-pillar { grid-template-columns: repeat(3, 1fr); }
@@ -2162,6 +2176,7 @@ main.landing { padding-top: 0; }
   background: var(--black);
   border-radius: 8px;
   padding: 32px 24px;
+  text-align: center;
 }
 .leader-pillar h3 {
   font: 500 clamp(20px, 2vw, 26px) / 1.15 var(--font-serif);
@@ -2177,6 +2192,10 @@ main.landing { padding-top: 0; }
   display: flex;
   flex-direction: column;
   gap: 10px;
+  text-align: left;
+  margin-inline: auto;
+  width: fit-content;
+  max-width: 100%;
 }
 .leader-pillar li {
   color: var(--gray-light);
@@ -2202,8 +2221,6 @@ main.landing { padding-top: 0; }
 
 /* Human impact bar charts (leaders page) */
 .impact-layout {
-  max-width: 1000px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: clamp(24px, 4vw, 36px);
@@ -2247,6 +2264,7 @@ main.landing { padding-top: 0; }
   color: var(--gray-light);
   text-wrap: pretty;
   line-height: 1.4;
+  text-align: center;
 }
 .impact-terms strong {
   color: var(--white);
@@ -2611,8 +2629,8 @@ main.landing { padding-top: 0; }
 }
 .voice-grid--teaser,
 .quote-grid--teaser {
-  max-width: 1000px;
-  margin-inline: auto;
+  width: 100%;
+  margin-inline: 0;
 }
 .index-panel--narrow {
   max-width: 560px;
@@ -3378,8 +3396,8 @@ body.home-page .site-header .logo-mark-box--header {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 60px;
   width: 100%;
   margin-top: 40px;
@@ -3426,7 +3444,6 @@ body.home-page .site-header .logo-mark-box--header {
   grid-template-columns: repeat(2, 1fr);
   gap: 16px 24px;
   width: 100%;
-  max-width: 800px;
   margin-top: 8px;
 }
 @media (min-width: 600px) {
