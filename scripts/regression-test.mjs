@@ -317,6 +317,15 @@ if (!/id="human-focus-foundations"/.test(model) || !/IAPP/.test(model)) {
 if (!/IAPP/.test(read('downloads/human-agile-model-specification.md'))) {
   errors.push('Model specification must document IAPP-mapped responsible AI principles alongside Agile Manifesto');
 }
+if (!read('assets/human-focus-foundations-diagram.svg').includes('Figure HF-1')) {
+  errors.push('assets/human-focus-foundations-diagram.svg must define Figure HF-1 artwork');
+}
+if (!/id="figure-hf-1"/.test(model) || !/human-focus-foundations-figure\.pdf/.test(model)) {
+  errors.push('Model page must publish Figure HF-1 with downloadable research exports');
+}
+if (!/Figure HF-1/.test(model) || !/original artwork copyright/.test(model)) {
+  errors.push('Model copyright section must register Figure HF-1 artwork');
+}
 if (!/id="industry-adoption"/.test(read('how-we-work.html')) || !/model\.html#with-human-for-human/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must guide readers to the model without duplicating the full proposal');
 }
@@ -515,6 +524,22 @@ try {
   }
 } catch {
   errors.push('downloads/human-agile-model-specification.pdf must exist (run node scripts/generate-spec-pdf.mjs)');
+}
+try {
+  const figurePdf = readFileSync(join(root, 'downloads/human-focus-foundations-figure.pdf'));
+  if (figurePdf.slice(0, 4).toString() !== '%PDF' || figurePdf.length < 3000) {
+    errors.push('downloads/human-focus-foundations-figure.pdf must be a valid PDF (run node scripts/generate-human-focus-figure.mjs)');
+  }
+} catch {
+  errors.push('downloads/human-focus-foundations-figure.pdf must exist (run node scripts/generate-human-focus-figure.mjs)');
+}
+try {
+  const figurePng = readFileSync(join(root, 'downloads/human-focus-foundations-figure.png'));
+  if (figurePng.length < 5000) {
+    errors.push('downloads/human-focus-foundations-figure.png must exist (run node scripts/generate-human-focus-figure.mjs)');
+  }
+} catch {
+  errors.push('downloads/human-focus-foundations-figure.png must exist (run node scripts/generate-human-focus-figure.mjs)');
 }
 
 const aboutHtml = read('about.html');
