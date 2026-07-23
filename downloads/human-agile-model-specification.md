@@ -81,6 +81,8 @@ The Agile Manifesto (2001) lists individuals and interactions over processes and
 
 **Human focus from two foundations:** The Agile Manifesto (2001) puts individuals and interactions before processes and tools. Responsible AI governance, as privacy professionals track through IAPP across OECD, EU HLEG, UNESCO, and privacy law, converges on human oversight, human values, fairness, accountability, transparency, and privacy. The Human Agile Model holds both reads at the human gate: Adapt, Implement, and Scale run only when the people carrying agile and AI change are in the design.
 
+**Figure HF-1 (research diagram):** Published at agilefragile.com/model.html#figure-hf-1. Original artwork copyright © 2026 Anjish Bhondwe. Download: agilefragile.com/downloads/human-focus-foundations-figure.pdf (PDF), .png, or .svg. Research reproduction permitted with attribution. Commercial use requires written permission.
+
 ---
 
 ## 5. Model architecture

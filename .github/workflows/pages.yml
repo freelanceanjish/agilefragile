@@ -24,6 +24,9 @@ jobs:
       - name: Generate specification PDF
         run: node scripts/generate-spec-pdf.mjs
 
+      - name: Generate human focus figure exports
+        run: node scripts/generate-human-focus-figure.mjs
+
       - name: Run regression test
         run: node scripts/regression-test.mjs
 
@@ -39,6 +42,9 @@ jobs:
 
       - name: Generate specification PDF
         run: node scripts/generate-spec-pdf.mjs
+
+      - name: Generate human focus figure exports
+        run: node scripts/generate-human-focus-figure.mjs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
