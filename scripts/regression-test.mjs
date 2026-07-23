@@ -331,11 +331,33 @@ if (!/Dark AI/.test(read('downloads/human-agile-model-specification.md')) || !/D
 if (!/id="with-human-for-human"/.test(model) || !/id="research-foundation"/.test(model) || !/id="industry-proposal"/.test(model)) {
   errors.push('Model page must include with human for human, research foundation, and industry proposal sections');
 }
+if (!/id="worldwide-applicability"/.test(model) || !/worldwide reference/i.test(model)) {
+  errors.push('Model page must state worldwide applicability for organization transformation');
+}
+if (!/id="standards-alignment"/.test(model) || !/NIST/.test(model) || !/ISO/.test(model)) {
+  errors.push('Model page must align model with Agile and responsible AI standards including NIST and ISO references');
+}
+if (!/id="embed-in-your-model"/.test(model) || !/Scrum/.test(model) || !/SAFe/.test(model)) {
+  errors.push('Model page must explain embeddability alongside Scrum and SAFe');
+}
 if (!/id="human-focus-foundations"/.test(model) || !/IAPP/.test(model)) {
   errors.push('Model page must merge Agile Manifesto and IAPP-mapped responsible AI principles for human focus');
 }
 if (!/IAPP/.test(read('downloads/human-agile-model-specification.md'))) {
   errors.push('Model specification must document IAPP-mapped responsible AI principles alongside Agile Manifesto');
+}
+const specMdContent = read('downloads/human-agile-model-specification.md');
+if (!/## 15\. Worldwide applicability/.test(specMdContent) || !/jurisdiction-neutral/i.test(specMdContent)) {
+  errors.push('Model specification must document worldwide applicability');
+}
+if (!/## 16\. Standards alignment/.test(specMdContent) || !/NIST AI RMF/.test(specMdContent) || !/ISO\/IEC 42001/.test(specMdContent)) {
+  errors.push('Model specification must include standards alignment table with NIST and ISO references');
+}
+if (!/## 17\. Embeddability/.test(specMdContent) || !/Scrum/.test(specMdContent)) {
+  errors.push('Model specification must document embeddability in existing operating models');
+}
+if (!/Publication readiness/.test(specMdContent)) {
+  errors.push('Model specification must document publication and copyright readiness');
 }
 if (!read('assets/human-focus-foundations-diagram.svg').includes('CONVERGENCE')) {
   errors.push('assets/human-focus-foundations-diagram.svg must define symmetric convergence artwork');
