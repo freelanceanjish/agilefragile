@@ -71,26 +71,6 @@ document.querySelectorAll('[data-form]').forEach(function (form) {
 });
 
 (function () {
-  var main = document.querySelector('main');
-  if (!main || document.querySelector('.case-study-banner')) return;
-  if (document.body.classList.contains('home-page') || main.classList.contains('landing') || document.body.classList.contains('proposal-page')) return;
-
-  var banner = document.createElement('aside');
-  banner.className = 'case-study-banner';
-  banner.setAttribute('aria-label', 'Case study status');
-  banner.innerHTML =
-    '<p class="case-study-banner__label">Case study</p>' +
-    '<p class="case-study-banner__text">A proposed model taking shape. Explore, react, leave a trace.</p>';
-
-  var hero = main.querySelector('section.hero, .hero');
-  if (hero) {
-    hero.insertAdjacentElement('afterend', banner);
-  } else {
-    main.insertBefore(banner, main.firstChild);
-  }
-})();
-
-(function () {
   var params = new URLSearchParams(window.location.search);
   var score = params.get('score');
   var label = params.get('label');
