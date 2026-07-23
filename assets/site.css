@@ -445,10 +445,14 @@ main.landing { padding-top: 0; }
 
 .prose-section {
   max-width: 38rem;
-  margin-inline: auto;
+  margin-inline: 0;
+  text-align: left;
 }
 .prose-section .t-h-3 {
   margin-bottom: 1.25rem;
+}
+.prose-section .intro + .intro {
+  margin-top: 1rem;
 }
 .prose-follow {
   margin-top: 1.25rem;
@@ -2093,16 +2097,6 @@ main.landing { padding-top: 0; }
   display: flex;
   flex-direction: column;
   gap: clamp(24px, 4vw, 36px);
-}
-
-.impact-lead {
-  max-width: none;
-  margin: 0;
-  text-align: left;
-  text-wrap: pretty;
-}
-.impact-lead a.text-link {
-  color: var(--white);
 }
 
 .impact-angle {
