@@ -44,6 +44,7 @@ The model is proposed by Anjish Bhondwe from field work across federated organis
 | **Forced AI** | AI adoption dictated by mandate and timeline. Copilot licenses rolled out without training, safety review, or agency. |
 | **Fake AI** | AI theater without human practice. Prompt templates and usage quotas without skill building or honest feedback loops. |
 | **Transformation tabernacle** | The combined agile and AI transformation enterprises run today. Adapt, implement, and scale under one roof. Under scrutiny because the human factor is at the core. Average impact so far is negative for humans, not for industries. |
+| **With human, for human** | The design ethic of this model. With human: co-design with receiver, deliverer, and changer; agency and honest signal in the room. For human: subtract harm, protect deliverers, scale that keeps people who made it work. |
 | **Human gate** | A checkpoint of five questions that must be answered affirmatively before Adapt, Implement, or Scale runs. If the answer is no, stop adding process. |
 | **Receiver** | Customers, users, downstream teams, and business units asked to adopt change. Back in the journey, not an afterthought. |
 | **Deliverer** | Engineers, product teams, and operators carrying the day job plus the transformation. Back in the room, not on a velocity chart. |
@@ -235,6 +236,48 @@ No move runs until people are in the design, not on the receiving end of a timel
 2. **Read the story**: Field notes on how enterprise agile lost the humans (agilefragile.com/about.html)
 3. **Walk the moves**: Run the four-move cycle in transformation reviews
 4. **React**: Share what resonates on the proposal page
+
+---
+
+## 12. With human, for human
+
+**With human:** Receiver, deliverer, and changer co-design agile and AI change. Agency in the room. Honest feedback treated as learning signal, not programme disloyalty.
+
+**For human:** Subtract harm before adding process. Burnout read as design failure. Scale only when the human gate passes. Outcomes must protect the people who will carry the next wave.
+
+This ethic aligns the model with human-centered design practice and socio-technical systems research: technical and social systems designed together, with humans inside the transformation, not on the receiving end of it.
+
+---
+
+## 13. Research and expert foundations
+
+| Source | Guideline | Model application |
+|--------|-----------|-------------------|
+| Socio-technical systems | Technical and social systems must be jointly optimized | Transformation tabernacle, human gate, strain charts |
+| Agile Manifesto (2001) | Individuals and interactions first | Human as architecture |
+| Amy Edmondson | Psychological safety for speaking up | Human gate Q5, operating rules, Index |
+| Edgar Schein | Leaders create culture | Changer role, leaders enable rule |
+| Alistair Cockburn | People as first-order success driver | Receiver, deliverer, changer; Adapt before Implement |
+| Ron Jeffries | Dark patterns oppress developers | Dark Agile, Dark AI, burnout as design signal |
+| Human-centered design | Involve affected people in design; iterate on harm | Human move, four-move cycle, Index, re-check at scale |
+
+Full web version with advocate quotes: agilefragile.com/model.html#research-foundation
+
+---
+
+## 14. Industry proposal
+
+A five-step adoption path for enterprises, assessors, and research partners:
+
+1. **Name the tabernacle:** Acknowledge agile and AI change run together under scrutiny.
+2. **Diagnose human practice:** Run the Human Agile Index with leaders and teams.
+3. **Pass the human gate:** Five checkpoint questions before Adapt, Implement, or Scale.
+4. **Run the four moves:** Human, Adapt, Implement, Scale as a cycle.
+5. **Re-check at scale:** Every new wave passes the human gate again.
+
+Partnership and licensing for research pilots and audit use: agilefragile.com/downloads/partnership-and-licensing.md
+
+Proposal page: agilefragile.com/how-we-work.html#industry-adoption
 
 ---
 

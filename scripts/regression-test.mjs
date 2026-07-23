@@ -308,6 +308,15 @@ if (!/Dark AI/.test(read('leaders.html')) || !/forced AI/.test(read('leaders.htm
 if (!/Dark AI/.test(read('downloads/human-agile-model-specification.md')) || !/Dark AI/.test(model)) {
   errors.push('Model spec and glossary must define Dark AI, forced AI, and fake AI terms');
 }
+if (!/id="with-human-for-human"/.test(model) || !/id="research-foundation"/.test(model) || !/id="industry-proposal"/.test(model)) {
+  errors.push('Model page must include with human for human, research foundation, and industry proposal sections');
+}
+if (!/id="industry-adoption"/.test(read('how-we-work.html')) || !/With human, for human/.test(read('how-we-work.html'))) {
+  errors.push('Proposal page must present the industry adoption path with human, for human ethic');
+}
+if (!/With human, for human/.test(read('downloads/human-agile-model-specification.md'))) {
+  errors.push('Model specification must document the with human, for human design ethic');
+}
 if (!/\.impact-method\s*\{[^}]*color:\s*var\(--gray-light\)/.test(css)) {
   errors.push('impact-method footnote must use gray-light for readable contrast on page-gray');
 }
