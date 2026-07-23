@@ -275,7 +275,7 @@ A five-step adoption path for enterprises, assessors, and research partners:
 4. **Run the four moves:** Human, Adapt, Implement, Scale as a cycle.
 5. **Re-check at scale:** Every new wave passes the human gate again.
 
-Partnership and licensing for research pilots and audit use: agilefragile.com/downloads/partnership-and-licensing.md
+Partnership and licensing for research pilots and audit use: agilefragile.com/downloads/partnership-and-licensing.pdf
 
 Proposal page: agilefragile.com/how-we-work.html#industry-adoption
 

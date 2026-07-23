@@ -502,10 +502,25 @@ try {
 } catch {
   errors.push('downloads/human-agile-model-specification.md must exist');
 }
+try {
+  const specPdf = readFileSync(join(root, 'downloads/human-agile-model-specification.pdf'));
+  if (specPdf.slice(0, 4).toString() !== '%PDF' || specPdf.length < 5000) {
+    errors.push('downloads/human-agile-model-specification.pdf must be a valid watermarked PDF (run node scripts/generate-spec-pdf.mjs)');
+  }
+} catch {
+  errors.push('downloads/human-agile-model-specification.pdf must exist (run node scripts/generate-spec-pdf.mjs)');
+}
 
 const aboutHtml = read('about.html');
 const leadersHtml = read('leaders.html');
 const modelHtml = read('model.html');
+
+if (!/human-agile-model-specification\.pdf/.test(modelHtml)) {
+  errors.push('Model page must link to downloadable specification PDF');
+}
+if (/human-agile-model-specification\.md/.test(modelHtml)) {
+  errors.push('Model page must not link public downloads to Markdown specification');
+}
 
 if ((aboutHtml.match(/class="voice-card"/g) || []).length > 1) {
   errors.push('About page must not duplicate field voice cards; link to leaders #field-voices instead');
