@@ -388,6 +388,15 @@ if (!/\.concept-inner[\s\S]*align-items:\s*flex-start/.test(css) || !/\.concept-
 if (!/\.section-follow[\s\S]*text-align:\s*left/.test(css)) {
   errors.push('section-follow links must align left with section headers');
 }
+if (/\.concept-inner \.thesis,\s*\n\.concept-inner \.intro,[\s\S]{0,120}max-width:\s*38rem/.test(css)) {
+  errors.push('Concept intro must use full page rail width, not a narrow column');
+}
+if (!/\.detail-card[\s\S]*text-align:\s*center/.test(css)) {
+  errors.push('Detail cards must center text inside the box');
+}
+if (!/\.quote-card[\s\S]*text-align:\s*center/.test(css)) {
+  errors.push('Quote cards must center text inside the box');
+}
 if (!/proposal-lab/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must use unified proposal-lab section for open questions and feedback');
 }
