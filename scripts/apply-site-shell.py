@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 FONTS = """  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600;1,9..144,700&display=swap" rel="stylesheet">"""
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400;1,14..32,500&display=swap" rel="stylesheet">"""
 
 NAV_LINKS = """      <a href="/about.html"{about}>Story</a>
       <a href="/model.html"{model}>Model</a>
@@ -95,8 +95,8 @@ def header_for(page: str) -> str:
 def patch_file(path: Path) -> None:
     text = path.read_text()
     text = re.sub(
-        r'  <link href="https://fonts\.googleapis\.com/css2\?family=DM\+Sans[^"]+" rel="stylesheet">',
-        '  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600;1,9..144,700&display=swap" rel="stylesheet">',
+        r'  <link href="https://fonts\.googleapis\.com/css2\?family=Inter[^"]+" rel="stylesheet">',
+        '  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400;1,14..32,500&display=swap" rel="stylesheet">',
         text,
         count=1,
     )

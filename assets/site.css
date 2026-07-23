@@ -13,8 +13,9 @@
   --contain: max(2vw, 10px);
   --block: 50px;
   --section: 100px;
-  --font-serif: "Fraunces", Georgia, serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-quote: Georgia, "Times New Roman", Times, serif;
   --header-top: 12px;
   --header-inset: 16px;
   --logo-width: 168px;
@@ -622,7 +623,7 @@ main.landing { padding-top: 0; }
   gap: 16px;
 }
 .quote-card blockquote {
-  font: 400 clamp(18px, 1.5vw, 24px) / 1.35 var(--font-serif);
+  font: 400 clamp(18px, 1.5vw, 24px) / 1.35 var(--font-quote);
   color: var(--white);
   text-wrap: pretty;
 }
@@ -1375,7 +1376,7 @@ main.landing { padding-top: 0; }
   min-height: 180px;
 }
 .voice-card blockquote {
-  font: 400 clamp(18px, 1.4vw, 22px) / 1.4 var(--font-serif);
+  font: 400 clamp(18px, 1.4vw, 22px) / 1.4 var(--font-quote);
   text-wrap: pretty;
   flex: 1;
 }
@@ -2990,9 +2991,9 @@ main.landing { padding-top: 0; }
   margin: 0;
   text-align: left;
   color: var(--white);
-  font-family: var(--font-serif);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.04em;
   line-height: 0.88;
 }
 

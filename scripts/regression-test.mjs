@@ -73,8 +73,14 @@ if (!/logo-mark-box--header">[\s\S]*<span class="logo-mark-stack"/.test(index)) 
 if (!/landing-hero-logo-morph/.test(index)) {
   errors.push('Home hero must morph logo box into header on scroll');
 }
-if (!/Fraunces/i.test(heroWordmark)) {
-  errors.push('hero-wordmark.svg must use Fraunces serif wordmark');
+if (!/Inter/i.test(heroWordmark)) {
+  errors.push('hero-wordmark.svg must use Inter wordmark to match logo mark');
+}
+if (!/--font-quote:/.test(css) || !/var\(--font-quote\)/.test(css)) {
+  errors.push('CSS must define --font-quote for field voices and keep Inter for UI');
+}
+if (!/\.logo-mark-stack[\s\S]*font-family:\s*var\(--font-sans\)/.test(css)) {
+  errors.push('Logo mark stack must use Inter via --font-sans to match square logo');
 }
 if (!/logo-tagline--hero/.test(index) || !/<strong class="logo-tagline-lead">Human First Reformation,<\/strong> <em>Before Transformation<\/em>/.test(index)) {
   errors.push('Home hero tagline must bold Human First Reformation, and italic Before Transformation');
@@ -141,28 +147,28 @@ if (!/logo-mark-box--header/.test(index)) {
 }
 const wordmark = read('assets/logo-wordmark.svg');
 if (!/>Agile<\/text>/.test(wordmark) || !/>Fragile<\/text>/.test(wordmark)) {
-  errors.push('Header wordmark must use title case Agile Fragile stacked Fraunces wordmark');
+  errors.push('Header wordmark must use title case Agile Fragile stacked Inter wordmark');
 }
 if (!/text-anchor="middle"/.test(wordmark)) {
   errors.push('Wordmark SVG files must center Agile/Fragile with text-anchor middle');
 }
-if (!/Fraunces/i.test(wordmark)) {
-  errors.push('Header wordmark must use Fraunces serif');
+if (!/Inter/i.test(wordmark)) {
+  errors.push('Header wordmark must use Inter to match logo mark');
 }
 if (!/font-serif/.test(css) || !/\.wordmark-line[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
-  errors.push('CSS .wordmark-line must use Fraunces via --font-serif');
+  errors.push('CSS .wordmark-line must use Inter via --font-serif');
 }
 if (!/\.logo-tagline--hero \.logo-tagline-lead[\s\S]*font-weight:\s*700/.test(css) || !/\.logo-tagline--hero \.logo-tagline-lead[\s\S]*clamp\(12px/.test(css)) {
   errors.push('CSS hero tagline lead must be bold and +1px larger than the base tagline');
 }
 if (!/\.logo-tagline[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
-  errors.push('CSS .logo-tagline must use Fraunces serif to match the Agile Fragile logo');
+  errors.push('CSS .logo-tagline must use Inter to match the Agile Fragile logo');
 }
 if (!/\.logo-tagline-lead[\s\S]*font-family:\s*var\(--font-serif\)/.test(css)) {
-  errors.push('CSS .logo-tagline-lead must use Fraunces serif to match the Agile Fragile logo');
+  errors.push('CSS .logo-tagline-lead must use Inter to match the Agile Fragile logo');
 }
-if (!/Fraunces:ital,opsz,wght/.test(read('index.html'))) {
-  errors.push('HTML must load Fraunces italic for tagline emphasis');
+if (!/Inter:ital,opsz,wght/.test(read('index.html'))) {
+  errors.push('HTML must load Inter for site typography');
 }
 if (/fill="#1f35a9">Fragile/.test(wordmark)) {
   errors.push('Header wordmark must not use two-tone blue; use all-white wordmark');
@@ -182,7 +188,10 @@ if (!/--gray-medium:\s*#c8c8c8/.test(css)) {
   errors.push('CSS must include gray-medium token (#c8c8c8)');
 }
 if (/IBM Plex Sans|@import.*IBM\+Plex/i.test(css)) {
-  errors.push('CSS must not use IBM Plex portfolio fonts; use Fraunces + DM Sans via HTML link');
+  errors.push('CSS must not use IBM Plex portfolio fonts; use Inter via HTML link');
+}
+if (/Fraunces|"DM Sans"|DM\+Sans/.test(css)) {
+  errors.push('CSS must not use Fraunces or DM Sans template fonts');
 }
 if (/background:\s*var\(--bg\)|--bg:\s*#161616/.test(css) && !/--page-gray/.test(css)) {
   errors.push('CSS must not use Carbon #161616 as primary page background');
@@ -193,8 +202,11 @@ if (!/#151517/.test(favicon) || !/>Agile<\/tspan>/.test(favicon) || !/>Fragile\.
 }
 for (const file of htmlFiles) {
   const html = read(file);
-  if (!/Fraunces/i.test(html) || !/DM\+Sans|DM Sans/i.test(html)) {
-    errors.push(`${file}: missing Fraunces/DM Sans font links`);
+  if (!/Inter/i.test(html)) {
+    errors.push(`${file}: missing Inter font link`);
+  }
+  if (/Fraunces|DM\+Sans|"DM Sans"/.test(html)) {
+    errors.push(`${file}: must not use Fraunces or DM Sans template fonts`);
   }
   if (!/favicon\.svg/.test(html) || !/favicon-32\.png/.test(html) || !/apple-touch-icon/.test(html)) {
     errors.push(`${file}: must link SVG, PNG, and apple-touch favicons`);
