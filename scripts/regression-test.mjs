@@ -317,8 +317,11 @@ if (!/id="human-focus-foundations"/.test(model) || !/IAPP/.test(model)) {
 if (!/IAPP/.test(read('downloads/human-agile-model-specification.md'))) {
   errors.push('Model specification must document IAPP-mapped responsible AI principles alongside Agile Manifesto');
 }
-if (!read('assets/human-focus-foundations-diagram.svg').includes('Figure HF-1')) {
-  errors.push('assets/human-focus-foundations-diagram.svg must define Figure HF-1 artwork');
+if (!read('assets/human-focus-foundations-diagram.svg').includes('CONVERGENCE')) {
+  errors.push('assets/human-focus-foundations-diagram.svg must define symmetric convergence artwork');
+}
+if (!/hf-showcase/.test(model) || !/hf-showcase-key/.test(model)) {
+  errors.push('Model page must showcase Figure HF-1 with a readable key, not downloads only');
 }
 if (!/id="figure-hf-1"/.test(model) || !/human-focus-foundations-figure\.pdf/.test(model)) {
   errors.push('Model page must publish Figure HF-1 with downloadable research exports');

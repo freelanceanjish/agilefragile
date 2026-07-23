@@ -9,7 +9,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const svgPath = join(root, 'assets/human-focus-foundations-diagram.svg');
+const svgPath = join(root, 'assets/human-focus-foundations-diagram-print.svg');
 const svgCopyPath = join(root, 'downloads/human-focus-foundations-figure.svg');
 const htmlPath = join(root, 'downloads/.human-focus-figure-print.html');
 const pdfPath = join(root, 'downloads/human-focus-foundations-figure.pdf');
@@ -123,7 +123,7 @@ for (const chrome of chromeCandidates) {
     '--no-sandbox',
     '--disable-dev-shm-usage',
     '--hide-scrollbars',
-    '--window-size=1024,720',
+    '--window-size=1024,780',
     `--screenshot=${pngPath}`,
     htmlPath
   ]);
