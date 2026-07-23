@@ -413,8 +413,14 @@ if (!/\.section-follow[\s\S]*text-align:\s*left/.test(css)) {
 if (/\.concept-inner \.thesis,\s*\n\.concept-inner \.intro,[\s\S]{0,120}max-width:\s*38rem/.test(css)) {
   errors.push('Concept intro must use full page rail width, not a narrow column');
 }
-if (!/\.detail-card[\s\S]*text-align:\s*center/.test(css)) {
-  errors.push('Detail cards must center text inside the box');
+if (!/\.impact-terms li[\s\S]*text-align:\s*center/.test(css)) {
+  errors.push('Impact term tags must center text inside each box');
+}
+if (/\.impact-layout\s*\{[^}]*margin:\s*0 auto/.test(css)) {
+  errors.push('impact-layout must share page rail with section headers');
+}
+if (!/\.contain > \.impact-layout/.test(css)) {
+  errors.push('CSS must keep impact-layout on the shared page rail');
 }
 if (!/\.quote-card[\s\S]*text-align:\s*center/.test(css)) {
   errors.push('Quote cards must center text inside the box');
