@@ -18,6 +18,8 @@ You may link to this document and quote brief excerpts with attribution. You may
 
 **Trademarks.** Human Agile™, Human Agile Index™, Human Agile Model™, and Agile Fragile™ are trademarks of Anjish Bhondwe. Trademark applications are pending.
 
+**Publication readiness.** This specification is the published expression of a unique methodology: canonical web version at agilefragile.com/model.html, this PDF, Figure HF-1 artwork, the Human Agile Index instrument, and partnership licensing terms. Copyright protects the text, terminology, diagrams, and structure. Trademark applications for Human Agile™, Human Agile Index™, Human Agile Model™, and Agile Fragile™ are pending.
+
 **Human Agile Index.** The Index is a proprietary diagnostic instrument. Research use is invited under a non-exclusive license with attribution. Commercial reproduction, adaptation, or competing instruments based on these questions require written permission from hello@agilefragile.com.
 
 **Required attribution:** "Human Agile Model" by Anjish Bhondwe, agilefragile.com
@@ -26,9 +28,9 @@ You may link to this document and quote brief excerpts with attribution. You may
 
 ## 1. Abstract
 
-The Human Agile Model is an operating model for enterprise agile and AI adoption when transformation performs on dashboards but breaks people in the building. Agile without AI is incomplete. AI without agile discipline is incompetent. Human is the architecture. Adapt, Implement, and Scale only run when the human gate passes.
+The Human Agile Model is an operating overlay for organization transformation when programmes perform on dashboards but break people in the building. Agile without AI is incomplete. AI without agile discipline is incompetent. Human is the architecture. Adapt, Implement, and Scale only run when the human gate passes.
 
-The model is proposed by Anjish Bhondwe from field work across federated organisations. It is not a replacement for Scrum, SAFe, or scaling frameworks. It is a lens and a sequence of moves run before and during adoption.
+The model is proposed by Anjish Bhondwe from field work across federated organisations. It is jurisdiction-neutral and applies to private, public, and multi-country transformation. It is not a replacement for Scrum, SAFe, or scaling frameworks. It is a human-focus lens and a sequence of moves run before and during adoption, embeddable in existing operating models and aligned with Agile and responsible AI standards where organizations require them.
 
 ---
 
@@ -283,6 +285,56 @@ A five-step adoption path for enterprises, assessors, and research partners:
 Partnership and licensing for research pilots and audit use: agilefragile.com/downloads/partnership-and-licensing.pdf
 
 Proposal page: agilefragile.com/how-we-work.html#industry-adoption
+
+---
+
+## 15. Worldwide applicability
+
+The Human Agile Model is designed for worldwide reference in organization transformation.
+
+**Generic scope.** Receiver, deliverer, and changer describe any organization where humans carry change: software delivery, shared services, public agencies, banks, retailers, and federated enterprises. The human gate, four moves, operating rules, and Index do not depend on one industry, country, or scaling framework.
+
+**Jurisdiction-neutral.** The model aligns with global Agile and responsible AI standards (section 16) without prescribing local law. Sponsors map the human gate and Index to their own regulatory context.
+
+**Teachable core.** Like Scrum or SAFe, the model keeps a small set anyone can learn in a workshop: five gate questions, four moves, five operating rules, and eight Index questions.
+
+**Field basis.** Interviews that shaped the model ran across telecom, financial services, retail, and technology. The specification is published for adoption, research citation, and licensed embedding worldwide.
+
+---
+
+## 16. Standards alignment
+
+The Human Agile Model is a unique human-focus overlay. It does not certify conformance to external standards. It gives transformation sponsors a practical way to show how their programme meets Agile delivery ethics and responsible AI requirements through the human gate, four moves, Index, and operating rules.
+
+| Standard / framework | Core requirement | Human Agile Model application |
+|----------------------|------------------|-------------------------------|
+| **Agile Manifesto (2001)** | Individuals and interactions over processes and tools | Human as architecture; human gate before Adapt, Implement, Scale |
+| **Scrum Guide** | Empiricism, respect, openness, courage, focus, commitment | Index and retros honesty; subtract before add; encourage before push |
+| **SAFe core values** | Built-in quality, alignment, program execution, transparency | Human gate before scale; four moves in PI and transformation reviews |
+| **OECD AI Principles** | Human-centred values, fairness, accountability, transparency | Receiver, deliverer, changer in design; Dark AI patterns; human gate |
+| **UNESCO Recommendation on AI Ethics** | Human-centred approach to AI | With human, for human ethic; human focus at gate |
+| **EU AI Act (high-risk AI context)** | Human oversight, transparency, accountability | Human gate Q1–Q5; changer role; re-check at scale before deployment waves |
+| **NIST AI RMF** | Govern, Map, Measure, Manage | Human move (Map), Adapt/Implement (Manage), Scale with re-check (Govern cycle) |
+| **ISO/IEC 42001 (AI management systems)** | AI MS with human oversight and stakeholder consideration | Embeddable layer in AI governance; human gate as oversight checkpoint |
+| **IAPP-mapped responsible AI** | Human oversight, values, fairness, accountability, privacy | Figure HF-1 foundations; human gate; Index; Dark/forced/fake AI terms |
+
+Organizations subject to specific regulations remain responsible for their own compliance. This table shows alignment intent, not legal certification.
+
+---
+
+## 17. Embeddability in existing models
+
+You do not replace Scrum, SAFe, ITIL, COBIT, or your transformation playbook. You embed the human-focus layer where change is designed and scaled.
+
+**Embed points:**
+- **Team level:** Sprint and PI retros (human gate Q5); backlog refinement (receiver and deliverer in the room); Index baseline
+- **Programme level:** PI planning; transformation office reviews; four moves as a cycle on programme boards
+- **Governance level:** AI governance and risk forums; human oversight before scale; Dark, forced, and fake AI alongside agile patterns
+- **Operating model:** Human as architecture in capability maps; product and delivery as evidence the architecture holds
+
+**Licensed embedding.** Agility assessors and transformation firms may embed the Human Agile Index and human gate under a non-exclusive license with attribution. See agilefragile.com/downloads/partnership-and-licensing.pdf.
+
+**Adoption rhythm:** Index baseline → five gate questions → four-move cycle → re-check at every scale wave.
 
 ---
 

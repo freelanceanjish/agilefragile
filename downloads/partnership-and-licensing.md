@@ -9,7 +9,7 @@
 
 ## Purpose
 
-Agile Fragile publishes the **Human Agile Model™** and **Human Agile Index™** as a human-risk audit for enterprise agile transformations. This one-page summary describes how universities, research bodies, agility assessors, and enterprises can partner without transferring ownership of the instrument or brand.
+Agile Fragile publishes the **Human Agile Model™** and **Human Agile Index™** as a worldwide human-focus overlay for organization transformation. The model aligns with Agile and responsible AI standards, embeds alongside Scrum, SAFe, and existing operating models, and is published under copyright for licensed reference. This one-page summary describes how universities, research bodies, agility assessors, and enterprises can partner without transferring ownership of the instrument or brand.
 
 **Canonical references:**
 - Intellectual property: https://agilefragile.com/model.html#model-copyright
@@ -24,7 +24,7 @@ Agile Fragile publishes the **Human Agile Model™** and **Human Agile Index™*
 
 **Fit:** You already audit agility maturity, change readiness, or portfolio delivery. You need a human-risk screen before or alongside your assessment.
 
-**You receive:** Non-exclusive license to use the Human Agile Index and human gate questions in client engagements, with required attribution.
+**You receive:** Non-exclusive license to use the Human Agile Index and human gate questions in client engagements, with required attribution. Embed the human-focus layer in Scrum, SAFe, or maturity assessments you already deliver.
 
 **Anjish Bhondwe retains:** Trademarks, specification copyright, commercial rights, and authority to approve derivative instruments.
 
@@ -74,7 +74,7 @@ Agile Fragile publishes the **Human Agile Model™** and **Human Agile Index™*
 
 Eight questions. One score band: **Dark Agile** (0–40%), **Transitional** (41–70%), **Human Agile** (71–100%).
 
-The Index is designed for sponsors and leaders who already see green programme dashboards while teams absorb the cost. It complements maturity assessments; it does not replace Scrum, SAFe, or business agility profiles.
+The Index is designed for sponsors and leaders who already see green programme dashboards while teams absorb the cost. It complements maturity assessments worldwide; it does not replace Scrum, SAFe, or business agility profiles. Embed it in retros, PI planning, transformation office reviews, or AI governance forums.
 
 ---
 
