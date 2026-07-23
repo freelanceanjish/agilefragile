@@ -442,6 +442,11 @@ main.landing { padding-top: 0; }
   width: 100%;
   max-width: 38rem;
 }
+.concept-inner--prose .contrast-grid {
+  width: 100%;
+  margin-top: 1.25rem;
+  margin-inline: 0;
+}
 
 .prose-section {
   max-width: 38rem;

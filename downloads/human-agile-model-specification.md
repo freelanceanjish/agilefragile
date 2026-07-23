@@ -79,6 +79,8 @@ The Agile Manifesto (2001) lists individuals and interactions over processes and
 
 **Design order:** Human is the architecture. Product and delivery are evidence that the architecture works. Product tells you what shipped. Human tells you whether it will last.
 
+**Human focus from two foundations:** The Agile Manifesto (2001) puts individuals and interactions before processes and tools. Responsible AI governance, as privacy professionals track through IAPP across OECD, EU HLEG, UNESCO, and privacy law, converges on human oversight, human values, fairness, accountability, transparency, and privacy. The Human Agile Model holds both reads at the human gate: Adapt, Implement, and Scale run only when the people carrying agile and AI change are in the design.
+
 ---
 
 ## 5. Model architecture
@@ -255,6 +257,7 @@ This ethic aligns the model with human-centered design practice and socio-techni
 |--------|-----------|-------------------|
 | Socio-technical systems | Technical and social systems must be jointly optimized | Transformation tabernacle, human gate, strain charts |
 | Agile Manifesto (2001) | Individuals and interactions first | Human as architecture |
+| Responsible AI principles (IAPP maps OECD, EU HLEG, privacy law) | Human oversight, human values, fairness, accountability | Human gate, Dark AI patterns, AI strain charts |
 | Amy Edmondson | Psychological safety for speaking up | Human gate Q5, operating rules, Index |
 | Edgar Schein | Leaders create culture | Changer role, leaders enable rule |
 | Alistair Cockburn | People as first-order success driver | Receiver, deliverer, changer; Adapt before Implement |

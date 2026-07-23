@@ -311,6 +311,12 @@ if (!/Dark AI/.test(read('downloads/human-agile-model-specification.md')) || !/D
 if (!/id="with-human-for-human"/.test(model) || !/id="research-foundation"/.test(model) || !/id="industry-proposal"/.test(model)) {
   errors.push('Model page must include with human for human, research foundation, and industry proposal sections');
 }
+if (!/id="human-focus-foundations"/.test(model) || !/IAPP/.test(model)) {
+  errors.push('Model page must merge Agile Manifesto and IAPP-mapped responsible AI principles for human focus');
+}
+if (!/IAPP/.test(read('downloads/human-agile-model-specification.md'))) {
+  errors.push('Model specification must document IAPP-mapped responsible AI principles alongside Agile Manifesto');
+}
 if (!/id="industry-adoption"/.test(read('how-we-work.html')) || !/model\.html#with-human-for-human/.test(read('how-we-work.html'))) {
   errors.push('Proposal page must guide readers to the model without duplicating the full proposal');
 }
