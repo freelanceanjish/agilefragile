@@ -1,51 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="hf-title hf-desc">
-  <title id="hf-title">Figure HF-1. Human focus from two foundations</title>
-  <desc id="hf-desc">The Agile Manifesto and responsible AI principles converge on human focus and the human gate in the Human Agile Model.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="hf-title hf-desc">
+  <title id="hf-title">Figure HF-1. Two foundations, one human focus</title>
+  <desc id="hf-desc">The Agile Manifesto and responsible AI principles converge on human focus at the human gate in the Human Agile Model.</desc>
   <defs>
-    <linearGradient id="hf-center-glow" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1f35a9" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#1f35a9" stop-opacity="0"/>
+    <linearGradient id="hf-gate-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
-    <marker id="hf-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#1f35a9"/>
+    <marker id="hf-arrow-in" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#ffffff"/>
     </marker>
   </defs>
-  <rect width="960" height="540" fill="#ffffff"/>
-  <rect x="1" y="1" width="958" height="538" rx="12" fill="none" stroke="#d8d8de" stroke-width="1"/>
-  <text x="480" y="34" text-anchor="middle" fill="#151517" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600">Figure HF-1. Two foundations, one human focus</text>
-  <text x="480" y="56" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11" letter-spacing="2.4" font-weight="500">HUMAN AGILE MODEL</text>
-  <line x1="48" y1="68" x2="912" y2="68" stroke="#e8e8ec" stroke-width="1"/>
-  <rect x="48" y="92" width="260" height="250" rx="10" fill="#f7f7f7" stroke="#c8c8c8" stroke-width="1.5"/>
-  <text x="178" y="122" text-anchor="middle" fill="#151517" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="600">Agile Manifesto</text>
-  <text x="178" y="142" text-anchor="middle" fill="#1f35a9" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="1.8" font-weight="600">2001</text>
-  <text x="68" y="176" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Individuals and interactions</text>
-  <text x="68" y="194" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">before processes and tools</text>
-  <text x="68" y="228" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Customer collaboration</text>
-  <text x="68" y="246" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">before contract negotiation</text>
-  <text x="68" y="280" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Responding to change</text>
-  <text x="68" y="298" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">with people in the design</text>
-  <rect x="652" y="92" width="260" height="250" rx="10" fill="#f7f7f7" stroke="#c8c8c8" stroke-width="1.5"/>
-  <text x="782" y="122" text-anchor="middle" fill="#151517" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="600">Responsible AI</text>
-  <text x="782" y="142" text-anchor="middle" fill="#1f35a9" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="1.2" font-weight="600">IAPP MAPS OECD, EU HLEG, PRIVACY LAW</text>
-  <text x="672" y="176" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Human oversight and values</text>
-  <text x="672" y="194" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">before automation metrics</text>
-  <text x="672" y="228" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Fairness, accountability, transparency</text>
-  <text x="672" y="246" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">and explainability</text>
-  <text x="672" y="280" fill="#151517" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Privacy, robustness, security</text>
-  <text x="672" y="298" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11">with humans in the loop</text>
-  <path d="M308 217 H372" stroke="#1f35a9" stroke-width="2" marker-end="url(#hf-arrow)"/>
-  <path d="M588 217 H652" stroke="#1f35a9" stroke-width="2" marker-end="url(#hf-arrow)"/>
-  <ellipse cx="480" cy="217" rx="92" ry="78" fill="url(#hf-center-glow)"/>
-  <circle cx="480" cy="190" r="34" fill="none" stroke="#1f35a9" stroke-width="2"/>
-  <g transform="translate(468 178) scale(1.35)" fill="#1f35a9" aria-hidden="true">
+
+  <rect width="960" height="620" rx="14" fill="#151517"/>
+  <rect x="1" y="1" width="958" height="618" rx="13" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <text x="480" y="38" text-anchor="middle" fill="rgba(255,255,255,0.52)" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="3.2" font-weight="500">FIGURE HF-1</text>
+  <text x="480" y="68" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600">Two foundations, one human focus</text>
+  <line x1="48" y1="84" x2="912" y2="84" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+  <!-- Left foundation -->
+  <rect x="40" y="104" width="260" height="264" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+  <line x1="40" y1="104" x2="300" y2="104" stroke="#1f35a9" stroke-width="3"/>
+  <text x="170" y="136" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="600">Agile Manifesto</text>
+  <text x="170" y="156" text-anchor="middle" fill="rgba(255,255,255,0.58)" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="1.8" font-weight="500">2001 · DELIVERY</text>
+  <line x1="64" y1="168" x2="276" y2="168" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="64" y="196" fill="#ffffff" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Individuals and interactions</text>
+  <text x="64" y="214" fill="rgba(255,255,255,0.62)" font-family="DM Sans, system-ui, sans-serif" font-size="11">over processes and tools</text>
+  <text x="64" y="244" fill="#ffffff" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Customer collaboration</text>
+  <text x="64" y="262" fill="rgba(255,255,255,0.62)" font-family="DM Sans, system-ui, sans-serif" font-size="11">over contract negotiation</text>
+  <text x="64" y="292" fill="#ffffff" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Responding to change</text>
+  <text x="64" y="310" fill="rgba(255,255,255,0.62)" font-family="DM Sans, system-ui, sans-serif" font-size="11">with people in the design</text>
+  <text x="64" y="348" fill="rgba(255,255,255,0.38)" font-family="DM Sans, system-ui, sans-serif" font-size="9" letter-spacing="1.2">FOUNDATION A</text>
+
+  <!-- Right foundation -->
+  <rect x="660" y="104" width="260" height="264" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+  <line x1="660" y1="104" x2="920" y2="104" stroke="#1f35a9" stroke-width="3"/>
+  <text x="790" y="136" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="600">Responsible AI</text>
+  <text x="790" y="152" text-anchor="middle" fill="rgba(255,255,255,0.58)" font-family="DM Sans, system-ui, sans-serif" font-size="9" letter-spacing="1.1" font-weight="500">IAPP MAPS OECD, EU HLEG, PRIVACY LAW</text>
+  <text x="790" y="166" text-anchor="middle" fill="rgba(255,255,255,0.58)" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="1.4" font-weight="500">ADAPTATION</text>
+  <line x1="684" y1="176" x2="896" y2="176" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="684" y="204" fill="#ffffff" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Human oversight and values</text>
+  <text x="684" y="222" fill="rgba(255,255,255,0.62)" font-family="DM Sans, system-ui, sans-serif" font-size="11">over automation metrics</text>
+  <text x="684" y="252" fill="#ffffff" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Fairness and accountability</text>
+  <text x="684" y="270" fill="rgba(255,255,255,0.62)" font-family="DM Sans, system-ui, sans-serif" font-size="11">transparency and explainability</text>
+  <text x="684" y="300" fill="#ffffff" font-family="DM Sans, system-ui, sans-serif" font-size="12" font-weight="600">Privacy, robustness, security</text>
+  <text x="684" y="318" fill="rgba(255,255,255,0.62)" font-family="DM Sans, system-ui, sans-serif" font-size="11">with humans in the loop</text>
+  <text x="684" y="348" fill="rgba(255,255,255,0.38)" font-family="DM Sans, system-ui, sans-serif" font-size="9" letter-spacing="1.2">FOUNDATION B</text>
+
+  <!-- Converging connectors (same axis) -->
+  <path d="M300 236 H344" stroke="rgba(255,255,255,0.42)" stroke-width="1.75" marker-end="url(#hf-arrow-in)"/>
+  <path d="M660 236 H616" stroke="rgba(255,255,255,0.42)" stroke-width="1.75" marker-end="url(#hf-arrow-in)"/>
+
+  <!-- Center human gate -->
+  <rect x="350" y="104" width="260" height="264" rx="12" fill="rgba(31,53,169,0.14)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+  <ellipse cx="480" cy="198" rx="88" ry="52" fill="url(#hf-gate-glow)"/>
+  <circle cx="480" cy="188" r="36" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+  <circle cx="480" cy="188" r="50" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4 6"/>
+  <g transform="translate(468 176) scale(2)" fill="#ffffff" aria-hidden="true">
     <circle cx="12" cy="7" r="4.25"/>
     <path d="M4 21c0-5.8 3.58-9.5 8-9.5s8 3.7 8 9.5"/>
   </g>
-  <text x="480" y="248" text-anchor="middle" fill="#151517" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="600">Human focus</text>
-  <text x="480" y="270" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="11" letter-spacing="1.4" font-weight="500">THE HUMAN GATE</text>
-  <rect x="120" y="368" width="720" height="88" rx="10" fill="#151517"/>
-  <text x="480" y="398" text-anchor="middle" fill="#ffffff" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="2" font-weight="600">TRANSFORMATION TABERNACLE</text>
-  <text x="480" y="424" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="600">Receiver · Deliverer · Changer in the design before Adapt, Implement, Scale</text>
-  <text x="480" y="446" text-anchor="middle" fill="#d4d4da" font-family="DM Sans, system-ui, sans-serif" font-size="11">Agile and AI change run together. Both traditions fail when the social system is underfunded.</text>
-  <text x="480" y="508" text-anchor="middle" fill="#666670" font-family="DM Sans, system-ui, sans-serif" font-size="10">Copyright © 2026 Anjish Bhondwe · Human Agile Model · agilefragile.com · Figure HF-1</text>
+  <text x="480" y="248" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="600">Human focus</text>
+  <text x="480" y="268" text-anchor="middle" fill="rgba(255,255,255,0.58)" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="1.8" font-weight="500">THE HUMAN GATE</text>
+  <text x="480" y="348" text-anchor="middle" fill="rgba(255,255,255,0.38)" font-family="DM Sans, system-ui, sans-serif" font-size="9" letter-spacing="1.2">CONVERGENCE</text>
+
+  <!-- Spine into tabernacle -->
+  <path d="M480 368 V404" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+  <circle cx="480" cy="368" r="3.5" fill="#ffffff"/>
+
+  <!-- Tabernacle base -->
+  <rect x="80" y="404" width="800" height="112" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+  <text x="480" y="434" text-anchor="middle" fill="rgba(255,255,255,0.52)" font-family="DM Sans, system-ui, sans-serif" font-size="10" letter-spacing="2.4" font-weight="500">TRANSFORMATION TABERNACLE</text>
+  <text x="480" y="462" text-anchor="middle" fill="#ffffff" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="600">Receiver · Deliverer · Changer in the design</text>
+  <text x="480" y="484" text-anchor="middle" fill="rgba(255,255,255,0.62)" font-family="DM Sans, system-ui, sans-serif" font-size="11">before Adapt, Implement, Scale · agile and AI change run together</text>
+  <text x="480" y="504" text-anchor="middle" fill="rgba(255,255,255,0.46)" font-family="DM Sans, system-ui, sans-serif" font-size="10">Both traditions fail when the social system is underfunded</text>
+
+  <text x="480" y="568" text-anchor="middle" fill="rgba(255,255,255,0.38)" font-family="DM Sans, system-ui, sans-serif" font-size="9">Copyright © 2026 Anjish Bhondwe · Human Agile Model · agilefragile.com</text>
 </svg>
