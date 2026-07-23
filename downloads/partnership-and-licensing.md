@@ -14,7 +14,7 @@ Agile Fragile publishes the **Human Agile Model™** and **Human Agile Index™*
 **Canonical references:**
 - Intellectual property: https://agilefragile.com/model.html#model-copyright
 - Human Agile Index: https://agilefragile.com/#index
-- Model specification: https://agilefragile.com/downloads/human-agile-model-specification.md
+- Model specification: https://agilefragile.com/downloads/human-agile-model-specification.pdf
 
 ---
 
