@@ -2060,6 +2060,20 @@ main.landing { padding-top: 0; }
   background: var(--accent);
 }
 
+.model-proposal-cta {
+  justify-content: center;
+  margin-top: clamp(24px, 4vw, 40px);
+}
+
+.research-guidelines .glossary-item dd {
+  text-wrap: pretty;
+}
+
+.research-guidelines .glossary-item dd strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
 /* Human impact bar charts (leaders page) */
 .impact-layout {
   max-width: 1000px;
