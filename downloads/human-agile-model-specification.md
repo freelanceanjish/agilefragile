@@ -26,7 +26,7 @@ You may link to this document and quote brief excerpts with attribution. You may
 
 ## 1. Abstract
 
-The Human Agile Model is an operating model for enterprise agile adoption and scaling when agility performs on dashboards but breaks people in the building. Human is the architecture. Adapt, Implement, and Scale only run when the human gate passes.
+The Human Agile Model is an operating model for enterprise agile and AI adoption when transformation performs on dashboards but breaks people in the building. Agile without AI is incomplete. AI without agile discipline is incompetent. Human is the architecture. Adapt, Implement, and Scale only run when the human gate passes.
 
 The model is proposed by Anjish Bhondwe from field work across federated organisations. It is not a replacement for Scrum, SAFe, or scaling frameworks. It is a lens and a sequence of moves run before and during adoption.
 
@@ -43,6 +43,7 @@ The model is proposed by Anjish Bhondwe from field work across federated organis
 | **Dark AI** | AI performed for board slides and efficiency metrics, not practiced with humans inside. Headcount reduction treated as success while deliverers absorb the risk. |
 | **Forced AI** | AI adoption dictated by mandate and timeline. Copilot licenses rolled out without training, safety review, or agency. |
 | **Fake AI** | AI theater without human practice. Prompt templates and usage quotas without skill building or honest feedback loops. |
+| **Transformation tabernacle** | The combined agile and AI transformation enterprises run today. Adapt, implement, and scale under one roof. Under scrutiny because the human factor is at the core. Average impact so far is negative for humans, not for industries. |
 | **Human gate** | A checkpoint of five questions that must be answered affirmatively before Adapt, Implement, or Scale runs. If the answer is no, stop adding process. |
 | **Receiver** | Customers, users, downstream teams, and business units asked to adopt change. Back in the journey, not an afterthought. |
 | **Deliverer** | Engineers, product teams, and operators carrying the day job plus the transformation. Back in the room, not on a velocity chart. |
@@ -55,11 +56,11 @@ The model is proposed by Anjish Bhondwe from field work across federated organis
 
 ## 3. Premise and problem
 
-**Premise:** Organizations are made of humans who receive change, deliver through it, and change because of it. Enterprise rollouts treat them as headcount. The Human Agile Model puts them back at the center of design.
+**Premise:** Organizations are made of humans who receive change, deliver through it, and change because of it. Enterprise rollouts treat them as headcount while agile and AI transform together under scrutiny and governance. The Human Agile Model puts them back at the center of design.
 
-**Problem:** Dark Agile breaks people to hit dates. Human Agile builds with them to last.
+**Problem:** Dark Agile and Dark AI break people to hit dates and adoption targets. Industries report progress. Humans report strain. Human Agile builds with them to last.
 
-**What this model is not:** Not a rollout timeline. Not a consultancy product. Not a replacement for existing frameworks.
+**What this model is not:** Not a rollout timeline. Not a consultancy product. Not a replacement for existing frameworks. Not agile alone or AI alone.
 
 ---
 
@@ -70,7 +71,10 @@ The Agile Manifesto (2001) lists individuals and interactions over processes and
 **Enterprise drift:**
 1. Customer-centric: agile sold as customer focus
 2. Product-centric: velocity, dashboards, people as numbers
-3. Human-centric: correction. Who receives, who builds, who changes
+3. AI-centric: automation metrics, compliance, headcount targets
+4. Human-centric: correction. Who receives, who builds, who changes
+
+**Transformation tabernacle:** Agile and AI adoption run together. Incomplete without each other. Under heavy scrutiny because the human factor is at the core. Socio-technical tension rises when the social system is underfunded while industries look fine on scorecards.
 
 **Design order:** Human is the architecture. Product and delivery are evidence that the architecture works. Product tells you what shipped. Human tells you whether it will last.
 

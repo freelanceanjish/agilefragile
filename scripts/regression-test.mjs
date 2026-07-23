@@ -296,8 +296,11 @@ if (!/id="human-impact"/.test(read('leaders.html'))) {
 if (!/forced agile/.test(read('leaders.html')) || !/fake agile/.test(read('leaders.html'))) {
   errors.push('Leaders page must name forced agile and fake agile alongside Dark Agile');
 }
-if (!/id="human-impact-ai"/.test(read('leaders.html')) || !/AI adaptation angle/.test(read('leaders.html'))) {
-  errors.push('Leaders page must include AI adaptation angle with human impact charts');
+if (!/id="human-impact-ai"/.test(read('leaders.html')) || !/id="transformation-tabernacle"/.test(read('leaders.html'))) {
+  errors.push('Leaders page must frame agile and AI under the transformation tabernacle with human impact charts');
+}
+if (!/transformation tabernacle/.test(read('leaders.html')) || !/socio-technical/.test(read('leaders.html'))) {
+  errors.push('Leaders page must address socio-technical tension under the transformation tabernacle');
 }
 if (!/Dark AI/.test(read('leaders.html')) || !/forced AI/.test(read('leaders.html')) || !/fake AI/.test(read('leaders.html'))) {
   errors.push('Leaders page must name Dark AI, forced AI, and fake AI alongside agile patterns');
