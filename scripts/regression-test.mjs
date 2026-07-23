@@ -603,6 +603,15 @@ for (const file of copyFiles) {
   }
 }
 
+// --- Copy style: no AI-slop tone in public site copy ---
+const aiTone = /\b(delve|leverage|utilize|Furthermore|Moreover|holistic|robust|synergy|paradigm|empower|facilitate|streamline|comprehensive|landscape|navigate the complexities|At its core|rest assured|happy to help|Let's dive|key takeaway|It's worth noting|In today's|game-changer|cutting-edge|you are not alone|grounded in|gently and honestly|invitation to try|If you are leading change right now|If that helps your organisation|tell me what you are seeing|You do not need another rollout deck|What the research already says|I am offering experienced guidance)\b/i;
+for (const file of copyFiles) {
+  const match = read(file).match(aiTone);
+  if (match) {
+    errors.push(`${file}: must not use AI-slop phrasing (found "${match[0]}")`);
+  }
+}
+
 const attributionGuardFiles = ['assets/site.css', 'scripts/apply-site-shell.py', ...htmlFiles];
 const forbiddenRef = /mammothbrands|mammoth-brand|gray-mammoth|text-on-mammoth/i;
 for (const file of attributionGuardFiles) {
